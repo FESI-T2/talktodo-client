@@ -1,5 +1,11 @@
 // Jest DOM 매처들을 전역적으로 사용할 수 있도록 import
 import '@testing-library/jest-dom';
+import { server } from './src/mocks/server';
+
+// MSW 서버 설정
+beforeAll(() => server.listen());
+afterEach(() => server.resetHandlers());
+afterAll(() => server.close());
 
 // Mock IntersectionObserver (많은 컴포넌트에서 사용됨)
 global.IntersectionObserver = class IntersectionObserver {
