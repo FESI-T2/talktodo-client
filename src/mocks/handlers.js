@@ -21,4 +21,25 @@ export const handlers = [
       { status: 201 }
     );
   }),
+
+  http.post('/api/user/kakao-login', async ({ request }) => {
+    const { code } = await request.json();
+
+    // 코드 검증 로직
+    if (code !== 'valid_code') {
+      return HttpResponse.json({ message: '잘못된 코드' }, { status: 401 });
+    }
+
+    return HttpResponse.json(
+      {
+        access_token: 'mock_access_token',
+      },
+      {
+        status: 200,
+        headers: {
+          'Set-Cookie': `refresh_token=mock_refresh_token; Path=/; HttpOnly; Secure; SameSite=Strict`,
+        },
+      }
+    );
+  }),
 ];
