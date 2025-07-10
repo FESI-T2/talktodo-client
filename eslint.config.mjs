@@ -1,8 +1,9 @@
 import { dirname } from 'path';
 import { fileURLToPath } from 'url';
+
 import { FlatCompat } from '@eslint/eslintrc';
-import unusedImports from 'eslint-plugin-unused-imports';
 import storybook from 'eslint-plugin-storybook';
+import unusedImports from 'eslint-plugin-unused-imports';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -22,6 +23,7 @@ const eslintConfig = [
     },
     rules: {
       // Import 관련 규칙
+      'import/named': 0,
       'import/order': [
         'error',
         {
@@ -60,6 +62,7 @@ const eslintConfig = [
       ],
     },
   },
+  
 ];
 
 export default eslintConfig;
