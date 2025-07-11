@@ -1,13 +1,11 @@
 // Jest DOM 매처들을 전역적으로 사용할 수 있도록 import
 import '@testing-library/jest-dom';
-import { server } from './src/mocks/server';
+import { TextDecoder, TextEncoder } from 'util';
 
-// MSW 서버 설정
-beforeAll(() => server.listen());
-afterEach(() => server.resetHandlers());
-afterAll(() => server.close());
+global.TextEncoder = TextEncoder;
+global.TextDecoder = TextDecoder;
+global.fetch = jest.fn();
 
-// Mock IntersectionObserver (많은 컴포넌트에서 사용됨)
 global.IntersectionObserver = class IntersectionObserver {
   constructor() {}
   disconnect() {}
@@ -34,13 +32,19 @@ Object.defineProperty(window, 'matchMedia', {
     addEventListener: jest.fn(),
     removeEventListener: jest.fn(),
     dispatchEvent: jest.fn(),
+    href: '방구',
   })),
 });
 
+// 라우터 전역 모킹용
+/**
+ * router 테스팅 위해선 pushMock 사용
+ */
+const pushMock = jest.fn();
 jest.mock('next/navigation', () => ({
   useRouter() {
     return {
-      push: jest.fn(),
+      push: pushMock,
       replace: jest.fn(),
       prefetch: jest.fn(),
       back: jest.fn(),

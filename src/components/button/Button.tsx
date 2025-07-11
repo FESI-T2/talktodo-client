@@ -2,9 +2,7 @@ import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
 import type { ButtonProps, ButtonIconMap } from './button.types';
-import AddBlackIcon, { AddWhiteIcon } from '../ui/icons/AddIcon';
-import CheckIcon from '../ui/icons/CheckIcon';
-import DeleteIcon from '../ui/icons/DeleteIcon';
+import { AddBlackIcon, AddWhiteIcon, CheckIcon, DeleteIcon, KakaoIcon } from '../ui/icons/index';
 
 const iconMap: ButtonIconMap = {
   add: {
@@ -13,6 +11,7 @@ const iconMap: ButtonIconMap = {
   },
   edit: { default: <CheckIcon /> },
   delete: { default: <DeleteIcon />, active: <DeleteIcon /> },
+  kakao: { default: <KakaoIcon />, active: <KakaoIcon /> },
 };
 
 const colorMap = {
@@ -24,6 +23,10 @@ const colorMap = {
   edit: {
     default: ['bg-[#E2E8F0]', 'text-[#0F172A]'],
     active: ['bg-[#BEF264]', 'text-[#0F172A]'],
+  },
+  kakao: {
+    default: ['bg-[#FEE500]', 'text-[#0F172A]'],
+    active: ['bg-[#FEE500]', 'text-[#0F172A]'],
   },
 } as const;
 
@@ -37,6 +40,7 @@ const labelMap = {
   add: '추가하기',
   delete: '삭제하기',
   edit: '수정 완료',
+  kakao: '카카오 로그인',
 } as const;
 
 export default function Button({
@@ -56,18 +60,7 @@ export default function Button({
   const [wCls, hCls] = isIconOnly ? sizeMap.icon : sizeMap[size];
 
   const composed = twMerge(
-    clsx(
-      'inline-flex items-center justify-center gap-2',
-      'border-[3px] border-neutral-900 rounded-full',
-      'shadow-[4px_4px_0_0_#000]',
-
-      bgCls,
-      textCls,
-      wCls,
-      hCls,
-
-      isIconOnly && 'px-0'
-    )
+    clsx(bgCls, textCls, wCls, hCls, isIconOnly || 'flex justify-center items-center py-2 rounded-xl cursor-pointer font-medium px-4 py-2')
   );
 
   return (

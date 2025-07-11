@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
 import useMount from '@/hooks/useMount';
@@ -42,9 +42,9 @@ const ToastContainer = () => {
     };
   }, []);
 
-  const handleCloseToast = useCallback((id: number) => {
+  const handleCloseToast = (id: number) => {
     setToasts((prev) => prev.filter((toast) => toast.id !== id));
-  }, []);
+  };
 
   if (!isMounted) {
     return null;
