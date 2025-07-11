@@ -7,7 +7,7 @@ const LoginForm = () => {
   const router = useRouter();
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    //    window.location.href = 'http://localhost/';
+    //window.location.href = '카카오 어쩌구 저쩌구';
 
     router.push('/kakao-login');
   };

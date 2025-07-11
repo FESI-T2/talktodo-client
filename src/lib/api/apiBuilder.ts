@@ -16,9 +16,10 @@ class APIBuilder {
     this._instance = new API(method, url);
 
     this._instance.data = data;
-
     this._instance.timeout = 5000;
     this._instance.withCredentials = false;
+
+    this._instance.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api';
   }
 
   static get = (url: string) => new APIBuilder('GET', url);
@@ -44,6 +45,11 @@ class APIBuilder {
 
   withCredentials(value: boolean): APIBuilder {
     this._instance.withCredentials = value;
+    return this;
+  }
+
+  baseUrl(value: string): APIBuilder {
+    this._instance.baseURL = value;
     return this;
   }
 
