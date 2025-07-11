@@ -2,7 +2,6 @@ import '../styles/globals.css';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 
-import AuthContainer from '@/components/auth/AuthContainer/AuthContainer';
 import ToastContainer from '@/components/toast/ToastContainer';
 import MSWProvider from '@/mocks/MSWProvider';
 const geistSans = Geist({
@@ -30,9 +29,8 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <div id='toast-root' />
         <ToastContainer />
-        <AuthContainer>
-          <MSWProvider>{children}</MSWProvider>
-        </AuthContainer>
+
+        <MSWProvider>{children}</MSWProvider>
       </body>
     </html>
   );
