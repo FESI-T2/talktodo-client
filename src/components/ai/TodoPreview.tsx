@@ -43,13 +43,13 @@ export default function TodoPreview({ todos }: TodoPreviewProps) {
       </div>
 
       <div className='overflow-x-auto overflow-y-hidden px-2'>
-        <div className='flex gap-3 bg-gray-50 p-4 rounded-lg shadow-inner min-w-full w-max'>
+        <div className='flex gap-3  p-4  min-w-full w-max'>
           {sortedDates.map((date) => (
             <div key={date} className='flex flex-col items-center flex-shrink-0 w-32'>
               {grouped[date].map((todo) => (
                 <div
                   key={todo.id}
-                  className='bg-white p-3 rounded-lg shadow text-sm flex flex-col justify-between items-center aspect-square w-32 mb-1'
+                  className='bg-gray p-3 rounded-lg shadow text-sm flex flex-col justify-between items-center aspect-square w-32 mb-1'
                 >
                   <div className='font-medium text-center'>{todo.title}</div>
                   <div className='text-xs text-gray-500 mt-2'>{format(parseISO(todo.date), 'M월 d일', { locale: ko })}</div>
