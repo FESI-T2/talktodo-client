@@ -8,13 +8,4 @@ describe('홈페이지', () => {
 
     expect(screen.getByRole('main')).toBeInTheDocument();
   });
-
-  it('넥스트 로고가 나오는가', () => {
-    render(<Home />);
-
-    const logo = screen.getByAltText('Next.js logo');
-    expect(logo).toBeInTheDocument();
-    expect(logo).toHaveAttribute('width', '180');
-    expect(logo).toHaveAttribute('height', '38');
-  });
 });

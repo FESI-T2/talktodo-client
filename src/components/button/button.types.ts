@@ -1,4 +1,4 @@
-export type ButtonVariant = 'add' | 'edit' | 'delete';
+export type ButtonVariant = 'add' | 'edit' | 'delete' | 'kakao';
 export type ButtonIconMap = Record<ButtonVariant, { default: React.ReactNode; active?: React.ReactNode }>;
 export type ButtonSize = 'small' | 'large';
 export type ButtonState = 'default' | 'active';
