@@ -18,7 +18,7 @@ export default function InputBar({ onSend }: InputBarProps) {
   };
 
   return (
-    <div className='p-4 border-t flex bg-white'>
+    <div className='p-4 flex bg-white'>
       <input
         type='text'
         value={text}
