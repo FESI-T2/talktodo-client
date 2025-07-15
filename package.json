@@ -27,6 +27,8 @@
     "build-storybook": "storybook build"
   },
   "dependencies": {
+    "@tanstack/react-query": "^5.83.0",
+    "@tanstack/react-query-devtools": "^5.83.0",
     "axios": "^1.10.0",
     "clsx": "^2.1.1",
     "cookie-parser": "^1.4.7",
