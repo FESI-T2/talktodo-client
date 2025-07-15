@@ -5,41 +5,53 @@ import { useState } from 'react';
 
 import { AiPromptMessage } from '@/types/aiPromptMessage';
 
+import GoalSelector from './GoalSelector';
 import InputBar from './InputBar';
 import MessageList from './MessageList';
 import BackIcon from '../ui/icons/BackIcon';
 
+type Mode = 'new' | 'existing';
+
 export default function AiPromptPage() {
   const router = useRouter();
+
+  const [mode, setMode] = useState<Mode>('existing');
+  const [selectedGoalIdx, setSelectedGoalIdx] = useState<number | null>(null);
   const [messages, setMessages] = useState<AiPromptMessage[]>([{ id: '1', sender: 'ai', content: '무슨 일을 도와드릴까요?' }]);
-  const isInitial = messages.length === 1; // 처음 메시지만 있을 때만 초기화면
+
+  const isInitial = messages.length === 1;
 
   return (
     <div className='h-screen w-screen bg-white flex items-center justify-center'>
-      {/* 가운데 콘텐츠 박스 */}
-      <div className='w-full max-w-6xl h-full flex flex-col bg-white '>
+      <div className='w-full max-w-6xl h-full flex flex-col bg-white'>
         {/* 백 버튼 */}
-        <div className='p-4 '>
+        <div className='p-4'>
           <button onClick={() => router.back()} className='flex items-center gap-1 text-sm text-gray-600 hover:text-black transition'>
             <BackIcon className='w-5 h-5' />
           </button>
         </div>
 
-        {/* 메시지 영역 or 초기 안내 */}
+        {/* 메인 영역 */}
         <div className='flex-1 overflow-y-auto'>
-          {isInitial ? (
-            <div className='h-full flex flex-col items-center justify-center text-center px-4'>
-              <div className='w-24 h-24 bg-gray-200 rounded-full mb-6' />
-              <h2 className='text-xl font-semibold mb-2 text-gray-800'>일정을 말하면 체계적으로 정리해드릴게요!</h2>
-              <p className='text-sm text-gray-500'>예: 7월 15일에 헬스장 가기 추가해줘</p>
-            </div>
+          {mode === 'new' ? (
+            isInitial ? (
+              <div className='h-full flex flex-col items-center justify-center text-center px-4'>
+                <div className='w-24 h-24 bg-gray-200 rounded-full mb-6' />
+                <h2 className='text-xl font-semibold mb-2 text-gray-800'>일정을 말하면 체계적으로 정리해드릴게요!</h2>
+                <p className='text-sm text-gray-500'>예: 7월 15일에 헬스장 가기 추가해줘</p>
+              </div>
+            ) : (
+              <MessageList messages={messages} />
+            )
+          ) : isInitial ? (
+            <GoalSelector selectedIdx={selectedGoalIdx} setSelectedIdx={setSelectedGoalIdx} onComplete={() => setMode('new')} />
           ) : (
             <MessageList messages={messages} />
           )}
         </div>
 
         {/* 입력창 */}
-        <div className=' px-4 pt-2 pb-4'>
+        <div className='px-4 pt-2 pb-4'>
           <InputBar
             onSend={(text) => {
               const now = Date.now();

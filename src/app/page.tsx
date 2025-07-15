@@ -1,3 +1,11 @@
+'use client';
+
+import AiPromptPage from '@/components/ai/AiPromptPage'; // 기존 AiPromptModal이었으면 이름도 변경 추천
+
 export default function Home() {
-  return <main>여긴 메인</main>;
+  return (
+    <div className='h-full'>
+      <AiPromptPage />
+    </div>
+  );
 }
