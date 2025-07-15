@@ -21,7 +21,7 @@ const useKakaoLogin = () => {
     };
 
     fetchLogin();
-  }, [Toast]);
+  }, []);
 
   return null;
 };
