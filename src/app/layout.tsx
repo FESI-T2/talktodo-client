@@ -1,5 +1,6 @@
 import '../styles/globals.css';
 
+import QueryProvider from '@/components/QueryProvider';
 import ToastContainer from '@/components/toast/ToastContainer';
 import MSWProvider from '@/mocks/MSWProvider';
 
@@ -13,7 +14,9 @@ export default function RootLayout({
       <body>
         <div id='toast-root' />
         <ToastContainer />
-        <MSWProvider>{children}</MSWProvider>
+        <QueryProvider>
+          <MSWProvider>{children}</MSWProvider>
+        </QueryProvider>
       </body>
     </html>
   );

@@ -13,11 +13,9 @@ export type ErrorType = keyof typeof ERROR_TYPES;
 export class CustomError extends Error {
   public errorType: ErrorType;
   public status: number;
-  public message: string;
 
-  constructor(message: string, errorType: ErrorType, status: number) {
+  constructor(errorType: ErrorType, status: number) {
     super();
-    this.message = message;
     this.errorType = errorType;
     this.status = status;
   }
