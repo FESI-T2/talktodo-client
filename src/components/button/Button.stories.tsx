@@ -31,7 +31,7 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
-export const 기본버튼: Story = {
+export const PrimaryButton: Story = {
   args: {
     variant: 'add',
     size: 'large',
@@ -39,7 +39,7 @@ export const 기본버튼: Story = {
   },
 };
 
-export const 활성버튼: Story = {
+export const ActiveButton: Story = {
   args: {
     variant: 'add',
     size: 'large',
