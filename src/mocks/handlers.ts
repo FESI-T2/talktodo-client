@@ -1,7 +1,3 @@
-import { http, HttpResponse } from 'msw';
+import { mockTestHandlers, mutationTestHandlers, errorTestHandlers } from './testHandlers/index';
 
-export const handlers = [
-  http.get('/api/test', () => {
-    return HttpResponse.json({ message: 'MSW 작동 중!' });
-  }),
-];
+export const handlers = [...mockTestHandlers, ...mutationTestHandlers, ...errorTestHandlers];

@@ -1,8 +1,8 @@
 'use server';
 
-import AuthProvider from '../AuthProvider/AuthProvider';
-
 import { getAccessToken } from '@/app/actions/auth';
+
+import AuthProvider from '../AuthProvider/AuthProvider';
 
 interface AuthContainerProps {
   children: React.ReactNode;

@@ -1,6 +1,8 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { getAccessToken } from '@/app/actions/auth';
+import { getAccessToken } from '@/app/actions/auth/token';
+
+import classifyError from '../error/classifyAPIError';
 
 export type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
@@ -41,17 +43,15 @@ class API {
 
         return config;
       });
-
-      http.interceptors.response.use(
-        (response) => response,
-        (error) => {
-          if (error.response?.status === 401) {
-            console.error('인증 오류 발생:', error);
-          }
-          return Promise.reject(error);
-        }
-      );
     }
+
+    http.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        classifyError(error);
+        return Promise.reject(error);
+      }
+    );
 
     return http.request({
       method: this.method,
