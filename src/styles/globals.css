@@ -1,32 +1,190 @@
 @import 'tailwindcss';
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   1. 디자인 토큰 (Design Tokens)
+   ========================================================================== */
+
+@theme {
+  /* 폰트 (Fonts) */
+  --font-family-sans: 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
+
+  --font-weight-bold: 700;
+  --font-weight-semibold: 600;
+  --font-weight-medium: 500;
+  --font-weight-regular: 400;
+
+  /* 폰트 크기 (Font Sizes) */
+  --text-count: 2.5rem;
+  --text-title1: 2rem;
+  --text-title2: 1.75rem;
+  --text-title3: 1.25rem;
+  --text-body1: 1.125rem;
+  --text-body2: 1rem;
+  --text-body3: 0.875rem;
+  --text-caption: 0.75rem;
+
+  /* 색상 (Colors) */
+  --color-white: #ffffff;
+  --color-warning-red: #fc4b4b;
+
+  --color-gray-100: #f5f5f5;
+  --color-gray-200: #e9e8ec;
+  --color-gray-300: #d5d3da;
+  --color-gray-400: #bbb8c3;
+  --color-gray-500: #8f8b99;
+  --color-gray-600: #6f6a78;
+  --color-gray-700: #534e59;
+  --color-gray-800: #3c373f;
+  --color-gray-900: #29252b;
+
+  --color-purple-100: #f2eafe;
+  --color-purple-200: #e0cdfc;
+  --color-purple-300: #c8a5f9;
+  --color-purple-400: #ae7bf6;
+  --color-purple-500: #8f3fff;
+  --color-purple-600: #7f2df1;
+  --color-purple-700: #6c26cd;
+  --color-purple-800: #481a89;
+  --color-purple-900: #39146c;
+
+  /* TODO: 아래 슬레이트 색상 값을 확인하고 채워주세요. */
+  --color-slate-100: #000; /* 확인 필요 */
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #000; /* 확인 필요 */
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #000; /* 확인 필요 */
+  --color-slate-600: #000; /* 확인 필요 */
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #000; /* 확인 필요 */
+
+  --color-label-red: #ff6f6f;
+  --color-label-yellow: #ffbd4a;
+  --color-label-green: #5ed59a;
+
+  /* 배경 (Backgrounds) */
+  --color-bg-overlay: rgba(0, 0, 0, 0.5);
+  --color-bg-purple: #f8f4fe;
+  --color-bg-purple-gradient:
+    radial-gradient(58.33% 59.32% at 18.08% 0%, rgba(136, 160, 246, 0.7) 0%, rgba(136, 160, 246, 0) 100%),
+    radial-gradient(59.48% 60.59% at 15.77% 100%, rgba(160, 89, 239, 0.7) 0%, rgba(160, 89, 239, 0) 100%), #836df2;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ==========================================================================
+   2. 기본 및 다크 모드 스타일 (Base & Dark Mode Styles)
+   ========================================================================== */
 
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: var(--color-bg-purple); /* 라이트 모드 기본 배경 */
+    --foreground: var(--color-gray-900); /* 라이트 모드 기본 텍스트 */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: #0a0a0a;
+      --foreground: #ededed;
+    }
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-family-sans);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
-}
+/* ==========================================================================
+   3. 커스텀 컴포넌트 (Custom Components)
+   ========================================================================== */
 
 @layer components {
   .toast-container {
     @apply fixed top-4 right-4 z-10 flex flex-col items-end space-y-2 max-w-md;
+  }
+
+  /* font */
+  .font-count {
+    @apply text-count font-bold;
+  }
+
+  /* title1 */
+  .font-title1-bold {
+    @apply text-title1 font-bold;
+  }
+  .font-title1-semibold {
+    @apply text-title1 font-semibold;
+  }
+
+  /* title2 */
+  .font-title2-bold {
+    @apply text-title2 font-bold;
+  }
+  .font-title2-semibold {
+    @apply text-title2 font-semibold;
+  }
+
+  /* title3 */
+  .font-title3-bold {
+    @apply text-title3 font-bold;
+  }
+  .font-title3-semibold {
+    @apply text-title3 font-semibold;
+  }
+
+  /* body1 */
+  .font-body1-bold {
+    @apply text-body1 font-bold;
+  }
+  .font-body1-semibold {
+    @apply text-body1 font-semibold;
+  }
+  .font-body1-medium {
+    @apply text-body1 font-medium;
+  }
+  .font-body1-regular {
+    @apply text-body1 font-regular;
+  }
+
+  /* body2 */
+  .font-body2-bold {
+    @apply text-body2 font-bold;
+  }
+  .font-body2-semibold {
+    @apply text-body2 font-semibold;
+  }
+  .font-body2-medium {
+    @apply text-body2 font-medium;
+  }
+  .font-body2-regular {
+    @apply text-body2 font-regular;
+  }
+
+  /* body3 */
+  .font-body3-bold {
+    @apply text-body3 font-bold;
+  }
+  .font-body3-semibold {
+    @apply text-body3 font-semibold;
+  }
+  .font-body3-medium {
+    @apply text-body3 font-medium;
+  }
+  .font-body3-regular {
+    @apply text-body3 font-regular;
+  }
+
+  /* caption */
+  .font-caption-bold {
+    @apply text-caption font-bold;
+  }
+  .font-caption-semibold {
+    @apply text-caption font-semibold;
+  }
+  .font-caption-medium {
+    @apply text-caption font-medium;
+  }
+  .font-caption-regular {
+    @apply text-caption font-regular;
   }
 }
