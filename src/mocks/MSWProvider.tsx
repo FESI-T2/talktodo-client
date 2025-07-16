@@ -16,5 +16,6 @@ export default function MSWProvider({ children }: { children: React.ReactNode })
     }
   }, [mswReady]);
 
+  if (!mswReady) return null;
   return <>{children}</>;
 }

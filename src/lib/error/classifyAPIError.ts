@@ -10,7 +10,7 @@ const classifyAPIError = (error: unknown) => {
       if (status === 404) throw new CustomError(ERROR_TYPES.NOT_FOUND_ERROR, status);
       if (status >= 500) throw new CustomError(ERROR_TYPES.INTERNAL_SERVER_ERROR, status);
     } else if (error.request) throw new CustomError(ERROR_TYPES.NETWORK_ERROR, 500);
-    else throw new CustomError(ERROR_TYPES.UNKNOWN_ERROR, 500);
+    else throw new CustomError(ERROR_TYPES.UNKNOWN_ERROR, error.status || 500);
   } else throw new CustomError(ERROR_TYPES.UNKNOWN_ERROR, 500);
 };
 
