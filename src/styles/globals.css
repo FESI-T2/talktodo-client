@@ -6,7 +6,6 @@
 
 @theme {
   /* 폰트 (Fonts) */
-  --font-family-sans: 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
 
   --font-weight-bold: 700;
   --font-weight-semibold: 600;
@@ -188,5 +187,10 @@
   }
   .font-caption-regular {
     @apply text-caption font-regular;
+  }
+
+  /* background */
+  .gradient-bg {
+    background: var(--color-bg-purple-gradient);
   }
 }

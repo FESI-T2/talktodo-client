@@ -59,9 +59,7 @@ export default function Button({
   const [bgCls, textCls] = colorMap[variant][state] ?? colorMap[variant].default;
   const [wCls, hCls] = isIconOnly ? sizeMap.icon : sizeMap[size];
 
-  const composed = twMerge(
-    clsx(bgCls, textCls, wCls, hCls, isIconOnly || 'flex justify-center items-center py-2 rounded-xl cursor-pointer font-medium px-4 py-2')
-  );
+  const composed = twMerge(clsx(bgCls, textCls, wCls, hCls, isIconOnly || 'flex  items-center py-2 rounded-xl cursor-pointer  px-4 py-2 '));
 
   return (
     <button className={composed} {...rest}>
