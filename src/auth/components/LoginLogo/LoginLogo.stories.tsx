@@ -4,7 +4,7 @@ import LoginLogo from './LoginLogo';
 
 const meta: Meta<typeof LoginLogo> = {
   component: LoginLogo,
-  title: 'LoginLogo',
+  title: 'molecules/LoginLogo',
   tags: ['autodocs'],
   argTypes: {},
 };

@@ -1,9 +1,9 @@
+import LoginForm from '@/auth/components/LoginForm/LoginForm';
 import LoginLogo from '@/auth/components/LoginLogo/LoginLogo';
-import LoginForm from '@/components/auth/LoginForm/LoginForm';
 
 const LoginPage = () => {
   return (
-    <div className='min-h-screen gradient-bg '>
+    <div className='min-h-screen gradient-bg w-full '>
       <LoginLogo />
       <LoginForm />
     </div>
