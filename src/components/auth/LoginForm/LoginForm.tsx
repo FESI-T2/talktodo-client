@@ -13,7 +13,7 @@ const LoginForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className='flex flex-col gap-4'>
+    <form onSubmit={handleSubmit} className='flex flex-col gap-4 m-auto w-fit'>
       <Button variant='kakao' type='submit'>
         로그인
       </Button>

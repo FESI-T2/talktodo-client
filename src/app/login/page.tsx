@@ -1,8 +1,10 @@
+import LoginLogo from '@/auth/components/LoginLogo/LoginLogo';
 import LoginForm from '@/components/auth/LoginForm/LoginForm';
 
 const LoginPage = () => {
   return (
-    <div className='flex h-screen items-center justify-center'>
+    <div className='min-h-screen gradient-bg '>
+      <LoginLogo />
       <LoginForm />
     </div>
   );
