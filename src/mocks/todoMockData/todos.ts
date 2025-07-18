@@ -6,7 +6,7 @@ export interface Task {
   userId: string;
   content: string;
   comment: string | null;
-  priority: 'HIGHEST' | 'HIGH' | 'MEDIUM' | 'LOW' | 'LOWEST';
+  priority: 'HIGH' | 'MEDIUM' | 'LOW';
   isRepeat: boolean;
   isDone: boolean;
   taskDate: string;
