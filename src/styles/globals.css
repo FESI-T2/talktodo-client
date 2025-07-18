@@ -6,7 +6,6 @@
 
 @theme {
   /* 폰트 (Fonts) */
-  --font-family-sans: 'Pretendard', 'Noto Sans KR', Arial, sans-serif;
 
   --font-weight-bold: 700;
   --font-weight-semibold: 600;
@@ -60,6 +59,10 @@
   --color-bg-purple-gradient:
     radial-gradient(58.33% 59.32% at 18.08% 0%, rgba(136, 160, 246, 0.7) 0%, rgba(136, 160, 246, 0) 100%),
     radial-gradient(59.48% 60.59% at 15.77% 100%, rgba(160, 89, 239, 0.7) 0%, rgba(160, 89, 239, 0) 100%), #836df2;
+
+  /* 반응형 화면 */
+  --breakpoint-tb: 745px; /* Tablet */
+  --breakpoint-mb: 376px; /* phone */
 }
 
 /* ==========================================================================
@@ -96,7 +99,7 @@
   }
 }
 
-@layer theme {
+@layer utilities {
   /* font */
   .font-count {
     @apply text-count font-bold;
@@ -180,5 +183,29 @@
   }
   .font-caption-regular {
     @apply text-caption font-regular;
+  }
+
+  /* background */
+  .gradient-bg {
+    background: var(--color-bg-purple-gradient);
+  }
+
+  /* 로그인 버튼 스타일 */
+  .kakao-login {
+    background: #fee500;
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .google-login {
+    background: #ffffff;
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .naver-login {
+    background: #00de63;
+    color: #ffffff;
+    font-weight: var(--font-weight-semibold);
   }
 }
