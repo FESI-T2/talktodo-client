@@ -22,6 +22,8 @@
   --text-body2: 1rem;
   --text-body3: 0.875rem;
   --text-caption: 0.75rem;
+  --text-date-day: 1.5rem;
+  --text-date-year-month: 1.25rem;
 
   /* 색상 (Colors) */
   --color-white: #ffffff;
@@ -47,20 +49,10 @@
   --color-purple-800: #481a89;
   --color-purple-900: #39146c;
 
-  /* TODO: 아래 슬레이트 색상 값을 확인하고 채워주세요. */
-  --color-slate-100: #000; /* 확인 필요 */
-  --color-slate-200: #e2e8f0;
-  --color-slate-300: #000; /* 확인 필요 */
-  --color-slate-400: #94a3b8;
-  --color-slate-500: #000; /* 확인 필요 */
-  --color-slate-600: #000; /* 확인 필요 */
-  --color-slate-700: #334155;
-  --color-slate-800: #1e293b;
-  --color-slate-900: #000; /* 확인 필요 */
-
-  --color-label-red: #ff6f6f;
-  --color-label-yellow: #ffbd4a;
-  --color-label-green: #5ed59a;
+  /* 중요도 (label) */
+  --color-priority-high: #ff6f6f;
+  --color-priority-medium: #ffbd4a;
+  --color-priority-low: #5ed59a;
 
   /* 배경 (Backgrounds) */
   --color-bg-overlay: rgba(0, 0, 0, 0.5);
