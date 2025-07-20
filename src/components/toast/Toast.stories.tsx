@@ -22,7 +22,7 @@ type Story = StoryObj<typeof Toast>;
 
 export const Success: Story = {
   args: {
-    message: '성공적으로 완료되었습니다!',
+    message: '성공적으로 완료되었습니다!!',
     variant: 'success',
     onClose: () => console.log('Success toast closed'),
   },
