@@ -19,15 +19,15 @@ const ProgressBar = ({ percent = 0 }) => {
   return (
     <div className='flex flex-col gap-3 w-full'>
       <div className='flex gap-2 items-center mb-1'>
-        <p className='text-center text-purple-300 font-body2-medium'>오늘의 진행률</p>
-        <p className='text-center text-white font-body2-bold'>{clampedPercent}%</p>
+        <p className='text-center text-purple-300 tb:font-body2-medium font-caption-medium'>오늘의 진행률</p>
+        <p className='text-center text-white tb:font-body2-bold font-body3-bold'>{clampedPercent}%</p>
       </div>
-      <div className='relative h-5 w-full'>
+      <div className='relative tb:h-5 h-[14px] w-full'>
         {/* 바 배경 */}
-        <div className='absolute w-full h-4.5 rounded-full bg-purple-700' />
+        <div className='absolute w-full tb:h-4.5 h-[14px] rounded-full bg-purple-700' />
         {/* 진행률 바 */}
         <div
-          className='absolute h-4.5 rounded-full bg-gradient-to-r from-[#E0CDFC] to-[#FFF]'
+          className='absolute tb:h-4.5 h-[14px] rounded-full bg-gradient-to-r from-[#E0CDFC] to-[#FFF]'
           style={{ width: `${barWidth}%`, zIndex: 2 }}
         />
       </div>
