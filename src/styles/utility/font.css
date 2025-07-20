@@ -1,0 +1,93 @@
+/* utility */
+/* font */
+@utility font-count {
+  @apply text-count font-bold;
+}
+
+@utility font-title1-bold {
+  @apply text-title1 font-bold;
+}
+
+@utility font-title1-semibold {
+  @apply text-title1 font-semibold;
+}
+
+@utility font-title2-bold {
+  @apply text-title2 font-bold;
+}
+
+@utility font-title2-semibold {
+  @apply text-title2 font-semibold;
+}
+
+@utility font-title3-bold {
+  @apply text-title3 font-bold;
+}
+
+@utility font-title3-semibold {
+  @apply text-title3 font-semibold;
+}
+
+@utility font-body1-bold {
+  @apply text-body1 font-bold;
+}
+
+@utility font-body1-semibold {
+  @apply text-body1 font-semibold;
+}
+
+@utility font-body1-medium {
+  @apply text-body1 font-medium;
+}
+
+@utility font-body1-regular {
+  @apply text-body1 font-regular;
+}
+
+@utility font-body2-bold {
+  @apply text-body2 font-bold;
+}
+
+@utility font-body2-semibold {
+  @apply text-body2 font-semibold;
+}
+
+@utility font-body2-medium {
+  @apply text-body2 font-medium;
+}
+
+@utility font-body2-regular {
+  @apply text-body2 font-regular;
+}
+
+@utility font-body3-bold {
+  @apply text-body3 font-bold;
+}
+
+@utility font-body3-semibold {
+  @apply text-body3 font-semibold;
+}
+
+@utility font-body3-medium {
+  @apply text-body3 font-medium;
+}
+
+@utility font-body3-regular {
+  @apply text-body3 font-regular;
+}
+
+@utility font-caption-bold {
+  @apply text-caption font-bold;
+}
+
+@utility font-caption-semibold {
+  @apply text-caption font-semibold;
+}
+
+@utility font-caption-medium {
+  @apply text-caption font-medium;
+}
+
+@utility font-caption-regular {
+  @apply text-caption font-regular;
+}
