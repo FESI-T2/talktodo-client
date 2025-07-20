@@ -4,11 +4,13 @@ on:
   push:
     branches:
       - main
+      - feat/스토리북-배포
     paths:
       - 'stories/**'
   pull_request:
     branches:
       - main
+      - feat/스토리북-배포
     paths:
       - 'stories/**'
 
