@@ -15,7 +15,7 @@ const ToolTip = () => {
     btn.setAttribute('data-tooltip-id', 'login-tooltip');
   }, []);
 
-  return <Tooltip id='login-tooltip' content='최근 로그인' />;
+  return <Tooltip id='login-tooltip' content='최근 로그인' place='top-end' />;
 };
 
 export default ToolTip;
