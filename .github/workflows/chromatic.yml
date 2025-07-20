@@ -5,14 +5,11 @@ on:
     branches:
       - main
       - feat/스토리북-배포
-    paths:
-      - 'stories/**'
+
   pull_request:
     branches:
       - main
       - feat/스토리북-배포
-    paths:
-      - 'stories/**'
 
 jobs:
   chromatic:
@@ -27,7 +24,7 @@ jobs:
       - name: Use Node.js from .nvmrc
         uses: actions/setup-node@v4
         with:
-          node-version: .nvmrc
+          node-version-file: .nvmrc
 
       - name: Install dependencies
         run: npm install
