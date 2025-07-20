@@ -2,12 +2,10 @@ on:
   push:
     branches:
       - main
-      - feat/스토리북-배포
 
   pull_request:
     branches:
       - main
-      - feat/스토리북-배포
 
 permissions:
   pull-requests: write
