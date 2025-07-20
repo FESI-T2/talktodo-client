@@ -1,34 +1,39 @@
 import clsx from 'clsx';
 
+import { LoginOption } from '../../types';
 import { GoogleIcon, KakaoIcon, NaverIcon } from './Icon/index';
 
-type CertificationButton = 'kakao' | 'google' | 'naver';
-
-const ButtonIcon: Record<CertificationButton, React.ReactNode> = {
+const ButtonIcon: Record<LoginOption, React.ReactNode> = {
   google: <GoogleIcon />,
   kakao: <KakaoIcon />,
   naver: <NaverIcon />,
 } as const;
 
-const ButtonStyle: Record<CertificationButton, string> = {
+const ButtonStyle: Record<LoginOption, string> = {
   kakao: 'kakao-login',
   naver: 'naver-login',
   google: 'google-login',
 } as const;
 
+const ButtonContent: Record<LoginOption, string> = {
+  kakao: '카카오 로그인',
+  naver: '네이버 로그인',
+  google: '구글 로그인',
+} as const;
+
 interface AuthButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
-  variant: CertificationButton;
-  content: string;
+  variant: LoginOption;
 }
 
-const AuthButton = ({ variant, content, ...props }: AuthButtonProps) => {
+const AuthButton = ({ variant, ...props }: AuthButtonProps) => {
   return (
     <button
       {...props}
       className={clsx('rounded-xl py-3.5 px-4 flex w-[90%] h-12 items-center text-base max-w-[400px]', ButtonStyle[variant])}
+      data-variant={variant}
     >
       {ButtonIcon[variant]}
-      <span className='text-center w-full cursor-pointer'>{content}</span>
+      <span className='text-center w-full cursor-pointer'>{ButtonContent[variant]}</span>
     </button>
   );
 };
