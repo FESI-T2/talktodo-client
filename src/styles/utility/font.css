@@ -52,8 +52,11 @@
   @apply text-body2 font-semibold;
 }
 
-@utility font-body2-medium {
-  @apply text-body2 font-medium;
+@utility font-body2-medium-tight {
+  @apply text-body2 font-medium tracking-[-0.32px];
+}
+@utility font-body2-medium-loose {
+  @apply text-body2 font-medium tracking-[-0.32px] leading-[25.6px];
 }
 
 @utility font-body2-regular {
@@ -68,8 +71,12 @@
   @apply text-body3 font-semibold;
 }
 
-@utility font-body3-medium {
-  @apply text-body3 font-medium;
+@utility font-body3-medium-tight {
+  @apply text-body3 font-medium tracking-[-0.28px];
+}
+
+@utility font-body3-medium-loose {
+  @apply text-body3 font-medium tracking-[-0.28px] leading-[22.4px];
 }
 
 @utility font-body3-regular {
