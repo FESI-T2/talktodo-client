@@ -2,10 +2,14 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'stories/**'
 
   pull_request:
     branches:
       - main
+    paths:
+      - 'stories/**'
 
 permissions:
   pull-requests: write
