@@ -4,7 +4,7 @@ import CheckIcon from './CheckIcon';
 
 const meta: Meta<typeof CheckIcon> = {
   component: CheckIcon,
-  title: 'card/CheckIcon',
+  title: 'card/icons/CheckIcon',
   tags: ['autodocs'],
   argTypes: {
     size: {

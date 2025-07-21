@@ -4,7 +4,7 @@ import MemoIcon from './MemoIcon';
 
 const meta: Meta<typeof MemoIcon> = {
   component: MemoIcon,
-  title: 'card/icon/memo',
+  title: 'card/icons/memo',
   tags: ['autodocs'],
   argTypes: {
     active: {
