@@ -1,0 +1,55 @@
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'stories/**'
+
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'stories/**'
+
+permissions:
+  pull-requests: write
+  contents: read
+
+name: 'Chromatic'
+
+jobs:
+  chromatic:
+    name: Run Chromatic
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js from .nvmrc
+        uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Chromatic
+        id: publish_chromatic
+        uses: chromaui/action@latest
+        with:
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}
+          buildScriptName: build-storybook
+          onlyChanged: true
+          ignoreLastBuildOnBranch: true
+
+      - name: Comment on PR
+        uses: thollander/actions-comment-pull-request@v3
+        if: ${{ github.event_name == 'pull_request' }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          message: '🚀 **storybook**: ${{ steps.publish_chromatic.outputs.storybookUrl }}'
+          comment-tag: 'storybook'
+          mode: 'upsert'
