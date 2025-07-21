@@ -1,9 +1,9 @@
 import { SVGProps } from 'react';
 
-export type CheckState = 'on' | 'off';
-export type CheckSize = 'L' | 'S';
+type CheckState = 'on' | 'off';
+type CheckSize = 'L' | 'S';
 
-export interface CheckIconProps extends Omit<SVGProps<SVGSVGElement>, 'width' | 'height'> {
+interface CheckIconProps extends Omit<SVGProps<SVGSVGElement>, 'width' | 'height'> {
   state?: CheckState;
   size?: CheckSize;
 }
