@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
-import { LoginOption } from '../../types';
-import { GoogleIcon, KakaoIcon, NaverIcon } from './Icon/index';
+import { LoginOption } from '../../../types';
+import { GoogleIcon, KakaoIcon, NaverIcon } from '../../Icon/index';
 
 const ButtonIcon: Record<LoginOption, React.ReactNode> = {
   google: <GoogleIcon />,

@@ -1,6 +1,6 @@
 'use client';
 
-import AuthButton from '@/auth/components/Button/AuthButton';
+import AuthButton from '@/auth/components/Button/AuthButton/AuthButton';
 import { setCurrentLogin } from '@/auth/utils/currentLogin';
 
 import { LoginOption } from '../../types';
