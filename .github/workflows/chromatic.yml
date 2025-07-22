@@ -3,13 +3,21 @@ on:
     branches:
       - main
     paths:
-      - 'stories/**'
+      - '**/*.stories.ts'
+      - '**/*.stories.tsx'
+      - '**/*.stories.js'
+      - '**/*.stories.jsx'
+      - '**/*.stories.mdx'
 
   pull_request:
     branches:
       - main
     paths:
-      - 'stories/**'
+      - '**/*.stories.ts'
+      - '**/*.stories.tsx'
+      - '**/*.stories.js'
+      - '**/*.stories.jsx'
+      - '**/*.stories.mdx'
 
 permissions:
   pull-requests: write
