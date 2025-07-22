@@ -1,17 +1,19 @@
 on:
   push:
-    branches:
-      - main
-      - fix/스토리북-cicd-에러수정
     paths:
-      - 'stories.*'
+      - '**/*.stories.ts'
+      - '**/*.stories.tsx'
+      - '**/*.stories.js'
+      - '**/*.stories.jsx'
+      - '**/*.stories.mdx'
 
   pull_request:
-    branches:
-      - main
-      - fix/스토리북-cicd-에러수정
     paths:
-      - 'stories.*'
+      - '**/*.stories.ts'
+      - '**/*.stories.tsx'
+      - '**/*.stories.js'
+      - '**/*.stories.jsx'
+      - '**/*.stories.mdx'
 
 permissions:
   pull-requests: write
