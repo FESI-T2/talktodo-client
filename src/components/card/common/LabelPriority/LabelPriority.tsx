@@ -1,39 +1,35 @@
 import PriorityDot from './PriorityDot';
 
 export const PRIORITY_STYLES = {
-  HIGH: {
-    label: '중요',
-    color: 'var(--color-label-red)',
-  },
-  MEDIUM: {
-    label: '보통',
-    color: 'var(--color-label-yellow)',
-  },
-  LOW: {
-    label: '낮음',
-    color: 'var(--color-label-green)',
-  },
+  중요: { label: '중요', color: 'var(--color-priority-high)' },
+  보통: { label: '보통', color: 'var(--color-priority-medium)' },
+  낮음: { label: '낮음', color: 'var(--color-priority-low)' },
 } as const;
 
 type PriorityType = keyof typeof PRIORITY_STYLES;
 
 interface LabelPriorityProps {
   priority: PriorityType;
-  size: 'S' | 'L';
+  size: 'S' | 'M' | 'L';
 }
 
 export default function LabelPriority({ priority, size }: LabelPriorityProps) {
   const { label, color } = PRIORITY_STYLES[priority];
 
   // Small : Caption/12 Semibold
-  // Large : Body3/14 Semibold
+  // Medium : Body3/14 Semibold
+  // Large : Body2/16 Semibold
 
-  const textsizeClass = size === 'L' ? 'font-body3-semibold' : 'font-caption-semibold';
+  const textSizeClassMap = {
+    S: 'font-caption-semibold',
+    M: 'font-body3-semibold',
+    L: 'font-body2-semibold',
+  } as const;
 
   return (
     <div className='inline-flex items-center gap-1'>
       <PriorityDot color={color} />
-      <span className={textsizeClass} style={{ color }}>
+      <span className={textSizeClassMap[size]} style={{ color }}>
         {label}
       </span>
     </div>
