@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import SideBar from './SideBar';
 
 const meta: Meta<typeof SideBar> = {
-  title: 'Components/SideBar',
+  title: 'atoms/SideBar',
   component: SideBar,
   argTypes: {
     isFold: {
