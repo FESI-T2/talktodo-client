@@ -1,15 +1,9 @@
-import ProfileFrom from '@/auth/components/ProfileForm/ProfileFrom';
+import RegisterForm from '@/auth/components/RegisterForm/RegisterForm';
 
 const page = () => {
   return (
-    <div className='min-h-screen gradient-bg w-full flex items-center justify-center'>
-      <ProfileFrom>
-        <ProfileFrom.Title>{'회원 가입'}</ProfileFrom.Title>
-        <ProfileFrom.ImageUpload />
-        <ProfileFrom.Info content={'이름'} />
-        <ProfileFrom.SocialInfo content={'이메일'} variant={'kakao'} />
-        <ProfileFrom.Button />
-      </ProfileFrom>
+    <div className='h-screen gradient-bg w-full '>
+      <RegisterForm />
     </div>
   );
 };
