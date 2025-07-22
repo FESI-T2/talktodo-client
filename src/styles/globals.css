@@ -1,74 +1,10 @@
 @import 'tailwindcss';
-
-/* ==========================================================================
-   1. 디자인 토큰 (Design Tokens)
-   ========================================================================== */
-
-@theme {
-  /* 폰트 (Fonts) */
-
-  --font-weight-bold: 700;
-  --font-weight-semibold: 600;
-  --font-weight-medium: 500;
-  --font-weight-regular: 400;
-
-  /* 폰트 크기 (Font Sizes) */
-  --text-count: 2.5rem;
-  --text-title1: 2rem;
-  --text-title2: 1.75rem;
-  --text-title3: 1.25rem;
-  --text-body1: 1.125rem;
-  --text-body2: 1rem;
-  --text-body3: 0.875rem;
-  --text-caption: 0.75rem;
-  --text-date-day: 1.5rem;
-  --text-date-year-month: 1.25rem;
-
-  /* 색상 (Colors) */
-  --color-white: #ffffff;
-  --color-warning-red: #fc4b4b;
-
-  --color-gray-100: #f5f5f5;
-  --color-gray-200: #e9e8ec;
-  --color-gray-300: #d5d3da;
-  --color-gray-400: #bbb8c3;
-  --color-gray-500: #8f8b99;
-  --color-gray-600: #6f6a78;
-  --color-gray-700: #534e59;
-  --color-gray-800: #3c373f;
-  --color-gray-900: #29252b;
-
-  --color-purple-100: #f2eafe;
-  --color-purple-200: #e0cdfc;
-  --color-purple-300: #c8a5f9;
-  --color-purple-400: #ae7bf6;
-  --color-purple-500: #8f3fff;
-  --color-purple-600: #7f2df1;
-  --color-purple-700: #6c26cd;
-  --color-purple-800: #481a89;
-  --color-purple-900: #39146c;
-
-  /* 중요도 (label) */
-  --color-priority-high: #ff6f6f;
-  --color-priority-medium: #ffbd4a;
-  --color-priority-low: #5ed59a;
-
-  /* 배경 (Backgrounds) */
-  --color-bg-overlay: rgba(0, 0, 0, 0.5);
-  --color-bg-purple: #f8f4fe;
-  --color-bg-purple-gradient:
-    radial-gradient(58.33% 59.32% at 18.08% 0%, rgba(136, 160, 246, 0.7) 0%, rgba(136, 160, 246, 0) 100%),
-    radial-gradient(59.48% 60.59% at 15.77% 100%, rgba(160, 89, 239, 0.7) 0%, rgba(160, 89, 239, 0) 100%), #836df2;
-
-  /* 반응형 화면 */
-  --breakpoint-tb: 745px; /* Tablet */
-  --breakpoint-mb: 376px; /* phone */
-}
+@import './theme.css';
+@import './utility/index.css';
 
 /* ==========================================================================
    2. 기본 및 다크 모드 스타일 (Base & Dark Mode Styles)
    ========================================================================== */
-
 @layer base {
   :root {
     --background: var(--color-bg-purple); /* 라이트 모드 기본 배경 */
@@ -100,91 +36,6 @@
 }
 
 @layer utilities {
-  /* font */
-  .font-count {
-    @apply text-count font-bold;
-  }
-
-  /* title1 */
-  .font-title1-bold {
-    @apply text-title1 font-bold;
-  }
-  .font-title1-semibold {
-    @apply text-title1 font-semibold;
-  }
-
-  /* title2 */
-  .font-title2-bold {
-    @apply text-title2 font-bold;
-  }
-  .font-title2-semibold {
-    @apply text-title2 font-semibold;
-  }
-
-  /* title3 */
-  .font-title3-bold {
-    @apply text-title3 font-bold;
-  }
-  .font-title3-semibold {
-    @apply text-title3 font-semibold;
-  }
-
-  /* body1 */
-  .font-body1-bold {
-    @apply text-body1 font-bold;
-  }
-  .font-body1-semibold {
-    @apply text-body1 font-semibold;
-  }
-  .font-body1-medium {
-    @apply text-body1 font-medium;
-  }
-  .font-body1-regular {
-    @apply text-body1 font-regular;
-  }
-
-  /* body2 */
-  .font-body2-bold {
-    @apply text-body2 font-bold;
-  }
-  .font-body2-semibold {
-    @apply text-body2 font-semibold;
-  }
-  .font-body2-medium {
-    @apply text-body2 font-medium;
-  }
-  .font-body2-regular {
-    @apply text-body2 font-regular;
-  }
-
-  /* body3 */
-  .font-body3-bold {
-    @apply text-body3 font-bold;
-  }
-  .font-body3-semibold {
-    @apply text-body3 font-semibold;
-  }
-  .font-body3-medium {
-    @apply text-body3 font-medium;
-  }
-  .font-body3-regular {
-    @apply text-body3 font-regular;
-  }
-
-  /* caption */
-  .font-caption-bold {
-    @apply text-caption font-bold;
-  }
-  .font-caption-semibold {
-    @apply text-caption font-semibold;
-  }
-  .font-caption-medium {
-    @apply text-caption font-medium;
-  }
-  .font-caption-regular {
-    @apply text-caption font-regular;
-  }
-
   /* background */
   .gradient-bg {
     background: var(--color-bg-purple-gradient);
