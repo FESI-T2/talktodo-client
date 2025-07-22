@@ -3,14 +3,14 @@
  */
 export interface Task {
   taskId: string;
-  userId: string;
+  taskNo: number;
   content: string;
-  comment: string | null;
-  priority: 'HIGH' | 'MEDIUM' | 'LOW';
-  isRepeat: boolean;
-  isDone: boolean;
+  priority: '중요' | '보통' | '낮음';
   taskDate: string;
-  goal: string | null; //
+  isDone: boolean;
+  startTime: string;
+  endTime: string;
+  goal: string;
   createdAt: string;
   modifiedAt: string;
 }
@@ -20,29 +20,81 @@ export interface Task {
  */
 export const tasks: Task[] = [
   {
-    taskId: 'task-1',
-    userId: 'user-1',
-    content: '운동하기',
-    comment: '30분 이상 걷기',
-    priority: 'HIGH',
-    isRepeat: false,
+    taskId: 'a9b910fb-1760-47b0-8f62-fd014e80bf60',
+    taskNo: 1,
+    content: '매일 아침 산책하기',
+    priority: '중요',
+    taskDate: '2025-07-20',
+    startTime: '06:30:00',
+    endTime: '07:00:00',
+    goal: '하루 30분 운동',
     isDone: false,
-    taskDate: '2025-07-15T08:00:00Z',
-    goal: '건강 관리',
-    createdAt: '2025-07-14T23:00:00Z',
-    modifiedAt: '2025-07-14T23:00:00Z',
+    createdAt: '2025-07-20T03:36:23.42592',
+    modifiedAt: '2025-07-20T03:36:23.42592',
   },
   {
-    taskId: 'task-2',
-    userId: 'user-1',
-    content: '책 읽기',
-    comment: null,
-    priority: 'MEDIUM',
-    isRepeat: true,
-    isDone: true,
-    taskDate: '2025-07-14T18:00:00Z',
-    goal: '자기계발',
-    createdAt: '2025-07-13T10:00:00Z',
-    modifiedAt: '2025-07-14T19:00:00Z',
+    taskId: 'cb2a7e13-a77b-46d4-a88f-2e549040488a',
+    taskNo: 2,
+    content: '매일 아침 산책하기',
+    priority: '중요',
+    taskDate: '2025-07-20',
+    startTime: '06:30:00',
+    endTime: '07:00:00',
+    goal: '하루 30분 운동',
+    isDone: false,
+    createdAt: '2025-07-20T03:38:10.486713',
+    modifiedAt: '2025-07-20T03:38:10.486713',
+  },
+  {
+    taskId: 'add5f43b-a9da-4df6-9b2b-fd5a053a80d5',
+    taskNo: 5,
+    content: '매일 아침 산책하기',
+    priority: '보통',
+    taskDate: '2025-07-20',
+    startTime: '06:30:00',
+    endTime: '07:00:00',
+    goal: '하루 30분 운동',
+    isDone: false,
+    createdAt: '2025-07-20T04:28:14.586355',
+    modifiedAt: '2025-07-20T04:28:14.586355',
+  },
+  {
+    taskId: '54dbd85d-28c4-4ebe-8e40-7da499d104de',
+    taskNo: 6,
+    content: '매일 아침 산책하기',
+    priority: '보통',
+    taskDate: '2025-07-20',
+    startTime: '06:30:00',
+    endTime: '07:00:00',
+    goal: '하루 30분 운동',
+    isDone: false,
+    createdAt: '2025-07-20T04:28:15.822385',
+    modifiedAt: '2025-07-20T04:28:15.822385',
+  },
+  {
+    taskId: 'f1c92c97-d4ec-42e6-9589-22f25d735879',
+    taskNo: 3,
+    content: '매일 아침 산책하기',
+    priority: '낮음',
+    taskDate: '2025-07-20',
+    startTime: '06:30:00',
+    endTime: '07:00:00',
+    goal: '하루 30분 운동',
+    isDone: false,
+    createdAt: '2025-07-20T04:27:04.184086',
+    modifiedAt: '2025-07-20T04:27:04.184086',
+  },
+  {
+    taskId: '3e13dec5-a3cb-4d48-9a67-b94686a44629',
+    taskNo: 4,
+    content: '매일 아침 산책하기',
+    priority: '낮음',
+    taskDate: '2025-07-20',
+    startTime: '06:30:00',
+    endTime: '07:00:00',
+    goal: '하루 30분 운동',
+    isDone: false,
+    createdAt: '2025-07-20T04:27:06.647844',
+    modifiedAt: '2025-07-20T04:27:06.647844',
   },
 ];
