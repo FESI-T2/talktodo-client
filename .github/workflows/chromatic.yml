@@ -2,14 +2,16 @@ on:
   push:
     branches:
       - main
+      - fix/스토리북-cicd-에러수정
     paths:
-      - 'stories/**'
+      - 'stories.*'
 
   pull_request:
     branches:
       - main
+      - fix/스토리북-cicd-에러수정
     paths:
-      - 'stories/**'
+      - 'stories.*'
 
 permissions:
   pull-requests: write
