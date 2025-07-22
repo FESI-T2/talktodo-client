@@ -1,5 +1,7 @@
 on:
   push:
+    branches:
+      - main
     paths:
       - '**/*.stories.ts'
       - '**/*.stories.tsx'
@@ -8,6 +10,8 @@ on:
       - '**/*.stories.mdx'
 
   pull_request:
+    branches:
+      - main
     paths:
       - '**/*.stories.ts'
       - '**/*.stories.tsx'
