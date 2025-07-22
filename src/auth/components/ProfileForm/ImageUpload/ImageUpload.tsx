@@ -1,13 +1,18 @@
 'use client';
+import clsx from 'clsx';
 import Image from 'next/image';
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 
-const ImageUpload = () => {
+export interface ImageUploadProps {
+  className?: string;
+  imageRef: React.RefObject<HTMLInputElement | null>;
+}
+
+const ImageUpload = ({ className, imageRef }: ImageUploadProps) => {
   const [preview, setPreview] = useState<string | null>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
-    inputRef.current?.click();
+    imageRef.current?.click();
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +26,7 @@ const ImageUpload = () => {
     reader.readAsDataURL(file);
   };
   return (
-    <div className='flex items-center justify-center flex-col relative mb-[44px]'>
+    <div className={clsx('flex items-center justify-center flex-col relative mb-[44px]', className)}>
       <Image
         src={preview || '/img/default.png'}
         alt='미리보기'
@@ -37,7 +42,7 @@ const ImageUpload = () => {
         <img src={'/icon/image.svg'} alt='아이콘' />
         <div className=' flex-1 '>편집하기</div>
       </button>
-      <input ref={inputRef} type='file' accept='image/*' onChange={handleChange} className='hidden' />
+      <input ref={imageRef} type='file' accept='image/*' onChange={handleChange} className='hidden' />
     </div>
   );
 };
