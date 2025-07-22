@@ -4,6 +4,7 @@ import ErrorBoundary from '@/components/error/ErrorBoundary';
 import QueryProvider from '@/components/QueryProvider';
 import ToastContainer from '@/components/toast/ToastContainer';
 import MSWProvider from '@/mocks/MSWProvider';
+import pretendard from '@/styles/pretendard';
 
 export default function RootLayout({
   children,
@@ -12,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='en'>
-      <body>
+      <body className={pretendard.className}>
         <div id='toast-root' />
         <ErrorBoundary>
           <ToastContainer />

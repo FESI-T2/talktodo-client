@@ -34,3 +34,29 @@
     @apply fixed top-4 right-4 z-10 flex flex-col items-end space-y-2 max-w-md;
   }
 }
+
+@layer utilities {
+  /* background */
+  .gradient-bg {
+    background: var(--color-bg-purple-gradient);
+  }
+
+  /* 로그인 버튼 스타일 */
+  .kakao-login {
+    background: #fee500;
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .google-login {
+    background: #ffffff;
+    color: var(--color-gray-900);
+    font-weight: var(--font-weight-medium);
+  }
+
+  .naver-login {
+    background: #00de63;
+    color: #ffffff;
+    font-weight: var(--font-weight-semibold);
+  }
+}
