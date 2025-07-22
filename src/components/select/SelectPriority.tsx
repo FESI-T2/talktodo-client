@@ -2,9 +2,13 @@ import { useState, useRef, useEffect } from 'react';
 
 import LabelPriority from '@/components/card/common/LabelPriority/LabelPriority';
 
-type PriorityType = '중요' | '보통' | '낮음';
+type PriorityType = 'HIGH' | 'MEDIUM' | 'LOW';
 
-export const priorityOptions: PriorityType[] = ['중요', '보통', '낮음'];
+export const priorityOptions = [
+  { label: 'HIGH', value: 'HIGH' },
+  { label: 'MEDIUM', value: 'MEDIUM' },
+  { label: 'LOW', value: 'LOW' },
+];
 
 export const DownArrowIcon = () => {
   return (
@@ -34,7 +38,7 @@ interface SelectPriorityProps {
 export default function SelectPriority({}: SelectPriorityProps) {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
-  const [priority, setPriority] = useState<PriorityType>('중요');
+  const [priority, setPriority] = useState<PriorityType>('HIGH');
   // const [size, setSize] = useState<'S' | 'L'>('L');
   const size = 'L';
 
@@ -66,14 +70,14 @@ export default function SelectPriority({}: SelectPriorityProps) {
         <div className='mt-1  w-[182px] rounded-xl bg-white shadow-lg z-10 border border-violet-200'>
           {priorityOptions.map((opt) => (
             <button
-              key={opt}
+              key={opt.value}
               className='w-full flex items-center px-4 py-2 hover:bg-purple-100 rounded-xl transition'
               onClick={() => {
-                setPriority(opt);
+                setPriority(opt.value as PriorityType);
                 setOpen(false);
               }}
             >
-              <LabelPriority priority={opt} size={size} />
+              <LabelPriority priority={opt.label as PriorityType} size={size} />
             </button>
           ))}
         </div>
