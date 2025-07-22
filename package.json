@@ -1,5 +1,5 @@
 {
-  "name": "cautious-pancake",
+  "name": "talktodo",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -24,9 +24,11 @@
     "mock-server": "tsx mock-server.ts",
     "mock:dev": "concurrently \"npm run dev\" \"npm run mock-server\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
+    "@hookform/resolvers": "^5.1.1",
     "@tanstack/react-query": "^5.83.0",
     "@tanstack/react-query-devtools": "^5.83.0",
     "axios": "^1.10.0",
@@ -38,9 +40,11 @@
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "react-hook-form": "^7.60.0",
     "react-tooltip": "^5.29.1",
     "tailwind-merge": "^3.3.1",
     "ts-pattern": "^5.7.1",
+    "zod": "^4.0.5",
     "zustand": "^5.0.6"
   },
   "devDependencies": {
