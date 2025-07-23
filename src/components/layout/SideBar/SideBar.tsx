@@ -1,20 +1,12 @@
-import SvgIconFlag from 'public/icon/Flag';
 import SvgIconFoldLeft from 'public/icon/FoldLeft';
 import SvgIconFoldRight from 'public/icon/FoldRight';
-import SvgIconHome from 'public/icon/Home';
 import SvgIconMainLogo from 'public/icon/MainLogo';
 import SvgIconPlus from 'public/icon/Plus';
-import SvgIconProfile from 'public/icon/Profile';
 
-const Separator = ({ top = 0, bottom = 0 }) => (
-  <div
-    className='w-full border-b border-gray-200'
-    style={{
-      marginTop: top ? `${top * 0.25}rem` : undefined,
-      marginBottom: bottom ? `${bottom * 0.25}rem` : undefined,
-    }}
-  />
-);
+import SidebarNavigation from './_components/SidebarNavigation';
+import SidebarPanel from './_components/SidebarPanel';
+import ProfileSection from './_components/SidebarProfileSection';
+import SidebarSeparator from './_components/SideBarSeparator';
 
 const NewGoalButton = ({ isFold }: { isFold: boolean }) =>
   !isFold ? (
@@ -28,7 +20,7 @@ const NewGoalButton = ({ isFold }: { isFold: boolean }) =>
     </button>
   );
 
-interface SideBarProps {
+interface SidebarProps {
   isFold: boolean;
   onFoldToggle: () => void;
   userNickname: string;
@@ -36,7 +28,7 @@ interface SideBarProps {
   goals: string[];
 }
 
-const SideBar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }: SideBarProps) => (
+const Sidebar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }: SidebarProps) => (
   <aside
     className={`box-border h-screen max-h-[1040px] bg-white rounded-[20px] shadow-[0px_0px_12px_0px_rgba(235,235,235,1.00)]
     inline-flex flex-col justify-between items-center
@@ -50,7 +42,7 @@ const SideBar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }: SideB
       {/* 1. 헤더 */}
       <div className={`pb-5 flex self-stretch items-center justify-between ${isFold ? 'justify-center' : ''}`}>
         <button className='cursor-pointer flex items-center justify-center'>
-          <SvgIconMainLogo />
+          <SvgIconMainLogo type='PC' />
         </button>
         <button className='cursor-pointer relative' onClick={onFoldToggle}>
           {!isFold && <SvgIconFoldLeft />}
@@ -62,51 +54,19 @@ const SideBar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }: SideB
           )}
         </button>
       </div>
-      <Separator bottom={4} />
+      <SidebarSeparator bottom={4} />
 
       {/* 2. 네비 */}
-      <div className='flex items-center gap-2.5'>
-        <button className={`flex items-center ${isFold ? 'justify-center' : 'border-l-4 border-purple-600 pl-1'} cursor-pointer w-full`}>
-          <SvgIconHome />
-          {!isFold && <span className='text-purple-600 font-body1-semibold ml-1'>대시보드</span>}
-        </button>
-      </div>
-      <div className='flex'></div>
-      <Separator top={4} bottom={4} />
+      <SidebarNavigation isFold={isFold} type='PC' />
+      <SidebarSeparator top={4} bottom={4} />
 
       {/* 3. 사이드바 패널 */}
-      <>
-        <div className={`flex gap-1 items-center cursor-pointer  ${isFold ? 'justify-center' : 'mb-3'}`}>
-          <div className='w-10 h-10 flex items-center justify-center'>
-            <SvgIconFlag />
-          </div>
-          {!isFold && <span className='text-gray-900 font-body1-semibold'>목표</span>}
-        </div>
-        <div className='flex flex-col'>
-          {!isFold &&
-            goals.map((goal) => (
-              <button key={goal} className='flex w-[230px] pl-0 pr-3 h-[43px] py-2 items-center gap-3 cursor-pointer'>
-                <span className='text-gray-500 font-body2-regular tracking-[-0.32px] hover:text-purple-600'>{goal}</span>
-              </button>
-            ))}
-        </div>
-      </>
+      <SidebarPanel isFold={isFold} goals={goals} type='PC' />
       <NewGoalButton isFold={isFold} />
     </div>
     {/* 4. 프로필 (하단) */}
-    <div className='w-full px-5 pb-6'>
-      <Separator bottom={4} />
-      <div className='flex items-center gap-3 justify-center'>
-        <SvgIconProfile />
-        {!isFold && (
-          <div className='flex flex-col items-start self-stretch'>
-            <span className='text-gray-900 font-body3-semibold'>{userNickname}</span>
-            <span className='text-gray-600 font-body3-medium'>{userEmail}</span>
-          </div>
-        )}
-      </div>
-    </div>
+    <ProfileSection isFold={isFold} userNickname={userNickname} userEmail={userEmail} type='PC' />
   </aside>
 );
 
-export default SideBar;
+export default Sidebar;

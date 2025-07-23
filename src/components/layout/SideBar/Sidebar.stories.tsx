@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import React, { useState } from 'react';
 
-import SideBar from './SideBar';
+import Sidebar from './SideBar';
 
-const meta: Meta<typeof SideBar> = {
-  title: 'atoms/SideBar',
-  component: SideBar,
+const meta: Meta<typeof Sidebar> = {
+  title: 'atoms/Sidebar',
+  component: Sidebar,
   argTypes: {
     isFold: {
       control: { type: 'boolean' },
@@ -27,7 +27,7 @@ const meta: Meta<typeof SideBar> = {
 };
 export default meta;
 
-type Story = StoryObj<typeof SideBar>;
+type Story = StoryObj<typeof Sidebar>;
 
 // Playground: 컨트롤 패널에서 모든 상태를 수동으로 조작
 export const Playground: Story = {
@@ -44,7 +44,7 @@ export const Playground: Story = {
 export const Foldable: Story = {
   render: (args) => {
     const [isFold, setIsFold] = useState(false);
-    return <SideBar {...args} isFold={isFold} onFoldToggle={() => setIsFold((prev) => !prev)} />;
+    return <Sidebar {...args} isFold={isFold} onFoldToggle={() => setIsFold((prev) => !prev)} />;
   },
   args: {
     userNickname: '테스트유저',
