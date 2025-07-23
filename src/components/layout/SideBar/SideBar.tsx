@@ -1,10 +1,10 @@
-import SvgIconFlag from '@/components/layout/Icons/Flag';
-import SvgIconFoldLeft from '@/components/layout/Icons/FoldLeft';
-import SvgIconFoldRight from '@/components/layout/Icons/FoldRight';
-import SvgIconHome from '@/components/layout/Icons/Home';
-import SvgIconMainLogo from '@/components/layout/Icons/MainLogo';
-import SvgIconPlus from '@/components/layout/Icons/Plus';
-import SvgIconProfile from '@/components/layout/Icons/Profile';
+import SvgIconFlag from 'public/icon/Flag';
+import SvgIconFoldLeft from 'public/icon/FoldLeft';
+import SvgIconFoldRight from 'public/icon/FoldRight';
+import SvgIconHome from 'public/icon/Home';
+import SvgIconMainLogo from 'public/icon/MainLogo';
+import SvgIconPlus from 'public/icon/Plus';
+import SvgIconProfile from 'public/icon/Profile';
 
 const Separator = ({ top = 0, bottom = 0 }) => (
   <div

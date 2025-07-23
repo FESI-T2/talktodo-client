@@ -1,12 +1,13 @@
 import Image from 'next/image';
 
-import MB_CompletedCharacter from '../Icons/MB_CompletedCharacter.png';
-import MB_InCompletedCharacter from '../Icons/MB_InCompletedCharacter.png';
+import MB_CompletedCharacter from 'public/img/MB_CompletedCharacter.png';
+import MB_InCompletedCharacter from 'public/img/MB_InCompletedCharacter.png';
+import PC_CompletedCharacter from 'public/img/PC_CompletedCharacter.png';
+import PC_InCompletedCharacter from 'public/img/PC_InCompletedCharacter.png';
+import TB_CompletedCharacter from 'public/img/TB_CompletedCharacter.png';
+import TB_InCompletedCharacter from 'public/img/TB_InCompletedCharacter.png';
+
 import ProgressBar from './_components/ProgressBar';
-import PC_CompletedCharacter from '../Icons/PC_CompletedCharacter.png';
-import PC_InCompletedCharacter from '../Icons/PC_InCompletedCharacter.png';
-import TB_CompletedCharacter from '../Icons/TB_CompletedCharacter.png';
-import TB_InCompletedCharacter from '../Icons/TB_InCompletedCharacter.png';
 
 interface MainHeaderProps {
   percent: number;
