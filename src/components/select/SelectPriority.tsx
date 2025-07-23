@@ -1,14 +1,8 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
-import LabelPriority from '@/components/card/common/LabelPriority/LabelPriority';
+import LabelPriority from '@/task/components/common/LabelPriority/LabelPriority';
 
-type PriorityType = 'HIGH' | 'MEDIUM' | 'LOW';
-
-export const priorityOptions = [
-  { label: 'HIGH', value: 'HIGH' },
-  { label: 'MEDIUM', value: 'MEDIUM' },
-  { label: 'LOW', value: 'LOW' },
-];
+import Dropdown from '../dropdown/Dropdown';
 
 export const DownArrowIcon = () => {
   return (
@@ -28,35 +22,31 @@ export const UpArrowIcon = () => {
   );
 };
 
+export const selectOptions = ['중요', '보통', '낮음'];
+
+type PriorityType = '중요' | '보통' | '낮음';
 interface SelectPriorityProps {
   label: string;
-  options: { label: string; value: string }[];
+  options: string[];
   onSelect: (value: string) => void;
   selectedValue?: string;
 }
 
 export default function SelectPriority({}: SelectPriorityProps) {
   const [open, setOpen] = useState(false);
-  const ref = useRef<HTMLDivElement>(null);
-  const [priority, setPriority] = useState<PriorityType>('HIGH');
-  // const [size, setSize] = useState<'S' | 'L'>('L');
+  const [priority, setPriority] = useState<PriorityType>('중요');
   const size = 'L';
 
-  useEffect(() => {
-    function handleClickOutside(event: MouseEvent) {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        setOpen(false);
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+  const handleSelect = (value: string) => {
+    setPriority(value as PriorityType);
+    setOpen(false);
+  };
 
   return (
     <>
       <button
         type='button'
-        className='flex w-[182px] h-[44px] py-[10px] px-4 justify-between items-center rounded-xl border-gray-300 border-2 bg-white'
+        className='flex w-[182px] h-[44px] py-[10px] px-4 mb-0.5 justify-between items-center rounded-xl border-gray-300 border-2 bg-white'
         onClick={() => setOpen((openState) => !openState)}
         aria-haspopup='listbox'
         aria-expanded={open}
@@ -66,22 +56,7 @@ export default function SelectPriority({}: SelectPriorityProps) {
           {!open ? <DownArrowIcon /> : <UpArrowIcon />}
         </div>
       </button>
-      {open && (
-        <div className='mt-1  w-[182px] rounded-xl bg-white shadow-lg z-10 border border-violet-200'>
-          {priorityOptions.map((opt) => (
-            <button
-              key={opt.value}
-              className='w-full flex items-center px-4 py-2 hover:bg-purple-100 rounded-xl transition'
-              onClick={() => {
-                setPriority(opt.value as PriorityType);
-                setOpen(false);
-              }}
-            >
-              <LabelPriority priority={opt.label as PriorityType} size={size} />
-            </button>
-          ))}
-        </div>
-      )}
+      {open && <Dropdown options={selectOptions} size='L' type='priority' onSelect={handleSelect} />}
     </>
   );
 }
