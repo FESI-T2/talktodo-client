@@ -1,6 +1,6 @@
 import SvgIconProfile from 'public/icon/Profile';
 
-import SidebarSeparator from './SideBarSeparator';
+import SidebarSeparator from './SidebarSeparator';
 
 interface ProfileSectionType {
   isFold: boolean;

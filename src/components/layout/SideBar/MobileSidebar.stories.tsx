@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import React, { useState } from 'react';
 
-import MobileSidebar from './MobileSideBar';
+import MobileSidebar from './MobileSidebar';
 
 const meta: Meta<typeof MobileSidebar> = {
   title: 'atoms/MobileSidebar',

@@ -5,7 +5,7 @@ import SvgIconMainLogo from 'public/icon/MainLogo';
 import SidebarNavigation from './_components/SidebarNavigation';
 import SidebarPanel from './_components/SidebarPanel';
 import ProfileSection from './_components/SidebarProfileSection';
-import SidebarSeparator from './_components/SideBarSeparator';
+import SidebarSeparator from './_components/SidebarSeparator';
 
 interface MobileSidebarProps {
   isFold: boolean;

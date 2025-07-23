@@ -6,7 +6,7 @@ import SvgIconPlus from 'public/icon/Plus';
 import SidebarNavigation from './_components/SidebarNavigation';
 import SidebarPanel from './_components/SidebarPanel';
 import ProfileSection from './_components/SidebarProfileSection';
-import SidebarSeparator from './_components/SideBarSeparator';
+import SidebarSeparator from './_components/SidebarSeparator';
 
 const NewGoalButton = ({ isFold }: { isFold: boolean }) =>
   !isFold ? (
