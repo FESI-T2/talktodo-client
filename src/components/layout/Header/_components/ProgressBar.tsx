@@ -1,20 +1,53 @@
-const ProgressBar = ({ percent = 0 }) => {
-  // 0~100으로 제한
-  const clampedPercent = Math.max(0, Math.min(100, percent));
-  // 최소, 최대 길이 보정값 설정
+import { useEffect, useState } from 'react';
+
+import Dropdown from '@/components/dropdown/Dropdown';
+import SvgIconKebab from 'public/icon/kebab';
+
+interface ProgressBarProps {
+  percent?: number;
+  type?: 'Detail' | 'Main';
+}
+const ProgressBar = ({ type = 'Main', percent = 0 }: ProgressBarProps) => {
+  // 0~100 범위 제한 및 최소/최대 너비 보정
+  const clampedPercent = Math.min(100, Math.max(0, percent));
   const minWidthPercent = 2;
   const maxWidthPercent = 100;
+  const barWidth =
+    clampedPercent === 0
+      ? minWidthPercent
+      : clampedPercent === 100
+        ? maxWidthPercent
+        : minWidthPercent + (clampedPercent / 100) * (maxWidthPercent - minWidthPercent);
 
-  // 퍼센트에 따라 width 설정
-  let barWidth = 0;
-  if (clampedPercent === 0) {
-    barWidth = minWidthPercent;
-  } else if (clampedPercent === 100) {
-    barWidth = maxWidthPercent;
-  } else {
-    // 1~99 사이: 퍼센트를 min, max 사이로 보정
-    barWidth = minWidthPercent + (clampedPercent / 100) * (maxWidthPercent - minWidthPercent);
-  }
+  const [open, setOpen] = useState(false);
+  const [windowWidth, setWindowWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 0);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // 아이콘 크기 결정
+  const getIconTypeByWidth = (width: number): 'L' | 'M' | 'S' => {
+    if (width >= 1024) return 'L';
+    if (width >= 768) return 'M';
+    return 'S'; // 0~767 모두 S
+  };
+
+  // 드롭다운 크기 결정
+  const getDropdownTypeByWidth = (width: number): 'L' | 'M' | 'S' => {
+    if (width >= 768) return 'M';
+    return 'S'; // 0~767 S
+  };
+
+  const kebabType = getIconTypeByWidth(windowWidth);
+  const dropdownType = getDropdownTypeByWidth(windowWidth);
+
+  const toggleOpen = () => setOpen(!open);
 
   return (
     <div className='flex flex-col gap-3 w-full'>
@@ -22,14 +55,33 @@ const ProgressBar = ({ percent = 0 }) => {
         <p className='text-center text-purple-300 tb:font-body2-medium font-caption-medium'>오늘의 진행률</p>
         <p className='text-center text-white tb:font-body2-bold font-body3-bold'>{clampedPercent}%</p>
       </div>
-      <div className='relative tb:h-5 h-[14px] w-full'>
-        {/* 바 배경 */}
-        <div className='absolute w-full tb:h-4.5 h-[14px] rounded-full bg-purple-700' />
-        {/* 진행률 바 */}
-        <div
-          className='absolute tb:h-4.5 h-[14px] rounded-full bg-gradient-to-r from-[#E0CDFC] to-[#FFF]'
-          style={{ width: `${barWidth}%`, zIndex: 2 }}
-        />
+      <div className='flex items-center w-full'>
+        <div className='relative flex-1'>
+          <div className='w-full tb:h-4.5 h-[14px] rounded-full bg-purple-700' />
+          <div
+            className='absolute top-0 left-0 h-full rounded-full bg-gradient-to-r from-[#E0CDFC] to-[#FFF]'
+            style={{ width: `${barWidth}%`, zIndex: 2 }}
+          />
+        </div>
+        {type === 'Detail' && (
+          <div className='flex-shrink-0 ml-3 relative flex items-center justify-center'>
+            <button
+              type='button'
+              className='flex justify-center items-center overflow-hidden relative transition-colors
+                pc:w-10 pc:h-10 pc:rounded-xl pc:hover:bg-purple-600 pc:active:bg-purple-600
+                tb:w-8 tb:h-8 tb:rounded-lg 
+                w-4 h-4 rounded-sm hover:bg-gray-100 active:bg-gray-100'
+              onClick={toggleOpen}
+            >
+              <SvgIconKebab type={kebabType} />
+            </button>
+            {open && (
+              <div className='absolute top-full pc:mt-2.5 tb:mt-1.5 mt-1 z-10'>
+                <Dropdown options={['수정하기', '삭제하기']} size={dropdownType} type='default' onSelect={(value) => console.log(value)} />
+              </div>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );
