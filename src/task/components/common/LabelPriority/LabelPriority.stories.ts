@@ -9,11 +9,11 @@ const meta: Meta<typeof LabelPriority> = {
   argTypes: {
     priority: {
       control: 'radio',
-      options: ['HIGH', 'MEDIUM', 'LOW'],
+      options: ['중요', '보통', '낮음'],
     },
     size: {
       control: 'radio',
-      options: ['S', 'L'],
+      options: ['S', 'M', 'L'],
     },
   },
 };
@@ -23,7 +23,7 @@ type Story = StoryObj<typeof LabelPriority>;
 
 export const HighPrioritySmall: Story = {
   args: {
-    priority: 'HIGH',
+    priority: '중요',
     size: 'S',
   },
 };
