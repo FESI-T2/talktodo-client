@@ -17,9 +17,9 @@ export default function RootLayout({
         <div id='toast-root' />
         <ErrorBoundary>
           <ToastContainer />
-          <QueryProvider>
-            <MSWProvider>{children}</MSWProvider>
-          </QueryProvider>
+          <MSWProvider>
+            <QueryProvider>{children}</QueryProvider>
+          </MSWProvider>
         </ErrorBoundary>
       </body>
     </html>
