@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import Dropdown from '@/components/dropdown/Dropdown';
+import useResponsiveType from '@/hooks/useResponsiveType';
 import SvgIconKebab from 'public/icon/kebab';
 
 interface ProgressBarProps {
@@ -20,32 +21,8 @@ const ProgressBar = ({ type = 'Main', percent = 0 }: ProgressBarProps) => {
         : minWidthPercent + (clampedPercent / 100) * (maxWidthPercent - minWidthPercent);
 
   const [open, setOpen] = useState(false);
-  const [windowWidth, setWindowWidth] = useState<number>(typeof window !== 'undefined' ? window.innerWidth : 0);
 
-  useEffect(() => {
-    const handleResize = () => setWindowWidth(window.innerWidth);
-
-    window.addEventListener('resize', handleResize);
-    handleResize();
-
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // 아이콘 크기 결정
-  const getIconTypeByWidth = (width: number): 'L' | 'M' | 'S' => {
-    if (width >= 1024) return 'L';
-    if (width >= 768) return 'M';
-    return 'S'; // 0~767 모두 S
-  };
-
-  // 드롭다운 크기 결정
-  const getDropdownTypeByWidth = (width: number): 'L' | 'M' | 'S' => {
-    if (width >= 768) return 'M';
-    return 'S'; // 0~767 S
-  };
-
-  const kebabType = getIconTypeByWidth(windowWidth);
-  const dropdownType = getDropdownTypeByWidth(windowWidth);
+  const { kebabType, dropdownType } = useResponsiveType();
 
   const toggleOpen = () => setOpen(!open);
 
