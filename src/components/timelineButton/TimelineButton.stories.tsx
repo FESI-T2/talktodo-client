@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import TimelineButton from './timelineButton';
+import TimelineButton from './TimelineButton';
 
 const meta: Meta<typeof TimelineButton> = {
   title: 'Atoms/TimelineButton',
