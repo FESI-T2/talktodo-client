@@ -1,6 +1,5 @@
 import BaseCard from '../../common/Card/BaseCard';
-import CheckIcon from '../../common/icons/checkIcon/CheckIcon';
-import MemoIcon from '../../common/icons/memoIcon/MemoIcon';
+import { CheckIcon, MemoIcon } from '../../common/icons';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
 import { TaskCardProps } from '../TaskCard.types';
 
