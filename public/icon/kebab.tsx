@@ -1,9 +1,19 @@
 interface iconProps {
-  type: 'pc' | 'tb' | 'mb';
+  type: 'S' | 'M' | 'L';
 }
 const SvgIconKebab = ({ type }: iconProps) => {
   const renderIconKebab = () => {
-    if (type === 'mb') {
+    if (type === 'S') {
+      return (
+        <svg xmlns='http://www.w3.org/2000/svg' width='2' height='8' viewBox='0 0 2 8' fill='none'>
+          <circle cx='1' cy='1' r='1' fill='#D5D3DA' />
+          <circle cx='1' cy='4' r='1' fill='#D5D3DA' />
+          <circle cx='1' cy='7' r='1' fill='#D5D3DA' />
+        </svg>
+      );
+    }
+
+    if (type === 'M') {
       return (
         <svg xmlns='http://www.w3.org/2000/svg' width='4' height='16' viewBox='0 0 4 16' fill='none'>
           <path
@@ -20,7 +30,9 @@ const SvgIconKebab = ({ type }: iconProps) => {
           />
         </svg>
       );
-    } else {
+    }
+
+    if (type === 'L') {
       return (
         <svg xmlns='http://www.w3.org/2000/svg' width='6' height='20' viewBox='0 0 6 20' fill='none'>
           <path

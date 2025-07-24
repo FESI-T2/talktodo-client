@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import MainHeader from './MainHeader';
 
 const meta: Meta<typeof MainHeader> = {
-  title: 'MainHeader',
+  title: 'atoms/MainHeader',
   component: MainHeader,
   argTypes: {
     percent: { control: { type: 'number', min: 0, max: 100 }, defaultValue: 0 },

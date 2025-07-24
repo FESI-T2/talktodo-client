@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import ProgressBar from './ProgressBar';
 
 const meta: Meta<typeof ProgressBar> = {
-  title: 'ProgressBar',
+  title: 'atoms/ProgressBar',
   component: ProgressBar,
   argTypes: {
     percent: { control: { type: 'number', min: 0, max: 100 }, defaultValue: 0 },
