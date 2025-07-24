@@ -25,7 +25,7 @@ const meta: Meta<typeof TaskCard> = {
   argTypes: {
     layout: {
       control: { type: 'radio' },
-      options: ['square', 'rectangle', 'timeline'],
+      options: ['square', 'rectangle', 'timeline', 'goal'],
     },
     size: {
       control: { type: 'radio' },

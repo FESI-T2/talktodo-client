@@ -1,3 +1,4 @@
+import GoalCard from './layouts/GoalCard';
 import RectangleTaskCard from './layouts/RectangleTaskCard';
 import SquareTaskCard from './layouts/SquareTaskCard';
 import TimelineTaskCard from './layouts/TimelineTaskCard';
@@ -11,5 +12,7 @@ export default function TaskCard({ task, layout }: TaskCardProps) {
       return <TimelineTaskCard task={task} layout={layout} />;
     case 'square':
       return <SquareTaskCard task={task} layout={layout} />;
+    case 'goal':
+      return <GoalCard task={task} layout={layout} />;
   }
 }
