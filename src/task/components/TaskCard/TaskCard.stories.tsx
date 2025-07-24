@@ -7,7 +7,7 @@ import TaskCard from './TaskCard';
 const baseTask: Task = {
   taskId: '123',
   taskNo: 1,
-  content: '매일 아침 산책하기',
+  content: '베리어블 1강 듣기',
   priority: '중요',
   taskDate: '2025-07-20',
   startTime: '06:30:00',
@@ -23,12 +23,15 @@ const meta: Meta<typeof TaskCard> = {
   component: TaskCard,
   tags: ['autodocs'],
   argTypes: {
-    state: {
+    layout: {
       control: { type: 'radio' },
-      options: ['default', 'hover', 'press', 'complete'],
+      options: ['square', 'rectangle', 'timeline'],
     },
-    layout: { control: { type: 'radio' }, options: ['square', 'rectangle'] },
-    size: { control: { type: 'radio' }, options: ['L', 'S'] },
+    size: {
+      control: { type: 'radio' },
+      options: ['L', 'S'],
+      if: { arg: 'layout', eq: 'square' }, // rectangle 이면 감춤
+    },
   },
 };
 
@@ -39,7 +42,6 @@ type Story = StoryObj<typeof TaskCard>;
 export const Default: Story = {
   args: {
     task: baseTask,
-    state: 'default',
     layout: 'square',
     size: 'L',
   },
@@ -60,7 +62,7 @@ export const StatesGallery: Story = {
       }}
     >
       {(['default', 'hover', 'press', 'complete'] as const).map((state) => (
-        <TaskCard key={state} {...args} state={state} />
+        <TaskCard key={state} {...args} />
       ))}
     </div>
   ),
