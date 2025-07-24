@@ -1,7 +1,7 @@
 import React from 'react';
 
 interface IconProps {
-  type: 'PC' | 'Mobile';
+  type: 'PC' | 'Mobile' | 'goal';
 }
 
 const SvgIconFlag = ({ type }: IconProps) => {
@@ -25,7 +25,7 @@ const SvgIconFlag = ({ type }: IconProps) => {
       </svg>
     );
   }
-  if (type === 'Goal') {
+  if (type === 'goal') {
     return (
       <svg width='44' height='20' viewBox='0 0 44 20' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
