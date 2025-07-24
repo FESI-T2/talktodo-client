@@ -1,12 +1,6 @@
 import Image from 'next/image';
 
-import MB_CompletedCharacter from '../Icons/MB_CompletedCharacter.png';
-import MB_InCompletedCharacter from '../Icons/MB_InCompletedCharacter.png';
 import ProgressBar from './_components/ProgressBar';
-import PC_CompletedCharacter from '../Icons/PC_CompletedCharacter.png';
-import PC_InCompletedCharacter from '../Icons/PC_InCompletedCharacter.png';
-import TB_CompletedCharacter from '../Icons/TB_CompletedCharacter.png';
-import TB_InCompletedCharacter from '../Icons/TB_InCompletedCharacter.png';
 
 interface MainHeaderProps {
   percent: number;
@@ -16,6 +10,14 @@ interface MainHeaderProps {
 }
 
 const MainHeader = ({ percent = 0, totalTodo = 0, IncompleteTodo = 0, completedTodo = 0 }: MainHeaderProps) => {
+  const isCompleted = percent === 100;
+
+  const characterImages = {
+    mb: isCompleted ? '/img/MB_CompletedCharacter.png' : '/img/MB_InCompletedCharacter.png',
+    tb: isCompleted ? '/img/TB_CompletedCharacter.png' : '/img/TB_InCompletedCharacter.png',
+    pc: isCompleted ? '/img/PC_CompletedCharacter.png' : '/img/PC_InCompletedCharacter.png',
+  };
+
   const todoItems = [
     { value: totalTodo, label: '총 일정', w: '' },
     { value: IncompleteTodo, label: '미완료', w: '' },
@@ -23,26 +25,14 @@ const MainHeader = ({ percent = 0, totalTodo = 0, IncompleteTodo = 0, completedT
   ];
 
   return (
-    <div
-      className='flex items-start justify-between flex-col 
-      pc:w-[1168px] pc:pt-7 pc:px-11 pc:pb-9 
-      tb:w-[600px] tb:py-6 tb:px-8
-      w-[343px] pt-6 px-6 pb-5
-      rounded-[40px] bg-purple-500'
-    >
+    <div className='flex items-start justify-between flex-col pc:w-[1168px] pc:pt-7 pc:px-11 pc:pb-9 tb:w-[600px] tb:py-6 tb:px-8 w-[343px] pt-6 px-6 pb-5 rounded-[40px] bg-purple-500'>
       <div className='flex pc:gap-11  tb:gap-3'>
-        <div
-          className='
-        flex flex-col 
-        pc:w-[860px] tb:w-[384px] w-[295px] 
-        pc:gap-[43px] tb:gap-[24px] gap-3
-        tb:static relative'
-        >
+        <div className='flex flex-col pc:w-[860px] tb:w-[384px] w-[295px] pc:gap-[43px] tb:gap-[24px] gap-3 tb:static relative'>
           <div className='flex justify-between'>
             <p className='pc:font-title1-bold tb:font-title2-bold font-title3-bold text-purple-300'>
               오늘
               <br />
-              {percent === 100 ? (
+              {isCompleted ? (
                 <span className='pc:font-title1-bold tb:font-title2-bold font-title3-bold text-white'>할 일을 모두 완료했어요!</span>
               ) : (
                 <>
@@ -54,8 +44,10 @@ const MainHeader = ({ percent = 0, totalTodo = 0, IncompleteTodo = 0, completedT
 
             {/* MB(768px 미만) */}
             <Image
-              src={percent !== 100 ? MB_InCompletedCharacter : MB_CompletedCharacter}
-              alt=''
+              src={characterImages.mb}
+              width={180}
+              height={184}
+              alt='mobile character'
               className='block tb:hidden mb:absolute right-0 w-[80px] h-[82.286px]'
             />
 
@@ -68,19 +60,19 @@ const MainHeader = ({ percent = 0, totalTodo = 0, IncompleteTodo = 0, completedT
               ))}
             </div>
           </div>
+
           <ProgressBar percent={percent} />
         </div>
+
         <div data-size='L' data-state='Default' className='flex justify-end items-end relative overflow-hidden'>
           {/* PC(1024px 이상) */}
-          <Image
-            src={percent !== 100 ? PC_InCompletedCharacter : PC_CompletedCharacter}
-            alt=''
-            className='hidden pc:block w-[180px] h-[166px]'
-          />
+          <Image src={characterImages.pc} width={140} height={144} alt='pc character' className='hidden pc:block w-[180px] h-[166px]' />
           {/* TB(768px 이상 1024px 미만) */}
           <Image
-            src={percent !== 100 ? TB_InCompletedCharacter : TB_CompletedCharacter}
-            alt=''
+            src={characterImages.tb}
+            width={80}
+            height={82.3}
+            alt='tablet character'
             className='hidden tb:block pc:hidden w-[140px] h-[144px]'
           />
         </div>

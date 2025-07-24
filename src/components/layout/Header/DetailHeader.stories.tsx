@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import DetailHeader from './DetailHeader';
 
 const meta: Meta<typeof DetailHeader> = {
-  title: 'DetailHeader',
+  title: 'atoms/DetailHeader',
   component: DetailHeader,
   argTypes: {
     percent: { control: { type: 'number', min: 0, max: 100 }, defaultValue: 0 },
