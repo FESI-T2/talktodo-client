@@ -43,7 +43,13 @@ const MainHeader = ({ percent = 0, totalTodo = 0, IncompleteTodo = 0, completedT
             </p>
 
             {/* MB(768px 미만) */}
-            <Image src={characterImages.mb} alt='' className='block tb:hidden mb:absolute right-0 w-[80px] h-[82.286px]' />
+            <Image
+              src={characterImages.mb}
+              width={180}
+              height={184}
+              alt='mobile character'
+              className='block tb:hidden mb:absolute right-0 w-[80px] h-[82.286px]'
+            />
 
             <div className='hidden pc:flex items-center gap-5'>
               {todoItems.map((item) => (
@@ -60,9 +66,15 @@ const MainHeader = ({ percent = 0, totalTodo = 0, IncompleteTodo = 0, completedT
 
         <div data-size='L' data-state='Default' className='flex justify-end items-end relative overflow-hidden'>
           {/* PC(1024px 이상) */}
-          <Image src={characterImages.pc} alt='' className='hidden pc:block w-[180px] h-[166px]' />
+          <Image src={characterImages.pc} width={140} height={144} alt='pc character' className='hidden pc:block w-[180px] h-[166px]' />
           {/* TB(768px 이상 1024px 미만) */}
-          <Image src={characterImages.tb} alt='' className='hidden tb:block pc:hidden w-[140px] h-[144px]' />
+          <Image
+            src={characterImages.tb}
+            width={80}
+            height={82.3}
+            alt='tablet character'
+            className='hidden tb:block pc:hidden w-[140px] h-[144px]'
+          />
         </div>
       </div>
 
