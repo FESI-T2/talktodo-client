@@ -1,7 +1,7 @@
 const SvgIconCompleted = () => {
   return (
     <svg xmlns='http://www.w3.org/2000/svg' width='180' height='186' viewBox='0 0 180 186' fill='none'>
-      <g clip-path='url(#clip0_798_21521)'>
+      <g clipPath='url(#clip0_798_21521)'>
         <g filter='url(#filter0_i_798_21521)'>
           <circle cx='19.9749' cy='19.9749' r='19.9749' transform='matrix(-1 0 0 1 71.9502 69)' fill='url(#paint0_linear_798_21521)' />
         </g>
