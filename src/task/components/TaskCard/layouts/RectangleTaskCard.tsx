@@ -9,7 +9,7 @@ export default function RectangleTaskCard({ task, layout = 'rectangle' }: TaskCa
   return (
     <BaseCard layout={layout}>
       <div className='flex items-start gap-1.5 self-stretch'>
-        <div className='flex flex-col items-start gap-1.5 grow shrink-0 basis-0 '>
+        <div className='flex flex-col items-start gap-1.5 grow shrink-0 basis-0'>
           <div className='text-gray-900 font-body2-medium-tight'>{content}</div>
           <div className='text-gray-400 font-caption-medium'>{goal}</div>
         </div>
