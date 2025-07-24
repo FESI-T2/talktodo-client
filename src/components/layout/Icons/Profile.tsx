@@ -3,7 +3,7 @@ import React from 'react';
 const SvgIconProfile = () => {
   return (
     <svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
-      <g clip-path='url(#clip0_662_5597)'>
+      <g clipPath='url(#clip0_662_5597)'>
         <rect width='40' height='40' rx='20' fill='#D5D3DA' />
         <rect x='7.4292' y='29.1785' width='28.1835' height='27.4286' transform='rotate(-45 7.4292 29.1785)' fill='#BBB8C3' />
         <path
