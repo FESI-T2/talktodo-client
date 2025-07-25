@@ -2,9 +2,9 @@ import BaseCard from '../../common/Card/BaseCard';
 import CheckIcon from '../../common/icons/checkIcon/CheckIcon';
 import MemoIcon from '../../common/icons/memoIcon/MemoIcon';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
-import { TaskCardProps } from '../TaskCard.types';
+import { TaskBasedProps } from '../TaskCard.types';
 
-export default function RectangleTaskCard({ task, layout = 'rectangle' }: TaskCardProps) {
+export default function RectangleTaskCard({ task, layout = 'rectangle' }: TaskBasedProps) {
   const { content, priority, goal, isDone } = task;
   return (
     <BaseCard layout={layout}>

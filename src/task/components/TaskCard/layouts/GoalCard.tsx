@@ -2,12 +2,15 @@ import SvgIconFlag from 'public/icon/Flag';
 import SvgIconKebab from 'public/icon/kebab';
 
 import BaseCard from '../../common/Card/BaseCard';
+// Update the import path below if the actual file is named differently or located elsewhere
+import GoalProgressBar from '../../common/GoalProgressBar/GoalProgressBar';
+import { ProgressViewModel } from '../../common/GoalProgressBar/hooks/ProgressViewModel';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
-import { TaskCardProps } from '../TaskCard.types';
+import { GoalBasedProps } from '../TaskCard.types';
 
-// TODO:task가 안들어가고 다른게 들어가지 않을까?
-export default function GoalCard({ task, layout = 'goal' }: TaskCardProps) {
-  const { priority } = task;
+export default function GoalCard({ goal, layout = 'goal' }: GoalBasedProps) {
+  const { priority } = goal;
+  const Progress = new ProgressViewModel(2, 4);
   return (
     <BaseCard layout={layout}>
       <div className='flex flex-col items-start gap-8 grow shrink-0 basis-0'>
@@ -29,7 +32,7 @@ export default function GoalCard({ task, layout = 'goal' }: TaskCardProps) {
         </div>
         <div className='flex items-end gap-8 self-stretch justify-between'>
           <div className='flex flex-col items-start gap-2'>
-            <progress></progress>
+            <GoalProgressBar viewModel={Progress} />
           </div>
           <div className='flex items-center gap-2'>
             <div className='flex w-10 flex-col items-center'>
