@@ -3,7 +3,7 @@
  */
 export interface Goal {
   id: string;
-  title: string;
+  content: string;
   priority: '중요' | '보통' | '낮음';
   doneCount: number;
   totalCount: number;
@@ -16,7 +16,7 @@ export interface Goal {
 export const goals: Goal[] = [
   {
     id: 'goal_001',
-    title: '자바스크립트로 웹 서비스 만들기',
+    content: '자바스크립트로 웹 서비스 만들기',
     priority: '중요',
     doneCount: 0,
     totalCount: 2,
@@ -25,7 +25,7 @@ export const goals: Goal[] = [
   },
   {
     id: 'goal_002',
-    title: '매일 블로그 글 작성하기',
+    content: '매일 블로그 글 작성하기',
     priority: '보통',
     doneCount: 5,
     totalCount: 30,
@@ -34,7 +34,7 @@ export const goals: Goal[] = [
   },
   {
     id: 'goal_003',
-    title: '기초 영어 회화 마스터하기',
+    content: '기초 영어 회화 마스터하기',
     priority: '낮음',
     doneCount: 10,
     totalCount: 20,
