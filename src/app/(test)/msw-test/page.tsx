@@ -1,6 +1,6 @@
 'use client';
 
-import MSWTestComponent from '@/shared/components/MSWTestComponent';
+import MSWTestComponent from '@/shared/Provider/MSWTestComponent';
 
 const MSWTestPage = () => {
   if (process.env.NODE_ENV !== 'development') {
