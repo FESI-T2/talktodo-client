@@ -1,3 +1,6 @@
+import useModal from '@/shared/hooks/useModal';
+
+import Close from '../../Icons/Close/Close';
 import GoalImg from '../../Icons/GoalImg/GoalImg';
 
 interface HeaderProps {
@@ -6,13 +9,20 @@ interface HeaderProps {
 }
 
 const Header = ({ title, goal }: HeaderProps) => {
+  const { closeModal } = useModal();
+
   return (
-    <header>
-      <h1 className='font-bold text-2xl mb-3'>{title}</h1>
-      <p className='font-body3-semibold text-[var(--color-gray-500)] flex gap-2 items-center mb-6 '>
+    <header className='pb-6 base-horizon'>
+      <div className='flex justify-between items-center mb-3'>
+        <h1 className='font-bold text-2xl '>{title}</h1>
+        <button type='button' className='cursor-pointer' onClick={closeModal}>
+          <Close />
+        </button>
+      </div>
+      <div className='font-body3-semibold text-[var(--color-gray-500)] flex gap-2 items-center  '>
         <GoalImg />
         {goal}
-      </p>
+      </div>
     </header>
   );
 };

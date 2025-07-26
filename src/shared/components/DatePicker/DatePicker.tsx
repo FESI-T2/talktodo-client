@@ -28,7 +28,7 @@ const DatePicker = ({ setDate }: DatePickerProps) => {
   };
 
   return (
-    <div className='py-6 px-[27.5px]  w-80 bg-white rounded-3xl h-fit'>
+    <div className='py-6 px-[27.5px]  w-80 bg-white rounded-3xl h-fit  shadow-[0_0_40px_0_rgba(52,35,101,0.15)] '>
       <DayPicker
         style={
           {

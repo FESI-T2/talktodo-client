@@ -11,15 +11,15 @@ interface ModalProps extends React.HTMLAttributes<HTMLFormElement> {
 
 const Form = ({ children, ...props }: ModalProps) => {
   return (
-    <form {...props} className='bg-white py-10 px-8 rounded-[40px] max-w-[480px] w-[90%]'>
+    <form {...props} className='bg-white py-10 px-8 rounded-[40px]   '>
       {children}
     </form>
   );
 };
 
 Form.Header = Header;
-Form.MemoContent = MemoField;
+Form.MemoField = MemoField;
 Form.FormActions = FormActions;
-Form.TaskContent = TaskField;
+Form.TaskField = TaskField;
 Form.displayName = 'Form';
 export default Form;

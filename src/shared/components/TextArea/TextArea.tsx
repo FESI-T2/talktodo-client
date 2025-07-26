@@ -10,7 +10,7 @@ const TextArea = ({ className, ...props }: TextAreaProps) => {
     <textarea
       {...props}
       className={clsx(
-        'p-4 block  rounded-[20px] w-full outline-[var(--color-gray-100)] h-[192px] resize-none outline  focus:outline-[var(--color-purple-500)] bg-white',
+        'p-4 block  rounded-[20px] w-full outline-[var(--color-gray-300)] h-[192px] resize-none outline  focus:outline-[var(--color-purple-500)] bg-white',
         className
       )}
     />

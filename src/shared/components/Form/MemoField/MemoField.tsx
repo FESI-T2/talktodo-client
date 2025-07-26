@@ -3,13 +3,13 @@ import LabelPriority, { PriorityType } from '@/task/components/common/LabelPrior
 import TextArea from '../../TextArea/TextArea';
 import SubText from '../SubText/SubText';
 
-interface MemoFieldProps {
+interface MemoFieldProps extends React.HTMLAttributes<HTMLTextAreaElement> {
   day: string;
   priority: PriorityType;
   repeatInterval: string;
 }
 
-const MemoField = ({ day, priority, repeatInterval }: MemoFieldProps) => {
+const MemoField = ({ day, priority, repeatInterval, ...props }: MemoFieldProps) => {
   const infoItems = {
     날짜: day,
     우선순위: priority,
@@ -22,7 +22,7 @@ const MemoField = ({ day, priority, repeatInterval }: MemoFieldProps) => {
 
   return (
     <div>
-      <div className='font-body3-semibold py-6 border-y-[1px] border-[var(--color-gray-100)] mb-6'>
+      <div className='font-body3-semibold  base-horizon'>
         <div className='flex gap-[24px]'>
           {Object.entries(infoItems).map(([key, value], idx) => (
             <div key={idx} className=''>
@@ -33,7 +33,7 @@ const MemoField = ({ day, priority, repeatInterval }: MemoFieldProps) => {
         </div>
       </div>
       <SubText text='메모'>
-        <TextArea />
+        <TextArea {...props} />
       </SubText>
     </div>
   );

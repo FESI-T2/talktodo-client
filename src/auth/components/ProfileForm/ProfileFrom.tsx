@@ -2,7 +2,6 @@ import { LoginOption } from '@/auth/types';
 import Button from '@/shared/components/Button/Button';
 import SocialIcon from '@/shared/components/Icons/SocialIcon/SocialIcon';
 import ImageUpload, { ImageUploadProps } from '@/shared/components/ImageUpload/ImageUpload';
-
 import Input from '@/shared/components/Input/Input';
 
 interface ProfileFromProps extends React.HTMLAttributes<HTMLFormElement> {
@@ -35,6 +34,7 @@ const ProfileUpload = ({ imageRef, className }: ImageUploadProps) => {
 interface InputProps extends React.HTMLAttributes<HTMLInputElement> {
   content: string;
 }
+
 const UserInfo = ({ content, ...props }: InputProps) => {
   return (
     <div className='mb-6'>

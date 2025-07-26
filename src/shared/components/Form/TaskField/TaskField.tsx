@@ -1,25 +1,30 @@
 'use client';
+import SelectPriority from '@/components/select/SelectPriority';
+import { PriorityType } from '@/shared/types/prioity';
 import { DateSelectorProps } from '@/shared/types/props';
 
 import DateSelector from '../../DateSelector/DateSelector';
 import Input from '../../Input/Input';
 import SubText from '../SubText/SubText';
 
-// 차후에 추가
-// interface TaskFieldProps extends DateSelectorProps {}
+type TaskFieldProps = DateSelectorProps &
+  React.HTMLAttributes<HTMLInputElement> & {
+    priority: PriorityType;
+    setPriority: React.Dispatch<React.SetStateAction<PriorityType>>;
+  };
 
-const TaskField = ({ date, setDate }: DateSelectorProps) => {
+const TaskField = ({ date, setDate, priority, setPriority, ...props }: TaskFieldProps) => {
   return (
     <>
       <SubText text='할 일'>
-        <Input />
+        <Input {...props} />
       </SubText>
       <div className='flex gap-4 '>
         <SubText text='날짜' className='w-1/2 '>
           <DateSelector date={date} setDate={setDate} />
         </SubText>
-        <SubText text='우선 순위'>
-          <Input />
+        <SubText text='우선 순위' className='w-1/2 '>
+          <SelectPriority label='우선 순위' options={['중요', '보통', '낮음']} onSelect={setPriority} selectedValue={priority} />
         </SubText>
       </div>
     </>
