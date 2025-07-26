@@ -3,7 +3,7 @@ import React from 'react';
 const GoalImg = () => {
   return (
     <div>
-      <img src={'/public/icon/goal.svg'} alt='Goal Icon' />
+      <img src={'/icon/goal.svg'} alt='Goal Icon' />
     </div>
   );
 };

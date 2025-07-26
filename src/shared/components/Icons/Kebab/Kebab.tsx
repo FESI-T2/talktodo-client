@@ -6,7 +6,7 @@ interface KebabProps {
 }
 
 const Kebab = ({ className }: KebabProps) => {
-  return <img className={clsx(className)} src={'/public/icon/kebab.svg'} alt='Kebab' />;
+  return <img className={clsx(className)} src={'/icon/kebab.svg'} alt='Kebab' />;
 };
 
 export default Kebab;
