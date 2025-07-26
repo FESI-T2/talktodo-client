@@ -27,7 +27,7 @@ const FormActions = ({ createAction, editAction, deleteAction }: FormActionsProp
       </button>
       <div className='flex justify-end gap-4'>
         <Kebab className='block tb:hidden cursor-pointer' />
-        <Button onClick={editAction} variant='secondary' className='hidden tb:block' type='submit'>
+        <Button onClick={editAction} variant='secondary' className='hidden tb:flex' type='submit'>
           수정하기
         </Button>
         <Button onClick={createAction} variant='primary' type='submit'>

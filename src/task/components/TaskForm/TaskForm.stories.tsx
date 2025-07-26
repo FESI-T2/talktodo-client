@@ -4,7 +4,7 @@ import TaskForm from './TaskForm';
 
 const meta: Meta<typeof TaskForm> = {
   component: TaskForm,
-  title: 'organisms/form/TaskForm',
+  title: 'organisms/forms/TaskForm',
   tags: ['autodocs'],
   argTypes: {},
 };
