@@ -4,8 +4,7 @@ import { useEffect } from 'react';
 
 import { login } from '@/app/actions/auth/service';
 import { setAccessToken } from '@/app/actions/auth/token';
-
-import { useToast } from '../useToast';
+import { useToast } from '@/shared/hooks/useToast';
 
 const useKakaoLogin = () => {
   const Toast = useToast();

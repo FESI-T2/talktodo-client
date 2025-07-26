@@ -3,7 +3,7 @@ import React from 'react';
 import MemoForm from '@/task/components/MemoForm/MemoForm';
 import TaskForm from '@/task/components/TaskForm/TaskForm';
 
-import { modalSubject } from '../components/modal/ModalSubject';
+import { modalSubject } from '../components/Modal/ModalSubject';
 
 const useModal = () => {
   const openTaskForm = () => {
