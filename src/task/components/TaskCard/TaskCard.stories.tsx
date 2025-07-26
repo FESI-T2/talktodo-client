@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { goals } from '@/mocks/todoMockData/Goals';
-import { tasks } from '@/mocks/todoMockData/todos';
+import { goals } from '@/shared/mocks/todoMockData/Goals';
+import { tasks } from '@/shared/mocks/todoMockData/todos';
 
 import TaskCard from './TaskCard';
 

@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 import SocialIcon from '../../../shared/components/Icons/SocialIcon/SocialIcon';
 import { LoginOption } from '../../types';

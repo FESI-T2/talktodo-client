@@ -3,7 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import useMount from '@/hooks/useMount';
+import useMount from '@/shared/hooks/useMount';
 
 import Toast from './Toast';
 import { ToastObserver, Toast as ToastType, ToastSubject } from './ToastSubject';
