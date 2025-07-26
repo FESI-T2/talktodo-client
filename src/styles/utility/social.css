@@ -1,0 +1,11 @@
+@layer utilities {
+  .kakao {
+    @apply bg-[#fee500] text-[color:var(--color-gray-900)] font-medium;
+  }
+  .naver {
+    @apply bg-[#00de63] text-white font-semibold;
+  }
+  .google {
+    @apply bg-white text-[color:var(--color-gray-900)] font-medium;
+  }
+}

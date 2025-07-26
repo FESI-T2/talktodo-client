@@ -1,3 +1,4 @@
+'use client';
 // components/modal/ModalContainer.tsx
 import React, { useEffect, useState } from 'react';
 
@@ -33,7 +34,6 @@ const ModalContainer: React.FC = () => {
       onClose={handleClose}
       disableBackdropClick={modalCurrentState.options?.disableBackdropClick}
       className={modalCurrentState.options?.className}
-      closeButton={modalCurrentState.options?.closeButton}
     >
       {modalCurrentState.content} {/* ModalSubject에서 받은 콘텐츠 렌더링 */}
     </Modal>

@@ -69,9 +69,6 @@ class ModalSubject {
     this.notify();
   }
 
-  /**
-   * 모달을 닫습니다.
-   */
   close() {
     if (this.state.isOpen) {
       this.state.options?.onClose?.(); // onClose 콜백 호출
@@ -84,18 +81,9 @@ class ModalSubject {
     }
   }
 
-  /**
-   * 현재 모달 상태를 반환합니다.
-   */
   getState(): ModalState {
     return this.state;
   }
 }
 
-// 싱글턴 패턴으로 ModalSubject 인스턴스를 생성하여 전역에서 공유
-/**
- * 싱글턴 패턴 :
- * 생성자가 여러 차례 호출되더라도 실제로 생성되는 객체는 하나이고
- * 최초 생성 이후에 호출된 생성자는 최초의 생성자가 생성한 객체를 리턴
- */
 export const modalSubject = new ModalSubject();
