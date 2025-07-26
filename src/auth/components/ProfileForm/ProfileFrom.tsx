@@ -1,11 +1,9 @@
-import React from 'react';
-
-import Button from '@/auth/components/Button/Button';
 import { LoginOption } from '@/auth/types';
+import Button from '@/shared/components/Button/Button';
+import SocialIcon from '@/shared/components/Icons/SocialIcon/SocialIcon';
+import ImageUpload, { ImageUploadProps } from '@/shared/components/ImageUpload/ImageUpload';
 
-import ImageUpload, { ImageUploadProps } from './ImageUpload/ImageUpload';
-import Input from './Input/Input';
-import SocialIcon from './SocialIcon/SocialIcon';
+import Input from '@/shared/components/Input/Input';
 
 interface ProfileFromProps extends React.HTMLAttributes<HTMLFormElement> {
   children?: React.ReactNode;

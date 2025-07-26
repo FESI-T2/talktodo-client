@@ -3,6 +3,8 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
+import ImageIcon from '../Icons/ImageIcon/ImageIcon';
+
 export interface ImageUploadProps {
   className?: string;
   imageRef: React.RefObject<HTMLInputElement | null>;
@@ -25,6 +27,7 @@ const ImageUpload = ({ className, imageRef }: ImageUploadProps) => {
     };
     reader.readAsDataURL(file);
   };
+
   return (
     <div className={clsx('flex items-center justify-center flex-col relative mb-[44px]', className)}>
       <Image
@@ -39,7 +42,7 @@ const ImageUpload = ({ className, imageRef }: ImageUploadProps) => {
         className='bottom-0 h-6 py-4 px-2 border bg-white rounded-full flex gap-1 items-center border-[var(--color-gray-300)] cursor-pointer absolute'
         type='button'
       >
-        <img src={'/icon/image.svg'} alt='아이콘' />
+        <ImageIcon />
         <div className=' flex-1 '>편집하기</div>
       </button>
       <input ref={imageRef} type='file' accept='image/*' onChange={handleChange} className='hidden' />
