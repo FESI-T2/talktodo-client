@@ -4,7 +4,7 @@ import { clsx } from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-import Overlay from './Overlay/Overlay';
+import Overlay from '@/components/modal/Overlay/Overlay';
 
 // Modal 컴포넌트의 props 인터페이스 정의
 interface ModalProps {
