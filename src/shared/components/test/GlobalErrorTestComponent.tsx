@@ -2,7 +2,7 @@
 
 import { useMutation } from '@tanstack/react-query';
 
-import APIBuilder from '@/lib/api/apiBuilder';
+import APIBuilder from '@/shared/lib/api/apiBuilder';
 
 // 전역 에러 핸들링 테스팅
 
