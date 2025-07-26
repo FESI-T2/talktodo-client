@@ -3,14 +3,13 @@ import { clsx } from 'clsx';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
-import ImageIcon from '../Icons/ImageIcon/ImageIcon';
-
-export interface ImageUploadProps {
+import ImageIcon from '@/shared/components/Icons/ImageIcon/ImageIcon';
+export interface ProfileUploadProps {
   className?: string;
   imageRef: React.RefObject<HTMLInputElement | null>;
 }
 
-const ImageUpload = ({ className, imageRef }: ImageUploadProps) => {
+const ProfileUpload = ({ imageRef, className }: ProfileUploadProps) => {
   const [preview, setPreview] = useState<string | null>(null);
 
   const handleClick = () => {
@@ -50,4 +49,4 @@ const ImageUpload = ({ className, imageRef }: ImageUploadProps) => {
   );
 };
 
-export default ImageUpload;
+export default ProfileUpload;

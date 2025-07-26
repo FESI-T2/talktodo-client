@@ -3,8 +3,9 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 
-import ProfileFrom from '@/auth/components/ProfileForm/ProfileFrom';
 import { validation, FormData } from '@/auth/utils/validation';
+
+import AuthForm from '../AuthForm/AuthForm';
 
 const RegisterForm = () => {
   const {
@@ -28,13 +29,13 @@ const RegisterForm = () => {
 
   return (
     <div className='w-full h-full flex items-center justify-center'>
-      <ProfileFrom onSubmit={handleSubmit(onSubmit)}>
-        <ProfileFrom.Title>{'회원 가입'}</ProfileFrom.Title>
-        <ProfileFrom.ProfileUpload imageRef={imageRef} />
-        <ProfileFrom.Info content={'이름'} {...register('nickname')} />
-        <ProfileFrom.SocialInfo content={'이메일'} variant={'kakao'} {...register('email')} />
-        <ProfileFrom.Button />
-      </ProfileFrom>
+      <AuthForm onSubmit={handleSubmit(onSubmit)}>
+        <AuthForm.Title title={'회원 가입'} />
+        <AuthForm.ProfileUpload imageRef={imageRef} />
+        <AuthForm.UserInfo {...register('nickname')} />
+        <AuthForm.SocialInfo variant={'kakao'} {...register('email')} />
+        <AuthForm.Button />
+      </AuthForm>
     </div>
   );
 };
