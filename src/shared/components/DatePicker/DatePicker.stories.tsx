@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { DateRange } from 'react-day-picker';
 
 import DatePicker from './DatePicker';
 
 const meta: Meta<typeof DatePicker> = {
   component: DatePicker,
-  title: 'DatePicker',
+  title: 'atoms/DatePicker',
   tags: ['autodocs'],
   argTypes: {},
 };
@@ -16,8 +16,15 @@ type Story = StoryObj<typeof DatePicker>;
 
 export const Default: Story = {
   render: () => {
-    const [date, setDate] = useState<DateRange>();
+    const [date, setDate] = useState<DateRange>({
+      from: new Date(),
+      to: new Date(),
+    });
 
-    return <DatePicker selected={date} onSelect={setDate} mode='range' />;
+    useEffect(() => {
+      console.log('DatePicker mounted with initial date:', date);
+    }, [date]);
+
+    return <DatePicker setDate={setDate} />;
   },
 };
