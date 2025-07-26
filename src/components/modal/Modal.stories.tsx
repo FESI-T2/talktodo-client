@@ -31,10 +31,6 @@ const meta: Meta<typeof Modal> = {
       control: 'text',
       description: '모달 콘텐츠 컨테이너에 적용될 Tailwind CSS 클래스',
     },
-    closeButton: {
-      control: 'boolean',
-      description: '닫기 버튼 표시 여부',
-    },
   },
   // Modal 컴포넌트를 직접 렌더링합니다.
   render: (args) => (
@@ -110,7 +106,6 @@ export const WithoutCloseButton: Story = {
         <p>이 모달에는 닫기 버튼이 없습니다. Esc 키를 눌러 닫으세요.</p>
       </div>
     ),
-    closeButton: false,
     disableBackdropClick: true,
     onClose: () => console.log('모달 닫기 요청 (스토리북)'),
   },
