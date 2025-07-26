@@ -1,15 +1,14 @@
 import BaseCard from '../../common/Card/BaseCard';
-import CheckIcon from '../../common/icons/checkIcon/CheckIcon';
-import MemoIcon from '../../common/icons/memoIcon/MemoIcon';
+import { CheckIcon, MemoIcon } from '../../common/icons';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
-import { TaskCardProps } from '../TaskCard.types';
+import { TaskBasedProps } from '../TaskCard.types';
 
-export default function RectangleTaskCard({ task, layout = 'rectangle' }: TaskCardProps) {
+export default function RectangleTaskCard({ task, layout = 'rectangle' }: TaskBasedProps) {
   const { content, priority, goal, isDone } = task;
   return (
     <BaseCard layout={layout}>
       <div className='flex items-start gap-1.5 self-stretch'>
-        <div className='flex flex-col items-start gap-1.5 grow shrink-0 basis-0 '>
+        <div className='flex flex-col items-start gap-1.5 grow shrink-0 basis-0'>
           <div className='text-gray-900 font-body2-medium-tight'>{content}</div>
           <div className='text-gray-400 font-caption-medium'>{goal}</div>
         </div>

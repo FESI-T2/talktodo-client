@@ -1,10 +1,9 @@
 import BaseCard from '../../common/Card/BaseCard';
-import CheckIcon from '../../common/icons/checkIcon/CheckIcon';
-import MemoIcon from '../../common/icons/memoIcon/MemoIcon';
+import { CheckIcon, MemoIcon } from '../../common/icons';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
-import { TaskCardProps } from '../TaskCard.types';
+import { TaskBasedProps } from '../TaskCard.types';
 
-export default function SquareTaskCard({ task, layout = 'square' }: TaskCardProps) {
+export default function SquareTaskCard({ task, layout = 'square' }: TaskBasedProps) {
   const { content, priority, goal, isDone } = task;
 
   return (
