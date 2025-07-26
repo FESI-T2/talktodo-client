@@ -1,16 +1,16 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import GoalImg from './GoalImg';
+import Calendar from './Calendar';
 
-const meta: Meta<typeof GoalImg> = {
-  component: GoalImg,
-  title: 'icons/GoalImg',
+const meta: Meta<typeof Calendar> = {
+  component: Calendar,
+  title: 'icons/Calendar',
   tags: ['autodocs'],
   argTypes: {},
 };
 export default meta;
 
-type Story = StoryObj<typeof GoalImg>;
+type Story = StoryObj<typeof Calendar>;
 
 export const Default: Story = {
   args: {},

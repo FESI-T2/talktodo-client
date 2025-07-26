@@ -4,7 +4,7 @@ import Delete from './Delete';
 
 const meta: Meta<typeof Delete> = {
   component: Delete,
-  title: 'Delete',
+  title: 'icons/Delete',
   tags: ['autodocs'],
   argTypes: {},
 };
