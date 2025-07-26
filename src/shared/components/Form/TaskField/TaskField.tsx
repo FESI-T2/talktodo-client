@@ -1,10 +1,10 @@
 'use client';
-import SelectPriority from '@/components/select/SelectPriority';
 import { PriorityType } from '@/shared/types/prioity';
 import { DateSelectorProps } from '@/shared/types/props';
 
 import DateSelector from '../../DateSelector/DateSelector';
 import Input from '../../Input/Input';
+import SelectPriority from '../../select/SelectPriority';
 import SubText from '../SubText/SubText';
 
 type TaskFieldProps = DateSelectorProps &
