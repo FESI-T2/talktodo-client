@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { clsx } from 'clsx';
 
 import { LoginOption } from '../../../types';
 import { GoogleIcon, KakaoIcon, NaverIcon } from '../../Icon/index';

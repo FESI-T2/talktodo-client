@@ -1,6 +1,6 @@
 'use client';
 
-import useKakaoLogin from '@/hooks/auth/useKakaoLogin';
+import useKakaoLogin from '@/shared/hooks/auth/useKakaoLogin';
 
 const KakaoLoginPage = () => {
   useKakaoLogin();

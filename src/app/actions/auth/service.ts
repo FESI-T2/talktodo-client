@@ -1,7 +1,7 @@
 'use server';
 
 import authApi from '@/lib/auth/authApi';
-import { KakaoLoginResponse } from '@/types/auth/response/index';
+import { KakaoLoginResponse } from '@/shared/types/auth/response';
 
 export const login = async () => {
   const {

@@ -1,10 +1,11 @@
-import '../styles/globals.css';
+// import '../styles/globals.css';
+import '../shared/styles/globals.css';
 
-import ErrorBoundary from '@/components/error/ErrorBoundary';
-import QueryProvider from '@/components/QueryProvider';
-import ToastContainer from '@/components/toast/ToastContainer';
-import MSWProvider from '@/mocks/MSWProvider';
-import pretendard from '@/styles/pretendard';
+import ErrorBoundary from '@/shared/components/error/ErrorBoundary';
+import QueryProvider from '@/shared/components/QueryProvider';
+import ToastContainer from '@/shared/components/toast/ToastContainer';
+import MSWProvider from '@/shared/mocks/MSWProvider';
+import pretendard from '@/shared/styles/pretendard';
 
 export default function RootLayout({
   children,

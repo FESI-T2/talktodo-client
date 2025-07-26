@@ -1,6 +1,6 @@
 import { cva, VariantProps } from 'class-variance-authority';
 
-import { cn } from '@/utils/cn';
+import { cn } from '@/shared/utils/cn';
 
 export const card = cva('flex bg-white  border border-transparent hover:border hover:border-purple-300 active:opacity-50', {
   variants: {
