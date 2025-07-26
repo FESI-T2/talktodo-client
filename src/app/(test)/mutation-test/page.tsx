@@ -1,6 +1,6 @@
 'use client';
 
-import GlobalErrorTestComponent from '@/shared/components/test/GlobalErrorTestComponent';
+import GlobalErrorTestComponent from '@/shared/components/error/test/GlobalErrorTestComponent';
 
 const ErrorTestPage = () => {
   if (process.env.NODE_ENV !== 'development') {

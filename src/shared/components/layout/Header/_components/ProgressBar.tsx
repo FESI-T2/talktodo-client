@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import Dropdown from '@/shared/components/dropdown/Dropdown';
+import Dropdown from '@/shared/components/Dropdown/Dropdown';
 import useResponsiveType from '@/shared/hooks/useResponsiveType';
 import SvgIconKebab from 'public/icon/kebab';
 

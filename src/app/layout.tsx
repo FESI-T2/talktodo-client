@@ -2,9 +2,9 @@
 import '../shared/styles/globals.css';
 
 import ErrorBoundary from '@/shared/components/error/ErrorBoundary';
-import ModalContainer from '@/shared/components/modal/ModalContainer';
+import ModalContainer from '@/shared/components/Modal/ModalContainer';
 import QueryProvider from '@/shared/components/QueryProvider';
-import ToastContainer from '@/shared/components/toast/ToastContainer';
+import ToastContainer from '@/shared/components/Toast/ToastContainer';
 import MSWProvider from '@/shared/mocks/MSWProvider';
 import pretendard from '@/shared/styles/pretendard';
 
