@@ -1,0 +1,5 @@
+@layer utilities {
+  .gradient-bg {
+    background: var(--color-bg-purple-gradient);
+  }
+}

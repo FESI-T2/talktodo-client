@@ -48,3 +48,5 @@ next-env.d.ts
 # storybook
 *storybook.log
 storybook-static
+
+.history

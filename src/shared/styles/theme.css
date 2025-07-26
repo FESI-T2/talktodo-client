@@ -3,6 +3,7 @@
    ========================================================================== */
 @theme {
   /* 디자인 분기점 (Breakpoint) */
+  --breakpoint-xs: 320px; /* 작은 소형기기 */
   --breakpoint-mb: 480px; /* 모바일 */
   --breakpoint-tb: 768px; /* 태블릿 */
   --breakpoint-pc: 1024px; /* PC */

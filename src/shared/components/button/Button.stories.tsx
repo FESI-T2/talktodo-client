@@ -4,45 +4,24 @@ import Button from './Button';
 
 const meta: Meta<typeof Button> = {
   component: Button,
-  title: 'atoms/Button',
+  title: 'atoms/CommonButton',
   tags: ['autodocs'],
-
-  argTypes: {
-    variant: {
-      control: 'select',
-      options: ['add', 'edit', 'delete'],
-    },
-    size: {
-      control: 'radio',
-      options: ['large', 'small'],
-    },
-    state: {
-      control: 'radio',
-      options: ['default', 'active'],
-    },
-    icon: {
-      table: { disable: true },
-    },
-    children: { table: { disable: true } },
-    isIconOnly: {},
-  },
+  argTypes: {},
 };
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Button>;
 
-export const PrimaryButton: Story = {
+export const Primary: Story = {
   args: {
-    variant: 'add',
-    size: 'large',
-    state: 'default',
+    variant: 'primary',
+    children: '선택 완료',
   },
 };
 
-export const ActiveButton: Story = {
+export const Secondary: Story = {
   args: {
-    variant: 'add',
-    size: 'large',
-    state: 'active',
+    variant: 'secondary',
+    children: '선택 완료',
   },
 };

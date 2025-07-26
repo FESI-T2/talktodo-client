@@ -1,5 +1,6 @@
 import { useState } from 'react';
 
+import { PriorityType } from '@/shared/types/prioity';
 import LabelPriority from '@/task/components/common/LabelPriority/LabelPriority';
 
 import Dropdown from '../dropdown/Dropdown';
@@ -24,12 +25,11 @@ export const UpArrowIcon = () => {
 
 export const selectOptions = ['중요', '보통', '낮음'];
 
-type PriorityType = '중요' | '보통' | '낮음';
 interface SelectPriorityProps {
   label: string;
-  options: string[];
-  onSelect: (value: string) => void;
-  selectedValue?: string;
+  options: PriorityType[];
+  onSelect: React.Dispatch<React.SetStateAction<PriorityType>>;
+  selectedValue: PriorityType;
 }
 
 export default function SelectPriority({}: SelectPriorityProps) {
@@ -46,7 +46,7 @@ export default function SelectPriority({}: SelectPriorityProps) {
     <>
       <button
         type='button'
-        className='flex w-[182px] h-[44px] py-[10px] px-4 mb-0.5 justify-between items-center rounded-xl border-gray-300 border-2 bg-white'
+        className='flex justify-between items-center base-divider relative px-4 py-[12.5px] w-full h-[44px]'
         onClick={() => setOpen((openState) => !openState)}
         aria-haspopup='listbox'
         aria-expanded={open}
@@ -56,7 +56,11 @@ export default function SelectPriority({}: SelectPriorityProps) {
           {!open ? <DownArrowIcon /> : <UpArrowIcon />}
         </div>
       </button>
-      {open && <Dropdown options={selectOptions} size='L' type='priority' onSelect={handleSelect} />}
+      {open && (
+        <div className='absolute '>
+          <Dropdown options={selectOptions} size='L' type='priority' onSelect={handleSelect} />
+        </div>
+      )}
     </>
   );
 }

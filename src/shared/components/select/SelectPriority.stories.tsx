@@ -2,6 +2,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { useState } from 'react';
 
+import { PriorityType } from '@/shared/types/prioity';
+
 import SelectPriority, { selectOptions } from './SelectPriority';
 
 const meta: Meta<typeof SelectPriority> = {
@@ -50,19 +52,10 @@ type Story = StoryObj<typeof SelectPriority>;
 
 export const Primary: Story = {
   render: (args) => {
-    const [value, setValue] = useState('중요');
-    return (
-      <SelectPriority
-        {...args}
-        selectedValue={value}
-        onSelect={(val: string) => {
-          setValue(val);
-        }}
-      />
-    );
+    const [value, setValue] = useState<PriorityType>('중요');
+    return <SelectPriority {...args} selectedValue={value} onSelect={setValue} />;
   },
   args: {
     label: '우선순위 직접 제어',
-    options: selectOptions,
   },
 };

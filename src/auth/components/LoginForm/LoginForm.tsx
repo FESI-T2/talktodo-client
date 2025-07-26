@@ -1,9 +1,9 @@
 'use client';
 
-import AuthButton from '@/auth/components/Button/AuthButton/AuthButton';
 import { setCurrentLogin } from '@/auth/utils/currentLogin';
 
 import { LoginOption } from '../../types';
+import AuthButton from '../AuthButton/AuthButton';
 
 const LoginForm = () => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {

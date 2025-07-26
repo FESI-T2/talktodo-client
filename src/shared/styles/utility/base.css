@@ -1,0 +1,9 @@
+@layer utilities {
+  .base-divider {
+    @apply font-body2-regular border border-[var(--color-gray-300)] bg-white rounded-xl;
+  }
+
+  .base-horizon {
+    @apply border-b-[1px] border-[var(--color-gray-200)] pb-6 mb-6;
+  }
+}

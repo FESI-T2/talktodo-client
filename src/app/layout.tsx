@@ -2,6 +2,7 @@
 import '../shared/styles/globals.css';
 
 import ErrorBoundary from '@/shared/components/error/ErrorBoundary';
+import ModalContainer from '@/shared/components/modal/ModalContainer';
 import QueryProvider from '@/shared/components/QueryProvider';
 import ToastContainer from '@/shared/components/toast/ToastContainer';
 import MSWProvider from '@/shared/mocks/MSWProvider';
@@ -16,8 +17,10 @@ export default function RootLayout({
     <html lang='en'>
       <body className={pretendard.className}>
         <div id='toast-root' />
+        <div id='modal-root' />
         <ErrorBoundary>
           <ToastContainer />
+          <ModalContainer />
           <MSWProvider>
             <QueryProvider>{children}</QueryProvider>
           </MSWProvider>

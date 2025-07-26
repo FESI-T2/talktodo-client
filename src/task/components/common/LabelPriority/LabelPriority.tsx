@@ -6,7 +6,7 @@ export const PRIORITY_STYLES = {
   낮음: { label: '낮음', color: 'var(--color-priority-low)' },
 } as const;
 
-type PriorityType = keyof typeof PRIORITY_STYLES;
+export type PriorityType = keyof typeof PRIORITY_STYLES;
 
 interface LabelPriorityProps {
   priority: PriorityType;
