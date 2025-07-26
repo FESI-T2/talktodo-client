@@ -8,7 +8,7 @@ const meta: Meta<typeof BaseCard> = {
   argTypes: {
     layout: {
       control: { type: 'radio' },
-      options: ['square', 'rectangle', 'timeline'],
+      options: ['square', 'rectangle', 'timeline', 'goal'],
     },
     children: {
       control: 'text',

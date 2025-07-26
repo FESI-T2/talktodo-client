@@ -1,9 +1,9 @@
 import BaseCard from '../../common/Card/BaseCard';
 import { CheckIcon, MemoIcon } from '../../common/icons';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
-import { TaskCardProps } from '../TaskCard.types';
+import { TaskBasedProps } from '../TaskCard.types';
 
-export default function TimelineTaskCard({ task, layout = 'timeline' }: TaskCardProps) {
+export default function TimelineTaskCard({ task, layout = 'timeline' }: TaskBasedProps) {
   const { content, goal, isDone, priority } = task;
   return (
     <BaseCard layout={layout}>
