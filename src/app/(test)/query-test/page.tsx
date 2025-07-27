@@ -3,7 +3,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
-import APIBuilder from '@/lib/api/apiBuilder';
+import APIBuilder from '@/shared/lib/api/apiBuilder';
 
 export default function QueryTestPage() {
   const [endpoint, setEndpoint] = useState<string | null>(null);

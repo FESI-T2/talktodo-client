@@ -1,11 +1,11 @@
 // import '../styles/globals.css';
 import '../shared/styles/globals.css';
 
-import ErrorBoundary from '@/shared/components/error/ErrorBoundary';
-import ModalContainer from '@/shared/components/modal/ModalContainer';
-import QueryProvider from '@/shared/components/QueryProvider';
-import ToastContainer from '@/shared/components/toast/ToastContainer';
+import ModalContainer from '@/shared/components/Modal/ModalContainer';
+import ToastContainer from '@/shared/components/Toast/ToastContainer';
+import ErrorBoundary from '@/shared/error/ErrorBoundary';
 import MSWProvider from '@/shared/mocks/MSWProvider';
+import QueryProvider from '@/shared/provider/QueryProvider';
 import pretendard from '@/shared/styles/pretendard';
 
 export default function RootLayout({

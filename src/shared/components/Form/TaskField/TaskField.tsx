@@ -4,7 +4,7 @@ import { DateSelectorProps } from '@/shared/types/props';
 
 import DateSelector from '../../DateSelector/DateSelector';
 import Input from '../../Input/Input';
-import SelectPriority from '../../select/SelectPriority';
+import SelectPriority from '../../Select/SelectPriority';
 import SubText from '../SubText/SubText';
 
 type TaskFieldProps = DateSelectorProps &

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { PriorityType } from '@/shared/types/prioity';
 import LabelPriority from '@/task/components/common/LabelPriority/LabelPriority';
 
-import Dropdown from '../dropdown/Dropdown';
+import Dropdown from '../Dropdown/Dropdown';
 
 export const DownArrowIcon = () => {
   return (
