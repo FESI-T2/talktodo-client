@@ -1,8 +1,8 @@
-import SvgIconFlag from 'public/icon/Flag';
-import SvgIconKebab from 'public/icon/kebab';
+import SvgIconFlag from '@/icons/Flag/Flag';
+
+import SvgIconKebab from '@/icons/Kebab/Kebab';
 
 import BaseCard from '../../common/Card/BaseCard';
-// Update the import path below if the actual file is named differently or located elsewhere
 import GoalProgressBar from '../../common/GoalProgressBar/GoalProgressBar';
 import { ProgressViewModel } from '../../common/GoalProgressBar/hooks/ProgressViewModel';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
@@ -18,12 +18,12 @@ export default function GoalCard({ goal, layout = 'goal' }: GoalBasedProps) {
           <div className='flex justify-between items-start self-stretch'>
             <div className='flex flex-col items-start gap-0.5'>
               <div className='flex items-center'>
-                <SvgIconFlag type='goal' /> {/*결국 size에 따라 만들어야함!*/}
+                <SvgIconFlag type='goal' />
                 <div className='font-caption-bold md:font-body3-bold text-purple-500'>목표</div>
               </div>
               <div className='text-gray-900 md:font-title3-bold font-body1-bold'>{content}</div>
             </div>
-            {/* kebab */}
+
             <button type='button' className='flex w-8 h-8 justify-center items-center'>
               <SvgIconKebab type='M' />
             </button>

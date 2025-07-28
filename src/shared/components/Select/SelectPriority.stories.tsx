@@ -7,7 +7,7 @@ import { PriorityType } from '@/shared/types/prioity';
 import SelectPriority, { selectOptions } from './SelectPriority';
 
 const meta: Meta<typeof SelectPriority> = {
-  title: 'atoms/SelectPriority',
+  title: 'molecules/SelectPriority',
   component: SelectPriority,
   tags: ['autodocs'],
   parameters: {

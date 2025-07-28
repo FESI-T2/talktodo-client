@@ -4,7 +4,7 @@ import Title from './Title';
 
 const meta: Meta<typeof Title> = {
   component: Title,
-  title: 'molecules/AuthForm/Title',
+  title: 'organisms/AuthForm/components/Title',
   tags: ['autodocs'],
   argTypes: {},
 };

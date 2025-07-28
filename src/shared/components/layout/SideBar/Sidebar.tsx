@@ -1,7 +1,10 @@
-import SvgIconFoldLeft from 'public/icon/FoldLeft';
-import SvgIconFoldRight from 'public/icon/FoldRight';
-import SvgIconMainLogo from 'public/icon/MainLogo';
-import SvgIconPlus from 'public/icon/Plus';
+import SvgIconFoldLeft from '@/icons/FoldLeft/FoldLeft';
+
+import SvgIconFoldRight from '@/icons/FoldRight/FoldRight';
+
+import SvgIconMainLogo from '@/icons/MainLogo';
+
+import SvgIconPlus from '@/icons/Plus/Plus';
 
 import SidebarNavigation from './_components/SidebarNavigation';
 import SidebarPanel from './_components/SidebarPanel';

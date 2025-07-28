@@ -1,6 +1,8 @@
-import SvgIconFoldRight from 'public/icon/FoldRight';
-import SvgIconHamburger from 'public/icon/Hamburger';
-import SvgIconMainLogo from 'public/icon/MainLogo';
+import SvgIconFoldRight from '@/icons/FoldRight/FoldRight';
+
+import SvgIconHamburger from '@/icons/Hamburger/Hamburger';
+
+import SvgIconMainLogo from '@/icons/MainLogo/MainLogo';
 
 import SidebarNavigation from './_components/SidebarNavigation';
 import SidebarPanel from './_components/SidebarPanel';

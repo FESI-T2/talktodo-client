@@ -1,7 +1,6 @@
+import Delete from '@/icons/Delete/Delete';
+import Kebab from '@/icons/Kebab/Kebab';
 import Button from '@/shared/components/Button/Button';
-
-import Delete from '../../Icons/Delete/Delete';
-import Kebab from '../../Icons/Kebab/Kebab';
 
 interface FormActionsProps {
   createAction: () => void;
@@ -26,7 +25,7 @@ const FormActions = ({ createAction, editAction, deleteAction }: FormActionsProp
         <span className='font-body2-medium-tight'>삭제하기</span>
       </button>
       <div className='flex justify-end gap-4'>
-        <Kebab className='block tb:hidden cursor-pointer' />
+        <Kebab type='S' />
         <Button onClick={editAction} variant='secondary' className='hidden tb:flex' type='submit'>
           수정하기
         </Button>

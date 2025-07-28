@@ -1,4 +1,4 @@
-import SvgIconFlag from 'public/icon/Flag';
+import SvgIconFlag from '@/icons/Flag/Flag';
 
 export default function SidebarPanel({ isFold, goals, type }: { isFold: boolean; goals: string[]; type: 'PC' | 'Mobile' }) {
   if (type === 'PC') {

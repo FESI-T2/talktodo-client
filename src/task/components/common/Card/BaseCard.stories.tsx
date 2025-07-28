@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/nextjs-vite';
 import BaseCard from './BaseCard';
 
 const meta: Meta<typeof BaseCard> = {
-  title: 'card/BaseCard',
+  title: 'organisms/Card/components/BaseCard',
   component: BaseCard,
   argTypes: {
     layout: {

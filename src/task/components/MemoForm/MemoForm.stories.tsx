@@ -4,7 +4,7 @@ import MemoForm from './MemoForm';
 
 const meta: Meta<typeof MemoForm> = {
   component: MemoForm,
-  title: 'organisms/forms/MemoForm',
+  title: 'organisms/Forms/MemoForm',
   tags: ['autodocs'],
   argTypes: {},
 };
