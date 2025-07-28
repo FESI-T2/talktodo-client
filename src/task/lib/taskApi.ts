@@ -1,13 +1,28 @@
 import APIBuilder from '@/shared/lib/api/apiBuilder';
-import { GetAllTaskResponse } from '@/task/types/reponse/index';
-/*
- * 인증 관련 API를 정의합니다.
- * 각 API는 APIBuilder를 사용하여 생성됩니다.
- */
+import { AllTaskResponse, TaskResponse, DeleteTaskResponse } from '@/task/types/reponse/index';
+import { TaskDateParams, TaskIdParams, TaskRequest } from '@/task/types/request/index';
 
 const taskApi = {
-  // 테스팅을 위해 API URL을 직접 지정
-  getAllTask: () => APIBuilder.get('/task').build().call<GetAllTaskResponse>(),
+  // 전체 할일 조회
+  getAllTask: () => APIBuilder.get('/task').build().call<AllTaskResponse>(),
+
+  // 단건 할일 조회
+  getTask: ({ taskid }: TaskIdParams) => APIBuilder.get(`/task/${taskid}`).build().call<TaskResponse>(),
+
+  // 할일 생성
+  createTask: (data: TaskRequest) => APIBuilder.post('/task', data).build().call<TaskResponse>(),
+
+  // 할일 수정
+  updateTask: ({ taskid }: TaskIdParams, data: TaskRequest) => APIBuilder.put(`/task/${taskid}`, data).build().call<TaskResponse>(),
+
+  // 할일 삭제
+  deleteTask: ({ taskid }: TaskIdParams) => APIBuilder.delete(`/task/${taskid}`).build().call<DeleteTaskResponse>(),
+
+  // 완료 상태 토글
+  toggleTaskDone: ({ taskid }: TaskIdParams) => APIBuilder.put(`/task/done/${taskid}`, {}).build().call<TaskResponse>(),
+
+  // 날짜별 할일 조회
+  getTasksByDate: ({ date }: TaskDateParams) => APIBuilder.put(`/task/date/${date}`, {}).build().call<AllTaskResponse>(),
 };
 
 export default taskApi;
