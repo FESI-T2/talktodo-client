@@ -1,10 +1,10 @@
 'use client';
 import { useEffect } from 'react';
 
-import classifyAPIError from '@/lib/error/classifyAPIError';
-import { CustomError } from '@/lib/error/customError';
-import { processError, createErrorActions } from '@/lib/error/handleError';
 import { useToast } from '@/shared/hooks/useToast';
+import classifyAPIError from '@/shared/lib/error/classifyAPIError';
+import { CustomError } from '@/shared/lib/error/customError';
+import { processError, createErrorActions } from '@/shared/lib/error/handleError';
 
 import { Fallback, PageFallback } from './Fallback/FallBack';
 

@@ -1,4 +1,4 @@
-import { ToastSubject } from '../components/toast/ToastSubject';
+import { ToastSubject } from '../components/Toast/ToastSubject';
 
 /**
  * 토스트를 호출 하는 훅입니다.

@@ -1,4 +1,4 @@
-import APIBuilder from '@/lib/api/apiBuilder';
+import APIBuilder from '@/shared/lib/api/apiBuilder';
 
 /*
  * 인증 관련 API를 정의합니다.
