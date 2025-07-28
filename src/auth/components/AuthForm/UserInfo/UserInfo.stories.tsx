@@ -4,7 +4,7 @@ import UserInfo from './UserInfo';
 
 const meta: Meta<typeof UserInfo> = {
   component: UserInfo,
-  title: 'molecules/AuthForm/UserInfo',
+  title: 'organisms/AuthForm/components/UserInfo',
   tags: ['autodocs'],
   argTypes: {},
 };

@@ -1,12 +1,12 @@
-import clsx from 'clsx';
-
 import { LoginOption } from '@/auth/types';
+import { cn } from '@/shared/utils/cn';
 
 interface SocialIconProps {
   variant: LoginOption;
+  classNaame?: string;
 }
 
-const SocialIcon = ({ variant }: SocialIconProps) => {
+const SocialIcon = ({ variant, classNaame }: SocialIconProps) => {
   const ButtonIcon: Record<LoginOption, React.ReactNode> = {
     google: <img src='/icon/google.svg' alt='Google Icon' />,
     kakao: <img src='/icon/kakao.svg' alt='Kakao Icon' />,
@@ -19,7 +19,7 @@ const SocialIcon = ({ variant }: SocialIconProps) => {
     google: 'google',
   } as const;
   return (
-    <div className={clsx(ButtonStyle[variant], 'w-10 h-10 flex items-center justify-center rounded-[8px] flex-none')}>
+    <div className={cn(ButtonStyle[variant], 'w-10 h-10 flex items-center justify-center rounded-[8px] flex-none', classNaame)}>
       {ButtonIcon[variant]}
     </div>
   );

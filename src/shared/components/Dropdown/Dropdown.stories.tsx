@@ -5,7 +5,7 @@ import Dropdown from './Dropdown';
 
 // Docs에서 잘 보이도록 타입, 설명 작성
 const meta: Meta<typeof Dropdown> = {
-  title: 'atoms/Dropdown',
+  title: 'Molecules/Dropdown',
   component: Dropdown,
   tags: ['autodocs'],
   parameters: {

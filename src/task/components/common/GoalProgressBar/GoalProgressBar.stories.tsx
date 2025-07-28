@@ -4,7 +4,7 @@ import GoalProgressBar from './GoalProgressBar';
 import { ProgressViewModel } from './hooks/ProgressViewModel';
 
 const meta: Meta<typeof GoalProgressBar> = {
-  title: 'card/GoalProgressBar',
+  title: 'molecules/GoalProgressBar',
   component: GoalProgressBar,
 };
 
