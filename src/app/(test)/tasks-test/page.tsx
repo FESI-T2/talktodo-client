@@ -1,18 +1,14 @@
 'use client';
 
-import axios from 'axios';
 import { useEffect } from 'react';
+
+import taskApi from '@/task/lib/taskApi';
 
 export default function TasksTest() {
   useEffect(() => {
-    axios
-      .get('/api/tasks')
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+    taskApi.getAllTask().then((response) => {
+      console.log('reuslt :', response);
+    });
   }, []);
   return (
     <>
