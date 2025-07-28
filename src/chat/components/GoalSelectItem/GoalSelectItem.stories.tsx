@@ -8,7 +8,7 @@ const meta: Meta<typeof GoalSelectItem> = {
   tags: ['autodocs'],
   args: {
     GoalTitle: '자바스크립트로 웹 서비스 만들기',
-    TaskCount: 5,
+    taskCount: 5,
   },
 };
 
