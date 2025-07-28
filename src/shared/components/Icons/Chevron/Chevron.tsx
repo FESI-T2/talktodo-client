@@ -11,11 +11,11 @@ const Chevron: React.FC<ChevronProps> = ({ direction }) => {
 };
 
 const ChevronLeft = () => {
-  return <img src='/icon/Chevron left.svg' alt='Chevron Left' />;
+  return <img src='/icon/chevron/chevron-left.svg' alt='Chevron Left' />;
 };
 
 const ChevronRight = () => {
-  return <img src='/icon/Chevron right.svg' alt='Chevron Right' />;
+  return <img src='/icon/chevron/chevron-right.svg' alt='Chevron Right' />;
 };
 
 export default Chevron;
