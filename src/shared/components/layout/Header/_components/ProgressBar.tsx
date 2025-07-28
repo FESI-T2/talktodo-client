@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
 import Dropdown from '@/shared/components/Dropdown/Dropdown';
+import SvgIconKebab from '@/shared/components/Icons/Kebab/Kebab';
 import useResponsiveType from '@/shared/hooks/useResponsiveType';
-import SvgIconKebab from 'public/icon/kebab';
 
 interface ProgressBarProps {
   percent?: number;

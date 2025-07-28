@@ -1,12 +1,11 @@
-import SvgIconFoldLeft from 'public/icon/FoldLeft';
-import SvgIconFoldRight from 'public/icon/FoldRight';
-import SvgIconMainLogo from 'public/icon/MainLogo';
-import SvgIconPlus from 'public/icon/Plus';
-
 import SidebarNavigation from './_components/SidebarNavigation';
 import SidebarPanel from './_components/SidebarPanel';
 import ProfileSection from './_components/SidebarProfileSection';
 import SidebarSeparator from './_components/SidebarSeparator';
+import SvgIconFoldLeft from '../../Icons/FoldLeft/FoldLeft';
+import SvgIconFoldRight from '../../Icons/FoldRight/FoldRight';
+import SvgIconMainLogo from '../../Icons/MainLogo';
+import SvgIconPlus from '../../Icons/Plus/Plus';
 
 const NewGoalButton = ({ isFold }: { isFold: boolean }) =>
   !isFold ? (

@@ -1,4 +1,4 @@
-import SvgIconProfile from 'public/icon/Profile';
+import SvgIconProfile from '@/shared/components/Icons/Profile/Profile';
 
 import SidebarSeparator from './SidebarSeparator';
 
