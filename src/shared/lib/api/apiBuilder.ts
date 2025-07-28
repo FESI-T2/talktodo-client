@@ -19,7 +19,7 @@ class APIBuilder {
     this._instance.timeout = 5000;
     this._instance.withCredentials = false;
 
-    this._instance.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api';
+    this._instance.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000/api/v1';
   }
 
   static get = (url: string) => new APIBuilder('GET', url);
