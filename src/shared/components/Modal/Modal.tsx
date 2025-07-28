@@ -1,8 +1,9 @@
 'use client';
 
-import { clsx } from 'clsx';
 import React, { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
+
+import { cn } from '@/shared/utils/cn';
 
 import Overlay from './Overlay/Overlay';
 
@@ -49,7 +50,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, className }) =
 
   return createPortal(
     <Overlay>
-      <div className={clsx(isOpen ? 'scale-100' : 'scale-95', className)} onClick={(e) => e.stopPropagation()} aria-hidden='true'>
+      <div className={cn(isOpen ? 'scale-100' : 'scale-95', className)} onClick={(e) => e.stopPropagation()} aria-hidden='true'>
         {children}
       </div>
     </Overlay>,

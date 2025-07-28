@@ -1,4 +1,4 @@
-import clsx from 'clsx';
+import { cn } from '@/shared/utils/cn';
 
 interface LogoProps {
   isRotate?: boolean;
@@ -6,7 +6,7 @@ interface LogoProps {
 }
 
 const Logo = ({ isRotate = false, className }: LogoProps) => {
-  return <img src='/icon/logo.svg' alt='Logo' className={clsx({ 'scale-x-[-1]': isRotate }, className)} />;
+  return <img src='/icon/logo.svg' alt='Logo' className={cn({ 'scale-x-[-1]': isRotate }, className)} />;
 };
 
 export default Logo;

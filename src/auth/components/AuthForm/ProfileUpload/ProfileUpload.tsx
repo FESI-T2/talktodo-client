@@ -1,9 +1,9 @@
 'use client';
-import { clsx } from 'clsx';
 import Image from 'next/image';
 import React, { useState } from 'react';
 
 import ImageIcon from '@/shared/components/Icons/ImageIcon/ImageIcon';
+import { cn } from '@/shared/utils/cn';
 export interface ProfileUploadProps {
   className?: string;
   imageRef: React.RefObject<HTMLInputElement | null>;
@@ -28,7 +28,7 @@ const ProfileUpload = ({ imageRef, className }: ProfileUploadProps) => {
   };
 
   return (
-    <div className={clsx('flex items-center justify-center flex-col relative mb-[44px]', className)}>
+    <div className={cn('flex items-center justify-center flex-col relative mb-[44px]', className)}>
       <Image
         src={preview || '/img/default.png'}
         alt='미리보기'

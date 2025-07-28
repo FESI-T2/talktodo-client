@@ -1,4 +1,4 @@
-import { clsx } from 'clsx';
+import { cn } from '@/shared/utils/cn';
 
 import Close from '../Icons/Close/Close';
 
@@ -22,7 +22,7 @@ const Toast = ({ message, variant = 'success', onClose }: ToastProps) => {
   });
 
   return (
-    <div className={clsx('relative flex items-center h-18 w-100 p-6 rounded-lg text-white text-xl shadow-md', ToastStyle[variant])}>
+    <div className={cn('relative flex items-center h-18 w-100 p-6 rounded-lg text-white text-xl shadow-md', ToastStyle[variant])}>
       <span className='flex-1 text-center'>{message}</span>
       <button onClick={onClose} className='cursor-pointer'>
         <Close />
