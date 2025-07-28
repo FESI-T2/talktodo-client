@@ -1,7 +1,6 @@
+import Close from '@/icons/Close/Close';
+import GoalImg from '@/icons/GoalImg/GoalImg';
 import useModal from '@/shared/hooks/useModal';
-
-import Close from '../../Icons/Close/Close';
-import GoalImg from '../../Icons/GoalImg/GoalImg';
 
 interface HeaderProps {
   title: string;

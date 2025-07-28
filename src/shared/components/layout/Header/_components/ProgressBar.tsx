@@ -1,7 +1,8 @@
 import { useState } from 'react';
 
+import SvgIconKebab from '@/icons/Kebab/Kebab';
 import Dropdown from '@/shared/components/Dropdown/Dropdown';
-import SvgIconKebab from '@/shared/components/Icons/Kebab/Kebab';
+
 import useResponsiveType from '@/shared/hooks/useResponsiveType';
 
 interface ProgressBarProps {

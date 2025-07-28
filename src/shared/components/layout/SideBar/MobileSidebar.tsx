@@ -1,10 +1,13 @@
+import SvgIconFoldRight from '@/icons/FoldRight/FoldRight';
+
+import SvgIconHamburger from '@/icons/Hamburger/Hamburger';
+
+import SvgIconMainLogo from '@/icons/MainLogo/MainLogo';
+
 import SidebarNavigation from './_components/SidebarNavigation';
 import SidebarPanel from './_components/SidebarPanel';
 import ProfileSection from './_components/SidebarProfileSection';
 import SidebarSeparator from './_components/SidebarSeparator';
-import SvgIconFoldRight from '../../Icons/FoldRight/FoldRight';
-import SvgIconHamburger from '../../Icons/Hamburger/Hamburger';
-import SvgIconMainLogo from '../../Icons/MainLogo/MainLogo';
 
 interface MobileSidebarProps {
   isFold: boolean;

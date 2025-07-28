@@ -1,9 +1,8 @@
-import SvgIconFlag from '@/shared/components/Icons/Flag/Flag';
+import SvgIconFlag from '@/icons/Flag/Flag';
 
-import SvgIconKebab from '@/shared/components/Icons/Kebab/Kebab';
+import SvgIconKebab from '@/icons/Kebab/Kebab';
 
 import BaseCard from '../../common/Card/BaseCard';
-// Update the import path below if the actual file is named differently or located elsewhere
 import GoalProgressBar from '../../common/GoalProgressBar/GoalProgressBar';
 import { ProgressViewModel } from '../../common/GoalProgressBar/hooks/ProgressViewModel';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';

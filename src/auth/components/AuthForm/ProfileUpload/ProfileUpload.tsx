@@ -2,8 +2,9 @@
 import Image from 'next/image';
 import React, { useState } from 'react';
 
-import ImageIcon from '@/shared/components/Icons/ImageIcon/ImageIcon';
+import ImageIcon from '@/icons/ImageIcon/ImageIcon';
 import { cn } from '@/shared/utils/cn';
+
 export interface ProfileUploadProps {
   className?: string;
   imageRef: React.RefObject<HTMLInputElement | null>;

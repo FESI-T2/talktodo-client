@@ -1,4 +1,4 @@
-import SvgIconPlus from '../../../Icons/Plus/Plus';
+import SvgIconPlus from '@/icons/Plus/Plus';
 
 export default function NewGoalButton({ isFold }: { isFold: boolean }) {
   return !isFold ? (

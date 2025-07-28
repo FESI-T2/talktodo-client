@@ -1,7 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 
-import SvgIconClock from '../Icons/Clock/Clock';
+import SvgIconClock from '@/icons/Clock/Clock';
 
 interface TimelineButtonProps {
   size: 'L' | 'S';

@@ -1,6 +1,5 @@
+import Close from '@/icons/Close/Close';
 import { cn } from '@/shared/utils/cn';
-
-import Close from '../Icons/Close/Close';
 
 interface ToastProps {
   message: string;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SvgIconPlus from '../Icons/Plus/Plus';
+import SvgIconPlus from '@/icons/Plus/Plus';
 
 interface FloatingActionButtonProps {
   size?: 'L' | 'S';

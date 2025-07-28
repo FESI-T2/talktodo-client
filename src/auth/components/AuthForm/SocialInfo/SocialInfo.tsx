@@ -1,5 +1,5 @@
 import { LoginOption } from '@/auth/types';
-import SocialIcon from '@/shared/components/Icons/SocialIcon/SocialIcon';
+import SocialIcon from '@/icons/SocialIcon/SocialIcon';
 import Input from '@/shared/components/Input/Input';
 
 interface SocialInfoProps extends React.HTMLAttributes<HTMLInputElement> {

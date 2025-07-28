@@ -1,4 +1,4 @@
-import SvgIconHome from '../../../Icons/Home/Home';
+import SvgIconHome from '@/icons/Home/Home';
 
 export default function SidebarNavigation({ isFold, type }: { isFold: boolean; type: 'PC' | 'Mobile' }) {
   if (type === 'PC') {

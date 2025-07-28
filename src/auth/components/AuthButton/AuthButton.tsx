@@ -1,6 +1,6 @@
+import SocialIcon from '@/icons/SocialIcon/SocialIcon';
 import { cn } from '@/shared/utils/cn';
 
-import SocialIcon from '../../../shared/components/Icons/SocialIcon/SocialIcon';
 import { LoginOption } from '../../types';
 
 const ButtonStyle: Record<LoginOption, string> = {
