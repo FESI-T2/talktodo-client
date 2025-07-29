@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import SvgIconKebab from '@/icons/Kebab/Kebab';
 import Dropdown from '@/shared/components/Dropdown/Dropdown';
-
+import Kebab from '@/shared/components/Icons/Kebab/Kebab';
 import useResponsiveType from '@/shared/hooks/useResponsiveType';
 
 interface ProgressBarProps {
@@ -53,7 +53,7 @@ const ProgressBar = ({ type = 'Main', percent = 0 }: ProgressBarProps) => {
                 w-4 h-4 rounded-sm hover:bg-gray-100 active:bg-gray-100'
               onClick={toggleOpen}
             >
-              <SvgIconKebab type={kebabType} />
+              <Kebab type={kebabType} />
             </button>
             {open && (
               <div className='absolute top-full pc:mt-2.5 tb:mt-1.5 mt-1 z-10'>

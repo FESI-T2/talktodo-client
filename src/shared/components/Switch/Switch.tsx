@@ -2,8 +2,8 @@
 
 import { useState } from 'react';
 
-import LayoutGrid2 from '@/icons/LayoutGrid2';
-import LayoutGrid4 from '@/icons/LayoutGrid4';
+import LayoutGrid2 from '@/shared/components/Icons/LayoutGrid/LayoutGrid2';
+import LayoutGrid4 from '@/shared/components/Icons/LayoutGrid/LayoutGrid4';
 
 interface SwitchProps {
   type: 'layout' | 'basic';

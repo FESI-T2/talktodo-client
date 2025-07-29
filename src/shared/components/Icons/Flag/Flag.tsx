@@ -3,7 +3,7 @@ interface IconProps {
   color?: '#29252B' | '#FFFFFF';
 }
 
-const SvgIconFlag = ({ type, color = '#29252B' }: IconProps) => {
+const Flag = ({ type, color = '#29252B' }: IconProps) => {
   if (type === 'PC') {
     return (
       <svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40' fill='none'>
@@ -47,4 +47,4 @@ const SvgIconFlag = ({ type, color = '#29252B' }: IconProps) => {
   }
 };
 
-export default SvgIconFlag;
+export default Flag;

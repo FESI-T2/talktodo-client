@@ -1,4 +1,4 @@
-import SvgIconFlag from '@/icons/Flag/Flag';
+import Flag from '@/shared/components/Icons/Flag/Flag';
 
 export default function SidebarPanel({ isFold, goals, type }: { isFold: boolean; goals: string[]; type: 'PC' | 'Mobile' }) {
   if (type === 'PC') {
@@ -6,7 +6,7 @@ export default function SidebarPanel({ isFold, goals, type }: { isFold: boolean;
       <div className='w-full'>
         <div className={`flex gap-1 items-center cursor-pointer  ${isFold ? 'justify-center' : 'mb-3'}`}>
           <div className='w-10 h-10 flex items-center justify-center'>
-            <SvgIconFlag type='PC' />
+            <Flag type='PC' />
           </div>
           {!isFold && <span className='text-gray-900 font-body1-semibold'>목표</span>}
         </div>
@@ -25,7 +25,7 @@ export default function SidebarPanel({ isFold, goals, type }: { isFold: boolean;
   if (type === 'Mobile' && !isFold) {
     return (
       <button className='flex items-center justify-start w-full h-10 cursor-pointer'>
-        <SvgIconFlag type='Mobile' />
+        <Flag type='Mobile' />
         <span className='text-gray-900 font-body1-semibold ml-2'>목표</span>
       </button>
     );

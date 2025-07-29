@@ -1,7 +1,11 @@
 interface iconProps {
   type: 'S' | 'M' | 'L';
 }
+<<<<<<< HEAD
 const SvgIconKebab = ({ type }: iconProps) => {
+=======
+const Kebab = ({ type }: iconProps) => {
+>>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
   const renderIconKebab = () => {
     if (type === 'S') {
       return (
@@ -55,4 +59,21 @@ const SvgIconKebab = ({ type }: iconProps) => {
   return renderIconKebab();
 };
 
+<<<<<<< HEAD
 export default SvgIconKebab;
+=======
+export default Kebab;
+
+// import clsx from 'clsx';
+// import React from 'react';
+
+// interface KebabProps {
+//   className?: string;
+// }
+
+// const Kebab = ({ className }: KebabProps) => {
+//   return <img className={clsx(className)} src={'/icon/kebab.svg'} alt='Kebab' />;
+// };
+
+// export default Kebab;
+>>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
