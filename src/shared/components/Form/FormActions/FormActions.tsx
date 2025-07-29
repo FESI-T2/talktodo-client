@@ -1,7 +1,6 @@
+import Delete from '@/icons/Delete/Delete';
+import Kebab from '@/icons/Kebab/Kebab';
 import Button from '@/shared/components/Button/Button';
-
-import Delete from '../../Icons/Delete/Delete';
-import Kebab from '../../Icons/Kebab/Kebab';
 
 interface FormActionsProps {
   createAction: () => void;

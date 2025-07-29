@@ -4,7 +4,7 @@ import ProfileUpload from './ProfileUpload';
 
 const meta: Meta<typeof ProfileUpload> = {
   component: ProfileUpload,
-  title: 'molecules/AuthFormProfileUpload',
+  title: 'organisms/AuthForm/components/ProfileUpload',
   tags: ['autodocs'],
   argTypes: {},
 };

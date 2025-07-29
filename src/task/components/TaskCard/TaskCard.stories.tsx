@@ -6,7 +6,7 @@ import { tasks } from '@/shared/mocks/todoMockData/todos';
 import TaskCard from './TaskCard';
 
 const meta: Meta<typeof TaskCard> = {
-  title: 'card/TaskCard',
+  title: 'Organisms/Card/TaskCard',
   component: TaskCard,
 };
 

@@ -1,12 +1,10 @@
+import { Priority } from '@/shared/types/prioity';
 import LabelPriority from '@/task/components/common/LabelPriority/LabelPriority';
-
-type PriorityType = '중요' | '보통' | '낮음';
-
 interface DropdownOptions {
   options: string[];
   size?: 'S' | 'M' | 'L';
   type?: 'default' | 'priority';
-  onSelect?: (value: PriorityType) => void;
+  onSelect?: (value: Priority) => void;
 }
 
 const Dropdown = ({ options, size = 'M', type = 'default', onSelect }: DropdownOptions) => {
@@ -29,11 +27,11 @@ const Dropdown = ({ options, size = 'M', type = 'default', onSelect }: DropdownO
                 }
                 hover:bg-gray-100 active:bg-gray-300 rounded-lg transition-colors duration-200`}
           onClick={() => {
-            onSelect?.(opt as PriorityType);
+            onSelect?.(opt as Priority);
           }}
         >
           {type === 'default' && opt}
-          {type === 'priority' && <LabelPriority priority={opt as PriorityType} size={'L'} />}
+          {type === 'priority' && <LabelPriority priority={opt as Priority} size={'L'} />}
         </button>
       ))}
     </div>

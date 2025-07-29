@@ -4,7 +4,7 @@ import FormAction from './FormAction';
 
 const meta: Meta<typeof FormAction> = {
   component: FormAction,
-  title: 'molecules/AuthForm/FormAction',
+  title: 'organisms/AuthForm/components/FormAction',
   tags: ['autodocs'],
   argTypes: {},
 };

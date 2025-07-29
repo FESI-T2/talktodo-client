@@ -4,7 +4,7 @@ import TilteLogo from './TitleLogo';
 
 const meta: Meta<typeof TilteLogo> = {
   component: TilteLogo,
-  title: 'atoms/TilteLogo',
+  title: 'icons/TilteLogo',
   tags: ['autodocs'],
   argTypes: {},
 };

@@ -1,5 +1,6 @@
-import clsx from 'clsx';
 import React from 'react';
+
+import { cn } from '@/shared/utils/cn';
 
 interface SubTextProps {
   text: string;
@@ -9,7 +10,7 @@ interface SubTextProps {
 
 const SubText = ({ text, children, className }: SubTextProps) => {
   return (
-    <div className={clsx('mb-6', className)}>
+    <div className={cn('mb-6', className)}>
       <p className='font-body2-semibold mb-3 '>{text}</p>
       {children}
     </div>

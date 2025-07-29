@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import MobileSidebar from './MobileSidebar';
 
 const meta: Meta<typeof MobileSidebar> = {
-  title: 'atoms/MobileSidebar',
+  title: 'molecules/MobileSidebar',
   component: MobileSidebar,
   argTypes: {
     isFold: {

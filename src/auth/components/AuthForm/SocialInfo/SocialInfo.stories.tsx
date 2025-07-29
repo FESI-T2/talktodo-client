@@ -4,7 +4,7 @@ import SocialInfo from './SocialInfo';
 
 const meta: Meta<typeof SocialInfo> = {
   component: SocialInfo,
-  title: 'molecules/AuthFormSocialInfo',
+  title: 'organisms/AuthForm/components/SocialInfo',
   tags: ['autodocs'],
   argTypes: {},
 };

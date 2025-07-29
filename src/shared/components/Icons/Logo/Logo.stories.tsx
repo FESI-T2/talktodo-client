@@ -4,7 +4,7 @@ import Logo from './Logo';
 
 const meta: Meta<typeof Logo> = {
   component: Logo,
-  title: 'atoms/Logo',
+  title: 'icons/Logo',
   tags: ['autodocs'],
   argTypes: {},
 };

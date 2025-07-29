@@ -2,11 +2,11 @@
 
 import { useState } from 'react';
 
+import Calendar from '@/icons/Calendar/Calendar';
 import { DateSelectorProps } from '@/shared/types/props';
 import { formatDateRange, format } from '@/shared/utils/formatDateRange';
 
 import DatePicker from '../DatePicker/DatePicker';
-import Calendar from '../Icons/Calendar/Calendar';
 
 const DateSelector = ({ date, setDate }: DateSelectorProps) => {
   const [isOpen, setIsOpen] = useState(false);

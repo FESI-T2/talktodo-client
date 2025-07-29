@@ -1,7 +1,7 @@
 'use client';
 import { useDayPicker } from 'react-day-picker';
 
-import Chevron from '../../Icons/Chevron/Chevron';
+import Chevron from '@/icons/Chevron/Chevron';
 
 const Navigation = () => {
   const { goToMonth, nextMonth, previousMonth } = useDayPicker();

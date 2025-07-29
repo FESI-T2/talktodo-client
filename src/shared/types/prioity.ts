@@ -1,1 +1,1 @@
-export type PriorityType = '중요' | '보통' | '낮음';
+export type Priority = '중요' | '보통' | '낮음';

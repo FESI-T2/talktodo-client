@@ -1,5 +1,5 @@
-import Logo from '@/shared/components/Icons/Logo/Logo';
-import TitleLogo from '@/shared/components/Icons/TilteLogo/TitleLogo';
+import Logo from '@/icons/Logo/Logo';
+import TitleLogo from '@/icons/TilteLogo/TitleLogo';
 
 const LoginLogo = () => {
   return (

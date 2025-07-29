@@ -1,7 +1,12 @@
 {
+  "eslint.workingDirectories": ["./"],
+  "eslint.options": {
+    "configFile": ".eslint.config.mjs"
+  },
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
     "source.fixAll": true,
     "source.fixAll.eslint": true
-  }
+  },
+  "eslint.validate": ["/src"]
 }

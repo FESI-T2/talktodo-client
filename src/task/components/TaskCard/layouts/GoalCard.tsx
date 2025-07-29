@@ -2,7 +2,6 @@ import Flag from '@/shared/components/Icons/Flag/Flag';
 import Kebab from '@/shared/components/Icons/Kebab/Kebab';
 
 import BaseCard from '../../common/Card/BaseCard';
-// Update the import path below if the actual file is named differently or located elsewhere
 import GoalProgressBar from '../../common/GoalProgressBar/GoalProgressBar';
 import { ProgressViewModel } from '../../common/GoalProgressBar/hooks/ProgressViewModel';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
@@ -23,7 +22,7 @@ export default function GoalCard({ goal, layout = 'goal' }: GoalBasedProps) {
               </div>
               <div className='text-gray-900 md:font-title3-bold font-body1-bold'>{content}</div>
             </div>
-            {/* kebab */}
+
             <button type='button' className='flex w-8 h-8 justify-center items-center'>
               <Kebab type='M' />
             </button>

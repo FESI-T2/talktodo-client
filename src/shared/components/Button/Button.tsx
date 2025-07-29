@@ -1,4 +1,4 @@
-import { clsx } from 'clsx';
+import { cn } from '@/shared/utils/cn';
 
 type ButtonVariant = 'primary' | 'secondary';
 
@@ -25,8 +25,8 @@ const Button = ({ variant, children, disabled, className, ...props }: ButtonProp
   return (
     <button
       {...props}
-      className={clsx(
-        'rounded-xl py-3.5 px-4 flex w-full h-12 items-center justify-center text-base  cursor-pointer font-body1-bold',
+      className={cn(
+        'rounded-xl py-3.5 px-4 flex w-full h-12 items-center justify-center text-base  cursor-pointer font-body1-bold text-nowrap',
         ButtonStyle[variant][disabled ? 'disabled' : 'enabled'],
         className
       )}

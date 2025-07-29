@@ -4,7 +4,7 @@ import LabelPriority from './LabelPriority';
 
 const meta: Meta<typeof LabelPriority> = {
   component: LabelPriority,
-  title: 'card/label/label_priority',
+  title: 'organisms/Card/components/LabelPriority',
   tags: ['autodocs'],
   argTypes: {
     priority: {

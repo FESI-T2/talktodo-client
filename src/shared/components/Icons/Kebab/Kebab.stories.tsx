@@ -4,7 +4,7 @@ import Kebab from './Kebab';
 
 const meta: Meta<typeof Kebab> = {
   component: Kebab,
-  title: 'atoms/Kebab',
+  title: 'icons/Kebab',
   tags: ['autodocs'],
   argTypes: {},
 };

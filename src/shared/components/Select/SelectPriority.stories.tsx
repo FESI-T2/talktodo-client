@@ -2,12 +2,12 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import { useState } from 'react';
 
-import { PriorityType } from '@/shared/types/prioity';
+import { Priority } from '@/shared/types/prioity';
 
 import SelectPriority, { selectOptions } from './SelectPriority';
 
 const meta: Meta<typeof SelectPriority> = {
-  title: 'atoms/SelectPriority',
+  title: 'molecules/SelectPriority',
   component: SelectPriority,
   tags: ['autodocs'],
   parameters: {
@@ -52,7 +52,7 @@ type Story = StoryObj<typeof SelectPriority>;
 
 export const Primary: Story = {
   render: (args) => {
-    const [value, setValue] = useState<PriorityType>('중요');
+    const [value, setValue] = useState<Priority>('중요');
     return <SelectPriority {...args} selectedValue={value} onSelect={setValue} />;
   },
   args: {

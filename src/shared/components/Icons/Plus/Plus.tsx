@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface PlusIconProps {
   type?: 'Sidebar' | 'FAB';
 }
@@ -15,9 +13,9 @@ const Plus = ({ type = 'Sidebar' }: PlusIconProps) => {
       <path
         d='M15.9974 6.66602V25.3327M6.66406 15.9993H25.3307'
         stroke='white'
-        stroke-width='3'
-        stroke-linecap='round'
-        stroke-linejoin='round'
+        strokeWidth='3'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   );

@@ -17,6 +17,7 @@ const eslintConfig = [
   ...compat.extends('plugin:import/recommended'),
   ...compat.extends('plugin:jsx-a11y/recommended'),
   ...storybook.configs['flat/recommended'],
+
   {
     plugins: {
       'unused-imports': unusedImports,
@@ -28,6 +29,13 @@ const eslintConfig = [
         'error',
         {
           groups: ['builtin', 'external', 'internal', ['parent', 'sibling'], 'index'],
+          pathGroups: [
+            {
+              pattern: '@/**',
+              group: 'internal',
+              position: 'after',
+            },
+          ],
           'newlines-between': 'always-and-inside-groups',
           alphabetize: {
             order: 'asc',

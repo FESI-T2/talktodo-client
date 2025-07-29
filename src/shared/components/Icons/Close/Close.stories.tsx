@@ -4,7 +4,7 @@ import Close from './Close';
 
 const meta: Meta<typeof Close> = {
   component: Close,
-  title: 'atoms/icons/Close',
+  title: 'icons/Close',
   tags: ['autodocs'],
   argTypes: {},
 };
