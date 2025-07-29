@@ -56,8 +56,8 @@ export const ChatModalTabContent = ({ goals, onSelectGoal }: ChatModalTabContent
     {goals.map((goal, idx) => (
       <GoalSelectItem
         key={`${goal.title}-${idx}`}
-        GoalTitle={goal.title}
-        TaskCount={goal.count}
+        goalTitle={goal.title}
+        taskCount={goal.count}
         active={goal.active}
         onClick={() => onSelectGoal(idx)}
       />
