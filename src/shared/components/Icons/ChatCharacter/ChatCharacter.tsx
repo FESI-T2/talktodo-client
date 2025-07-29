@@ -31,9 +31,9 @@ const ChatCharacter = () => {
           width='28.5'
           height='28.5'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
           <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
           <feOffset />
@@ -49,9 +49,9 @@ const ChatCharacter = () => {
           width='14.25'
           height='17.8125'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
           <feOffset dx='-1.18749' dy='-1.18749' />
           <feGaussianBlur stdDeviation='0.890621' />
@@ -73,9 +73,9 @@ const ChatCharacter = () => {
           width='14.25'
           height='17.8125'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
           <feOffset dx='-1.18749' dy='-1.18749' />
           <feGaussianBlur stdDeviation='0.890621' />
@@ -97,9 +97,9 @@ const ChatCharacter = () => {
           width='28.5'
           height='28.5'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
           <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
           <feOffset />
