@@ -27,7 +27,7 @@ export default function QueryProvider({ children }: { children: React.ReactNode 
 
   return (
     <QueryClientProvider client={queryClient}>
-      <ApiErrorBoundary level='toast'>{children}</ApiErrorBoundary>
+      <ApiErrorBoundary level='alert'>{children}</ApiErrorBoundary>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
