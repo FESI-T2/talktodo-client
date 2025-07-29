@@ -3,7 +3,7 @@
 import GoalSelectItem from '@/chat/components/GoalSelectItem/GoalSelectItem';
 import { useGoalSelectWithRouting, Goal } from '@/chat/hooks/useGoalSelectWithRouting';
 import Button from '@/shared/components/Button/Button';
-import SvgIconFlag from 'public/icon/Flag';
+import Flag from '@/shared/components/Icons/Flag/Flag';
 
 const mockGoalsArray: Goal[] = [
   { title: '운동하기', count: 3, id: '1' },
@@ -41,7 +41,7 @@ export const ChatModalTabContentContainer = ({ goals, onSelectGoal }: ChatModalT
 
 export const ChatModalTabTitle = () => (
   <div className='flex items-center gap-1'>
-    <SvgIconFlag type='chat' />
+    <Flag type='chat' />
     <p className='font-title3-bold text-gray-600'>기존 목표</p>
   </div>
 );
