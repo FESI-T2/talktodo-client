@@ -2,10 +2,11 @@
 import React, { Component, ReactNode } from 'react';
 
 import ApiErrorHandler from './ApiErrorHandler';
+import { Level } from './index.type';
 
 interface ApiErrorBoundaryProps {
   children: ReactNode;
-  level: 'toast' | 'fallback' | 'page';
+  level: Level;
 }
 
 interface State {
@@ -32,7 +33,7 @@ class ApiErrorBoundary extends Component<ApiErrorBoundaryProps, State> {
       return (
         <>
           <ApiErrorHandler error={this.state.error} level={this.props.level} onReset={this.resetError} />
-          {this.props.level === 'toast' && this.props.children}
+          {this.props.level === 'alert' && this.props.children}
         </>
       );
     }
