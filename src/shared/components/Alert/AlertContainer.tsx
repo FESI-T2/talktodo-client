@@ -48,7 +48,7 @@ const AlertContainer = () => {
 
   // 차후에 Alert 등장 위치 조정 필요
   return createPortal(
-    <div className=' fixed z-50 flex bottom-[40px] w-full m-auto items-center '>
+    <div className=' fixed z-50 flex bottom-[30px] w-full m-auto items-center '>
       {Alerts.slice()
         .reverse()
         .map(({ id, message, handleClick }) => (
