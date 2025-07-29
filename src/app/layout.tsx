@@ -1,4 +1,5 @@
 // import '../styles/globals.css';
+import AlertContainer from '@/shared/components/Alert/AlertContainer';
 import '../shared/styles/globals.css';
 
 import ModalContainer from '@/shared/components/Modal/ModalContainer';
@@ -14,13 +15,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
+    <html lang='ko'>
       <body className={pretendard.className}>
         <div id='toast-root' />
         <div id='modal-root' />
+        <div id='alert-root' />
         <ErrorBoundary>
           <ToastContainer />
           <ModalContainer />
+          <AlertContainer />
           <MSWProvider>
             <QueryProvider>{children}</QueryProvider>
           </MSWProvider>
