@@ -1,32 +1,21 @@
-import Close from '@/icons/Close/Close';
-import { cn } from '@/shared/utils/cn';
+import { motion } from 'framer-motion';
 
-interface ToastProps {
-  message: string;
-  variant: 'success' | 'warning' | 'error';
-  onClose: () => void;
-}
+import { Toast as ToastType } from './Toast.Type';
 
-interface ToastStyle {
-  success: string;
-  warning: string;
-  error: string;
-}
+type ToastProps = Omit<ToastType, 'id'>;
 
-const Toast = ({ message, variant = 'success', onClose }: ToastProps) => {
-  const ToastStyle: ToastStyle = Object.freeze({
-    success: 'bg-green-500',
-    warning: 'bg-yellow-500',
-    error: 'bg-red-500',
-  });
-
+const Toast = ({ message }: ToastProps) => {
   return (
-    <div className={cn('relative flex items-center h-18 w-100 p-6 rounded-lg text-white text-xl shadow-md', ToastStyle[variant])}>
-      <span className='flex-1 text-center'>{message}</span>
-      <button onClick={onClose} className='cursor-pointer'>
-        <Close />
-      </button>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 0 }}
+      animate={{ opacity: 1, y: 10 }}
+      transition={{ duration: 0.3, ease: 'easeOut' }}
+      className={
+        'font-body1-semibold text-white rounded-3xl py-[20px] px-[41.5px] bg-[#29252B]/80 flex items-center justify-center max-w-[240px] text-nowrap w-[90%] m-auto'
+      }
+    >
+      <span>{message}</span>
+    </motion.div>
   );
 };
 
