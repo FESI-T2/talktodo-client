@@ -3,7 +3,7 @@ interface IconProps {
   active?: boolean;
 }
 
-const LayoutGrid4 = ({ size, active }: IconProps) => {
+const LayoutGrid2 = ({ size, active }: IconProps) => {
   return size === 'L' ? (
     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
       <g clipPath='url(#clip0_519_18454)'>
@@ -43,4 +43,4 @@ const LayoutGrid4 = ({ size, active }: IconProps) => {
   );
 };
 
-export default LayoutGrid4;
+export default LayoutGrid2;

@@ -1,6 +1,6 @@
-import SvgIconFoldRight from 'public/icon/FoldRight';
-import SvgIconHamburger from 'public/icon/Hamburger';
-import SvgIconMainLogo from 'public/icon/MainLogo';
+import FoldRight from '@/shared/components/Icons/Fold/FoldRight';
+import Hamburger from '@/shared/components/Icons/Hamburger/Hamburger';
+import MainLogo from '@/shared/components/Icons/MainLogo/MainLogo';
 
 import SidebarNavigation from './_components/SidebarNavigation';
 import SidebarPanel from './_components/SidebarPanel';
@@ -32,16 +32,16 @@ const MobileSidebar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }:
       <div className={`w-full ${isFold ? 'flex justify-between items-center' : 'flex-col'}`}>
         {!isFold && (
           <button className='w-full pb-4 cursor-pointer' onClick={onFoldToggle}>
-            <SvgIconFoldRight />
+            <FoldRight />
           </button>
         )}
         {isFold && (
           <>
             <button>
-              <SvgIconMainLogo type='Mobile' />
+              <MainLogo type='Mobile' />
             </button>
             <button className='cursor-pointer' onClick={onFoldToggle}>
-              <SvgIconHamburger />
+              <Hamburger />
             </button>
           </>
         )}

@@ -3,7 +3,7 @@ interface ClockProps {
   active?: boolean;
 }
 
-const SvgIconClock = ({ size, active }: ClockProps) => {
+const Clock = ({ size, active }: ClockProps) => {
   return size === 'L' ? (
     <svg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <path
@@ -21,4 +21,4 @@ const SvgIconClock = ({ size, active }: ClockProps) => {
   );
 };
 
-export default SvgIconClock;
+export default Clock;
