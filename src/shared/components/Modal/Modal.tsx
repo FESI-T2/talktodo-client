@@ -1,9 +1,10 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
+import useMount from '@/shared/hooks/useMount';
 import { cn } from '@/shared/utils/cn';
 
 import Overlay from './Overlay/Overlay';
@@ -18,13 +19,7 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, className }) => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-
-    return () => setMounted(false);
-  }, []);
+  const isMounted = useMount();
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -45,9 +40,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, className }) =
     };
   }, [isOpen, onClose]);
 
-  if (!mounted || !isOpen) {
-    return null;
-  }
+  if (!isMounted || !isOpen) return null;
 
   return createPortal(
     <Overlay>
