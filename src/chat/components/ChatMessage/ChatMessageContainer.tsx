@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SvgIconChatCharacter from 'public/icon/chatCharacter';
+import ChatCharacter from '@/shared/components/Icons/ChatCharacter/ChatCharacter';
 
 import ChatMessage from './ChatMessage';
 
@@ -15,7 +15,7 @@ const ChatMessageContainer = ({ message = 'Hello! How can I assist you today?', 
     <>
       {role === 'assistant' && (
         <div className='flex justify-start items-center gap-6'>
-          <SvgIconChatCharacter />
+          <ChatCharacter />
           <ChatMessage message={message} state={state} />
         </div>
       )}
