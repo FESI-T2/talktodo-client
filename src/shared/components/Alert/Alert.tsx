@@ -9,7 +9,7 @@ export type AlertProps = Omit<AlertType, 'id'>;
 const Alert = ({ message, handleClick }: AlertProps) => {
   return (
     <motion.div
-      className='max-w-[800px] w-full h-[65px] py-3 pr-3 pl-5 flex gap-2 bg-purple-100 rounded-2xl items-center m-auto '
+      className='max-w-[800px] w-[90%] h-[65px] py-3 pr-3 pl-5 flex gap-2 bg-purple-100 rounded-2xl items-center m-auto '
       initial={{ opacity: 0, y: 0 }}
       animate={{ opacity: 1, y: -10 }}
       transition={{ duration: 0.3, ease: 'easeOut' }}
