@@ -4,10 +4,10 @@ import { useEffect } from 'react';
 
 import { login } from '@/app/actions/auth/service';
 import { setAccessToken } from '@/app/actions/auth/token';
-import { useToast } from '@/shared/hooks/useToast';
+import { useAlert } from '@/shared/hooks/useAlert';
 
 const useKakaoLogin = () => {
-  const Toast = useToast();
+  const { openAlert } = useAlert();
 
   useEffect(() => {
     const fetchLogin = async () => {
@@ -15,7 +15,7 @@ const useKakaoLogin = () => {
         const access_token = await login();
         if (access_token) setAccessToken(access_token);
       } catch {
-        Toast.error('카카오 로그인에 실패했습니다');
+        openAlert({ message: '카카오 로그인에 실패했습니다.' });
       }
     };
 

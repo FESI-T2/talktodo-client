@@ -1,12 +1,6 @@
-export type AlertVariant = 'success' | 'warning' | 'error';
+import { Alert as AlertType } from './Alert.type';
 
-export interface Alert {
-  id: number;
-  message: string;
-  handleClick?: () => void;
-}
-
-export type AlertObserver = (Alert: Alert) => void;
+export type AlertObserver = (Alert: AlertType) => void;
 
 export class AlertSubject {
   private static instance: AlertSubject;
@@ -30,11 +24,11 @@ export class AlertSubject {
     this.observers = this.observers.filter((obs) => obs !== observer);
   }
 
-  public notify(Alert: Alert): void {
+  public notify(Alert: AlertType): void {
     this.observers.forEach((observer) => observer(Alert));
   }
 
-  public addAlert(Alert: Alert): void {
+  public addAlert(Alert: AlertType): void {
     this.notify(Alert);
   }
 }

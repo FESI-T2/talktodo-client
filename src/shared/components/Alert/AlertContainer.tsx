@@ -6,7 +6,8 @@ import { createPortal } from 'react-dom';
 import useMount from '@/shared/hooks/useMount';
 
 import Alert from './Alert';
-import { AlertObserver, Alert as AlertType, AlertSubject } from './AlertSubject';
+import { Alert as AlertType } from './Alert.type';
+import { AlertObserver, AlertSubject } from './AlertSubject';
 
 const AlertContainer = () => {
   const [Alerts, setAlerts] = useState<AlertType[]>([]);

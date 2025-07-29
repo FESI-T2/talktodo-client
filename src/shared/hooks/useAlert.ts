@@ -1,4 +1,4 @@
-import { AlertProps } from '../components/Alert/Alert';
+import { AlertProps } from '../components/Alert/Alert.type';
 import { AlertSubject } from '../components/Alert/AlertSubject';
 
 /**
