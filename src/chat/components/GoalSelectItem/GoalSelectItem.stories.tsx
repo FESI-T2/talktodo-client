@@ -7,7 +7,7 @@ const meta: Meta<typeof GoalSelectItem> = {
   component: GoalSelectItem,
   tags: ['autodocs'],
   args: {
-    GoalTitle: '자바스크립트로 웹 서비스 만들기',
+    goalTitle: '자바스크립트로 웹 서비스 만들기',
     taskCount: 5,
   },
 };

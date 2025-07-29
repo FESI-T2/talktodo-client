@@ -2,7 +2,7 @@ import Send from '@/shared/components/Icons/Send/Send';
 
 interface MessageSendButtonProps {
   active?: boolean;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 const MessageSendButton = ({ active, onClick }: MessageSendButtonProps) => {
