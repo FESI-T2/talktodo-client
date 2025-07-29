@@ -26,7 +26,7 @@ const Button = ({ variant, children, disabled, className, ...props }: ButtonProp
     <button
       {...props}
       className={cn(
-        'rounded-xl py-3.5 px-4 flex w-full h-12 items-center justify-center text-base  cursor-pointer font-body1-bold',
+        'rounded-xl py-3.5 px-4 flex w-full h-12 items-center justify-center text-base  cursor-pointer font-body1-bold text-nowrap',
         ButtonStyle[variant][disabled ? 'disabled' : 'enabled'],
         className
       )}
