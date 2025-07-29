@@ -109,16 +109,16 @@ const ChatCharacter = () => {
           <feBlend mode='normal' in2='shape' result='effect1_innerShadow_1898_27736' />
         </filter>
         <linearGradient id='paint0_linear_1898_27736' x1='85.7499' y1='36.875' x2='85.7499' y2='65.3749' gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#AE52FD' />
-          <stop offset='1' stop-color='#7745FD' />
+          <stop stopColor='#AE52FD' />
+          <stop offset='1' stopColor='#7745FD' />
         </linearGradient>
         <linearGradient id='paint1_linear_1898_27736' x1='51.5327' y1='0.0625' x2='51.5327' y2='75.4944' gradientUnits='userSpaceOnUse'>
-          <stop stop-color='white' />
-          <stop offset='1' stop-color='#E1CCFF' />
+          <stop stopColor='white' />
+          <stop offset='1' stopColor='#E1CCFF' />
         </linearGradient>
         <linearGradient id='paint2_linear_1898_27736' x1='14.4975' y1='36.875' x2='14.4975' y2='65.3749' gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#AE52FD' />
-          <stop offset='1' stop-color='#7745FD' />
+          <stop stopColor='#AE52FD' />
+          <stop offset='1' stopColor='#7745FD' />
         </linearGradient>
       </defs>
     </svg>
