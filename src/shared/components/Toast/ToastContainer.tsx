@@ -6,7 +6,8 @@ import { createPortal } from 'react-dom';
 import useMount from '@/shared/hooks/useMount';
 
 import Toast from './Toast';
-import { ToastObserver, Toast as ToastType, ToastSubject } from './ToastSubject';
+import { Toast as ToastType } from './Toast.Type';
+import { ToastObserver, ToastSubject } from './ToastSubject';
 
 const ToastContainer = () => {
   const [toasts, setToasts] = useState<ToastType[]>([]);
@@ -18,11 +19,10 @@ const ToastContainer = () => {
   useEffect(() => {
     const toastSubject = ToastSubject.getInstance();
 
-    const handleNewToast: ToastObserver = ({ message, variant }) => {
+    const handleNewToast: ToastObserver = ({ message }) => {
       const newToast = {
         id: Date.now(),
         message,
-        variant,
       };
 
       setToasts((prev) => {
@@ -42,21 +42,15 @@ const ToastContainer = () => {
     };
   }, []);
 
-  const handleCloseToast = (id: number) => {
-    setToasts((prev) => prev.filter((toast) => toast.id !== id));
-  };
-
-  if (!isMounted) {
-    return null;
-  }
+  if (!isMounted) return null;
 
   return createPortal(
-    <div className='toast-container'>
+    <div className='fixed top-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3 w-fit'>
       {toasts
         .slice()
         .reverse()
-        .map(({ id, message, variant }) => (
-          <Toast key={id} message={message} variant={variant} onClose={() => handleCloseToast(id)} />
+        .map(({ id, message }) => (
+          <Toast key={id} message={message} />
         ))}
     </div>,
     document.getElementById('toast-root') || document.body
