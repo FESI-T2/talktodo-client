@@ -5,8 +5,8 @@ import classifyAPIError from '@/shared/lib/error/classifyAPIError';
 import { CustomError } from '@/shared/lib/error/customError';
 import { processError, createErrorActions } from '@/shared/lib/error/handleError';
 
+import { Level } from './error.type';
 import { Fallback, PageFallback } from './Fallback/FallBack';
-import { Level } from './index.type';
 import { useAlert } from '../hooks/useAlert';
 
 interface ApiErrorHandlerProps {

@@ -2,7 +2,7 @@
 import React, { Component, ReactNode } from 'react';
 
 import ApiErrorHandler from './ApiErrorHandler';
-import { Level } from './index.type';
+import { Level } from './error.type';
 
 interface ApiErrorBoundaryProps {
   children: ReactNode;
