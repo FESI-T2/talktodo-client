@@ -35,7 +35,7 @@ const ModalContainer: React.FC = () => {
       disableBackdropClick={modalCurrentState.options?.disableBackdropClick}
       className={modalCurrentState.options?.className}
     >
-      {modalCurrentState.content} {/* ModalSubject에서 받은 콘텐츠 렌더링 */}
+      {modalCurrentState.content}
     </Modal>
   );
 };
