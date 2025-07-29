@@ -57,10 +57,10 @@ const ChatContent = ({ chatType = 'inital', messages }: ChatContentProps) => {
   if (chatType === 'inital') return <InitialContent />;
 
   return (
-    <div className='flex flex-col h-[679px] mt-1'>
+    <div className='flex flex-col-reverse h-[679px] mt-1'>
       <div className='flex-grow overflow-hidden'>
         <div
-          className='flex flex-col gap-5 overflow-y-auto h-full hide-scrollbar
+          className='flex flex-col justify-end gap-5 overflow-y-auto h-full hide-scrollbar
             w-[343px] pb-12
             tb:w-[700px] tb:pb-[50px]
             pc:w-[920px] pc:pb-7
