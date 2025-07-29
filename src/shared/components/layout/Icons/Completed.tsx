@@ -1,4 +1,4 @@
-const SvgIconCompleted = () => {
+const Completed = () => {
   return (
     <svg xmlns='http://www.w3.org/2000/svg' width='180' height='186' viewBox='0 0 180 186' fill='none'>
       <g clipPath='url(#clip0_798_21521)'>
@@ -201,4 +201,4 @@ const SvgIconCompleted = () => {
   );
 };
 
-export default SvgIconCompleted;
+export default Completed;

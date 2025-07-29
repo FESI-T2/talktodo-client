@@ -1,4 +1,4 @@
-const SvgIconProfile = () => {
+const Profile = () => {
   return (
     <svg width='40' height='40' viewBox='0 0 40 40' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <g clipPath='url(#clip0_662_6065)'>
@@ -26,4 +26,4 @@ const SvgIconProfile = () => {
   );
 };
 
-export default SvgIconProfile;
+export default Profile;

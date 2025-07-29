@@ -2,7 +2,7 @@ interface PlusIconProps {
   type?: 'Sidebar' | 'FAB';
 }
 
-const SvgIconPlus = ({ type = 'Sidebar' }: PlusIconProps) => {
+const Plus = ({ type = 'Sidebar' }: PlusIconProps) => {
   return type === 'Sidebar' ? (
     <svg xmlns='http://www.w3.org/2000/svg' width='21' height='20' viewBox='0 0 21 20' fill='none'>
       <path d='M3.5 10H17' stroke='#8F3FFF' strokeWidth='2' strokeLinecap='round' />
@@ -21,4 +21,4 @@ const SvgIconPlus = ({ type = 'Sidebar' }: PlusIconProps) => {
   );
 };
 
-export default SvgIconPlus;
+export default Plus;

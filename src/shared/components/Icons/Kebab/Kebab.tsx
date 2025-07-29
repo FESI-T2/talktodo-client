@@ -1,7 +1,7 @@
 interface iconProps {
   type: 'S' | 'M' | 'L';
 }
-const SvgIconKebab = ({ type }: iconProps) => {
+const Kebab = ({ type }: iconProps) => {
   const renderIconKebab = () => {
     if (type === 'S') {
       return (
@@ -55,4 +55,17 @@ const SvgIconKebab = ({ type }: iconProps) => {
   return renderIconKebab();
 };
 
-export default SvgIconKebab;
+export default Kebab;
+
+// import clsx from 'clsx';
+// import React from 'react';
+
+// interface KebabProps {
+//   className?: string;
+// }
+
+// const Kebab = ({ className }: KebabProps) => {
+//   return <img className={clsx(className)} src={'/icon/kebab.svg'} alt='Kebab' />;
+// };
+
+// export default Kebab;

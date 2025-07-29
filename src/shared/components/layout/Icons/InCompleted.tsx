@@ -1,4 +1,4 @@
-const SvgIconInCompleted = () => {
+const InCompleted = () => {
   return (
     <svg width='140' height='140' viewBox='0 0 140 140' fill='none' xmlns='http://www.w3.org/2000/svg'>
       <g filter='url(#filter0_i_798_21646)'>
@@ -134,4 +134,4 @@ const SvgIconInCompleted = () => {
   );
 };
 
-export default SvgIconInCompleted;
+export default InCompleted;

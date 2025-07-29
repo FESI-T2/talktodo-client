@@ -1,6 +1,6 @@
 import React from 'react';
 
-import SvgIconPlus from '@/icons/Plus/Plus';
+import Plus from '@/shared/components/Icons/Plus/Plus';
 
 interface FloatingActionButtonProps {
   size?: 'L' | 'S';
@@ -18,7 +18,7 @@ const FloatingActionButton = ({ size }: FloatingActionButtonProps) => {
      hover:transform hover:rotate-45
     `}
     >
-      <SvgIconPlus type='FAB' />
+      <Plus type='FAB' />
     </button>
   );
 };
