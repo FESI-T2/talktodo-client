@@ -16,21 +16,12 @@ type Story = StoryObj<typeof ChatMessageContainer>;
 
 export const AssistantMessage: Story = {
   args: {
-    state: 'chat',
     role: 'assistant',
   },
 };
 
 export const UserMessage: Story = {
   args: {
-    state: 'chat',
     role: 'user',
-  },
-};
-
-export const AssistantFinishMessage: Story = {
-  args: {
-    state: 'finish',
-    role: 'assistant',
   },
 };

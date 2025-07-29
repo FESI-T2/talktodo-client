@@ -14,16 +14,16 @@ const meta: Meta<typeof ChatMessage> = {
 export default meta;
 type Story = StoryObj<typeof ChatMessage>;
 
-export const ChatState: Story = {
+export const UserChat: Story = {
   args: {
-    state: 'chat',
+    role: 'user',
     message: '‘챕터 5 복습’ 일정을 언제로 잡을까요?',
   },
 };
 
-export const FinishState: Story = {
+export const AssistantChat: Story = {
   args: {
-    state: 'finish',
+    role: 'assistant',
     message: '말해주신 내용으로 목표를 정하고, 할 일을 정리해볼게요!',
   },
 };
