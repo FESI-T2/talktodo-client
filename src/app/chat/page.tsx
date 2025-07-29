@@ -1,15 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import { match } from 'ts-pattern';
 import { useStep } from 'usehooks-ts';
 
-import ChatModal from '@/chat/components/ChatModal/ChatModal';
-import ExistGoalChat from '@/chat/pages/ExistGoalChat';
-import ExistGoalMain from '@/chat/pages/ExistGoalMain';
-import ExistGoalResult from '@/chat/pages/ExistGoalResult';
-import NewGoalChat from '@/chat/pages/NewGoalChat';
-import NewGoalMain from '@/chat/pages/NewGoalMain';
-import NewGoalResult from '@/chat/pages/NewGoalResult';
+import { ChatModal } from '@/chat/components/ChatModal';
+import { ExistGoalChat, ExistGoalMain, ExistGoalResult, NewGoalChat, NewGoalMain, NewGoalResult } from '@/chat/pages';
 import { Message } from '@/chat/types/message';
 import ChatCharacter from '@/shared/components/Icons/ChatCharacter/ChatCharacter';
 
@@ -69,36 +65,30 @@ const Page = () => {
     }, 2500);
   };
 
-  const renderStepPage = () => {
-    switch (currentStep) {
-      case 1:
-        return (
-          <ChatModal
-            onClickSecondary={() => setStep(2)}
-            onClickPrimary={() => setStep(5)}
-            onSelectGoalComplete={(goal) => setSelectedGoal(goal)}
-          />
-        );
-      case 2:
-        return <NewGoalMain onSendMessage={handleStartChat} {...helpers} />;
-      case 3:
-        return <NewGoalChat messages={messages} onSendMessage={handleAddMessage} {...helpers} />;
-      case 4:
-        return <NewGoalResult {...helpers} />;
-      case 5:
-        return selectedGoal ? (
+  const renderStepPage = () =>
+    match(currentStep)
+      .with(1, () => (
+        <ChatModal
+          onClickSecondary={() => setStep(2)}
+          onClickPrimary={() => setStep(5)}
+          onSelectGoalComplete={(goal) => setSelectedGoal(goal)}
+        />
+      ))
+      .with(2, () => <NewGoalMain onSendMessage={handleStartChat} {...helpers} />)
+      .with(3, () => <NewGoalChat messages={messages} onSendMessage={handleAddMessage} {...helpers} />)
+      .with(4, () => <NewGoalResult {...helpers} />)
+      .with(5, () =>
+        selectedGoal ? (
           <ExistGoalMain onSendMessage={handleStartChat} headerTitle={selectedGoal.title} taskCount={selectedGoal.count} {...helpers} />
-        ) : null;
-      case 6:
-        return selectedGoal ? (
+        ) : null
+      )
+      .with(6, () =>
+        selectedGoal ? (
           <ExistGoalChat messages={messages} headerTitle={selectedGoal.title} taskCount={selectedGoal.count} {...helpers} />
-        ) : null;
-      case 7:
-        return <ExistGoalResult {...helpers} />;
-      default:
-        return null;
-    }
-  };
+        ) : null
+      )
+      .with(7, () => <ExistGoalResult {...helpers} />)
+      .otherwise(() => null);
 
   return (
     <div className='flex justify-center items-center min-h-screen gradient-bg overflow-hidden mx-auto'>
