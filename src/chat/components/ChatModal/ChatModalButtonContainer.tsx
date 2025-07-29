@@ -1,12 +1,12 @@
 import Button from '@/shared/components/Button/Button';
 
-interface Props {
+interface ChatModalButtonContainerProps {
   onClickPrimary?: () => void;
   onClickSecondary?: () => void;
   type?: 'main' | 'result';
 }
 
-const ChatModalButtonContainer = ({ onClickPrimary, onClickSecondary, type }: Props) => (
+const ChatModalButtonContainer = ({ onClickPrimary, onClickSecondary, type }: ChatModalButtonContainerProps) => (
   <div className='flex tb:flex-row flex-col-reverse items-center justify-between w-full tb:gap-3 gap-2'>
     <Button
       variant='secondary'
