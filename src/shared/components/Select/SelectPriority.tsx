@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { PriorityType } from '@/shared/types/prioity';
+import { Priority } from '@/shared/types/prioity';
 import LabelPriority from '@/task/components/common/LabelPriority/LabelPriority';
 
 import Dropdown from '../Dropdown/Dropdown';
@@ -27,18 +27,18 @@ export const selectOptions = ['중요', '보통', '낮음'];
 
 interface SelectPriorityProps {
   label: string;
-  options: PriorityType[];
-  onSelect: React.Dispatch<React.SetStateAction<PriorityType>>;
-  selectedValue: PriorityType;
+  options: Priority[];
+  onSelect: React.Dispatch<React.SetStateAction<Priority>>;
+  selectedValue: Priority;
 }
 
 export default function SelectPriority({}: SelectPriorityProps) {
   const [open, setOpen] = useState(false);
-  const [priority, setPriority] = useState<PriorityType>('중요');
+  const [priority, setPriority] = useState<Priority>('중요');
   const size = 'L';
 
   const handleSelect = (value: string) => {
-    setPriority(value as PriorityType);
+    setPriority(value as Priority);
     setOpen(false);
   };
 

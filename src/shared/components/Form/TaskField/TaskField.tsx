@@ -1,5 +1,5 @@
 'use client';
-import { PriorityType } from '@/shared/types/prioity';
+import { Priority } from '@/shared/types/prioity';
 import { DateSelectorProps } from '@/shared/types/props';
 
 import DateSelector from '../../DateSelector/DateSelector';
@@ -9,8 +9,8 @@ import SubText from '../SubText/SubText';
 
 type TaskFieldProps = DateSelectorProps &
   React.HTMLAttributes<HTMLInputElement> & {
-    priority: PriorityType;
-    setPriority: React.Dispatch<React.SetStateAction<PriorityType>>;
+    priority: Priority;
+    setPriority: React.Dispatch<React.SetStateAction<Priority>>;
   };
 
 const TaskField = ({ date, setDate, priority, setPriority, ...props }: TaskFieldProps) => {

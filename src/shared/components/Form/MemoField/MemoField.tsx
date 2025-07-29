@@ -1,11 +1,12 @@
-import LabelPriority, { PriorityType } from '@/task/components/common/LabelPriority/LabelPriority';
+import { Priority } from '@/shared/types/prioity';
+import LabelPriority from '@/task/components/common/LabelPriority/LabelPriority';
 
 import TextArea from '../../TextArea/TextArea';
 import SubText from '../SubText/SubText';
 
 interface MemoFieldProps extends React.HTMLAttributes<HTMLTextAreaElement> {
   day: string;
-  priority: PriorityType;
+  priority: Priority;
   repeatInterval: string;
 }
 
@@ -16,7 +17,7 @@ const MemoField = ({ day, priority, repeatInterval, ...props }: MemoFieldProps) 
     반복설정: repeatInterval,
   } as const;
 
-  const isPriorityType = (value: string): value is PriorityType => {
+  const isPriority = (value: string): value is Priority => {
     return ['중요', '보통', '낮음'].includes(value);
   };
 
@@ -27,7 +28,7 @@ const MemoField = ({ day, priority, repeatInterval, ...props }: MemoFieldProps) 
           {Object.entries(infoItems).map(([key, value], idx) => (
             <div key={idx} className=''>
               <p className='font-body3-medium-tight text-[var(--color-gray-500)]'>{key}</p>
-              {isPriorityType(value) ? <LabelPriority priority={value} size='L' /> : <p className=' font-body2-semibold '>{value}</p>}
+              {isPriority(value) ? <LabelPriority priority={value} size='L' /> : <p className=' font-body2-semibold '>{value}</p>}
             </div>
           ))}
         </div>

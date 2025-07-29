@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 
 import Form from '@/shared/components/Form/Form';
 
-import { PriorityType } from '@/shared/types/prioity';
+import { Priority } from '@/shared/types/prioity';
 import { TaskFormData, taskValidation } from '@/task/utils/validation';
 
 const TaskForm = () => {
@@ -16,7 +16,7 @@ const TaskForm = () => {
     to: new Date(2023, 9, 31),
   });
 
-  const [priorityType, setPriorityType] = useState<PriorityType>('중요');
+  const [Priority, setPriority] = useState<Priority>('중요');
 
   const {
     register,
@@ -30,14 +30,14 @@ const TaskForm = () => {
     console.log('data : ', {
       task: data,
       date: date,
-      priority: priorityType,
+      priority: Priority,
     });
   };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Header title='작업 모달 제목' goal='작업 목표 설명' />
-      <Form.TaskField date={date} setDate={setDate} priority={priorityType} setPriority={setPriorityType} {...register('task')} />
+      <Form.TaskField date={date} setDate={setDate} priority={Priority} setPriority={setPriority} {...register('task')} />
       <Form.FormActions
         createAction={() => alert('작업 생성')}
         deleteAction={() => alert('작업 삭제')}

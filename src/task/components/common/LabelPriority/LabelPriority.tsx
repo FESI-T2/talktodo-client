@@ -1,3 +1,5 @@
+import { Priority } from '@/shared/types/prioity';
+
 import PriorityDot from './PriorityDot';
 
 export const PRIORITY_STYLES = {
@@ -6,10 +8,8 @@ export const PRIORITY_STYLES = {
   낮음: { label: '낮음', color: 'var(--color-priority-low)' },
 } as const;
 
-export type PriorityType = keyof typeof PRIORITY_STYLES;
-
 interface LabelPriorityProps {
-  priority: PriorityType;
+  priority: Priority;
   size: 'S' | 'M' | 'L';
 }
 

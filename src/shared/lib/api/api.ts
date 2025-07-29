@@ -48,6 +48,7 @@ class API {
     http.interceptors.response.use(
       (response) => response,
       (error) => {
+        console.error('API Error:', error);
         classifyError(error);
         return Promise.reject(error);
       }
