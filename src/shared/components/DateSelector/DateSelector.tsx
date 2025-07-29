@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Calendar from '@/icons/Calendar/Calendar';
 import { Mode, DateSelectorProps } from '@/shared/types/date';
-import { formatDateByType } from '@/shared/utils/formatDateRange';
+import { formatDateByType } from '@/shared/utils/formatDate';
 
 import DatePicker from '../DatePicker/DatePicker';
 
