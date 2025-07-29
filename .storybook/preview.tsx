@@ -1,7 +1,17 @@
 import type { Preview } from '@storybook/nextjs-vite';
+
 import '../src/shared/styles/globals.css';
 
+import '../src/shared/styles/pretendard-font.css';
+
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <div style={{ fontFamily: 'Pretendard, Noto Sans KR, Arial, sans-serif' }}>
+        <Story />
+      </div>
+    ),
+  ],
   parameters: {
     controls: {
       matchers: {
