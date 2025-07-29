@@ -1,10 +1,6 @@
-export type ToastVariant = 'success' | 'warning' | 'error';
+import { Toast } from './Toast.Type';
 
-export interface Toast {
-  id: number;
-  message: string;
-  variant: ToastVariant;
-}
+export type ToastVariant = 'success' | 'warning' | 'error';
 
 export type ToastObserver = (toast: Toast) => void;
 

@@ -13,25 +13,10 @@ export const useToast = () => {
   const toastSubject = ToastSubject.getInstance();
 
   const toast = {
-    success: (message: string) => {
+    openToast: (message: string) => {
       toastSubject.addToast({
         id: Date.now(),
         message,
-        variant: 'success',
-      });
-    },
-    warning: (message: string) => {
-      toastSubject.addToast({
-        id: Date.now(),
-        message,
-        variant: 'warning',
-      });
-    },
-    error: (message: string) => {
-      toastSubject.addToast({
-        id: Date.now(),
-        message,
-        variant: 'error',
       });
     },
   };
