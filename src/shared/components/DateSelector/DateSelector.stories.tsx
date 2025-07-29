@@ -13,13 +13,21 @@ export default meta;
 
 type Story = StoryObj<typeof DateSelector>;
 
-export const Default: Story = {
+export const Range: Story = {
   render: () => {
     const [date, setDate] = useState<DateRange>({
-      from: new Date(2023, 9, 1),
-      to: new Date(2023, 9, 31),
+      from: new Date(),
+      to: new Date(),
     });
 
-    return <DateSelector date={date} setDate={setDate} />;
+    return <DateSelector mode='range' date={date} setDate={setDate} />;
+  },
+};
+
+export const Single: Story = {
+  render: () => {
+    const [date, setDate] = useState<Date>(new Date());
+
+    return <DateSelector mode='single' date={date} setDate={setDate} />;
   },
 };

@@ -3,31 +3,29 @@
 import { useState } from 'react';
 
 import Calendar from '@/icons/Calendar/Calendar';
-import { DateSelectorProps } from '@/shared/types/props';
-import { formatDateRange, format } from '@/shared/utils/formatDateRange';
+import { Mode, DateSelectorProps } from '@/shared/types/date';
+import { formatDateByType } from '@/shared/utils/formatDateRange';
 
 import DatePicker from '../DatePicker/DatePicker';
 
-const DateSelector = ({ date, setDate }: DateSelectorProps) => {
+const DateSelector = <T extends Mode>({ date, setDate, mode }: DateSelectorProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
 
-  const handleToggle = () => {
+  const closeSelector = () => {
     setIsOpen(!isOpen);
   };
 
   return (
-    <div className='base-divider px-3 py-[9px] w-full h-[44px] relative'>
+    <div className='base-divider px-3 py-[9px] w-full h-[44px] relative '>
+      <div className='absolute top-full mt-[19px] left-0'>
+        {isOpen && <DatePicker setDate={setDate} mode={mode} closeSelector={closeSelector} />}
+      </div>
       <div className='flex items-center justify-between'>
-        <div className='@container container-type-inline w-fit h-fit'>
-          <span className='hidden @xs:block'>{formatDateRange(date.from!, date.to!)}</span>
-          <span className='@xs:hidden'>{format(date.from!)}</span>
-        </div>
-        <button onClick={handleToggle} type='button'>
+        <span>{formatDateByType(date)}</span>
+        <button onClick={closeSelector} type='button' className='cursor-pointer'>
           <Calendar />
         </button>
       </div>
-
-      <div className='absolute top-full mt-[19px]'>{isOpen && <DatePicker setDate={setDate} />}</div>
     </div>
   );
 };
