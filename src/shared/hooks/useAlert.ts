@@ -4,10 +4,8 @@ import { AlertSubject } from '../components/Alert/AlertSubject';
 /**
  * 알림을 호출 하는 훅입니다.
  * 사용 예시:
- * const { success, warning, error } = useAlert();
- * success('성공 메시지');
- * warning('경고 메시지');
- * error('오류 메시지');
+ * const { openAlert } = useAlert();
+ * openAlert({ message: '테스트 알림', handleClick: () => console.log('Alert Clicked') });
  */
 
 export const useAlert = () => {
