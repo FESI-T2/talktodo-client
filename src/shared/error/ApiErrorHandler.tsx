@@ -6,11 +6,12 @@ import { CustomError } from '@/shared/lib/error/customError';
 import { processError, createErrorActions } from '@/shared/lib/error/handleError';
 
 import { Fallback, PageFallback } from './Fallback/FallBack';
+import { Level } from './index.type';
 import { useAlert } from '../hooks/useAlert';
 
 interface ApiErrorHandlerProps {
   error: Error;
-  level: 'alert' | 'fallback' | 'page';
+  level: Level;
   onReset: () => void;
 }
 
