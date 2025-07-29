@@ -11,12 +11,12 @@
     --foreground: var(--color-gray-900); /* 라이트 모드 기본 텍스트 */
   }
 
-  @media (prefers-color-scheme: dark) {
+  /* @media (prefers-color-scheme: dark) {
     :root {
       --background: #0a0a0a;
       --foreground: #ededed;
     }
-  }
+  } */
 
   body {
     background-color: var(--background);
