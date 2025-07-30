@@ -2,7 +2,7 @@ import { Priority } from '@/shared/types/prioity';
 import LabelPriority from '@/task/components/common/LabelPriority/LabelPriority';
 
 import TextArea from '../../TextArea/TextArea';
-import SubText from '../SubText/SubText';
+import Section from '../Section/Section';
 
 interface MemoFieldProps extends React.HTMLAttributes<HTMLTextAreaElement> {
   day: string;
@@ -33,9 +33,9 @@ const MemoField = ({ day, priority, repeatInterval, ...props }: MemoFieldProps) 
           ))}
         </div>
       </div>
-      <SubText text='메모'>
+      <Section sectionTitle='메모'>
         <TextArea {...props} />
-      </SubText>
+      </Section>
     </div>
   );
 };
