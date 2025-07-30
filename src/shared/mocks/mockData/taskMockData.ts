@@ -1,6 +1,24 @@
 import { Task } from '@/task/types';
 import { AllTaskResponse, TaskResponse, DeleteTaskResponse } from '@/task/types/reponse';
-export const MockTask: Task[] = [
+// 완료된 태스크들
+export const DoneTasks: Task[] = [
+  {
+    taskId: '54dbd85d-28c4-4ebe-8e40-7da499d104de',
+    taskNo: 4,
+    content: '매일 아침 산책하기',
+    priority: '보통',
+    taskDate: '2025-07-20',
+    startTime: '06:30:00',
+    endTime: '07:00:00',
+    goal: '하루 30분 운동',
+    isDone: true,
+    createdAt: '2025-07-20T04:28:15.822385',
+    modifiedAt: '2025-07-20T04:28:15.822385',
+  },
+];
+
+// 미완료된 태스크들
+export const UndoneTasks: Task[] = [
   {
     taskId: 'a9b910fb-1760-47b0-8f62-fd014e80bf60',
     taskNo: 1,
@@ -40,30 +58,21 @@ export const MockTask: Task[] = [
     createdAt: '2025-07-20T04:28:14.586355',
     modifiedAt: '2025-07-20T04:28:14.586355',
   },
-  {
-    taskId: '54dbd85d-28c4-4ebe-8e40-7da499d104de',
-    taskNo: 4,
-    content: '매일 아침 산책하기',
-    priority: '보통',
-    taskDate: '2025-07-20',
-    startTime: '06:30:00',
-    endTime: '07:00:00',
-    goal: '하루 30분 운동',
-    isDone: true,
-    createdAt: '2025-07-20T04:28:15.822385',
-    modifiedAt: '2025-07-20T04:28:15.822385',
-  },
 ];
+
+// 모든 태스크 (기존 호환성 유지용)
+export const MockTask: Task[] = [...DoneTasks, ...UndoneTasks];
 
 export const AllTaskData: AllTaskResponse = {
   isSuccess: true,
   code: 'COMMON200',
   message: '성공입니다.',
   result: {
-    tasks: MockTask,
-    totalCount: 6,
-    doneCount: 0,
-    undoneCount: 6,
+    doneTasks: DoneTasks,
+    undoneTasks: UndoneTasks,
+    totalCount: MockTask.length,
+    doneCount: DoneTasks.length,
+    undoneCount: UndoneTasks.length,
   },
 };
 

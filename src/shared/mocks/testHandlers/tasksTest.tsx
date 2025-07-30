@@ -105,7 +105,6 @@ const tasksTestHandlers = [
         ...AllTaskData,
         result: {
           ...AllTaskData.result,
-          tasks: filtered,
           totalCount: filtered.length,
           doneCount: filtered.filter((t) => t.isDone).length,
           undoneCount: filtered.filter((t) => !t.isDone).length,
