@@ -4,17 +4,11 @@ import { cn } from '@/shared/utils/cn';
 
 interface SubTextProps {
   text: string;
-  children: React.ReactNode;
   className?: string;
 }
 
-const SubText = ({ text, children, className }: SubTextProps) => {
-  return (
-    <div className={cn('mb-6', className)}>
-      <p className='font-body2-semibold mb-3 '>{text}</p>
-      {children}
-    </div>
-  );
+const SubText = ({ text, className }: SubTextProps) => {
+  return <p className={cn('font-body2-semibold', className)}>{text}</p>;
 };
 
 export default SubText;
