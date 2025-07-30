@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 type IconSize = 'L' | 'M' | 'S';
+type IconTwoSize = 'L' | 'S';
 type DropdownSize = 'L' | 'M' | 'S';
 type SidebarSize = 'PC' | 'MOBILE';
 
@@ -8,6 +9,11 @@ function getIconTypeByWidth(width: number): IconSize {
   if (width >= 1024) return 'L';
   if (width >= 768) return 'M';
   return 'S'; // 0~767
+}
+
+function getIconTwoTypeByWidth(width: number): IconTwoSize {
+  if (width >= 768) return 'L';
+  return 'S';
 }
 
 function getDropdownTypeByWidth(width: number): DropdownSize {
@@ -35,6 +41,7 @@ export default function useResponsiveType() {
   const kebabType = getIconTypeByWidth(windowWidth);
   const dropdownType = getDropdownTypeByWidth(windowWidth);
   const sidebarType = getSidebarTypeByWidth(windowWidth);
+  const iconTwoType = getIconTwoTypeByWidth(windowWidth);
 
-  return { kebabType, dropdownType, sidebarType, windowWidth };
+  return { kebabType, dropdownType, sidebarType, iconTwoType, windowWidth };
 }
