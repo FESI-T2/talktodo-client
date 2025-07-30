@@ -17,14 +17,21 @@ export interface UseDateSelectorReturn {
 }
 
 // 선택된 날짜를 기준으로 주변 날짜들을 계산하는 훅
-export function useDateSelector() {
+export function useDateSelector(initialDate?: string) {
   // 날짜 선택기 관련 상수 (내부에서만 사용)
   const VISIBLE_DATES_COUNT = 5; // 화면에 표시할 날짜 개수
   const MOVE_DAYS_COUNT = 5; // 좌우 버튼 클릭 시 이동할 날짜 수
 
-  const [selectedDate, setSelectedDate] = useState(() => new Date());
+  // 초기 날짜 설정: initialDate가 있으면 사용, 없으면 오늘 날짜
+  const getInitialDate = () => {
+    if (initialDate) {
+      const date = new Date(initialDate);
+      return isNaN(date.getTime()) ? new Date() : date;
+    }
+    return new Date();
+  };
 
-  // selectedDate가 변경될 때마다 visibleDates를 다시 계산
+  const [selectedDate, setSelectedDate] = useState(() => getInitialDate()); // selectedDate가 변경될 때마다 visibleDates를 다시 계산
   const visibleDates = useMemo(() => {
     // 요일을 한국어로 변환하는 함수
     const getDayOfWeek = (date: Date): string => {
