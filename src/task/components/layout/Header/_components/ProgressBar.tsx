@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 import SvgIconKebab from '@/icons/Kebab/Kebab';
