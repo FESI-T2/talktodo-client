@@ -98,3 +98,7 @@
 @utility font-caption-regular {
   @apply text-caption font-regular;
 }
+
+@utility font-date-bold {
+  @apply text-date-day font-bold;
+}
