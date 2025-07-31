@@ -22,7 +22,7 @@ const TaskField = ({ date, setDate, priority, setPriority, handleSelectedDays, s
       </Section>
       <div className='block gap-4 mb:flex'>
         <Section sectionTitle='날짜' className='w-full mb:w-1/2 '>
-          <DateSelector date={date} setDate={setDate} />
+          <DateSelector mode='range' date={date} setDate={setDate} />
         </Section>
         <Section sectionTitle='우선 순위' className='w-full mb:w-1/2 '>
           <SelectPriority label='우선 순위' options={['중요', '보통', '낮음']} onSelect={setPriority} selectedValue={priority} />

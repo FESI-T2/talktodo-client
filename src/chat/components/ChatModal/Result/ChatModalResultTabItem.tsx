@@ -19,7 +19,7 @@ const ChatModalResultTabItem = () => {
     <div className='flex items-center gap-8'>
       <div className='w-[300px] font-body1-semibold text-gray-900'>디자인시스템 베리어블 1강 듣기</div>
       <div className='w-[200px]'>
-        <DateSelector date={date} setDate={setDate} />
+        <DateSelector mode='range' date={date} setDate={setDate} />
       </div>
       <div className='w-[120px]'>
         <SelectPriority />

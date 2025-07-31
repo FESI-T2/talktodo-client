@@ -14,7 +14,7 @@ export default meta;
 
 type Story = StoryObj<typeof DatePicker>;
 
-export const Default: Story = {
+export const Range: Story = {
   render: () => {
     const [date, setDate] = useState<DateRange>({
       from: new Date(),
@@ -25,6 +25,18 @@ export const Default: Story = {
       console.log('DatePicker mounted with initial date:', date);
     }, [date]);
 
-    return <DatePicker setDate={setDate} />;
+    return <DatePicker mode='range' setDate={setDate} closeSelector={() => {}} />;
+  },
+};
+
+export const Single: Story = {
+  render: () => {
+    const [date, setDate] = useState<Date>(new Date());
+
+    useEffect(() => {
+      console.log('DatePicker mounted with initial date:', date);
+    }, [date]);
+
+    return <DatePicker mode='single' setDate={setDate} closeSelector={() => {}} />;
   },
 };

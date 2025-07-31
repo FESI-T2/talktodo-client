@@ -46,7 +46,7 @@ export default function SelectPriority({}: SelectPriorityProps) {
     <>
       <button
         type='button'
-        className='flex justify-between items-center base-divider relative px-4 py-[12.5px] w-full h-[44px]'
+        className='flex justify-between items-center base-divider relative px-4 py-[12.5px] w-full h-[44px] cursor-pointer'
         onClick={() => setOpen((openState) => !openState)}
         aria-haspopup='listbox'
         aria-expanded={open}
