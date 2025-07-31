@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Message } from '@/chat/types/message';
+import { Message } from '@/chat/types/index';
 
 import { ChatHeaderProps } from './components/ChatHeader/ChatHeader';
 import { ChatContent, ChatHeader, ChatInput } from './components/index';

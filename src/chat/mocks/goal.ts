@@ -1,4 +1,4 @@
-import { Goal } from '../types/goal';
+import { Goal } from '@/chat/types/index';
 
 export const mockGoalsArray: Goal[] = [
   { title: '운동하기', count: 3 },
