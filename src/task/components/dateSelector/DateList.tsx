@@ -37,7 +37,7 @@ export default function DateList() {
             onClick={() => handleDateSelect(dateInfo)}
             className={cn(
               'flex w-[60px] h-[84px] flex-col justify-center items-center',
-              isCenter ? 'p-4  bg-gray-800 rounded-[1000px]' : 'bg-gray-100'
+              isCenter ? 'p-4  bg-gray-800 rounded-[1000px]' : ''
             )}
           >
             <div className={cn('font-date-bold', isCenter ? 'text-white' : 'text-gray-500')}>{dateInfo.day}</div>
