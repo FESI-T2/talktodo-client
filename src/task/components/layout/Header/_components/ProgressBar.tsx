@@ -31,7 +31,7 @@ const ProgressBar = ({ type = 'Main', percent = 0 }: ProgressBarProps) => {
   return (
     <div className='flex flex-col gap-3 w-full'>
       <div className='flex gap-2 items-center mb-1'>
-        <p className='text-center text-purple-300 tb:font-body2-medium font-caption-medium'>오늘의 진행률</p>
+        <p className='text-center text-purple-300 tb:font-body2-medium-tight font-caption-medium'>오늘의 진행률</p>
         <p className='text-center text-white tb:font-body2-bold font-body3-bold'>{clampedPercent}%</p>
       </div>
       <div className='flex items-center w-full'>
