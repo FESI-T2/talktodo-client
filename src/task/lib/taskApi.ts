@@ -1,6 +1,6 @@
 import APIBuilder from '@/shared/lib/api/apiBuilder';
-import { AllTaskResponse, TaskResponse, DeleteTaskResponse } from '@/task/types/reponse/index';
 import { TaskDateParams, TaskIdParams, TaskRequest } from '@/task/types/request/index';
+import { AllTaskResponse, TaskResponse, DeleteTaskResponse } from '@/task/types/response/index';
 
 const taskApi = {
   // 전체 할일 조회
