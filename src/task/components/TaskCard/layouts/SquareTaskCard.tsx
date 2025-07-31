@@ -28,8 +28,8 @@ export default function SquareTaskCard({ task, layout = 'square' }: TaskBasedPro
         </div>
         <div className={'w-[156px] h-[1px] bg-gray-100'} />
         <div className='flex justify-between items-center self-stretch'>
-          <MemoIcon active='on' /> {/* TODO: hooks */}
-          <CheckIcon state={isDone ? 'on' : 'off'} size='L' /> {/* TODO:hooks */}
+          <MemoIcon active='on' />
+          <CheckIcon state={isDone ? 'on' : 'off'} size='L' />
         </div>
       </div>
     </BaseCard>
