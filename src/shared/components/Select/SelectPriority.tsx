@@ -8,7 +8,7 @@ import Dropdown from '../Dropdown/Dropdown';
 export const DownArrowIcon = () => {
   return (
     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
-      <path d='M5 7.5L10 12.5L15 7.5' stroke='#29252B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' />
+      <path d='M5 7.5L10 12.5L15 7.5' stroke='#29252B' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round' />
     </svg>
   );
 };
@@ -17,7 +17,7 @@ export const UpArrowIcon = () => {
   return (
     <svg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20' fill='none'>
       <g opacity='0.4'>
-        <path d='M15 12.5L10 7.5L5 12.5' stroke='#29252B' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round' />
+        <path d='M15 12.5L10 7.5L5 12.5' stroke='#29252B' strokeWidth='2.5' strokeLinecap='round' strokeLinejoin='round' />
       </g>
     </svg>
   );
@@ -26,10 +26,10 @@ export const UpArrowIcon = () => {
 export const selectOptions = ['중요', '보통', '낮음'];
 
 interface SelectPriorityProps {
-  label: string;
-  options: Priority[];
-  onSelect: React.Dispatch<React.SetStateAction<Priority>>;
-  selectedValue: Priority;
+  label?: string;
+  options?: Priority[];
+  onSelect?: React.Dispatch<React.SetStateAction<Priority>>;
+  selectedValue?: Priority;
 }
 
 export default function SelectPriority({}: SelectPriorityProps) {
@@ -57,7 +57,7 @@ export default function SelectPriority({}: SelectPriorityProps) {
         </div>
       </button>
       {open && (
-        <div className='absolute '>
+        <div className='absolute z-10'>
           <Dropdown options={selectOptions} size='L' type='priority' onSelect={handleSelect} />
         </div>
       )}

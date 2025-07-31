@@ -2,15 +2,26 @@ import React from 'react';
 
 interface ChatMessageProps {
   message: string;
-  state?: 'chat' | 'finish';
+  role?: 'user' | 'assistant';
 }
 
-const ChatMessage = ({ message, state }: ChatMessageProps) => {
+const ChatMessage = ({ message, role }: ChatMessageProps) => {
   return (
     <div
-      className={`max-w-[600px] w-fit flex itmes-center gap-3 py-5 px-6 rounded-3xl ${state === 'chat' ? 'bg-purple-600' : 'bg-gray-900'}`}
+      className={`max-w-[600px] w-fit flex items-center gap-3 py-5 rounded-3xl ${role === 'user' ? 'bg-purple-600 px-6' : 'bg-none px-0'}`}
     >
-      <p className='font-body2-medium-loose text-white'>{message}</p>
+      <p
+        className={`
+          text-white break-all
+          ${
+            role === 'assistant'
+              ? 'font-body2-bold tb:font-title3-bold pc:font-title3-bold'
+              : 'font-body3-medium-loose tb:font-body2-medium-loose pc:font-body2-medium-loose'
+          }
+        `}
+      >
+        {message}
+      </p>
     </div>
   );
 };

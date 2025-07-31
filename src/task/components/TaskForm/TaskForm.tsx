@@ -7,6 +7,7 @@ import { useForm } from 'react-hook-form';
 
 import Form from '@/shared/components/Form/Form';
 
+import { RepeatDay } from '@/shared/types';
 import { Priority } from '@/shared/types/prioity';
 import { TaskFormData, taskValidation } from '@/task/utils/validation';
 
@@ -17,6 +18,11 @@ const TaskForm = () => {
   });
 
   const [Priority, setPriority] = useState<Priority>('중요');
+  const [selectedDays, setSelectedDays] = useState<RepeatDay[]>([]);
+
+  const handleSelectDays = (day: RepeatDay) => {
+    setSelectedDays((prev) => (prev.includes(day) ? prev.filter((d) => d !== day) : [...prev, day]));
+  };
 
   const {
     register,
@@ -31,13 +37,22 @@ const TaskForm = () => {
       task: data,
       date: date,
       priority: Priority,
+      selectedDays: selectedDays,
     });
   };
 
   return (
     <Form onSubmit={handleSubmit(onSubmit)}>
       <Form.Header title='작업 모달 제목' goal='작업 목표 설명' />
-      <Form.TaskField date={date} setDate={setDate} priority={Priority} setPriority={setPriority} {...register('task')} />
+      <Form.TaskField
+        date={date}
+        setDate={setDate}
+        priority={Priority}
+        setPriority={setPriority}
+        {...register('task')}
+        selectedDays={selectedDays}
+        handleSelectedDays={handleSelectDays}
+      />
       <Form.FormActions
         createAction={() => alert('작업 생성')}
         deleteAction={() => alert('작업 삭제')}

@@ -6,25 +6,15 @@ import ChatMessage from './ChatMessage';
 
 interface ChatMessageProps {
   message: string;
-  state?: 'chat' | 'finish';
   role?: 'user' | 'assistant';
 }
 
-const ChatMessageContainer = ({ message = 'Hello! How can I assist you today?', state = 'chat', role }: ChatMessageProps) => {
+const ChatMessageContainer = ({ message = 'Hello! How can I assist you today?', role }: ChatMessageProps) => {
   return (
-    <>
-      {role === 'assistant' && (
-        <div className='flex justify-start items-center gap-6'>
-          <ChatCharacter />
-          <ChatMessage message={message} state={state} />
-        </div>
-      )}
-      {role === 'user' && (
-        <div className='flex justify-end items-center gap-6'>
-          <ChatMessage message={message} state={state} />
-        </div>
-      )}
-    </>
+    <div className={`flex items-center gap-6 ${role === 'user' ? 'justify-end' : 'justify-start'}`}>
+      {role === 'assistant' && <ChatCharacter />}
+      <ChatMessage message={message} role={role} />
+    </div>
   );
 };
 

@@ -6,7 +6,8 @@ import { createPortal } from 'react-dom';
 import useMount from '@/shared/hooks/useMount';
 
 import Alert from './Alert';
-import { AlertObserver, Alert as AlertType, AlertSubject } from './AlertSubject';
+import { Alert as AlertType } from './Alert.type';
+import { AlertObserver, AlertSubject } from './AlertSubject';
 
 const AlertContainer = () => {
   const [Alerts, setAlerts] = useState<AlertType[]>([]);
@@ -42,13 +43,11 @@ const AlertContainer = () => {
     };
   }, []);
 
-  if (!isMounted) {
-    return null;
-  }
+  if (!isMounted) return null;
 
   // 차후에 Alert 등장 위치 조정 필요
   return createPortal(
-    <div className=' fixed z-50 flex bottom-[30px] w-full m-auto items-center '>
+    <div className=' fixed z-50 flex bottom-[30px] left-1/2 -translate-x-1/2  w-full  items-center '>
       {Alerts.slice()
         .reverse()
         .map(({ id, message, handleClick }) => (

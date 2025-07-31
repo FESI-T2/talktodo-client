@@ -1,34 +1,34 @@
 'use client';
-import { DateRange } from 'react-day-picker';
-
+import { DateSelectorProps, RepeatCycleSelectorProps } from '@/shared/types/index';
 import { Priority } from '@/shared/types/prioity';
 
 import DateSelector from '../../DateSelector/DateSelector';
 import Input from '../../Input/Input';
 import SelectPriority from '../../Select/SelectPriority';
-import SubText from '../SubText/SubText';
+import RepeatCycleSelector from '../RepeatCycleSelector/RepeatCycleSelector';
+import Section from '../Section/Section';
 
-type TaskFieldProps = React.HTMLAttributes<HTMLInputElement> & {
-  priority: Priority;
-  setPriority: React.Dispatch<React.SetStateAction<Priority>>;
-  date: DateRange;
-  setDate: React.Dispatch<React.SetStateAction<DateRange>>;
-};
+type TaskFieldProps = DateSelectorProps &
+  React.HTMLAttributes<HTMLInputElement> & {
+    priority: Priority;
+    setPriority: React.Dispatch<React.SetStateAction<Priority>>;
+  } & RepeatCycleSelectorProps;
 
-const TaskField = ({ date, setDate, priority, setPriority, ...props }: TaskFieldProps) => {
+const TaskField = ({ date, setDate, priority, setPriority, handleSelectedDays, selectedDays, ...props }: TaskFieldProps) => {
   return (
     <>
-      <SubText text='할 일'>
+      <Section sectionTitle='할 일'>
         <Input {...props} />
-      </SubText>
-      <div className='flex gap-4 '>
-        <SubText text='날짜' className='w-1/2 '>
-          <DateSelector date={date} setDate={setDate} mode={'range'} />
-        </SubText>
-        <SubText text='우선 순위' className='w-1/2 '>
+      </Section>
+      <div className='block gap-4 mb:flex'>
+        <Section sectionTitle='날짜' className='w-full mb:w-1/2 '>
+          <DateSelector mode='range' date={date} setDate={setDate} />
+        </Section>
+        <Section sectionTitle='우선 순위' className='w-full mb:w-1/2 '>
           <SelectPriority label='우선 순위' options={['중요', '보통', '낮음']} onSelect={setPriority} selectedValue={priority} />
-        </SubText>
+        </Section>
       </div>
+      <RepeatCycleSelector handleSelectedDays={handleSelectedDays} selectedDays={selectedDays} />
     </>
   );
 };

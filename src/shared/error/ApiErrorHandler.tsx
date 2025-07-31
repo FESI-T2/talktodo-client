@@ -1,31 +1,32 @@
 'use client';
 import { useEffect } from 'react';
 
-import { useToast } from '@/shared/hooks/useToast';
 import classifyAPIError from '@/shared/lib/error/classifyAPIError';
 import { CustomError } from '@/shared/lib/error/customError';
 import { processError, createErrorActions } from '@/shared/lib/error/handleError';
 
+import { Level } from './error.type';
 import { Fallback, PageFallback } from './Fallback/FallBack';
+import { useAlert } from '../hooks/useAlert';
 
 interface ApiErrorHandlerProps {
   error: Error;
-  level: 'toast' | 'fallback' | 'page';
+  level: Level;
   onReset: () => void;
 }
 
 const ApiErrorHandler = ({ error, level, onReset }: ApiErrorHandlerProps) => {
-  const toast = useToast();
+  const { openAlert } = useAlert();
 
   if (error instanceof CustomError) {
     useEffect(() => {
-      processError(error, createErrorActions(toast.error));
+      processError(error, createErrorActions(openAlert));
     }, []);
   } else {
     throw classifyAPIError(error);
   }
 
-  if (level === 'toast') return null;
+  if (level === 'alert') return null;
 
   if (level === 'fallback') return <Fallback onReset={onReset} />;
 

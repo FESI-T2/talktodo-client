@@ -1,7 +1,8 @@
 import { match } from 'ts-pattern';
 
-import { CustomError, ERROR_TYPES } from './customError';
+import { AlertProps } from '@/shared/components/Alert/Alert.type';
 
+import { CustomError, ERROR_TYPES } from './customError';
 export const getErrorMessage = (error: CustomError): string => {
   return match(error.errorType)
     .with(ERROR_TYPES.APP_ERROR, () => '앱에서 문제가 발생했습니다.')
@@ -14,10 +15,10 @@ export const getErrorMessage = (error: CustomError): string => {
     .exhaustive();
 };
 
-export const createErrorActions = (showErrorToast: (message: string) => void) => ({
+export const createErrorActions = (showErrorAlert: ({ message, handleClick }: AlertProps) => void) => ({
   showToast: (error: CustomError) => {
     const message = getErrorMessage(error);
-    showErrorToast(message);
+    showErrorAlert({ message, handleClick: () => {} });
   },
 
   redirectToLogin: () => {

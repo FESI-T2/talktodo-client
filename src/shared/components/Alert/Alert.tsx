@@ -1,11 +1,10 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 
-import { Alert as AlertType } from './AlertSubject';
+import { AlertProps } from './Alert.type';
 import Button from '../Button/Button';
 import AlertIcon from '../Icons/Alert/Alert';
 
-export type AlertProps = Omit<AlertType, 'id'>;
 const Alert = ({ message, handleClick }: AlertProps) => {
   return (
     <motion.div

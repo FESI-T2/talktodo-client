@@ -31,9 +31,9 @@ const ChatCharacter = () => {
           width='28.5'
           height='28.5'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
           <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
           <feOffset />
@@ -49,9 +49,9 @@ const ChatCharacter = () => {
           width='14.25'
           height='17.8125'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
           <feOffset dx='-1.18749' dy='-1.18749' />
           <feGaussianBlur stdDeviation='0.890621' />
@@ -73,9 +73,9 @@ const ChatCharacter = () => {
           width='14.25'
           height='17.8125'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
           <feOffset dx='-1.18749' dy='-1.18749' />
           <feGaussianBlur stdDeviation='0.890621' />
@@ -97,9 +97,9 @@ const ChatCharacter = () => {
           width='28.5'
           height='28.5'
           filterUnits='userSpaceOnUse'
-          color-interpolation-filters='sRGB'
+          colorInterpolationFilters='sRGB'
         >
-          <feFlood flood-opacity='0' result='BackgroundImageFix' />
+          <feFlood floodOpacity='0' result='BackgroundImageFix' />
           <feBlend mode='normal' in='SourceGraphic' in2='BackgroundImageFix' result='shape' />
           <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
           <feOffset />
@@ -109,16 +109,16 @@ const ChatCharacter = () => {
           <feBlend mode='normal' in2='shape' result='effect1_innerShadow_1898_27736' />
         </filter>
         <linearGradient id='paint0_linear_1898_27736' x1='85.7499' y1='36.875' x2='85.7499' y2='65.3749' gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#AE52FD' />
-          <stop offset='1' stop-color='#7745FD' />
+          <stop stopColor='#AE52FD' />
+          <stop offset='1' stopColor='#7745FD' />
         </linearGradient>
         <linearGradient id='paint1_linear_1898_27736' x1='51.5327' y1='0.0625' x2='51.5327' y2='75.4944' gradientUnits='userSpaceOnUse'>
-          <stop stop-color='white' />
-          <stop offset='1' stop-color='#E1CCFF' />
+          <stop stopColor='white' />
+          <stop offset='1' stopColor='#E1CCFF' />
         </linearGradient>
         <linearGradient id='paint2_linear_1898_27736' x1='14.4975' y1='36.875' x2='14.4975' y2='65.3749' gradientUnits='userSpaceOnUse'>
-          <stop stop-color='#AE52FD' />
-          <stop offset='1' stop-color='#7745FD' />
+          <stop stopColor='#AE52FD' />
+          <stop offset='1' stopColor='#7745FD' />
         </linearGradient>
       </defs>
     </svg>
