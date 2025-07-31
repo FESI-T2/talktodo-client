@@ -9,7 +9,7 @@ interface MainHeaderProps {
 }
 
 const MainHeader = ({ totalTodo = 0, IncompleteTodo = 0, completedTodo = 0 }: MainHeaderProps) => {
-  const percent = (completedTodo / totalTodo) * 100;
+  const percent = Math.round((completedTodo / totalTodo) * 100);
   const isCompleted = percent === 100;
 
   const characterImages = {
