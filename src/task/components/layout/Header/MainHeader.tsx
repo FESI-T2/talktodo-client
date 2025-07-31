@@ -3,13 +3,13 @@ import Image from 'next/image';
 import ProgressBar from './_components/ProgressBar';
 
 interface MainHeaderProps {
-  percent: number;
   totalTodo: number;
   IncompleteTodo: number;
   completedTodo: number;
 }
 
-const MainHeader = ({ percent = 0, totalTodo = 0, IncompleteTodo = 0, completedTodo = 0 }: MainHeaderProps) => {
+const MainHeader = ({ totalTodo = 0, IncompleteTodo = 0, completedTodo = 0 }: MainHeaderProps) => {
+  const percent = (completedTodo / totalTodo) * 100;
   const isCompleted = percent === 100;
 
   const characterImages = {
