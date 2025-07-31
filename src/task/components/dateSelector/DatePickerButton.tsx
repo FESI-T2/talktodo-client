@@ -2,7 +2,6 @@
 
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-import { DateRange } from 'react-day-picker';
 
 import DatePicker from '@/shared/components/DatePicker/DatePicker';
 import Calendar from '@/shared/components/Icons/Calendar/Calendar';
@@ -13,32 +12,27 @@ interface DatePickerButtonProps {
 
 const DatePickerButton = ({ className = '' }: DatePickerButtonProps) => {
   const [isDatePickerOpen, setIsDatePickerOpen] = useState(false);
-  const [datePickerState, setDatePickerState] = useState<DateRange>({
-    from: undefined,
-    to: undefined,
-  });
+  const [datePickerState, setDatePickerState] = useState<Date>(new Date());
   const router = useRouter();
 
   const handleCalendarClick = () => {
     setIsDatePickerOpen(!isDatePickerOpen);
   };
 
-  const customDatePickerHandler = (date: DateRange) => {
+  const customDatePickerHandler = (date: Date) => {
     setDatePickerState(date);
 
-    if (date.from) {
-      // 날짜를 YYYY-MM-DD 형식으로 변환
-      const year = date.from.getFullYear();
-      const month = String(date.from.getMonth() + 1).padStart(2, '0');
-      const day = String(date.from.getDate()).padStart(2, '0');
-      const formattedDate = `${year}-${month}-${day}`;
+    // 날짜를 YYYY-MM-DD 형식으로 변환
+    const year = date.getFullYear();
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
 
-      // URL로 이동
-      router.push(`/dashboard/${formattedDate}`);
+    // URL로 이동
+    router.push(`/dashboard/${formattedDate}`);
 
-      // DatePicker 닫기
-      setIsDatePickerOpen(false);
-    }
+    // DatePicker 닫기
+    setIsDatePickerOpen(false);
   };
 
   const handleCloseDatePicker = () => {
@@ -82,6 +76,7 @@ const DatePickerButton = ({ className = '' }: DatePickerButtonProps) => {
               datePickerState={datePickerState}
               setDatePickerState={setDatePickerState}
               onDateSelect={customDatePickerHandler}
+              onClose={handleCloseDatePicker}
             />
           </div>
         </>
@@ -92,20 +87,14 @@ const DatePickerButton = ({ className = '' }: DatePickerButtonProps) => {
 
 // DatePicker를 감싸는 래퍼 컴포넌트
 interface DatePickerWrapperProps {
-  datePickerState: DateRange;
-  setDatePickerState: React.Dispatch<React.SetStateAction<DateRange>>;
-  onDateSelect: (date: DateRange) => void;
+  datePickerState: Date;
+  setDatePickerState: React.Dispatch<React.SetStateAction<Date>>;
+  onDateSelect: (date: Date) => void;
+  onClose: () => void;
 }
 
-const DatePickerWrapper = ({ datePickerState, setDatePickerState, onDateSelect }: DatePickerWrapperProps) => {
-  // 원래 DatePicker의 setDate 함수와 호환되도록 수정
-  const handleDateChange = (value: React.SetStateAction<DateRange>) => {
-    const newDate = typeof value === 'function' ? value(datePickerState) : value;
-    setDatePickerState(newDate);
-    onDateSelect(newDate);
-  };
-
-  return <DatePicker setDate={handleDateChange} />;
+const DatePickerWrapper = ({ setDatePickerState, onClose }: DatePickerWrapperProps) => {
+  return <DatePicker mode='single' setDate={setDatePickerState} closeSelector={onClose} />;
 };
 
 export default DatePickerButton;
