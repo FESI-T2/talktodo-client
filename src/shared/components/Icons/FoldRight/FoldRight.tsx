@@ -1,10 +1,6 @@
-<<<<<<<< HEAD:src/shared/components/Icons/FoldRight/FoldRight.tsx
-const SvgIconFoldRight = () => {
-========
 import React from 'react';
 
 const FoldRight = () => {
->>>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트):src/shared/components/Icons/Fold/FoldRight.tsx
   return (
     <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none'>
       <g clipPath='url(#clip0_662_8942)'>

@@ -1,46 +1,10 @@
-<<<<<<< HEAD
-=======
 // Flag.stories.tsx
 
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import Flag from './Flag';
 
 const meta: Meta<typeof Flag> = {
-<<<<<<< HEAD
-  component: Flag,
-  title: 'icons/Flag',
-  tags: ['autodocs'],
-  argTypes: {
-    type: {
-      control: { type: 'radio' },
-      options: ['PC', 'Mobile', 'goal'],
-    },
-  },
-};
-export default meta;
-
-type Story = StoryObj<typeof Flag>;
-
-export const PC: Story = {
-  args: {
-    type: 'PC',
-  },
-};
-
-export const Mobile: Story = {
-  args: {
-    type: 'Mobile',
-  },
-};
-
-export const Goal: Story = {
-  args: {
-    type: 'goal',
-  },
-};
-=======
   title: 'Icons/Flag',
   component: Flag,
   tags: ['autodocs'],
@@ -90,4 +54,3 @@ export const MobileWhite: Story = { args: { type: 'Mobile', color: '#FFFFFF' } }
 export const Goal: Story = { args: { type: 'goal' } };
 /** chat 아이콘 (컬러 고정) */
 export const Chat: Story = { args: { type: 'chat' } };
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)

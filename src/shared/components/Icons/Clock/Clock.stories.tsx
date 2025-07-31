@@ -1,33 +1,10 @@
-<<<<<<< HEAD
-=======
 // Clock.stories.tsx
 
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import Clock from './Clock';
 
 const meta: Meta<typeof Clock> = {
-<<<<<<< HEAD
-  component: Clock,
-  title: 'icons/Clock',
-  tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: { type: 'radio' },
-      options: ['L', 'S'],
-    },
-    active: {
-      control: { type: 'boolean' },
-    },
-  },
-};
-export default meta;
-
-type Story = StoryObj<typeof Clock>;
-
-export const Default: Story = {
-=======
   title: 'Icons/Clock',
   component: Clock,
   tags: ['autodocs'],
@@ -63,36 +40,25 @@ export default meta;
 type Story = StoryObj<typeof Clock>;
 
 export const LargeInactive: Story = {
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
   args: {
     size: 'L',
     active: false,
   },
 };
 
-<<<<<<< HEAD
-export const Active: Story = {
-=======
 export const LargeActive: Story = {
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
   args: {
     size: 'L',
     active: true,
   },
 };
 
-<<<<<<< HEAD
-export const Small: Story = {
-=======
 export const SmallInactive: Story = {
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
   args: {
     size: 'S',
     active: false,
   },
 };
-<<<<<<< HEAD
-=======
 
 export const SmallActive: Story = {
   args: {
@@ -100,4 +66,3 @@ export const SmallActive: Story = {
     active: true,
   },
 };
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)

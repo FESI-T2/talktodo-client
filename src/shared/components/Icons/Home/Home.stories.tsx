@@ -1,19 +1,9 @@
-<<<<<<< HEAD
-=======
 // Home.stories.tsx
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import Home from './Home';
 
 const meta: Meta<typeof Home> = {
-<<<<<<< HEAD
-  component: Home,
-  title: 'icons/Home',
-  tags: ['autodocs'],
-  argTypes: {},
-};
-=======
   title: 'Icons/Home',
   component: Home,
   tags: ['autodocs'],
@@ -33,15 +23,10 @@ const meta: Meta<typeof Home> = {
   },
 };
 
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
 export default meta;
 
 type Story = StoryObj<typeof Home>;
 
-<<<<<<< HEAD
-export const Default: Story = {
-  args: {},
-=======
 export const PC: Story = {
   args: {
     type: 'PC',
@@ -68,5 +53,4 @@ export const Mobile: Story = {
       },
     },
   },
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
 };

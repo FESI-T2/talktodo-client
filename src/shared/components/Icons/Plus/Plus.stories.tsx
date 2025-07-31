@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-=======
 // components/icons/Plus.stories.tsx
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import Plus from './Plus';
 
 const meta: Meta<typeof Plus> = {
-<<<<<<< HEAD
-  component: Plus,
-  title: 'icons/Plus',
-  tags: ['autodocs'],
-=======
   title: 'Icons/Plus',
   component: Plus,
   tags: ['autodocs'],
@@ -22,42 +14,23 @@ const meta: Meta<typeof Plus> = {
       },
     },
   },
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
   argTypes: {
     type: {
       control: { type: 'radio' },
       options: ['Sidebar', 'FAB'],
-<<<<<<< HEAD
-    },
-  },
-};
-=======
       description: '아이콘 타입 선택',
     },
   },
 };
 
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
 export default meta;
 
 type Story = StoryObj<typeof Plus>;
 
 export const Sidebar: Story = {
-<<<<<<< HEAD
-  args: {
-    type: 'Sidebar',
-  },
-};
-
-export const FAB: Story = {
-  args: {
-    type: 'FAB',
-  },
-=======
   args: { type: 'Sidebar' },
 };
 
 export const FAB: Story = {
   args: { type: 'FAB' },
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
 };

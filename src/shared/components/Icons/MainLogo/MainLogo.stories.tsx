@@ -1,17 +1,9 @@
-<<<<<<< HEAD
-=======
 // components/icons/MainLogo.stories.tsx
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
 import MainLogo from './MainLogo';
 
 const meta: Meta<typeof MainLogo> = {
-<<<<<<< HEAD
-  component: MainLogo,
-  title: 'icons/MainLogo',
-  tags: ['autodocs'],
-=======
   title: 'Icons/MainLogo',
   component: MainLogo,
   tags: ['autodocs'],
@@ -22,22 +14,15 @@ const meta: Meta<typeof MainLogo> = {
       },
     },
   },
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
   argTypes: {
     type: {
       control: { type: 'radio' },
       options: ['PC', 'Mobile'],
-<<<<<<< HEAD
-    },
-  },
-};
-=======
       description: '디바이스 타입에 따른 로고 렌더링',
     },
   },
 };
 
->>>>>>> 3eea873 (feat: 새 아이콘 구성 요소 추가 및 기존 구성 요소 업데이트)
 export default meta;
 
 type Story = StoryObj<typeof MainLogo>;
