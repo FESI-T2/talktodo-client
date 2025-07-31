@@ -16,6 +16,6 @@ export const card = cva('flex bg-white  border border-transparent hover:border h
 
 export type CardVariants = VariantProps<typeof card>;
 
-export default function BaseCard({ layout, children }: CardVariants & { children: React.ReactNode }) {
-  return <div className={cn(card({ layout }))}>{children}</div>;
+export default function BaseCard({ layout, children, isDone = false }: CardVariants & { children: React.ReactNode; isDone?: boolean }) {
+  return <div className={cn(card({ layout }), isDone ? 'bg-purple-100' : 'bg-white')}>{children}</div>;
 }

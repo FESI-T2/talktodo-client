@@ -25,7 +25,7 @@ const MainHeader = ({ totalTodo = 0, IncompleteTodo = 0, completedTodo = 0 }: Ma
   ];
 
   return (
-    <div className='flex items-start justify-between flex-col pc:w-[1168px] pc:pt-7 pc:px-11 pc:pb-9 tb:w-[600px] tb:py-6 tb:px-8 w-[343px] pt-6 px-6 pb-5 rounded-[40px] bg-purple-500'>
+    <div className='flex items-start justify-between flex-col max-w-[1168px] pt-7 px-11 pb-9 w-[90%] py-6 px-8 pt-6 px-6 pb-5 rounded-[40px] bg-purple-500'>
       <div className='flex pc:gap-11  tb:gap-3'>
         <div className='flex flex-col pc:w-[860px] tb:w-[384px] w-[295px] pc:gap-[43px] tb:gap-[24px] gap-3 tb:static relative'>
           <div className='flex justify-between'>
@@ -78,7 +78,7 @@ const MainHeader = ({ totalTodo = 0, IncompleteTodo = 0, completedTodo = 0 }: Ma
         </div>
       </div>
 
-      <div className='flex pc:hidden items-center w-full justify-center tb:gap-13.5 gap-[35px] border-t-2 tb:border-[#A267F6] border-[#9951FF] tb:mt-6 mt-2'>
+      <div className='flex pc:hidden items-center w-full justify-center gap-13.5 gap-[35px] border-t-2 border-[#A267F6] border-[#9951FF] tb:mt-6 mt-2'>
         {todoItems.map((item) => (
           <div key={item.label} className={`${item.w} flex flex-col items-center tb:pt-3`}>
             <div className='text-center text-white tb:font-count font-title2-bold'>{item.value}</div>
