@@ -1,5 +1,5 @@
 import ChatModalResultTabItem from '@/chat/components/ChatModal/Result/ChatModalResultTabItem';
-import SidebarSeparator from '@/shared/components/layout/SideBar/_components/SidebarSeparator';
+import SidebarSeparator from '@/task/components/layout/SideBar/_components/SidebarSeparator';
 
 const itemsCount = 3; // 렌더링할 아이템 개수, 원하는 개수로 조절 가능
 
