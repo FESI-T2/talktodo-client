@@ -4,6 +4,7 @@ import { match } from 'ts-pattern';
 
 import { ChatRoom, Result, TaskSelector } from '@/chat/components/Step/index';
 import { NOT_SELECT_GOAL } from '@/chat/constants/goal';
+import { STEP_TASK } from '@/chat/constants/step';
 import useStepAcion from '@/chat/hooks/useStepAcion';
 import { mockGoalsArray } from '@/chat/mocks/goal';
 import { Message, Goal } from '@/chat/types';
@@ -24,7 +25,7 @@ const ChatContainer = () => {
   };
 
   useEffect(() => {
-    if (currentStep === 2) {
+    if (currentStep === STEP_TASK.selectTask) {
       setMessages([]);
     }
   }, [currentStep]);
@@ -35,10 +36,10 @@ const ChatContainer = () => {
 
   const renderStepPage = () => {
     return match(currentStep)
-      .with(1, () => (
+      .with(STEP_TASK.selectTask, () => (
         <TaskSelector goToChatStep={goToChatStep} goals={goals} selectedGoalIdx={selectedGoalIdx} handleSelectGoal={handleSelectGoal} />
       ))
-      .with(2, () => (
+      .with(STEP_TASK.chat, () => (
         <ChatRoom
           onSendMessage={handleSendChat}
           messages={messages}
@@ -46,7 +47,7 @@ const ChatContainer = () => {
           title={selectedGoalIdx !== NOT_SELECT_GOAL ? goals[selectedGoalIdx].title : '새로운 목표 만들기'}
         />
       ))
-      .with(3, () => <Result goToPrevStep={goToPreviousStep} />)
+      .with(STEP_TASK.result, () => <Result goToPrevStep={goToPreviousStep} />)
       .otherwise(() => null);
   };
 

@@ -2,11 +2,7 @@ import { useStep } from 'usehooks-ts';
 
 const TOTAL_STEPS = 3;
 
-const STEP_TASK = {
-  selectTask: 1,
-  chat: 2,
-  result: 3,
-};
+import { STEP_TASK } from '@/chat/constants/step';
 
 const useStepAcion = () => {
   const [currentStep, helpers] = useStep(TOTAL_STEPS);
