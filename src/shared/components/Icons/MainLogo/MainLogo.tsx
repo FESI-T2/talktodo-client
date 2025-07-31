@@ -31,9 +31,9 @@ const MainLogo = ({ type }: IconProps) => {
             width='3.92308'
             height='5.92308'
             filterUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
-            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feFlood floodOpacity='0' result='BackgroundImageFix' />
             <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
             <feOffset dx='-0.384615' dy='-0.384615' />
             <feGaussianBlur stdDeviation='0.288462' />
@@ -49,9 +49,9 @@ const MainLogo = ({ type }: IconProps) => {
             width='3.92308'
             height='5.92308'
             filterUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
-            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feFlood floodOpacity='0' result='BackgroundImageFix' />
             <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
             <feOffset dx='-0.384615' dy='-0.384615' />
             <feGaussianBlur stdDeviation='0.288462' />
@@ -92,9 +92,9 @@ const MainLogo = ({ type }: IconProps) => {
             width='3.92308'
             height='5.92308'
             filterUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
-            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feFlood floodOpacity='0' result='BackgroundImageFix' />
             <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
             <feOffset dx='-0.384615' dy='-0.384615' />
             <feGaussianBlur stdDeviation='0.288462' />
@@ -110,9 +110,9 @@ const MainLogo = ({ type }: IconProps) => {
             width='3.92308'
             height='5.92308'
             filterUnits='userSpaceOnUse'
-            color-interpolation-filters='sRGB'
+            colorInterpolationFilters='sRGB'
           >
-            <feFlood flood-opacity='0' result='BackgroundImageFix' />
+            <feFlood floodOpacity='0' result='BackgroundImageFix' />
             <feColorMatrix in='SourceAlpha' type='matrix' values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0' result='hardAlpha' />
             <feOffset dx='-0.384615' dy='-0.384615' />
             <feGaussianBlur stdDeviation='0.288462' />

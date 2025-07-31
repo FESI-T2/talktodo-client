@@ -26,10 +26,10 @@ export const UpArrowIcon = () => {
 export const selectOptions = ['중요', '보통', '낮음'];
 
 interface SelectPriorityProps {
-  label: string;
-  options: Priority[];
-  onSelect: React.Dispatch<React.SetStateAction<Priority>>;
-  selectedValue: Priority;
+  label?: string;
+  options?: Priority[];
+  onSelect?: React.Dispatch<React.SetStateAction<Priority>>;
+  selectedValue?: Priority;
 }
 
 export default function SelectPriority({}: SelectPriorityProps) {
@@ -57,7 +57,7 @@ export default function SelectPriority({}: SelectPriorityProps) {
         </div>
       </button>
       {open && (
-        <div className='absolute '>
+        <div className='absolute z-10'>
           <Dropdown options={selectOptions} size='L' type='priority' onSelect={handleSelect} />
         </div>
       )}
