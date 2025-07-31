@@ -2,7 +2,7 @@
 
 import { useState, ChangeEvent, KeyboardEvent } from 'react';
 
-import MessageSendButton from '../MessageSendButton/MessageSendButton';
+import MessageSendButton from '../../MessageSendButton/MessageSendButton';
 
 interface ChatInputProps {
   onClick: (message: string) => void;

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import ChatMessageContainer from './ChatMessageContainer';
+import ChatMessageContainer from '../ChatMessageContainer/ChatMessageContainer';
 
 const meta: Meta<typeof ChatMessageContainer> = {
   title: 'AITodo/ChatMessageContainer',

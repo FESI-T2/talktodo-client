@@ -1,6 +1,6 @@
 import Send from '@/shared/components/Icons/Send/Send';
 
-interface MessageSendButtonProps {
+interface MessageSendButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   active?: boolean;
   onClick?: () => void;
 }
