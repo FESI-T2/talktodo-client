@@ -1,3 +1,5 @@
+'use client';
+
 import { useState } from 'react';
 
 import Dropdown from '@/shared/components/Dropdown/Dropdown';

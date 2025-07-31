@@ -1,3 +1,5 @@
+'use client';
+
 import MainHeader from '@/task/components/layout/Header/MainHeader';
 import useDashboardTasks from '@/task/hooks/useDashboardTasks';
 
