@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 import Calendar from '@/icons/Calendar/Calendar';
-import { DateSelectorProps } from '@/shared/types/props';
+import { DateSelectorProps } from '@/shared/types/index';
 import { formatDateRange, format } from '@/shared/utils/formatDateRange';
 
 import DatePicker from '../DatePicker/DatePicker';

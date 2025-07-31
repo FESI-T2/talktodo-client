@@ -13,5 +13,11 @@ export default meta;
 type Story = StoryObj<typeof MemoForm>;
 
 export const Default: Story = {
-  args: {},
+  render: () => {
+    return (
+      <div className='w-[480px]'>
+        <MemoForm />
+      </div>
+    );
+  },
 };
