@@ -1,7 +1,7 @@
 import { http, HttpResponse } from 'msw';
 
 import { DeleteTaskData, AllTaskData, TaskData, MockTask } from '@/shared/mocks/mockData/taskMockData';
-import { AllTaskResponse, DeleteTaskResponse, TaskResponse } from '@/task/types/reponse/index';
+import { AllTaskResponse, DeleteTaskResponse, TaskResponse } from '@/task/types/response/index';
 
 import { MOCK_API_BASE_URL } from '../constants';
 

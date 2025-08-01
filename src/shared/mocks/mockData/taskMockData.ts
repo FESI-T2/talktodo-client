@@ -1,5 +1,5 @@
 import { Task } from '@/task/types';
-import { AllTaskResponse, TaskResponse, DeleteTaskResponse } from '@/task/types/reponse';
+import { AllTaskResponse, TaskResponse, DeleteTaskResponse } from '@/task/types/response';
 export const MockTask: Task[] = [
   {
     taskId: 'a9b910fb-1760-47b0-8f62-fd014e80bf60',
