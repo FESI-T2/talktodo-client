@@ -28,6 +28,8 @@
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
+    "@aws-sdk/client-lex-runtime-v2": "^3.858.0",
+    "@aws-sdk/credential-providers": "^3.858.0",
     "@hookform/resolvers": "^5.1.1",
     "@suspensive/react": "^3.3.2",
     "@svgr/webpack": "^8.1.0",
