@@ -11,7 +11,8 @@ export interface UseDateSelectorReturn {
   currentDate: Date;
   visibleDates: DateInfo[];
   selectedDate: Date;
-  selectedDateString: string;
+  fullDateString: string;
+  dayDateString: string;
   selectDate: (date: Date) => void;
   moveDays: (days: number) => void;
 }
@@ -57,14 +58,6 @@ export function useDateSelector(initialDate?: string) {
     return getNearbyDate(selectedDate);
   }, [selectedDate]);
 
-  // 선택된 날짜를 한국어 문자열로 변환
-  const selectedDateString = useMemo(() => {
-    return selectedDate.toLocaleDateString('ko-KR', {
-      year: 'numeric',
-      month: 'long',
-    });
-  }, [selectedDate]);
-
   const selectDate = (date: Date) => {
     setSelectedDate(date);
   };
@@ -75,11 +68,27 @@ export function useDateSelector(initialDate?: string) {
     setSelectedDate(newDate);
   };
 
+  // 선택된 날짜를 다양한 형식의 한국어 문자열로 변환
+  const fullDateString = useMemo(() => {
+    return selectedDate.toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'long',
+    });
+  }, [selectedDate]);
+
+  const dayDateString = useMemo(() => {
+    return selectedDate.toLocaleDateString('ko-KR', {
+      month: 'long',
+      day: 'numeric',
+    });
+  }, [selectedDate]);
+
   return {
     currentDate: new Date(),
+    fullDateString,
+    dayDateString,
     visibleDates,
     selectedDate,
-    selectedDateString,
     selectDate,
     moveDays,
   };
