@@ -22,26 +22,28 @@ const TaskSelector = ({ goals, goToChatStep, handleSelectGoal, selectedGoalIdx }
   };
 
   return (
-    <ModalWrapper>
-      <TaskSelectorHeader />
-      <div className='flex flex-col gap-2 tb:max-h-[440px] max-h-[345px] overflow-x-auto tb:pr-5 pr-2'>
-        {goals.map((goal, idx) => (
-          <GoalSelectItem
-            key={idx}
-            goalTitle={goal.title}
-            taskCount={goal.count}
-            active={selectedGoalIdx === idx}
-            onClick={() => handleSelectGoal(idx)}
-          />
-        ))}
-      </div>
-      <ActionButtons
-        onClickRightButton={goToChatStep}
-        onClickLeftButton={createNewGoal}
-        leftButtonText='새로운 목표를 만들래요 '
-        rightButtonText='선택 완료'
-      />
-    </ModalWrapper>
+    <div className='max-h-[733px] flex items-center justify-center max-w-[624px] w-[90%] @container'>
+      <ModalWrapper>
+        <TaskSelectorHeader />
+        <div className='flex flex-col gap-2 overflow-x-auto tb:pr-5 pr-2  mb-10 w-full max-h-[340px] tb:max-h-[440px] '>
+          {goals.map((goal, idx) => (
+            <GoalSelectItem
+              key={idx}
+              goalTitle={goal.title}
+              taskCount={goal.count}
+              active={selectedGoalIdx === idx}
+              onClick={() => handleSelectGoal(idx)}
+            />
+          ))}
+        </div>
+        <ActionButtons
+          onClickRightButton={goToChatStep}
+          onClickLeftButton={createNewGoal}
+          leftButtonText='새로운 목표를 만들래요 '
+          rightButtonText='선택 완료'
+        />
+      </ModalWrapper>
+    </div>
   );
 };
 export default TaskSelector;

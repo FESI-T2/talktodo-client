@@ -36,15 +36,9 @@ const ChatContent = ({ messages }: ChatContentProps) => {
   }, [messages]);
 
   return (
-    <div className='flex flex-col-reverse h-[679px] mt-1'>
+    <div className='flex-1 flex flex-col-reverse overflow-y-auto scroll-no-bar'>
       <div className='flex-grow overflow-hidden'>
-        <div
-          className='flex flex-col justify-end gap-5 overflow-y-auto h-full hide-scrollbar
-            w-[343px] pb-12
-            tb:w-[700px] tb:pb-[50px]
-            pc:w-[920px] pc:pb-7
-            scrollbar-hide'
-        >
+        <div className='flex flex-col justify-end gap-5  min-h-full '>
           {messages.map((msg, index) => (
             <ChatMessageContainer key={index} message={msg.message} role={msg.role} />
           ))}

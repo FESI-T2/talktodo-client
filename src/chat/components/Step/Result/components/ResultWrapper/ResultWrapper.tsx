@@ -12,7 +12,7 @@ const ResultWrapper = ({ children }: ResultWrapperProps) => {
         border border-solid border-gray-200
         bg-white shadow-[0_0_40px_0_rgba(52,35,101,0.15)]
         tb:px-8 tb:pt-10 tb:pb-12 tb:gap-5
-        px-5 py-6 gap-4
+        px-5 py-6 gap-4 w-full 
       '
     >
       {children}

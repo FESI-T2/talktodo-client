@@ -35,9 +35,7 @@ const ChatInput = ({ onClick }: ChatInputProps) => {
   return (
     <div
       className='flex items-start gap-3 justify-center rounded-[28px] bg-white p-6
-      pc:w-[920px] 
-      tb:w-[700px] tb:h-[180px]
-      w-[343px] h-[120px]'
+      w-full tb:h-[180px] h-[120px] mb-[40px]'
     >
       <textarea
         rows={5}

@@ -1,11 +1,7 @@
-import SidebarSeparator from '@/shared/components/layout/SideBar/_components/SidebarSeparator';
-
 import { useAlert } from '@/shared/hooks/useAlert';
 
 import ActionButtons from '../../ActionButtons/ActionButtons';
-import { ResultHeader, ResultTabItem, ResultWrapper, ResultCategory } from '../Result/components/index';
-
-const ITEM_COUNT = 3;
+import { ResultHeader, ResultWrapper, ResultTable } from '../Result/components/index';
 
 interface ResultProps {
   goToPrevStep: () => void;
@@ -20,20 +16,10 @@ const Result = ({ goToPrevStep }: ResultProps) => {
   };
 
   return (
-    <div className='flex flex-col items-center gap-[30px]'>
+    <div className='flex flex-col items-center max-w-[902px] w-[90%]  justify-center'>
       <ResultWrapper>
         <ResultHeader />
-        <div className='flex flex-col gap-5 items-center'>
-          <ResultCategory />
-          <div className='flex flex-col pc:h-[390px] tb:h-[570px] h-[435px]'>
-            {Array.from({ length: ITEM_COUNT }).map((_, idx) => (
-              <div key={idx}>
-                <ResultTabItem />
-                {idx < ITEM_COUNT - 1 && <SidebarSeparator top={4} bottom={4} />}
-              </div>
-            ))}
-          </div>
-        </div>
+        <ResultTable />
         <ActionButtons
           onClickLeftButton={goToPrevStep}
           onClickRightButton={handleSaveTodos}

@@ -51,7 +51,7 @@ const ChatContainer = () => {
       .otherwise(() => null);
   };
 
-  return <div>{renderStepPage()}</div>;
+  return <>{renderStepPage()}</>;
 };
 
 export default ChatContainer;
