@@ -26,8 +26,8 @@ const MemoField = ({ day, priority, repeatInterval, ...props }: MemoFieldProps) 
       <div className='font-body3-semibold  base-horizon'>
         <div className='flex gap-[24px]'>
           {Object.entries(infoItems).map(([key, value], idx) => (
-            <div key={idx} className=''>
-              <p className='font-body3-medium-tight text-[var(--color-gray-500)]'>{key}</p>
+            <div key={idx}>
+              <p className='font-body3-medium-tight text-gray-500'>{key}</p>
               {isPriority(value) ? <LabelPriority priority={value} size='L' /> : <p className=' font-body2-semibold '>{value}</p>}
             </div>
           ))}

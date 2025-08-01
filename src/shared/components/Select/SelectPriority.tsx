@@ -43,7 +43,7 @@ export default function SelectPriority({}: SelectPriorityProps) {
   };
 
   return (
-    <>
+    <div className='relative '>
       <button
         type='button'
         className='flex justify-between items-center base-divider relative px-4 py-[12.5px] w-full h-[44px] cursor-pointer'
@@ -61,6 +61,6 @@ export default function SelectPriority({}: SelectPriorityProps) {
           <Dropdown options={selectOptions} size='L' type='priority' onSelect={handleSelect} />
         </div>
       )}
-    </>
+    </div>
   );
 }

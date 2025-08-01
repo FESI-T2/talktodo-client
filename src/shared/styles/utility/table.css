@@ -1,0 +1,5 @@
+@layer utilities {
+  .table {
+    @apply grid grid-cols-[2.5fr_1.5fr_1fr_1fr];
+  }
+}

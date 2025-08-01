@@ -13,4 +13,5 @@ export interface DatePicker<T extends Mode> {
 
 export interface DateSelectorProps<T extends Mode> extends DatePicker<T> {
   date: DateType<T>;
+  className?: string;
 }

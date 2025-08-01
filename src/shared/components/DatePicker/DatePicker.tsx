@@ -1,10 +1,10 @@
 'use client';
-import { useState } from 'react';
 import { DayPicker, getDefaultClassNames, DateRange } from 'react-day-picker';
 import 'react-day-picker/style.css';
 import { ko } from 'react-day-picker/locale';
 
 import Button from '@/shared/components/Button/Button';
+import useDate from '@/shared/hooks/state/useDate';
 import { DatePicker as DatePickerType, DateType, Mode } from '@/shared/types/date';
 
 import Caption from './Caption/Caption';
@@ -43,9 +43,7 @@ interface DatePickerProps<T extends Mode> extends DatePickerType<T> {
 }
 
 const DatePicker = <T extends Mode>({ mode, setDate, closeSelector }: DatePickerProps<T>) => {
-  const [datePickerDate, setPickerDate] = useState<DateType<T>>(() => {
-    return mode === 'single' ? (new Date() as DateType<T>) : ({ from: new Date(), to: new Date() } as DateType<T>);
-  });
+  const { date: datePickerDate, setDate: setPickerDate } = useDate<T>(mode);
 
   const handleSetDate = () => {
     setDate(datePickerDate);
@@ -67,7 +65,7 @@ const DatePicker = <T extends Mode>({ mode, setDate, closeSelector }: DatePicker
   };
 
   return (
-    <div className='py-6 px-[27.5px]  w-80 bg-white rounded-3xl h-fit  shadow-[0_0_40px_0_rgba(52,35,101,0.15)]'>
+    <div className='py-6 px-[27.5px]  w-80 bg-white rounded-3xl h-fit  shadow-[0_0_40px_0_rgba(52,35,101,0.15)] '>
       {mode === 'single' ? (
         <DayPicker
           mode='single'

@@ -2,12 +2,12 @@
 
 import { useState } from 'react';
 
-import { REPEAT_DAYS, RepeatDay } from '@/shared/types/index';
+import { RepeatDay } from '@/shared/types/index';
 
 import Switch from '../../Switch/Switch';
 
 import SubText from '../SubText/SubText';
-import RepeatButton from './RepeatButton/RepeatButton';
+import RepeatButtonGroup from './RepeatButtonGroup/RepeatButtonGroup';
 
 interface RepeatCycleSelectorProps {
   selectedDays: RepeatDay[];
@@ -27,23 +27,8 @@ const RepeatCycleSelector = ({ selectedDays, handleSelectedDays }: RepeatCycleSe
         <SubText text='반복 설정' />
         <Switch type='basic' size='S' checked={isRepeatEnabled} onChange={() => setIsRepeatEnabled(!isRepeatEnabled)} />
       </div>
-      <div className='grid grid-cols-7 gap-2 mb:grid-cols-8'>
-        {REPEAT_DAYS.map((day, idx) => {
-          const isSelected = selectedDays.includes(day);
-          const isLast = idx === REPEAT_DAYS.length - 1;
-          return (
-            <RepeatButton
-              key={day}
-              type='button'
-              onClick={() => toggleDay(day)}
-              isActive={isSelected}
-              className={isLast ? 'col-span-7 mb:col-span-1 ' : ''}
-            >
-              {day}
-            </RepeatButton>
-          );
-        })}
-      </div>
+
+      <RepeatButtonGroup selectedDays={selectedDays} handleClick={toggleDay} />
     </div>
   );
 };
