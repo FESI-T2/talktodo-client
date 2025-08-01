@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 import React, { useState } from 'react';
 
-import { NOT_SELECT_GOAL } from '@/chat/constants/goal';
+import { NOT_SELECT_GOAL } from '@/chat/constants/index';
 import { mockGoalsArray } from '@/chat/mocks/goal';
 import { Goal } from '@/chat/types';
 

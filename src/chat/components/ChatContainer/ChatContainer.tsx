@@ -4,8 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { match } from 'ts-pattern';
 
 import { ChatRoom, Result, TaskSelector } from '@/chat/components/Step/index';
-import { NOT_SELECT_GOAL } from '@/chat/constants/goal';
-import { STEP_TASK } from '@/chat/constants/step';
+import { NOT_SELECT_GOAL, STEP_TASK } from '@/chat/constants/index';
+
 import useStepAcion from '@/chat/hooks/useStepAcion';
 import { mockGoalsArray } from '@/chat/mocks/goal';
 import { Message, Goal } from '@/chat/types';

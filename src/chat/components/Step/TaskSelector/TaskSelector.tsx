@@ -1,6 +1,6 @@
 'use client';
 
-import { NOT_SELECT_GOAL } from '@/chat/constants/goal';
+import { NOT_SELECT_GOAL } from '@/chat/constants/index';
 import { Goal } from '@/chat/types';
 
 import TaskSelectorHeader from './TaskSelectorHeader/TaskSelectorHeader';
