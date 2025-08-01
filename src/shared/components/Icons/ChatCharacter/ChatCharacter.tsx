@@ -1,6 +1,9 @@
-const ChatCharacter = () => {
+interface ChatCharacterProps {
+  className?: string;
+}
+const ChatCharacter = ({ className }: ChatCharacterProps) => {
   return (
-    <svg xmlns='http://www.w3.org/2000/svg' width='100' height='80' viewBox='0 0 100 80' fill='none'>
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 80' fill='none' className={className}>
       <g filter='url(#filter0_i_1898_27736)'>
         <circle cx='85.7499' cy='51.1249' r='14.2499' fill='url(#paint0_linear_1898_27736)' />
       </g>

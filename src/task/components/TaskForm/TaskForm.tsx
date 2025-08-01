@@ -1,28 +1,20 @@
 'use client';
 import { zodResolver } from '@hookform/resolvers/zod';
-import React, { useState } from 'react';
-import { DateRange } from 'react-day-picker';
+import React from 'react';
 
 import { useForm } from 'react-hook-form';
 
 import Form from '@/shared/components/Form/Form';
 
-import { RepeatDay } from '@/shared/types';
-import { Priority } from '@/shared/types/prioity';
+import useDate from '@/shared/hooks/state/useDate';
+import usePriority from '@/shared/hooks/state/usePriority';
+import useSelectedDays from '@/shared/hooks/state/useSelectedDays';
 import { TaskFormData, taskValidation } from '@/task/utils/validation';
 
 const TaskForm = () => {
-  const [date, setDate] = useState<DateRange>({
-    from: new Date(2023, 9, 1),
-    to: new Date(2023, 9, 31),
-  });
-
-  const [Priority, setPriority] = useState<Priority>('중요');
-  const [selectedDays, setSelectedDays] = useState<RepeatDay[]>([]);
-
-  const handleSelectDays = (day: RepeatDay) => {
-    setSelectedDays((prev) => (prev.includes(day) ? prev.filter((d) => d !== day) : [...prev, day]));
-  };
+  const { selectedDays, handleSelectDays } = useSelectedDays();
+  const { priority, setPriority } = usePriority();
+  const { date, setDate } = useDate('range');
 
   const {
     register,
@@ -36,7 +28,7 @@ const TaskForm = () => {
     console.log('data : ', {
       task: data,
       date: date,
-      priority: Priority,
+      priority: priority,
       selectedDays: selectedDays,
     });
   };
@@ -47,7 +39,7 @@ const TaskForm = () => {
       <Form.TaskField
         date={date}
         setDate={setDate}
-        priority={Priority}
+        priority={priority}
         setPriority={setPriority}
         {...register('task')}
         selectedDays={selectedDays}
