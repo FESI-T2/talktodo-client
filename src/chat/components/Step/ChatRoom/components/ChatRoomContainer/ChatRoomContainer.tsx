@@ -7,11 +7,11 @@ import ChatContent from './ChatContent/ChatContent';
 import ChatForm from './ChatForm/ChatForm';
 
 const ChatRoomContainer = () => {
-  const { messages, sendMessage } = useChat();
+  const { messages, sendMessage, isPending } = useChat();
 
   return (
     <>
-      <ChatContent messages={messages} />
+      <ChatContent messages={messages} isPending={isPending} />
       <ChatForm onSendMessage={sendMessage} />
     </>
   );

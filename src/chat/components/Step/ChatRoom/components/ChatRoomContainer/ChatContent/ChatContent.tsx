@@ -4,10 +4,11 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { Message } from '@/chat/types';
 // import Logo from '@/shared/components/Icons/Logo/Logo';
 
-import ChatMessageContainer from './ChatMessageContainer/ChatMessageContainer';
+import ChatMessage from './ChatMessage/ChatMessage';
 
 interface ChatContentProps {
   messages: Message[];
+  isPending?: boolean;
 }
 
 // const ResponsiveLogo = () => (
@@ -41,7 +42,7 @@ const ChatContent = ({ messages }: ChatContentProps) => {
       <div className='flex-grow '>
         <div className='flex flex-col justify-end gap-5  min-h-full '>
           {messages.map((msg, index) => (
-            <ChatMessageContainer key={index} message={msg.message} role={msg.role} />
+            <ChatMessage key={index} message={msg.message} role={msg.role} />
           ))}
           <div ref={bottomRef} />
         </div>

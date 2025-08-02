@@ -12,17 +12,15 @@ interface ChatFormProps {
 }
 
 const ChatForm = ({ onSendMessage }: ChatFormProps) => {
-  const { register, handleSubmit, control, getValues } = useForm<FormData>({
+  const { register, handleSubmit, control, getValues, reset } = useForm<FormData>({
     resolver: zodResolver(validation),
   });
 
-  const message = useWatch({
-    control: control,
-    name: 'message',
-  });
+  const hasMessage = useWatch({ control, name: 'message' })?.trim() !== '';
 
   const onSubmit = (data: FormData) => {
     onSendMessage(data.message);
+    reset();
   };
 
   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
@@ -41,7 +39,7 @@ const ChatForm = ({ onSendMessage }: ChatFormProps) => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <TextArea {...register('message')} placeholder='할 일을 입력해주세요' onKeyDown={handleKeyDown} />
-      <MessageSendButton active={!!message} />
+      <MessageSendButton active={hasMessage} />
     </form>
   );
 };
