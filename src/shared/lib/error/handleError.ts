@@ -3,6 +3,7 @@ import { match } from 'ts-pattern';
 import { AlertProps } from '@/shared/components/Alert/Alert.type';
 
 import { CustomError, ERROR_TYPES } from './customError';
+
 export const getErrorMessage = (error: CustomError): string => {
   return match(error.errorType)
     .with(ERROR_TYPES.APP_ERROR, () => '앱에서 문제가 발생했습니다.')
