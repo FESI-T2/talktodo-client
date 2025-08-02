@@ -1,17 +1,20 @@
 import type { Preview } from '@storybook/nextjs-vite';
 
 import '../src/shared/styles/globals.css';
+import { StepProvider } from '../src/chat/provider/StepProvider';
+import QueryProvider from '../src/shared/provider/QueryProvider';
 
 import '../src/shared/styles/pretendard-font.css';
-import { StepProvider } from '../src/chat/provider/StepProvider';
 const preview: Preview = {
   decorators: [
     (Story) => (
-      <StepProvider>
-        <div style={{ fontFamily: 'Pretendard, Noto Sans KR, Arial, sans-serif' }}>
-          <Story />
-        </div>
-      </StepProvider>
+      <QueryProvider>
+        <StepProvider>
+          <div style={{ fontFamily: 'Pretendard, Noto Sans KR, Arial, sans-serif' }}>
+            <Story />
+          </div>
+        </StepProvider>
+      </QueryProvider>
     ),
   ],
   parameters: {
