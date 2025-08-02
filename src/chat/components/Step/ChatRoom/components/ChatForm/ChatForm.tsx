@@ -7,15 +7,12 @@ import { validation, FormData } from '@/chat/utils/validation';
 
 import { TextArea, MessageSendButton } from './index';
 
-const ChatForm = () => {
-  // const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
-  //   if (e.key === 'Enter' && !e.shiftKey) {
-  //     e.preventDefault();
-  //     handleClick();
-  //   }
-  // };
+interface ChatFormProps {
+  onSendMessage: (message: string) => void;
+}
 
-  const { register, handleSubmit, control } = useForm<FormData>({
+const ChatForm = ({ onSendMessage }: ChatFormProps) => {
+  const { register, handleSubmit, control, getValues } = useForm<FormData>({
     resolver: zodResolver(validation),
   });
 
@@ -25,7 +22,17 @@ const ChatForm = () => {
   });
 
   const onSubmit = (data: FormData) => {
-    console.log(data.message);
+    onSendMessage(data.message);
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      const value = getValues('message');
+      if (value.trim()) {
+        handleSubmit(onSubmit)();
+      }
+    }
   };
 
   return (
@@ -33,7 +40,7 @@ const ChatForm = () => {
       className={'flex items-start gap-3 justify-center rounded-[28px] bg-white p-6 w-full tb:h-[180px] h-[120px] mb-[40px]'}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <TextArea {...register('message')} placeholder='할 일을 입력해주세요' />
+      <TextArea {...register('message')} placeholder='할 일을 입력해주세요' onKeyDown={handleKeyDown} />
       <MessageSendButton active={!!message} />
     </form>
   );
