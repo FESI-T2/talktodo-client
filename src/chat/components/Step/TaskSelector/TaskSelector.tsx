@@ -1,22 +1,24 @@
 'use client';
 
 import { NOT_SELECT_GOAL } from '@/chat/constants/index';
+import { useStepContext } from '@/chat/provider/StepProvider';
 import { Goal } from '@/chat/types';
 
 import { GoalSelectItem, TaskModalWrapper, TaskSelectorHeader } from './components/index';
 import ActionButtons from '../../ActionButtons/ActionButtons';
 
 interface TaskSelectorProps {
-  goToChatStep: () => void;
   goals: Goal[];
   selectedGoalIdx: number;
   handleSelectGoal: (selectedGoalIdx: number) => void;
 }
 
-const TaskSelector = ({ goals, goToChatStep, handleSelectGoal, selectedGoalIdx }: TaskSelectorProps) => {
+const TaskSelector = ({ goals, handleSelectGoal, selectedGoalIdx }: TaskSelectorProps) => {
+  const { goToNextStep } = useStepContext();
+
   const createNewGoal = () => {
     handleSelectGoal(NOT_SELECT_GOAL);
-    goToChatStep();
+    goToNextStep();
   };
 
   return (
@@ -35,7 +37,7 @@ const TaskSelector = ({ goals, goToChatStep, handleSelectGoal, selectedGoalIdx }
           ))}
         </div>
         <ActionButtons
-          onClickRightButton={goToChatStep}
+          onClickRightButton={goToNextStep}
           onClickLeftButton={createNewGoal}
           leftButtonText='새로운 목표를 만들래요 '
           rightButtonText='선택 완료'

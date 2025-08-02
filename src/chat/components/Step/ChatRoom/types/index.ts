@@ -1,6 +1,5 @@
 export interface ChatHeaderProps {
   title: string;
-  goToPrevStep: () => void;
 }
 
 export type ChatMessageRole = 'user' | 'assistant';

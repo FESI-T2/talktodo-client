@@ -6,31 +6,17 @@ import { match } from 'ts-pattern';
 import { ChatRoom, Result, TaskSelector } from '@/chat/components/Step/index';
 import { NOT_SELECT_GOAL, STEP_TASK } from '@/chat/constants/index';
 
-import useStepAcion from '@/chat/hooks/useStepAcion';
 import { mockGoalsArray } from '@/chat/mocks/goal';
+import { useStepContext } from '@/chat/provider/StepProvider';
 import { Goal } from '@/chat/types';
 
+/** 차후에 분리 예정  */
+
 const ChatContainer = () => {
-  const { currentStep, goToChatStep, goToPreviousStep } = useStepAcion();
-
-  // const [messages, setMessages] = useState<Message[]>([]);
-
-  // 차후에 서버상태로 분리 예정
   const [goals] = useState<Goal[]>(mockGoalsArray);
   const [selectedGoalIdx, setSelectedGoalIdx] = useState<number>(NOT_SELECT_GOAL);
 
-  // const handleSendChat = (chat: string) => {
-  //   const userMessage: Message = { message: chat, role: 'user' };
-  //   const assistantMessage: Message = { message: '이해했습니다! 목표를 달성하기 위해 어떤 할 일을 도와드릴까요?', role: 'assistant' };
-  //   setMessages((prev) => [...prev, userMessage, assistantMessage]);
-  //   goToResultStep();
-  // };
-
-  // useEffect(() => {
-  //   if (currentStep === STEP_TASK.selectTask) {
-  //     setMessages([]);
-  //   }
-  // }, [currentStep]);
+  const { currentStep } = useStepContext();
 
   const handleSelectGoal = (selectedGoalIdx: number) => {
     setSelectedGoalIdx(selectedGoalIdx);
@@ -39,15 +25,12 @@ const ChatContainer = () => {
   const renderStep = () => {
     return match(currentStep)
       .with(STEP_TASK.selectTask, () => (
-        <TaskSelector goToChatStep={goToChatStep} goals={goals} selectedGoalIdx={selectedGoalIdx} handleSelectGoal={handleSelectGoal} />
+        <TaskSelector goals={goals} selectedGoalIdx={selectedGoalIdx} handleSelectGoal={handleSelectGoal} />
       ))
       .with(STEP_TASK.chat, () => (
-        <ChatRoom
-          goToPrevStep={goToPreviousStep}
-          title={selectedGoalIdx !== NOT_SELECT_GOAL ? goals[selectedGoalIdx].title : '새로운 목표 만들기'}
-        />
+        <ChatRoom title={selectedGoalIdx !== NOT_SELECT_GOAL ? goals[selectedGoalIdx].title : '새로운 목표 만들기'} />
       ))
-      .with(STEP_TASK.result, () => <Result goToPrevStep={goToPreviousStep} />)
+      .with(STEP_TASK.result, () => <Result />)
       .otherwise(() => null);
   };
 
