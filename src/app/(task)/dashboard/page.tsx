@@ -5,7 +5,6 @@ import { useState } from 'react';
 import useBreakpoints from '@/shared/hooks/useBreakpoints';
 import { cn } from '@/shared/utils/cn';
 import DateSubHeader from '@/task/components/container/DateSubHeader';
-
 import TaskViewContainer from '@/task/components/container/TaskViewContainer';
 import MainHeader from '@/task/components/layout/Header/MainHeader';
 import useDashboardTasks from '@/task/hooks/useDashboardTasks';
@@ -28,7 +27,6 @@ export default function DashboardPage() {
     <div className='flex items-center mt-11 gap-[25px] flex-col bg-purple-50 max-w-[1168px]  m-auto w-[90%]'>
       <MainHeader totalTodo={totalCount} IncompleteTodo={undoneCount} completedTodo={doneCount} />
       <DateSubHeader layout={layout} setLayout={setLayout} />
-
       <div className={cn('flex', isPc ? 'items-start gap-4 w-full' : 'flex-col gap-4 self-stretch items-start')}>
         <TaskViewContainer task={undoneTasks} layout={layout} type='todo' />
         {isPc && (

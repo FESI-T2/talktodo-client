@@ -16,10 +16,10 @@ export default function TaskViewContainer({ task, layout, type }: TaskViewContai
   const taskArrayLength = task.length ?? 0;
   const { isMobile, isXs } = useBreakpoints();
 
-  const layOutpostionStlye = layout === 'square' ? 'grid grid-cols-3 gap-2' : 'flex flex-col items-start gap-3';
+  const layOutpostionStlye = layout === 'square' ? 'grid grid-cols-3 gap-2' : 'flex flex-col items-start gap-3 content-start';
 
   return (
-    <div className='flex flex-col content-start gap-2 flex-wrap w-full'>
+    <div className='flex flex-col  gap-2 flex-wrap w-full'>
       <div className='flex h-[44px] pl-4 pr-4 items-center gap-2 rounded-xl bg-purple-100 grow  mb-3'>
         <div className='font-body2-medium-tight text-gray-700 text-center'>{title}</div>
         <div className='font-body1-bold text-purple-600 text-center'>{taskArrayLength}</div>

@@ -21,7 +21,7 @@ export default function TabletDateHeader({ layout, setLayout }: Props) {
     setLayout(checked ? 'rectangle' : 'square');
   };
   return (
-    <div className='flex flex-col max-w-[580px] w-[100%] items-center self-stretch'>
+    <div className='flex flex-col items-center self-stretch'>
       <div className='flex justify-between items-center self-stretch'>
         <div className='flex items-center gap-2'>
           <div className='font-title3-semibold text-gray-900'>{fullDateString}</div>
