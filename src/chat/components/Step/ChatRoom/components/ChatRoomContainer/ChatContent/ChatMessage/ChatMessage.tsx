@@ -1,14 +1,11 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 
-import { ChatMessageProps, ChatMessageRole } from '@/chat/components/Step/ChatRoom/types';
+import { ChatMessageProps as ChatMessageContainerProps, ChatMessageRole } from '@/chat/components/Step/ChatRoom/types';
 import ChatCharacter from '@/shared/components/Icons/ChatCharacter/ChatCharacter';
 
 import { cn } from '@/shared/utils/cn';
 
-interface ChatMessageContainerProps extends ChatMessageProps {
-  isPending?: boolean;
-}
 interface StyleElement {
   bg: string;
   text: string;

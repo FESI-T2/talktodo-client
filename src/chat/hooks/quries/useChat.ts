@@ -24,21 +24,36 @@ const useChat = () => {
       handleMessage({
         message: text,
         role: 'user',
+        temp: false,
+      });
+
+      handleMessage({
+        message: '채팅을 작성 중 입니다...',
+        role: 'assistant',
+        temp: true,
       });
     },
     onSuccess: (data) => {
       if (data.messages) {
         const { content, contentType } = data.messages[0];
         if (contentType === 'PlainText') {
+          setMessages((prev) => prev.filter((msg) => !(msg.temp && msg.role === 'assistant')));
+
           handleMessage({
             message: content!,
             role: 'assistant',
+            temp: false,
           });
         }
       }
     },
-    onError: (error) => {
-      console.error('에러가 발생했습니다.', error);
+    onError: () => {
+      setMessages((prev) => prev.filter((msg) => !(msg.temp && msg.role === 'assistant')));
+      handleMessage({
+        message: '문제가 발생했어요. 다시 시도해줘!',
+        role: 'assistant',
+        temp: false,
+      });
     },
   });
 
