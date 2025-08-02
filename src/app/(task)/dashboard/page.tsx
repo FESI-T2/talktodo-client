@@ -20,17 +20,13 @@ export default function DashboardPage() {
   } = data;
 
   return (
-    <div className='flex items-center mt-11 gap-[25px] flex-col bg-purple-50 '>
+    <div className='flex items-center mt-11 gap-[25px] flex-col bg-purple-50 max-w-[1168px]  m-auto w-[90%]'>
       <MainHeader totalTodo={totalCount} IncompleteTodo={undoneCount} completedTodo={doneCount} />
       <DateSubHeader layout={layout} setLayout={setLayout} />
-      <div className='flex items-start gap-4 '>
-        <div>
-          <TaskViewContainer task={undoneTasks} layout={layout} type='todo' />
-        </div>
+      <div className='flex items-start gap-4 w-full'>
+        <TaskViewContainer task={undoneTasks} layout={layout} type='todo' />
         <div className='mt-16 w-[1px] min-h-[448px] max-h-lvw bg-[repeating-linear-gradient(to_bottom,_#ccc_0,_#ccc_4px,_transparent_4px,_transparent_8px)]' />
-        <div>
-          <TaskViewContainer task={doneTasks} layout={layout} type='done' />
-        </div>
+        <TaskViewContainer task={doneTasks} layout={layout} type='done' />
       </div>
     </div>
   );
