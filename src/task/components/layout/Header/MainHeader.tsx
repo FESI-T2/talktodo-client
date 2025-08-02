@@ -30,8 +30,8 @@ const MainHeader = ({ totalTodo = 0, IncompleteTodo = 0, completedTodo = 0 }: Ma
   ];
 
   return (
-    <div className='w-full max-w-[1168px] mx-auto bg-purple-500 rounded-[40px] px-6 py-6 sm:px-8 sm:py-6 lg:px-11 lg:pt-7 lg:pb-9 flex flex-col items-start'>
-      <div className='flex flex-row lg:flex-row gap-5 lg:gap-11 w-full'>
+    <div className='w-full lg:max-w-[1168px] lg:w-[100%] mx-auto bg-purple-500 rounded-[40px] px-6 py-6 sm:px-8 sm:py-6 lg:px-11 lg:pt-7 lg:pb-9 flex flex-col items-start'>
+      <div className='flex flex-row lg:flex-row lg:gap-11 w-full'>
         {/* 왼쪽 영역 */}
         <div className={`flex flex-col gap-3 relative ${isPc ? 'flex-1' : 'w-full'}`}>
           <div className='flex justify-between items-start'>

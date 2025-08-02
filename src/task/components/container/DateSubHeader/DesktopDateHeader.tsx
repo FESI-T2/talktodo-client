@@ -20,7 +20,7 @@ export default function DesktopDateHeader({ layout, setLayout }: Props) {
 
   const switchSize = kebabType === 'S' ? 'S' : 'L';
   return (
-    <div className='relative w-[343px] tb:w-[600px] pc:w-[1168px] h-[84px] flex items-center justify-center'>
+    <div className='relative w-[100%] max-w-[1168px] h-[84px] flex items-center justify-center'>
       <div className='flex items-center '>
         <div className='font-title3-semibold text-gray-900'>{fullDateString}</div>
         <DatePickerButton />
