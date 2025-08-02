@@ -22,13 +22,6 @@ export const Default: Story = {
     const [goals] = useState<Goal[]>(mockGoalsArray);
     const [selectedGoalIdx, setSelectedGoalIdx] = useState<number>(NOT_SELECT_GOAL);
 
-    return (
-      <TaskSelector
-        goals={goals}
-        selectedGoalIdx={selectedGoalIdx}
-        handleSelectGoal={(idx: number) => setSelectedGoalIdx(idx)}
-        goToChatStep={() => console.log('채팅으로 이동')}
-      />
-    );
+    return <TaskSelector goals={goals} selectedGoalIdx={selectedGoalIdx} handleSelectGoal={(idx: number) => setSelectedGoalIdx(idx)} />;
   },
 };
