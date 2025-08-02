@@ -5,8 +5,7 @@ import { useForm, useWatch } from 'react-hook-form';
 
 import { validation, FormData } from '@/chat/utils/validation';
 
-import MessageSendButton from './MessageSendButton/MessageSendButton';
-import TextArea from './TextArea/TextArea';
+import { TextArea, MessageSendButton } from './index';
 
 const ChatForm = () => {
   // const handleKeyDown = (e: KeyboardEvent<HTMLTextAreaElement>) => {
