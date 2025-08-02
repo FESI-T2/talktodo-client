@@ -20,12 +20,13 @@ const useChat = () => {
 
   const { mutate, isPending } = useMutation({
     mutationFn: (text: string) => sendToLex(text, 'user'),
-    onSuccess: (data, variables) => {
+    onMutate: async (text) => {
       handleMessage({
-        message: variables,
+        message: text,
         role: 'user',
       });
-
+    },
+    onSuccess: (data) => {
       if (data.messages) {
         const { content, contentType } = data.messages[0];
         if (contentType === 'PlainText') {

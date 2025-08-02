@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import React from 'react';
 
 import { ChatMessageProps, ChatMessageRole } from '@/chat/components/Step/ChatRoom/types';
@@ -29,12 +30,17 @@ const chatMessageStyles: Record<ChatMessageRole, StyleElement> = {
 
 const ChatMessage = ({ message, role }: ChatMessageContainerProps) => {
   return (
-    <div className={cn(`flex items-center gap-6`, chatMessageStyles[role].position)}>
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className={cn(`flex items-center gap-6`, chatMessageStyles[role].position)}
+    >
       {role === 'assistant' && <ChatCharacter className='w-16 h-16' />}
       <div className={cn('max-w-[600px] w-fit flex items-center gap-3 p-4 rounded-3xl', chatMessageStyles[role].bg)}>
         <p className={cn('text-white break-all', chatMessageStyles[role].text)}>{message}</p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
