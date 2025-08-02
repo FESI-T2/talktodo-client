@@ -15,6 +15,7 @@ const ChatContainer = () => {
 
   // const [messages, setMessages] = useState<Message[]>([]);
 
+  // 차후에 서버상태로 분리 예정
   const [goals] = useState<Goal[]>(mockGoalsArray);
   const [selectedGoalIdx, setSelectedGoalIdx] = useState<number>(NOT_SELECT_GOAL);
 
@@ -35,7 +36,7 @@ const ChatContainer = () => {
     setSelectedGoalIdx(selectedGoalIdx);
   };
 
-  const renderStepPage = () => {
+  const renderStep = () => {
     return match(currentStep)
       .with(STEP_TASK.selectTask, () => (
         <TaskSelector goToChatStep={goToChatStep} goals={goals} selectedGoalIdx={selectedGoalIdx} handleSelectGoal={handleSelectGoal} />
@@ -50,7 +51,7 @@ const ChatContainer = () => {
       .otherwise(() => null);
   };
 
-  return <>{renderStepPage()}</>;
+  return <>{renderStep()}</>;
 };
 
 export default ChatContainer;

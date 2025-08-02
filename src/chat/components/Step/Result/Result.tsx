@@ -1,7 +1,7 @@
 import { useAlert } from '@/shared/hooks/useAlert';
 
+import { ResultHeader, ResultWrapper, ResultTable } from './components/index';
 import ActionButtons from '../../ActionButtons/ActionButtons';
-import { ResultHeader, ResultWrapper, ResultTable } from '../Result/components/index';
 
 interface ResultProps {
   goToPrevStep: () => void;

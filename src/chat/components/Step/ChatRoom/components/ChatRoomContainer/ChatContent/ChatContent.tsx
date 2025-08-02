@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useRef } from 'react';
 import { Message } from '@/chat/types';
 // import Logo from '@/shared/components/Icons/Logo/Logo';
 
-import ChatMessageContainer from '../ChatMessageContainer/ChatMessageContainer';
+import ChatMessageContainer from './ChatMessageContainer/ChatMessageContainer';
 
 interface ChatContentProps {
   messages: Message[];

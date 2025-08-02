@@ -2,7 +2,7 @@ import React from 'react';
 
 import ChatCharacter from '@/shared/components/Icons/ChatCharacter/ChatCharacter';
 
-import ChatMessage from '../ChatMessage/ChatMessage';
+import ChatMessage from './ChatMessage/ChatMessage';
 
 interface ChatMessageProps {
   message: string;

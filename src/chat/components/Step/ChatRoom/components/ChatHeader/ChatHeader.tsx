@@ -3,10 +3,7 @@
 import Flag from '@/shared/components/Icons/Flag/Flag';
 import WhiteChevron from '@/shared/components/Icons/WhiteChevron/WhiteChevron';
 
-export interface ChatHeaderProps {
-  title: string;
-  goToPrevStep: () => void;
-}
+import { ChatHeaderProps } from '../../types';
 
 const ChatHeader = ({ title, goToPrevStep }: ChatHeaderProps) => {
   return (

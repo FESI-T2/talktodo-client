@@ -3,7 +3,8 @@ import React from 'react';
 
 import useChat from '@/chat/hooks/quries/useChat';
 
-import { ChatContent, ChatForm } from '../index';
+import ChatContent from './ChatContent/ChatContent';
+import ChatForm from './ChatForm/ChatForm';
 
 const ChatRoomContainer = () => {
   const { messages, sendMessage } = useChat();

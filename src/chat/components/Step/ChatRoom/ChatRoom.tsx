@@ -1,8 +1,7 @@
 import React from 'react';
 
-import { ChatHeaderProps } from './components/ChatHeader/ChatHeader';
-import ChatRoomContainer from './components/ChatRoomContainer/ChatRoomContainer';
-import { ChatHeader } from './components/index';
+import { ChatHeader, ChatRoomContainer } from './components/index';
+import { ChatHeaderProps } from './types';
 
 type NewGoalChatProps = ChatHeaderProps;
 const ChatRoom = ({ goToPrevStep, title }: NewGoalChatProps) => {
