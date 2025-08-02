@@ -104,8 +104,8 @@ const tasksTestHandlers = [
       {
         ...AllTaskData,
         result: {
-          ...AllTaskData.result,
-          tasks: filtered,
+          doneTasks: filtered.filter((t) => t.isDone),
+          undoneTasks: filtered.filter((t) => !t.isDone),
           totalCount: filtered.length,
           doneCount: filtered.filter((t) => t.isDone).length,
           undoneCount: filtered.filter((t) => !t.isDone).length,

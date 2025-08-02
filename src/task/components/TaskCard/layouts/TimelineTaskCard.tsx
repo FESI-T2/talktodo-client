@@ -6,7 +6,7 @@ import { TaskBasedProps } from '../TaskCard.types';
 export default function TimelineTaskCard({ task, layout = 'timeline' }: TaskBasedProps) {
   const { content, goal, isDone, priority } = task;
   return (
-    <BaseCard layout={layout}>
+    <BaseCard layout={layout} isDone={isDone}>
       <div className='flex flex-col items-start gap-2 self-stretch'>
         <div className='flex flex-col items-start gap-3 self-stretch'>
           <div className='flex items-start gap-1.5 self-stretch'>
