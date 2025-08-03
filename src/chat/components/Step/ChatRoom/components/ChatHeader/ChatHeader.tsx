@@ -1,14 +1,14 @@
 'use client';
 
+import { useStepContext } from '@/chat/provider/StepProvider';
 import Flag from '@/shared/components/Icons/Flag/Flag';
 import WhiteChevron from '@/shared/components/Icons/WhiteChevron/WhiteChevron';
 
-export interface ChatHeaderProps {
-  title: string;
-  goToPrevStep: () => void;
-}
+import { ChatHeaderProps } from '../../types';
 
-const ChatHeader = ({ title, goToPrevStep }: ChatHeaderProps) => {
+const ChatHeader = ({ title }: ChatHeaderProps) => {
+  const { goToPrevStep } = useStepContext();
+
   return (
     <div className='flex items-center gap-3  w-full pt-[40px]'>
       <button aria-label='뒤로가기' onClick={goToPrevStep} className='cursor-pointer'>

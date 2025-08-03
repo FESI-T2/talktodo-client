@@ -1,14 +1,13 @@
+import { useStepContext } from '@/chat/provider/StepProvider';
 import { useAlert } from '@/shared/hooks/useAlert';
 
+import { ResultHeader, ResultWrapper, ResultTable } from './components/index';
 import ActionButtons from '../../ActionButtons/ActionButtons';
-import { ResultHeader, ResultWrapper, ResultTable } from '../Result/components/index';
 
-interface ResultProps {
-  goToPrevStep: () => void;
-}
-
-const Result = ({ goToPrevStep }: ResultProps) => {
+const Result = () => {
   const { openAlert } = useAlert();
+
+  const { goToPrevStep } = useStepContext();
 
   const handleSaveTodos = () => {
     console.log('할 일들을 저장합니다');

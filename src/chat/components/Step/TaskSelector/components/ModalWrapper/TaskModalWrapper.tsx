@@ -6,7 +6,7 @@ interface ModalWrapperProps {
   children: React.ReactNode;
 }
 
-const ModalWrapper = ({ children }: ModalWrapperProps) => {
+const TaskModalWrapper = ({ children }: ModalWrapperProps) => {
   return (
     <div className='flex justify-center items-center flex-col w-full'>
       <ChatCharacter className='w-[100px] h-[80px]' />
@@ -27,4 +27,4 @@ const ModalWrapper = ({ children }: ModalWrapperProps) => {
   );
 };
 
-export default ModalWrapper;
+export default TaskModalWrapper;
