@@ -3,7 +3,8 @@ import { ApiResponse } from '@/shared/types/api';
 import { Task } from '../index';
 
 interface GetAllTaskResult {
-  tasks: Task[];
+  doneTasks: Task[];
+  undoneTasks: Task[];
   totalCount: number;
   doneCount: number;
   undoneCount: number;
