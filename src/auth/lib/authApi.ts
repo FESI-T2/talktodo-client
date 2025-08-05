@@ -10,7 +10,9 @@ const authApi = {
   kakaoLogin: APIBuilder.post('/user/kakao-login', {}).baseUrl('http://localhost:3001/api').build(),
 
   // 액세스 토큰 요청 API 추가
-  getTempAccessToken: APIBuilder.get('/temp/login').baseUrl(process.env.NEXT_PUBLIC_API_URL).build(),
+  getTempAccessToken: APIBuilder.get('/temp/login')
+    .baseUrl(process.env.NEXT_PUBLIC_API_URL ?? '')
+    .build(),
 };
 
 export default authApi;
