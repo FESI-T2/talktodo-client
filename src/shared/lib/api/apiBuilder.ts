@@ -28,6 +28,8 @@ class APIBuilder {
 
   static post = (url: string, data: unknown) => new APIBuilder('POST', url, data);
 
+  static patch = (url: string) => new APIBuilder('PATCH', url);
+
   static delete = (url: string) => new APIBuilder('DELETE', url);
 
   headers(value: HTTPHeaders): APIBuilder {
