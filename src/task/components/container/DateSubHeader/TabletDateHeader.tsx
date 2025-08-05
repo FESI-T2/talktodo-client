@@ -25,7 +25,7 @@ export default function TabletDateHeader({ layout, setLayout, timelineActive, se
         </div>
         <div className='flex items-center gap-3'>
           <TimelineButton size={switchSize} active={timelineActive} onClick={setTimelineActive} />
-          <Switch type='layout' size={switchSize} checked={layout === 'rectangle'} onChange={handleSwitch} />
+          <Switch type='layout' size={switchSize} checked={layout === 'rectangle'} onChange={handleSwitch} disabled={!timelineActive} />
         </div>
       </div>
       <DateList />
