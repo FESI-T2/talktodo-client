@@ -6,16 +6,16 @@ import { match } from 'ts-pattern';
 import { ChatRoom, Result, TaskSelector } from '@/chat/components/Step/index';
 import { NOT_SELECT_GOAL, STEP_TASK } from '@/chat/constants/index';
 
-import { mockGoalsArray } from '@/chat/mocks/goal';
 import { useStepContext } from '@/chat/provider/StepProvider';
 import { Goal } from '@/chat/types';
+import useGetAllGoal from '@/goal/hooks/quries/goal/useGetAllGoal';
 
 /** 차후에 분리 예정  */
 
 const ChatContainer = () => {
-  // const { data } = useGetAllGoal();
-  //const [goals] = useState<Goal[]>(data.data.result);
-  const [goals] = useState<Goal[]>(mockGoalsArray);
+  const { data } = useGetAllGoal();
+  const [goals] = useState<Goal[]>(data.data.result);
+  //const [goals] = useState<Goal[]>(mockGoalsArray);
   const [selectedGoalIdx, setSelectedGoalIdx] = useState<number>(NOT_SELECT_GOAL);
 
   const { currentStep } = useStepContext();
