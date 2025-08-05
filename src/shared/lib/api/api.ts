@@ -1,7 +1,5 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { getAccessToken } from '@/app/actions/auth/token';
-
 import classifyError from '../error/classifyAPIError';
 
 export type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
@@ -38,7 +36,7 @@ class API {
       http.interceptors.request.use(async (config) => {
         config.headers['Content-Type'] = 'application/json; charset=utf-8';
 
-        const accessToken = await getAccessToken();
+        const accessToken = localStorage.getItem('accessToken');
         if (accessToken) config.headers['Authorization'] = `Bearer ${accessToken}`;
 
         return config;

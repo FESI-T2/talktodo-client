@@ -5,6 +5,8 @@ export interface Message {
 }
 
 export interface Goal {
-  title: string;
-  count: number;
+  goalId: string;
+  goalName: string;
+  createdAt: string;
+  modifiedAt: string;
 }
