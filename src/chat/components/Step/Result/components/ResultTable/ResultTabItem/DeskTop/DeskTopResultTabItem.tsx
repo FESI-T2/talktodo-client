@@ -1,16 +1,15 @@
 import React from 'react';
 
+import { TabItemProps } from '@/chat/types/index';
 import DateSelector from '@/shared/components/DateSelector/DateSelector';
 import RepeatButtonGroup from '@/shared/components/Form/RepeatCycleSelector/RepeatButtonGroup/RepeatButtonGroup';
 import SelectPriority from '@/shared/components/Select/SelectPriority';
 import Switch from '@/shared/components/Switch/Switch';
 
-import { TabItemProps } from '../ResultTabItem.type';
-
-const DeskTopResultTabItem = ({ date, setDate, selectedDays, handleSelectDays }: TabItemProps) => {
+const DeskTopResultTabItem = ({ taskContent, date, setDate, selectedDays, handleSelectDays }: TabItemProps) => {
   return (
     <div className='table gap-8 py-5 border-b border-gray-200 px-2 w-full max-w-[822px]'>
-      <h2 className='font-body1-semibold text-gray-900'>디자인시스템 베리어블 1강 듣기</h2>
+      <h2 className='font-body1-semibold text-gray-900'>{taskContent}</h2>
       <DateSelector mode='range' date={date} setDate={setDate} />
       <SelectPriority />
       <Switch type='basic' size='S' defaultChecked={false} className='flex items-center' />

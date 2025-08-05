@@ -2,7 +2,9 @@
 
 import { NOT_SELECT_GOAL } from '@/chat/constants/index';
 import { useStepContext } from '@/chat/provider/StepProvider';
-import { Goal } from '@/chat/types';
+import { Goal } from '@/goal/types';
+
+import { useToast } from '@/shared/hooks/useToast';
 
 import { GoalSelectItem, TaskModalWrapper, TaskSelectorHeader } from './components/index';
 import ActionButtons from '../../ActionButtons/ActionButtons';
@@ -15,9 +17,18 @@ interface TaskSelectorProps {
 
 const TaskSelector = ({ goals, handleSelectGoal, selectedGoalIdx }: TaskSelectorProps) => {
   const { goToNextStep } = useStepContext();
+  const { openToast } = useToast();
 
   const createNewGoal = () => {
     handleSelectGoal(NOT_SELECT_GOAL);
+    goToNextStep();
+  };
+
+  const handleNextStep = () => {
+    if (selectedGoalIdx === NOT_SELECT_GOAL) {
+      openToast('목표를 선택해주세요.');
+      return;
+    }
     goToNextStep();
   };
 
@@ -37,7 +48,7 @@ const TaskSelector = ({ goals, handleSelectGoal, selectedGoalIdx }: TaskSelector
           ))}
         </div>
         <ActionButtons
-          onClickRightButton={goToNextStep}
+          onClickRightButton={handleNextStep}
           onClickLeftButton={createNewGoal}
           leftButtonText='새로운 목표를 만들래요 '
           rightButtonText='선택 완료'

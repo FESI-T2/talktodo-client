@@ -4,19 +4,25 @@ import { useMutation } from '@tanstack/react-query';
 import { useState } from 'react';
 
 import { useStepContext } from '@/chat/provider/StepProvider';
-import { Message } from '@/chat/types';
+import { Message, ChatRoomAction } from '@/chat/types';
 
 import { sendToLex } from '../service/sendToLex';
 
-const useChat = () => {
+interface parsedTask {
+  task: string;
+  date: string;
+}
+
+const useChat = ({ handleSetTaskSchedules }: ChatRoomAction) => {
   const [messages, setMessages] = useState<Message[]>([]);
+
   const { goToNextStep } = useStepContext();
 
   const handleMessage = (newMessage: Message) => {
     setMessages((prev) => [...prev, newMessage]);
   };
 
-  const { mutate, isPending } = useMutation({
+  const { mutate } = useMutation({
     mutationFn: (text: string) => sendToLex(text, 'user'),
     onMutate: async (text) => {
       handleMessage({
@@ -45,8 +51,16 @@ const useChat = () => {
         });
       }
 
-      if (customPayloadMsg?.contentType === 'CustomPayload') {
-        console.log(customPayloadMsg.content);
+      if (customPayloadMsg?.contentType === 'CustomPayload' && customPayloadMsg.content) {
+        const parsedContent = JSON.parse(customPayloadMsg.content);
+
+        parsedContent.data.forEach((task: parsedTask) => {
+          handleSetTaskSchedules({
+            content: task.task,
+            taskDate: task.date,
+          });
+        });
+
         goToNextStep();
       }
     },
@@ -54,7 +68,7 @@ const useChat = () => {
       console.error(error);
       setMessages((prev) => prev.filter((msg) => !(msg.temp && msg.role === 'assistant')));
       handleMessage({
-        message: '문제가 발생했어요. 다시 시도해줘!',
+        message: '문제가 발생했어요. 다시 시도해주세요.',
         role: 'assistant',
         temp: false,
       });
@@ -64,7 +78,6 @@ const useChat = () => {
   return {
     messages,
     sendMessage: (text: string) => mutate(text),
-    isPending,
   };
 };
 export default useChat;
