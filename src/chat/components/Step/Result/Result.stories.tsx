@@ -14,6 +14,7 @@ type Story = StoryObj<typeof Result>;
 
 export const Default: Story = {
   args: {
-    goToPrevStep: () => console.log('이전 단계로 이동'),
+    goal: '오늘의 목표',
+    taskSchedules: [],
   },
 };

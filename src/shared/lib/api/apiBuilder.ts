@@ -20,7 +20,7 @@ class APIBuilder {
     this._instance.withCredentials = false;
 
     if (process.env.NODE_ENV === 'development') this._instance.baseURL = 'http://localhost:3000';
-    if (process.env.NODE_ENV === 'production') this._instance.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000';
+    if (process.env.NODE_ENV === 'production') this._instance.baseURL = process.env.NEXT_PUBLIC_API_BASE_URL + '/v1';
   }
 
   static get = (url: string) => new APIBuilder('GET', url);

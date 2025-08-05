@@ -8,6 +8,7 @@ export type Mode = 'single' | 'range';
 
 export interface DatePicker<T extends Mode> {
   mode: T;
+  date: DateType<T>;
   setDate: Dispatch<SetStateAction<DateType<T>>>;
 }
 

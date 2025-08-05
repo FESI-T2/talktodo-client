@@ -13,18 +13,35 @@ interface ResultTabItemProps {
   taskTableItem: TaskTableItem;
   handleUpdateTaskTableItem: handleUpdateTaskTableItem;
 }
-
+// 차후에 리펙 객체로 묶기
 const ResultTabItem = ({ taskTableItem, handleUpdateTaskTableItem }: ResultTabItemProps) => {
   const [selectedDateRange, setSelectedDateRange] = useState<DateRange>({
     from: taskTableItem.date.from,
     to: taskTableItem.date.to,
   });
 
-  const { priority: selectedPriority, setPriority: setSlectedPriority } = usePriority();
+  const [isRepeatEnabled, setIsRepeatEnabled] = useState(taskTableItem.repeatEnabled);
+  const toggleDay = () => setIsRepeatEnabled(!isRepeatEnabled);
 
-  const { selectedDays, handleSelectDays } = useSelectedDays();
+  const { priority: selectedPriority, selectPriority } = usePriority(taskTableItem.priority);
+
+  const { selectedDays, handleSelectDays, resetSelectedDays } = useSelectedDays();
+
+  useEffect(() => {
+    if (!isRepeatEnabled) resetSelectedDays();
+  }, [isRepeatEnabled]);
 
   const { isPc } = useBreakpoints();
+
+  useEffect(() => {
+    handleUpdateTaskTableItem(taskTableItem, {
+      ...taskTableItem,
+      date: selectedDateRange,
+      priority: selectedPriority,
+      repeatEnabled: isRepeatEnabled,
+      repeatDays: selectedDays,
+    });
+  }, [selectedDateRange, selectedPriority, isRepeatEnabled, selectedDays]);
 
   const ResultTallItemParams = {
     taskContent: taskTableItem.content,
@@ -32,16 +49,11 @@ const ResultTabItem = ({ taskTableItem, handleUpdateTaskTableItem }: ResultTabIt
     setDate: setSelectedDateRange,
     selectedDays: selectedDays,
     handleSelectDays: handleSelectDays,
-    selectedPriority: setSlectedPriority,
+    isRepeatEnabled: isRepeatEnabled,
+    toggleDay: toggleDay,
+    priority: selectedPriority,
+    selectPriority: selectPriority,
   };
-
-  useEffect(() => {
-    handleUpdateTaskTableItem(taskTableItem, {
-      ...taskTableItem,
-      date: selectedDateRange,
-      priority: selectedPriority,
-    });
-  }, [selectedDateRange, selectedPriority]);
 
   if (isPc) {
     return <DeskTopResultTabItem {...ResultTallItemParams} />;

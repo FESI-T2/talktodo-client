@@ -26,19 +26,17 @@ export const UpArrowIcon = () => {
 export const selectOptions = ['중요', '보통', '낮음'];
 
 interface SelectPriorityProps {
-  label?: string;
-  options?: Priority[];
-  onSelect?: React.Dispatch<React.SetStateAction<Priority>>;
-  selectedValue?: Priority;
+  priority: Priority;
+  selectPriority: (value: Priority) => void;
 }
 
-export default function SelectPriority({}: SelectPriorityProps) {
+export default function SelectPriority({ priority, selectPriority }: SelectPriorityProps) {
   const [open, setOpen] = useState(false);
-  const [priority, setPriority] = useState<Priority>('중요');
+
   const size = 'L';
 
-  const handleSelect = (value: string) => {
-    setPriority(value as Priority);
+  const handleSelect = (value: Priority) => {
+    selectPriority(value);
     setOpen(false);
   };
 

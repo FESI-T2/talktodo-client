@@ -25,7 +25,7 @@ export const Range: Story = {
       console.log('DatePicker mounted with initial date:', date);
     }, [date]);
 
-    return <DatePicker mode='range' setDate={setDate} closeSelector={() => {}} />;
+    return <DatePicker mode='range' setDate={setDate} closeSelector={() => {}} date={date} />;
   },
 };
 
@@ -37,6 +37,6 @@ export const Single: Story = {
       console.log('DatePicker mounted with initial date:', date);
     }, [date]);
 
-    return <DatePicker mode='single' setDate={setDate} closeSelector={() => {}} />;
+    return <DatePicker mode='single' setDate={setDate} closeSelector={() => {}} date={date} />;
   },
 };

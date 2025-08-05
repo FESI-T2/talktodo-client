@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { useDate, useSelectedDays } from '@/shared/hooks/state';
+import { useState } from 'react';
+
+import { useDate, usePriority, useSelectedDays } from '@/shared/hooks/state';
 
 import TabletResultTabItem from './TabletResultTabItem';
 
@@ -18,7 +20,23 @@ export const Default: Story = {
   render: () => {
     const { date, setDate } = useDate('range');
     const { selectedDays, handleSelectDays } = useSelectedDays();
+    const [isRepeatEnabled, setIsRepeatEnabled] = useState(false);
+    const toggleDay = () => setIsRepeatEnabled(!isRepeatEnabled);
 
-    return <TabletResultTabItem date={date} setDate={setDate} selectedDays={selectedDays} handleSelectDays={handleSelectDays} />;
+    const { priority: selectedPriority, selectPriority } = usePriority('낮음');
+
+    return (
+      <TabletResultTabItem
+        date={date}
+        setDate={setDate}
+        selectedDays={selectedDays}
+        handleSelectDays={handleSelectDays}
+        isRepeatEnabled={isRepeatEnabled}
+        toggleDay={toggleDay}
+        priority={selectedPriority}
+        selectPriority={selectPriority}
+        taskContent='3'
+      />
+    );
   },
 };

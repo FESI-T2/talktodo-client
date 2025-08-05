@@ -42,8 +42,8 @@ interface DatePickerProps<T extends Mode> extends DatePickerType<T> {
   closeSelector: () => void;
 }
 
-const DatePicker = <T extends Mode>({ mode, setDate, closeSelector }: DatePickerProps<T>) => {
-  const { date: datePickerDate, setDate: setPickerDate } = useDate<T>(mode);
+const DatePicker = <T extends Mode>({ mode, setDate, closeSelector, date }: DatePickerProps<T>) => {
+  const { date: datePickerDate, setDate: setPickerDate } = useDate<T>(mode, date);
 
   const handleSetDate = () => {
     setDate(datePickerDate);
@@ -85,7 +85,7 @@ const DatePicker = <T extends Mode>({ mode, setDate, closeSelector }: DatePicker
           {...commonProps}
           selected={datePickerDate as DateRange}
           onSelect={setPickerDate as React.Dispatch<React.SetStateAction<DateRange | undefined>>}
-          classNames={{ ...commonProps.classNames, selected: `font-body3-medium-tight text-white ` }}
+          classNames={{ ...commonProps.classNames, selected: `font-body3-medium-tight text-white` }}
           required
         />
       )}

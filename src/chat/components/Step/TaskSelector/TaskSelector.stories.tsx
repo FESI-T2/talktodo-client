@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 
 import { NOT_SELECT_GOAL } from '@/chat/constants/index';
 import { mockGoalsArray } from '@/chat/mocks/goal';
-import { Goal } from '@/chat/types';
+import { Goal } from '@/goal/types';
 
 import TaskSelector from './TaskSelector';
 

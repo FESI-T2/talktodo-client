@@ -20,7 +20,7 @@ const DateSelector = <T extends Mode>({ date, setDate, mode, className }: DateSe
   return (
     <div className={cn('base-divider px-3 py-[9px] w-full h-[44px] relative overflow-visible', className)}>
       <div className='absolute top-full mt-[19px] left-0 z-[50] '>
-        {isOpen && <DatePicker setDate={setDate} mode={mode} closeSelector={closeSelector} />}
+        {isOpen && <DatePicker setDate={setDate} mode={mode} closeSelector={closeSelector} date={date} />}
       </div>
       <div className='flex items-center justify-between'>
         <span>{formatDateByType(date)}</span>

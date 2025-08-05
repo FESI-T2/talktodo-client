@@ -9,9 +9,14 @@ const useSelectedDays = () => {
     setSelectedDays((prev) => (prev.includes(day) ? prev.filter((d) => d !== day) : [...prev, day]));
   };
 
+  const resetSelectedDays = () => {
+    setSelectedDays([]);
+  };
+
   return {
     handleSelectDays,
     selectedDays,
+    resetSelectedDays,
   };
 };
 

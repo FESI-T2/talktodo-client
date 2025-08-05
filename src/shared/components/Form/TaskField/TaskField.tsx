@@ -11,10 +11,10 @@ import Section from '../Section/Section';
 type TaskFieldProps = DateSelectorProps &
   React.HTMLAttributes<HTMLInputElement> & {
     priority: Priority;
-    setPriority: React.Dispatch<React.SetStateAction<Priority>>;
+    slectPriority: (value: Priority) => void;
   } & RepeatCycleSelectorProps;
 
-const TaskField = ({ date, setDate, priority, setPriority, handleSelectedDays, selectedDays, ...props }: TaskFieldProps) => {
+const TaskField = ({ date, setDate, priority, slectPriority, handleSelectedDays, selectedDays, ...props }: TaskFieldProps) => {
   return (
     <>
       <Section sectionTitle='할 일'>
@@ -25,7 +25,7 @@ const TaskField = ({ date, setDate, priority, setPriority, handleSelectedDays, s
           <DateSelector mode='range' date={date} setDate={setDate} />
         </Section>
         <Section sectionTitle='우선 순위' className='w-full mb:w-1/2 '>
-          <SelectPriority label='우선 순위' options={['중요', '보통', '낮음']} onSelect={setPriority} selectedValue={priority} />
+          <SelectPriority selectPriority={slectPriority} priority={priority} />
         </Section>
       </div>
       <RepeatCycleSelector handleSelectedDays={handleSelectedDays} selectedDays={selectedDays} />

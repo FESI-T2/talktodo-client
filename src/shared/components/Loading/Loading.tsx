@@ -1,3 +1,4 @@
+'use client';
 import React from 'react';
 
 import Logo from '../Icons/Logo/Logo';

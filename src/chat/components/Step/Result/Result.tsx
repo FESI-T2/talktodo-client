@@ -1,5 +1,5 @@
 'use client';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { v4 as uuid } from 'uuid';
 
@@ -28,8 +28,14 @@ const Result = ({ taskSchedules, goal }: ResultProps) => {
         to: new Date(),
       },
       taskDate: schedule.taskDate,
+      repeatDays: [],
+      repeatEnabled: false,
     }))
   );
+
+  useEffect(() => {
+    console.log('taskTableItems Items Updated:', taskTableItems);
+  }, [taskTableItems]);
 
   const handleUpdateTaskTableItem = (newTaskTableItems: TaskTableItem, updatedFields: Partial<TaskTableItem>) => {
     setTaskTableItems((prev) => prev.map((item) => (item.id === newTaskTableItems.id ? { ...item, ...updatedFields } : item)));

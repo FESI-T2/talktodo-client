@@ -30,6 +30,7 @@ const StepContainer = ({
 }: StepContainerProps) => {
   const { currentStep } = useStepContext();
 
+  // 뒤로 가기시 taskSchedules 초기화
   useEffect(() => {
     resetTaskSchedules();
   }, [currentStep]);
