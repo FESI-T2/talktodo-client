@@ -7,6 +7,7 @@ import { cn } from '@/shared/utils/cn';
 import DateSubHeader from '@/task/components/container/DateSubHeader';
 import TaskViewContainer from '@/task/components/container/TaskViewContainer';
 import MainHeader from '@/task/components/layout/Header/MainHeader';
+import DailyTimeline from '@/task/components/timeline/Timeline';
 import useDashboardTasks from '@/task/hooks/useDashboardTasks';
 
 export default function DashboardPage() {
@@ -37,7 +38,7 @@ export default function DashboardPage() {
           <TaskViewContainer task={doneTasks} layout={layout} type='done' />
         </div>
       ) : (
-        <></>
+        <DailyTimeline />
       )}
     </div>
   );
