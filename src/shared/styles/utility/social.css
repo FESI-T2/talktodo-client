@@ -8,4 +8,8 @@
   .google {
     @apply bg-white text-[color:var(--color-gray-900)] font-medium;
   }
+
+  .accessToken {
+    @apply bg-[#f0f0f0] text-[color:var(--color-gray-900)] font-medium;
+  }
 }

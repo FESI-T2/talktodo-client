@@ -1,1 +1,1 @@
-export type LoginOption = 'kakao' | 'google' | 'naver';
+export type LoginOption = 'kakao' | 'google' | 'naver' | 'accessToken';
