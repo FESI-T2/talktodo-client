@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { tasksKeys } from '../queryKeys/tasksKeys';
 import { fetchTask } from '../tasks';
 
-export default function useTaskById(taskId: string) {
+export function useTaskById(taskId: string) {
   return useQuery({
     queryKey: tasksKeys.byId(taskId).queryKey,
     queryFn: () => fetchTask(taskId),
