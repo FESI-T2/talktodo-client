@@ -8,6 +8,9 @@ import APIBuilder from '@/shared/lib/api/apiBuilder';
 const authApi = {
   // 테스팅을 위해 API URL을 직접 지정
   kakaoLogin: APIBuilder.post('/user/kakao-login', {}).baseUrl('http://localhost:3001/api').build(),
+
+  // 액세스 토큰 요청 API 추가
+  getTempAccessToken: APIBuilder.get('/temp/login').baseUrl('https://api.talktodo.shop').build(),
 };
 
 export default authApi;
