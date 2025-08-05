@@ -5,17 +5,18 @@ import useBreakpoints from '@/shared/hooks/useBreakpoints';
 import DesktopDateHeader from './DesktopDateHeader';
 import MobileDateHeader from './MobileDateHeader';
 import TabletDateHeader from './TabletDateHeader';
+import { DateHeaderProps } from './type';
 // import TabletDateHeader from './TabletDateHeader';
 
-interface Props {
-  layout: 'square' | 'rectangle';
-  setLayout: (layout: 'square' | 'rectangle') => void;
-}
-
-export default function DateSubHeader({ layout, setLayout }: Props) {
+export default function DateSubHeader({ layout, setLayout, timelineActive, setTimelineActive }: DateHeaderProps) {
   const { isXs, isMobile, isTablet, isPc } = useBreakpoints();
 
-  if (isMobile || isXs) return <MobileDateHeader layout={layout} setLayout={setLayout} />;
-  if (isTablet) return <TabletDateHeader layout={layout} setLayout={setLayout} />;
-  if (isPc) return <DesktopDateHeader layout={layout} setLayout={setLayout} />;
+  if (isMobile || isXs)
+    return <MobileDateHeader layout={layout} setLayout={setLayout} timelineActive={timelineActive} setTimelineActive={setTimelineActive} />;
+  if (isTablet)
+    return <TabletDateHeader layout={layout} setLayout={setLayout} timelineActive={timelineActive} setTimelineActive={setTimelineActive} />;
+  if (isPc)
+    return (
+      <DesktopDateHeader layout={layout} setLayout={setLayout} timelineActive={timelineActive} setTimelineActive={setTimelineActive} />
+    );
 }

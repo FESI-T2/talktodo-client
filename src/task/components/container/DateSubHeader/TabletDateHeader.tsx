@@ -3,15 +3,11 @@ import TimelineButton from '@/shared/components/TimelineButton/TimelineButton';
 
 import useResponsiveType from '@/shared/hooks/useResponsiveType';
 
+import { DateHeaderProps } from './type';
 import { DateList, useDateSelector } from '../../dateSelector';
 import DatePickerBtn from '../../dateSelector/DatePickerButton';
 
-interface Props {
-  layout: 'square' | 'rectangle';
-  setLayout: (layout: 'square' | 'rectangle') => void;
-}
-
-export default function TabletDateHeader({ layout, setLayout }: Props) {
+export default function TabletDateHeader({ layout, setLayout, timelineActive, setTimelineActive }: DateHeaderProps) {
   const { kebabType } = useResponsiveType();
   const { fullDateString } = useDateSelector();
 
@@ -28,7 +24,7 @@ export default function TabletDateHeader({ layout, setLayout }: Props) {
           <DatePickerBtn />
         </div>
         <div className='flex items-center gap-3'>
-          <TimelineButton size={switchSize} />
+          <TimelineButton size={switchSize} active={timelineActive} onClick={setTimelineActive} />
           <Switch type='layout' size={switchSize} checked={layout === 'rectangle'} onChange={handleSwitch} />
         </div>
       </div>
