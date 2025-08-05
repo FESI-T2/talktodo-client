@@ -1,5 +1,5 @@
 export interface ChatHeaderProps {
-  title: string;
+  goal: string;
 }
 
 export type ChatMessageRole = 'user' | 'assistant';

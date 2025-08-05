@@ -1,10 +1,9 @@
 // SelectPriority.stories.tsx
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
-import { useState } from 'react';
 
-import { Priority } from '@/shared/types/prioity';
+import { usePriority } from '@/shared/hooks/state';
 
-import SelectPriority, { selectOptions } from './SelectPriority';
+import SelectPriority from './SelectPriority';
 
 const meta: Meta<typeof SelectPriority> = {
   title: 'molecules/SelectPriority',
@@ -26,25 +25,6 @@ const meta: Meta<typeof SelectPriority> = {
       },
     },
   },
-  argTypes: {
-    label: {
-      description: '버튼 좌측에 보일 라벨 텍스트',
-      defaultValue: '우선순위',
-      control: 'text',
-    },
-    options: {
-      description: '드롭다운에 표시될 옵션 배열',
-      defaultValue: selectOptions,
-    },
-    selectedValue: {
-      description: '현재 선택된 값',
-      control: 'text',
-    },
-    onSelect: {
-      action: 'selected!',
-      description: '옵션 선택 시 호출 (value: string)',
-    },
-  },
 };
 
 export default meta;
@@ -52,10 +32,7 @@ type Story = StoryObj<typeof SelectPriority>;
 
 export const Primary: Story = {
   render: (args) => {
-    const [value, setValue] = useState<Priority>('중요');
-    return <SelectPriority {...args} selectedValue={value} onSelect={setValue} />;
-  },
-  args: {
-    label: '우선순위 직접 제어',
+    const { priority, selectPriority } = usePriority('낮음');
+    return <SelectPriority {...args} priority={priority} selectPriority={selectPriority} />;
   },
 };

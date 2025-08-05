@@ -53,7 +53,7 @@ export default function DatePickerBtn() {
 
             {/* DatePicker */}
             <div className='absolute top-full left-0 z-50 mt-2'>
-              <DatePicker setDate={setDate} mode='single' closeSelector={closeSelector} />
+              <DatePicker setDate={setDate} mode='single' closeSelector={closeSelector} date={date} />
             </div>
           </>
         )}

@@ -14,6 +14,6 @@ type Story = StoryObj<typeof ChatRoom>;
 
 export const Default: Story = {
   args: {
-    title: '새로운 목표 만들기',
+    goal: '새로운 목표 만들기',
   },
 };

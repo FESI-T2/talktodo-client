@@ -6,7 +6,7 @@ import WhiteChevron from '@/shared/components/Icons/WhiteChevron/WhiteChevron';
 
 import { ChatHeaderProps } from '../../types';
 
-const ChatHeader = ({ title }: ChatHeaderProps) => {
+const ChatHeader = ({ goal }: ChatHeaderProps) => {
   const { goToPrevStep } = useStepContext();
 
   return (
@@ -18,7 +18,7 @@ const ChatHeader = ({ title }: ChatHeaderProps) => {
       <div className='flex items-center justify-between gap-2 px-5 py-3 rounded-[20px] bg-[#F8F4FE]/20 w-full'>
         <div className='flex items-center gap-1'>
           <Flag type='Mobile' color='#FFFFFF' />
-          <p className='text-white font-body2-semibold'>{title}</p>
+          <p className='text-white font-body2-semibold'>{goal}</p>
         </div>
       </div>
     </div>

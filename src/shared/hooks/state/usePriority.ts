@@ -2,12 +2,15 @@ import { useState } from 'react';
 
 import { Priority } from '@/shared/types/prioity';
 
-const usePriority = () => {
-  const [priority, setPriority] = useState<Priority>('중요');
+const usePriority = (initPriority?: Priority) => {
+  const [priority, setPriority] = useState<Priority>(initPriority || '중요');
 
+  const selectPriority = (value: Priority) => {
+    setPriority(value);
+  };
   return {
     priority,
-    setPriority,
+    selectPriority,
   };
 };
 

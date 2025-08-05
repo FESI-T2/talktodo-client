@@ -1,40 +1,50 @@
 'use client';
 import React, { useState } from 'react';
 
-import { match } from 'ts-pattern';
+import { NOT_SELECT_GOAL } from '@/chat/constants/index';
 
-import { ChatRoom, Result, TaskSelector } from '@/chat/components/Step/index';
-import { NOT_SELECT_GOAL, STEP_TASK } from '@/chat/constants/index';
+import { StepProvider } from '@/chat/provider/StepProvider';
 
-import { mockGoalsArray } from '@/chat/mocks/goal';
-import { useStepContext } from '@/chat/provider/StepProvider';
-import { Goal } from '@/chat/types';
+import { TaskSchedule } from '@/chat/types/index';
+import useGetAllGoal from '@/goal/hooks/quries/goal/useGetAllGoal';
+import { Goal } from '@/goal/types/index';
 
-/** 차후에 분리 예정  */
+import StepContainer from '../RenderContainer/StepContainer';
 
 const ChatContainer = () => {
-  const [goals] = useState<Goal[]>(mockGoalsArray);
+  const { data } = useGetAllGoal();
+  const [goals] = useState<Goal[]>(data.data.result);
   const [selectedGoalIdx, setSelectedGoalIdx] = useState<number>(NOT_SELECT_GOAL);
 
-  const { currentStep } = useStepContext();
+  const selectedGoal = selectedGoalIdx !== NOT_SELECT_GOAL ? goals[selectedGoalIdx].goalName : '새로운 목표 만들기';
+
+  const [taskSchedules, setTaskSchedules] = useState<TaskSchedule[]>([]);
 
   const handleSelectGoal = (selectedGoalIdx: number) => {
     setSelectedGoalIdx(selectedGoalIdx);
   };
 
-  const renderStep = () => {
-    return match(currentStep)
-      .with(STEP_TASK.selectTask, () => (
-        <TaskSelector goals={goals} selectedGoalIdx={selectedGoalIdx} handleSelectGoal={handleSelectGoal} />
-      ))
-      .with(STEP_TASK.chat, () => (
-        <ChatRoom title={selectedGoalIdx !== NOT_SELECT_GOAL ? goals[selectedGoalIdx].title : '새로운 목표 만들기'} />
-      ))
-      .with(STEP_TASK.result, () => <Result />)
-      .otherwise(() => null);
+  const handleSetTaskSchedules = (task: TaskSchedule) => {
+    setTaskSchedules((prev) => [...prev, task]);
   };
 
-  return <>{renderStep()}</>;
+  const resetTaskSchedules = () => {
+    setTaskSchedules([]);
+  };
+
+  return (
+    <StepProvider>
+      <StepContainer
+        goals={goals}
+        selectedGoalIdx={selectedGoalIdx}
+        handleSelectGoal={handleSelectGoal}
+        handleSetTaskSchedules={handleSetTaskSchedules}
+        selectedGoal={selectedGoal}
+        taskSchedules={taskSchedules}
+        resetTaskSchedules={resetTaskSchedules}
+      />
+    </StepProvider>
+  );
 };
 
 export default ChatContainer;

@@ -13,7 +13,7 @@ import { TaskFormData, taskValidation } from '@/task/utils/validation';
 
 const TaskForm = () => {
   const { selectedDays, handleSelectDays } = useSelectedDays();
-  const { priority, setPriority } = usePriority();
+  const { priority, selectPriority } = usePriority();
   const { date, setDate } = useDate('range');
 
   const {
@@ -40,7 +40,7 @@ const TaskForm = () => {
         date={date}
         setDate={setDate}
         priority={priority}
-        setPriority={setPriority}
+        slectPriority={selectPriority}
         {...register('task')}
         selectedDays={selectedDays}
         handleSelectedDays={handleSelectDays}

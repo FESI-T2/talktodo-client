@@ -1,9 +1,6 @@
 import axios, { AxiosResponse } from 'axios';
 
-import { getAccessToken } from '@/app/actions/auth/token';
-
-import classifyError from '../error/classifyAPIError';
-
+import classifyAPIError from '../error/classifyAPIError';
 export type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
 export type HTTPHeaders = Record<string, string>;
@@ -38,7 +35,7 @@ class API {
       http.interceptors.request.use(async (config) => {
         config.headers['Content-Type'] = 'application/json; charset=utf-8';
 
-        const accessToken = await getAccessToken();
+        const accessToken = process.env.NEXT_PUBLIC_ACCESS_TOKEN;
         if (accessToken) config.headers['Authorization'] = `Bearer ${accessToken}`;
 
         return config;
@@ -49,7 +46,7 @@ class API {
       (response) => response,
       (error) => {
         console.error('API Error:', error);
-        classifyError(error);
+        classifyAPIError(error);
         return Promise.reject(error);
       }
     );

@@ -13,6 +13,6 @@ type Story = StoryObj<typeof ChatHeader>;
 
 export const Default: Story = {
   args: {
-    title: '자바스크립트로 웹 서비스 만들기',
+    goal: '자바스크립트로 웹 서비스 만들기',
   },
 };
