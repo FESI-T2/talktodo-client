@@ -2,15 +2,11 @@ import Switch from '@/shared/components/Switch/Switch';
 import TimelineButton from '@/shared/components/TimelineButton/TimelineButton';
 import useResponsiveType from '@/shared/hooks/useResponsiveType';
 
+import { DateHeaderProps } from './type';
 import { useDateSelector } from '../../dateSelector';
 import DatePickerBtn from '../../dateSelector/DatePickerButton';
 
-interface Props {
-  layout: 'square' | 'rectangle';
-  setLayout: (layout: 'square' | 'rectangle') => void;
-}
-
-export default function MobileDateHeader({ layout, setLayout }: Props) {
+export default function MobileDateHeader({ layout, setLayout, timelineActive, setTimelineActive }: DateHeaderProps) {
   const { kebabType } = useResponsiveType();
   const { dayDateString } = useDateSelector();
 
@@ -27,8 +23,8 @@ export default function MobileDateHeader({ layout, setLayout }: Props) {
         <div className='flex items-center'>{/* Arrow */}</div>
       </div>
       <div className='flex items-center gap-3'>
-        <TimelineButton size={switchSize} />
-        <Switch type='layout' size={switchSize} checked={layout === 'rectangle'} onChange={handleSwitch} />
+        <TimelineButton size={switchSize} active={timelineActive} onClick={setTimelineActive} />
+        <Switch type='layout' size={switchSize} checked={layout === 'rectangle'} onChange={handleSwitch} disabled={!timelineActive} />
       </div>
     </div>
   );
