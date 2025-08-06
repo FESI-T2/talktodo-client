@@ -35,8 +35,10 @@ class API {
       http.interceptors.request.use(async (config) => {
         config.headers['Content-Type'] = 'application/json; charset=utf-8';
 
-        const accessToken = localStorage.getItem('accessToken');
-        if (accessToken) config.headers['Authorization'] = `Bearer ${accessToken}`;
+        if (typeof window !== 'undefined') {
+          const accessToken = localStorage.getItem('accessToken');
+          if (accessToken) config.headers['Authorization'] = `Bearer ${accessToken}`;
+        }
 
         return config;
       });
