@@ -7,14 +7,12 @@ const ButtonStyle: Record<LoginOption, string> = {
   kakao: 'kakao',
   naver: 'naver',
   google: 'google',
-  accessToken: 'accessToken',
 } as const;
 
 const ButtonContent: Record<LoginOption, string> = {
   kakao: '카카오 로그인',
   naver: '네이버 로그인',
   google: '구글 로그인',
-  accessToken: '액세스 토큰 로그인',
 } as const;
 
 interface AuthButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {

@@ -45,7 +45,7 @@ const ToastContainer = () => {
   if (!isMounted) return null;
 
   return createPortal(
-    <div className='fixed top-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3 w-fit'>
+    <div className='fixed top-8 left-1/2 -translate-x-1/2 z-50 flex flex-col items-center gap-3 w-full'>
       {toasts
         .slice()
         .reverse()

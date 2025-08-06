@@ -1,12 +1,14 @@
 'use server';
 
 import authApi from '@/auth/lib/authApi';
-import { KakaoLoginResponse } from '@/auth/types/response';
+
+import { setAccessToken } from './token';
 
 export const login = async () => {
   const {
-    data: { access_token },
-  } = await authApi.kakaoLogin.call<KakaoLoginResponse>();
-
-  return access_token;
+    data: {
+      result: { accessToken },
+    },
+  } = await authApi.getTempAccessToken();
+  await setAccessToken(accessToken);
 };
