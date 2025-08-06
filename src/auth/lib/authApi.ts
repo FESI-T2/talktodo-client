@@ -11,7 +11,7 @@ const authApi = {
 
   // 액세스 토큰 요청 API 추가
   getTempAccessToken: APIBuilder.get('/temp/login')
-    .baseUrl(process.env.NEXT_PUBLIC_API_URL ?? '')
+    .baseUrl(process.env.NEXT_PUBLIC_API_BASE_URL ?? '')
     .build(),
 };
 
