@@ -4,6 +4,7 @@ import Loading from '@/shared/components/Loading/Loading';
 import ErrorBoundary from '@/shared/error/ErrorBoundary';
 
 const ChatPage = () => {
+  if (process.env.NODE_ENV === 'production') return;
   return (
     <div className='min-h-screen gradient-bg h-full overflow-y-scroll flex items-center justify-center w-full'>
       <ErrorBoundary level='toast'>
