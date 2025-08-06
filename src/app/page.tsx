@@ -1,4 +1,3 @@
-// 차후에 수정 필요
 'use client';
 import React from 'react';
 

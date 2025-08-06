@@ -13,6 +13,7 @@ import StepContainer from '../RenderContainer/StepContainer';
 
 const ChatContainer = () => {
   const { data } = useGetAllGoal();
+
   const [goals] = useState<Goal[]>(data.data.result);
   const [selectedGoalIdx, setSelectedGoalIdx] = useState<number>(NOT_SELECT_GOAL);
 
