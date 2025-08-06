@@ -1,6 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 
-import classifyAPIError from '../error/classifyAPIError';
+import { getAccessToken } from '@/app/actions/auth/token';
+import { useTokenStore } from '@/auth/store/tokenStore';
+
+import classifyAPIError from '../error/classifyError';
 export type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
 export type HTTPHeaders = Record<string, string>;
@@ -35,8 +38,18 @@ class API {
       http.interceptors.request.use(async (config) => {
         config.headers['Content-Type'] = 'application/json; charset=utf-8';
 
-        const accessToken = process.env.NEXT_PUBLIC_ACCESS_TOKEN;
-        if (accessToken) config.headers['Authorization'] = `Bearer ${accessToken}`;
+        if (typeof window !== 'undefined') {
+          // 클라이언트 환경
+          const tokenStore = useTokenStore.getState();
+          const accessToken = tokenStore.token || (await getAccessToken());
+          config.headers['Authorization'] = `Bearer ${accessToken}`;
+        } else {
+          // 서버 환경
+          const { cookies } = await import('next/headers');
+          const accessToken = (await cookies()).get('accessToken')?.value || null;
+
+          config.headers['Authorization'] = `Bearer ${accessToken}`;
+        }
 
         return config;
       });
@@ -45,7 +58,6 @@ class API {
     http.interceptors.response.use(
       (response) => response,
       (error) => {
-        console.error('API Error:', error);
         classifyAPIError(error);
         return Promise.reject(error);
       }
