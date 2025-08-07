@@ -18,9 +18,22 @@ const setAccessToken = async (token: string) => {
   });
 };
 
-const removeAccessToken = async () => {
+const setRefreshToken = async (token: string) => {
   const cookieStore = await cookies();
-  cookieStore.delete('accessToken');
+  cookieStore.set({
+    name: 'refresh',
+    value: token,
+    httpOnly: true,
+    secure: process.env.NODE_ENV === 'production',
+    sameSite: 'strict',
+    maxAge: 60 * 60 * 24 * 7,
+  });
 };
 
-export { getAccessToken, setAccessToken, removeAccessToken };
+const removeToken = async () => {
+  const cookieStore = await cookies();
+  cookieStore.delete('accessToken');
+  cookieStore.delete('refresh');
+};
+
+export { getAccessToken, setAccessToken, removeToken, setRefreshToken };

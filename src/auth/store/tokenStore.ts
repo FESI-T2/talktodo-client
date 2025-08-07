@@ -1,7 +1,7 @@
 'use client';
 import { create } from 'zustand';
 
-import { getAccessToken, removeAccessToken, setAccessToken } from '@/app/actions/auth/token';
+import { getAccessToken, removeToken, setAccessToken } from '@/app/actions/auth/token';
 
 interface TokenStore {
   token: string | null;
@@ -18,7 +18,7 @@ export const useTokenStore = create<TokenStore>((set) => ({
   },
 
   clearToken: async () => {
-    await removeAccessToken();
+    await removeToken();
     set({ token: null });
   },
 
