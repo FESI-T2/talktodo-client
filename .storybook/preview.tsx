@@ -1,25 +1,9 @@
 import type { Preview } from '@storybook/nextjs-vite';
 
 import '../src/shared/styles/globals.css';
+
 import { StepProvider } from '../src/chat/provider/StepProvider';
 import QueryProvider from '../src/shared/provider/QueryProvider';
-
-jest.mock('next/navigation', () => {
-  return {
-    useRouter: () => ({
-      push: jest.fn(),
-      replace: jest.fn(),
-      refresh: jest.fn(),
-      back: jest.fn(),
-      prefetch: jest.fn(),
-    }),
-    usePathname: () => '/',
-    useSearchParams: () => new URLSearchParams(),
-    useParams: () => ({}),
-    useSelectedLayoutSegments: () => [],
-    useSelectedLayoutSegment: () => null,
-  };
-});
 
 import '../src/shared/styles/pretendard-font.css';
 const preview: Preview = {
