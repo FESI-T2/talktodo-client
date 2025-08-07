@@ -4,12 +4,12 @@
 
 // GoalWithTaskCountResponse 타입에 맞춤
 export interface Goal {
-  goalId: string;
-  goalName: string;
-  completedTaskCount: number;
-  incompleteTaskCount: number;
-  createdAt: string;
-  modifiedAt: string;
+  goalId?: string;
+  goalName?: string;
+  completedTaskCount?: number;
+  incompleteTaskCount?: number;
+  createdAt?: string;
+  modifiedAt?: string;
 }
 
 /**

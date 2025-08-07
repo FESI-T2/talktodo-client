@@ -33,11 +33,13 @@ const goalTestHandlers = [
 
   // 목표별 완료/미완료 Task 건수 조회
   http.get(`${MOCK_API_BASE_URL}/goal/with-task-count`, (): HttpResponse<GoalWithCountResponse> => {
-    const result = goalList.map(({ goalId, goalName, completedTaskCount, incompleteTaskCount }) => ({
+    const result = goalList.map(({ goalId, goalName, completedTaskCount, incompleteTaskCount, createdAt, modifiedAt }) => ({
       goalId,
       goalName,
       completedTaskCount,
       incompleteTaskCount,
+      createdAt,
+      modifiedAt,
     }));
 
     return HttpResponse.json(

@@ -9,9 +9,11 @@ export class ProgressViewModel {
   }
 
   get label(): { doneText: string; totalText: string } {
+    const total = this.step + this.goal;
+
     return {
       doneText: `${this.step}개 완료`,
-      totalText: `/ ${this.goal}개`,
+      totalText: `/ ${total}개`,
     };
   }
 }
