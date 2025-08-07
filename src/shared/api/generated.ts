@@ -256,6 +256,46 @@ export interface paths {
     patch?: never;
     trace?: never;
   };
+  '/v1/task/date/{date}/goal/{goalId}': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * 목표별 날짜 기준 할 일 조회
+     * @description 목표 ID와 yyyy-MM-dd 형식의 날짜를 받아 해당 목표에 속한 그 날짜의 할 일만 조회합니다.
+     */
+    get: operations['getTasksByGoalAndDate'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/v1/goal/with-task-count': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * 목표별 완료/미완료 건수
+     * @description 사용자의 각 목표별 완료/미완료 Task 건수를 조회한다.
+     */
+    get: operations['getGoalsWithTaskCount'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/v1/file/view/{fileId}': {
     parameters: {
       query?: never;
@@ -288,6 +328,26 @@ export interface paths {
      * @description 프로필 이미지를 서버에서 다운로드 합니다.
      */
     get: operations['downloadFile'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/temp/login': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * (개발용) 로그인
+     * @description (개발용) 로그인을 요청한다.
+     */
+    get: operations['issueDevTokens'];
     put?: never;
     post?: never;
     delete?: never;
@@ -375,6 +435,7 @@ export interface components {
       repeatEnabled?: boolean;
       repeatTypes?: string[];
       goalId?: string;
+      goalName?: string;
       /** Format: date-time */
       createdAt?: string;
       /** Format: date-time */
@@ -412,10 +473,6 @@ export interface components {
     GoalResponse: {
       goalId?: string;
       goalName?: string;
-      /** Format: date-time */
-      createdAt?: string;
-      /** Format: date-time */
-      modifiedAt?: string;
     };
     ApiResponseFileResponse: {
       isSuccess?: boolean;
@@ -466,6 +523,42 @@ export interface components {
       code?: string;
       message?: string;
       result?: components['schemas']['GoalResponse'][];
+    };
+    ApiResponseGoalDetailResponse: {
+      isSuccess?: boolean;
+      code?: string;
+      message?: string;
+      result?: components['schemas']['GoalDetailResponse'];
+    };
+    GoalDetailResponse: {
+      goalId?: string;
+      goalName?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      modifiedAt?: string;
+    };
+    ApiResponseListGoalWithTaskCountResponse: {
+      isSuccess?: boolean;
+      code?: string;
+      message?: string;
+      result?: components['schemas']['GoalWithTaskCountResponse'][];
+    };
+    GoalWithTaskCountResponse: {
+      goalId?: string;
+      goalName?: string;
+      /** Format: int64 */
+      completedTaskCount?: number;
+      /** Format: int64 */
+      incompleteTaskCount?: number;
+    };
+    ApiResponseMapStringString: {
+      isSuccess?: boolean;
+      code?: string;
+      message?: string;
+      result?: {
+        [key: string]: string;
+      };
     };
   };
   responses: never;
@@ -675,7 +768,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          '*/*': components['schemas']['ApiResponseGoalResponse'];
+          '*/*': components['schemas']['ApiResponseGoalDetailResponse'];
         };
       };
     };
@@ -905,6 +998,49 @@ export interface operations {
       };
     };
   };
+  getTasksByGoalAndDate: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        goalId: string;
+        date: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description OK */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          '*/*': components['schemas']['ApiResponseTaskSummaryResponse'];
+        };
+      };
+    };
+  };
+  getGoalsWithTaskCount: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description OK */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          '*/*': components['schemas']['ApiResponseListGoalWithTaskCountResponse'];
+        };
+      };
+    };
+  };
   viewFile: {
     parameters: {
       query?: never;
@@ -945,6 +1081,26 @@ export interface operations {
         };
         content: {
           '*/*': string;
+        };
+      };
+    };
+  };
+  issueDevTokens: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description OK */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          '*/*': components['schemas']['ApiResponseMapStringString'];
         };
       };
     };
