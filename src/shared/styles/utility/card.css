@@ -2,4 +2,7 @@
   .shadow-card-shadow {
     box-shadow: 0px 0px 20px 0px rgba(52, 35, 101, 0.05);
   }
+  .shadow-dropdown {
+    box-shadow: 0px 0px 20px 0px rgba(52, 35, 101, 0.05);
+  }
 }
