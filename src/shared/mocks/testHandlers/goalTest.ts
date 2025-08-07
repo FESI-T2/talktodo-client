@@ -1,4 +1,3 @@
-// mocks/handlers/goalTestHandlers.ts
 import { http, HttpResponse } from 'msw';
 
 import { components } from '@/shared/api/generated';
