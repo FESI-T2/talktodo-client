@@ -6,6 +6,7 @@ import { StepProvider } from '../src/chat/provider/StepProvider';
 import QueryProvider from '../src/shared/provider/QueryProvider';
 
 import '../src/shared/styles/pretendard-font.css';
+
 const preview: Preview = {
   decorators: [
     (Story) => (

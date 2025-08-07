@@ -1,5 +1,4 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import { useRouter } from 'next/navigation';
 
 import LoginForm from './LoginForm';
 
@@ -21,7 +20,7 @@ describe('LoginForm', () => {
 
   // 테스트용 모킹
   it('카카오 로그인 버튼 클릭 시 /auth/kakao/login으로 이동한다.', async () => {
-    const mockRouter = useRouter();
+    const mockRouter = use();
     const mockPush = mockRouter.push;
 
     render(<LoginForm />);
