@@ -1,5 +1,4 @@
 'use client';
-
 import ChatContainer from '@/chat/components/ChatContainer/ChatContainer';
 
 const ChatPage = () => {
