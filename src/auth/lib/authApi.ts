@@ -1,3 +1,4 @@
+import { TempAccessTokenResponse, ReissueResponse } from '@/auth/types/response';
 import APIBuilder from '@/shared/lib/api/apiBuilder';
 
 /*
@@ -6,13 +7,15 @@ import APIBuilder from '@/shared/lib/api/apiBuilder';
  */
 
 const authApi = {
-  // 테스팅을 위해 API URL을 직접 지정
-  kakaoLogin: APIBuilder.post('/user/kakao-login', {}).baseUrl('http://localhost:3001/api').build(),
-
   // 액세스 토큰 요청 API 추가
-  getTempAccessToken: APIBuilder.get('/temp/login')
-    .baseUrl(process.env.NEXT_PUBLIC_API_BASE_URL ?? '')
-    .build(),
+  getTempAccessToken: () =>
+    APIBuilder.get('/temp/login')
+      .baseUrl(process.env.NEXT_PUBLIC_API_BASE_URL || '')
+      .build()
+      .call<TempAccessTokenResponse>(),
+
+  // 리이슈
+  reissue: () => APIBuilder.post('/v1/auth/reissue', {}).withCredentials(true).build().call<ReissueResponse>(),
 };
 
 export default authApi;

@@ -15,9 +15,11 @@ const Alert = ({ message, handleClick }: AlertProps) => {
     >
       <AlertIcon className='hidden mb:block ' />
       <span className='flex-1 font-body2-semibold text-purple-500 text-nowrap'>{message}</span>
-      <Button className='max-w-[138px] h-[41px] px-5 py-3 font-body3-semibold text-white ' variant='primary' onClick={handleClick}>
-        변경사항 저장하기
-      </Button>
+      {handleClick && (
+        <Button className='max-w-[138px] h-[41px] px-5 py-3 font-body3-semibold text-white ' variant='primary' onClick={handleClick}>
+          변경사항 저장하기
+        </Button>
+      )}
     </motion.div>
   );
 };

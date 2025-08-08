@@ -1,13 +1,10 @@
+import { ApiResponse } from '@/shared/types/api';
+
 export interface KakaoLoginResponse {
   access_token: string;
 }
 
-export interface TempAccessTokenResponse {
-  code: string;
-  isSuccess: boolean;
-  message: string;
-  result: {
-    accessToken: string;
-    refreshToken: string;
-  };
-}
+export type TempAccessTokenResponse = ApiResponse<{
+  accessToken: string;
+  refreshToken: string;
+}>;

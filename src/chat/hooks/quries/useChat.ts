@@ -64,8 +64,7 @@ const useChat = ({ handleSetTaskSchedules }: ChatRoomAction) => {
         goToNextStep();
       }
     },
-    onError: (error) => {
-      console.error(error);
+    onError: () => {
       setMessages((prev) => prev.filter((msg) => !(msg.temp && msg.role === 'assistant')));
       handleMessage({
         message: '문제가 발생했어요. 다시 시도해주세요.',

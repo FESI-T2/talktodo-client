@@ -1,11 +1,22 @@
 import type { Meta, StoryObj } from '@storybook/nextjs-vite';
 
+import { StepProvider } from '@/chat/provider/StepProvider';
+
 import ChatRoom from './ChatRoom';
 
 const meta: Meta<typeof ChatRoom> = {
   component: ChatRoom,
   title: 'Template/Chat/Step/ChatRoom',
   tags: ['autodocs'],
+  decorators: [
+    (Story) => (
+      <StepProvider>
+        <div>
+          <Story />
+        </div>
+      </StepProvider>
+    ),
+  ],
   argTypes: {},
 };
 export default meta;

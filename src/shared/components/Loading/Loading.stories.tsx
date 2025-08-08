@@ -4,7 +4,7 @@ import Loading from './Loading';
 
 const meta: Meta<typeof Loading> = {
   component: Loading,
-  title: 'Loading',
+  title: 'molecules/Loading',
   tags: ['autodocs'],
   argTypes: {},
 };
