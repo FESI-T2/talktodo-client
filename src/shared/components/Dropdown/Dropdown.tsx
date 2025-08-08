@@ -10,7 +10,7 @@ interface DropdownOptions {
 const Dropdown = ({ options, size = 'M', type = 'default', onSelect }: DropdownOptions) => {
   return (
     <div
-      className={`bg-white rounded-xl flex py-1 flex-col items-center ${size === 'S' ? 'w-[90px]' : size === 'M' ? 'w-[106px]' : 'w-[182px]'}shadow-[0px_0px_20px_0px_rgba(52,35,101,0.15)]`}
+      className={`bg-white rounded-xl flex mt-[18px] py-1 shadow-dropdown flex-col items-center ${size === 'S' ? 'w-[90px]' : size === 'M' ? 'w-[106px]' : 'w-[182px]'}shadow-[0px_0px_20px_0px_rgba(52,35,101,0.15)]`}
     >
       {options.map((opt, index) => (
         <button
