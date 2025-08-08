@@ -9,9 +9,10 @@ import Form from '@/shared/components/Form/Form';
 import useDate from '@/shared/hooks/state/useDate';
 import usePriority from '@/shared/hooks/state/usePriority';
 import useSelectedDays from '@/shared/hooks/state/useSelectedDays';
+import { FormProps as TaskFormProps } from '@/task/types';
 import { TaskFormData, taskValidation } from '@/task/utils/validation';
 
-const TaskForm = () => {
+const TaskForm = ({ handleFormChange }: TaskFormProps) => {
   const { selectedDays, handleSelectDays } = useSelectedDays();
   const { priority, selectPriority } = usePriority();
   const { date, setDate } = useDate('range');
@@ -48,7 +49,7 @@ const TaskForm = () => {
       <Form.FormActions
         createAction={() => alert('작업 생성')}
         deleteAction={() => alert('작업 삭제')}
-        editAction={() => alert('작업 수정')}
+        editAction={() => handleFormChange('memo')}
       />
     </Form>
   );

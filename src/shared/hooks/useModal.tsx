@@ -1,14 +1,15 @@
+'use client';
 import React from 'react';
 
 import GoalForm from '@/goal/components/GoalForm';
+import FormResolver from '@/task/components/FormResolver/FormResolver';
 import MemoForm from '@/task/components/MemoForm/MemoForm';
-import TaskForm from '@/task/components/TaskForm/TaskForm';
 
 import { modalSubject } from '../components/Modal/ModalSubject';
 
 const useModal = () => {
   const openTaskForm = () => {
-    modalSubject.open(<TaskForm />, {
+    modalSubject.open(<FormResolver />, {
       onClose: () => console.log('기본 모달이 닫혔습니다.'),
       disableBackdropClick: true,
       closeButton: false,
