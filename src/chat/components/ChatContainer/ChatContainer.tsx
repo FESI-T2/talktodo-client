@@ -14,6 +14,7 @@ const ChatContainer = () => {
   const { data, isLoading } = useGetAllGoal();
 
   // 데이터 없을 때는 빈 배열로 초기화
+
   const [selectedGoalIdx, setSelectedGoalIdx] = useState<number>(NOT_SELECT_GOAL);
   const [taskSchedules, setTaskSchedules] = useState<TaskSchedule[]>([]);
 
