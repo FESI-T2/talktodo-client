@@ -24,3 +24,24 @@ export interface ApiResponseListGoalWithTaskCountResponse {
   message: string;
   result: GoalWithCount[];
 }
+
+export interface ApiResponseGoalResponse {
+  isSuccess: boolean;
+  code: string;
+  message: string;
+  result: Goal;
+}
+
+export interface ApiResponseGoalDetailResponse {
+  isSuccess: boolean;
+  code: string;
+  message: string;
+  result: GoalWithCount | null;
+}
+
+export interface ApiResponseString {
+  isSuccess: boolean;
+  code: string;
+  message: string;
+  result: string | null;
+}
