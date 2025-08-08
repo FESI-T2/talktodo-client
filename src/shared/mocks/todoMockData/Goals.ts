@@ -1,21 +1,6 @@
-/**
- * generated.ts(OpenAPI) 타입에 맞춘 Goal 데이터 타입 및 샘플 데이터
- */
+import { GoalWithCount } from '@/goal/types';
 
-// GoalWithTaskCountResponse 타입에 맞춤
-export interface Goal {
-  goalId?: string;
-  goalName?: string;
-  completedTaskCount?: number;
-  incompleteTaskCount?: number;
-  createdAt?: string;
-  modifiedAt?: string;
-}
-
-/**
- * @type {Goal[]} 샘플 목표(Goal) 데이터
- */
-export const goals: Goal[] = [
+export const goals: GoalWithCount[] = [
   {
     goalId: 'goal_001',
     goalName: '자바스크립트로 웹 서비스 만들기',

@@ -1,13 +1,12 @@
-import { components } from '@/shared/api/generated';
-
 import APIBuilder from '@/shared/lib/api/apiBuilder';
 
-export type GoalWithTaskCountResponse = components['schemas']['ApiResponseListGoalWithTaskCountResponse'];
+import { ApiResponseListGoalResponse, ApiResponseListGoalWithTaskCountResponse } from '../types';
 
 const goalApi = {
-  getAllGoal: () => APIBuilder.get('/goal').withCredentials(true).build().call<components['schemas']['ApiResponseListGoalResponse']>(),
+  getAllGoal: () => APIBuilder.get('/goal').withCredentials(true).build().call<ApiResponseListGoalResponse>(),
 
-  getGoalsWithTaskCount: () => APIBuilder.get('/goal/with-task-count').withCredentials(true).build().call<GoalWithTaskCountResponse>(),
+  getGoalsWithTaskCount: () =>
+    APIBuilder.get('/goal/with-task-count').withCredentials(true).build().call<ApiResponseListGoalWithTaskCountResponse>(),
 };
 
 export default goalApi;

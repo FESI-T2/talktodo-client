@@ -1,25 +1,46 @@
 import { http, HttpResponse } from 'msw';
 
-import { components } from '@/shared/api/generated';
+import { Goal, GoalWithCount, ApiResponseListGoalResponse, ApiResponseListGoalWithTaskCountResponse } from '@/goal/types/index';
 
 import { MOCK_API_BASE_URL } from '../constants';
+
 import { goals } from '../todoMockData/Goals';
 
-// 타입 줄이기
-type GoalWithTaskCount = typeof goals extends Array<infer T> ? T : never;
-type GoalResponse = components['schemas']['ApiResponseGoalResponse'];
-type GoalDetailResponse = components['schemas']['ApiResponseGoalDetailResponse'];
-type GoalListResponse = components['schemas']['ApiResponseListGoalResponse'];
-type GoalWithCountResponse = components['schemas']['ApiResponseListGoalWithTaskCountResponse'];
-type ApiResponseString = components['schemas']['ApiResponseString'];
+// 응답 전용 간이 타입들
+type GoalResponse = {
+  isSuccess: boolean;
+  code: string;
+  message: string;
+  result: Goal | undefined;
+};
+
+type GoalDetailResponse = {
+  isSuccess: boolean;
+  code: string;
+  message: string;
+  result: GoalWithCount | null;
+};
+
+type ApiResponseString = {
+  isSuccess: boolean;
+  code: string;
+  message: string;
+  result: string | null;
+};
 
 // 메모리 DB
-let goalList: GoalWithTaskCount[] = [...goals];
+let goalList: GoalWithCount[] = [...goals];
 
 const goalTestHandlers = [
   // 전체 목표 조회
-  http.get(`${MOCK_API_BASE_URL}/goal`, (): HttpResponse<GoalListResponse> => {
-    const result = goalList.map(({ goalId, goalName }) => ({ goalId, goalName }));
+  http.get(`${MOCK_API_BASE_URL}/goal`, (): HttpResponse<ApiResponseListGoalResponse> => {
+    const result: Goal[] = goalList.map(({ goalId, goalName, createdAt, modifiedAt }) => ({
+      goalId,
+      goalName,
+      createdAt,
+      modifiedAt,
+    }));
+
     return HttpResponse.json(
       {
         isSuccess: true,
@@ -32,22 +53,13 @@ const goalTestHandlers = [
   }),
 
   // 목표별 완료/미완료 Task 건수 조회
-  http.get(`${MOCK_API_BASE_URL}/goal/with-task-count`, (): HttpResponse<GoalWithCountResponse> => {
-    const result = goalList.map(({ goalId, goalName, completedTaskCount, incompleteTaskCount, createdAt, modifiedAt }) => ({
-      goalId,
-      goalName,
-      completedTaskCount,
-      incompleteTaskCount,
-      createdAt,
-      modifiedAt,
-    }));
-
+  http.get(`${MOCK_API_BASE_URL}/goal/with-task-count`, (): HttpResponse<ApiResponseListGoalWithTaskCountResponse> => {
     return HttpResponse.json(
       {
         isSuccess: true,
         code: '200',
         message: '목표 Task 카운트 조회 성공',
-        result,
+        result: goalList,
       },
       { status: 200 }
     );
@@ -64,7 +76,7 @@ const goalTestHandlers = [
           isSuccess: false,
           code: '404',
           message: '목표를 찾을 수 없습니다',
-          result: undefined,
+          result: null,
         },
         { status: 404 }
       );
@@ -75,12 +87,7 @@ const goalTestHandlers = [
         isSuccess: true,
         code: '200',
         message: '목표 상세 조회 성공',
-        result: {
-          goalId: goal.goalId,
-          goalName: goal.goalName,
-          createdAt: goal.createdAt,
-          modifiedAt: goal.modifiedAt,
-        },
+        result: goal,
       },
       { status: 200 }
     );
@@ -88,7 +95,7 @@ const goalTestHandlers = [
 
   // 목표 생성
   http.post(`${MOCK_API_BASE_URL}/goal`, async ({ request }): Promise<HttpResponse<GoalResponse>> => {
-    const { goalName } = (await request.json()) as components['schemas']['GoalRequest'];
+    const { goalName } = (await request.json()) as { goalName?: string };
 
     if (!goalName || goalName.trim() === '') {
       return HttpResponse.json(
@@ -103,7 +110,7 @@ const goalTestHandlers = [
     }
 
     const now = new Date().toISOString();
-    const newGoal: GoalWithTaskCount = {
+    const newGoal: GoalWithCount = {
       goalId: `goal_${Date.now()}`,
       goalName,
       completedTaskCount: 0,
@@ -122,6 +129,8 @@ const goalTestHandlers = [
         result: {
           goalId: newGoal.goalId,
           goalName: newGoal.goalName,
+          createdAt: newGoal.createdAt,
+          modifiedAt: newGoal.modifiedAt,
         },
       },
       { status: 200 }
@@ -131,7 +140,7 @@ const goalTestHandlers = [
   // 목표 수정
   http.put(`${MOCK_API_BASE_URL}/goal/:goalId`, async ({ params, request }): Promise<HttpResponse<GoalResponse>> => {
     const { goalId } = params as { goalId: string };
-    const { goalName } = (await request.json()) as components['schemas']['GoalRequest'];
+    const { goalName } = (await request.json()) as { goalName?: string };
 
     const target = goalList.find((g) => g.goalId === goalId);
 
@@ -170,6 +179,8 @@ const goalTestHandlers = [
         result: {
           goalId: target.goalId,
           goalName: target.goalName,
+          createdAt: target.createdAt,
+          modifiedAt: target.modifiedAt,
         },
       },
       { status: 200 }
