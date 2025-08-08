@@ -12,8 +12,8 @@ export default function SidebarPanel({ isFold, goals, type }: { isFold: boolean;
         </div>
         <div className='flex flex-col'>
           {!isFold &&
-            goals.map((goal) => (
-              <button key={goal} className='flex w-[230px] pl-0 pr-3 h-[43px] py-2 items-center gap-3 cursor-pointer'>
+            goals.map((goal, idx) => (
+              <button key={idx} className='flex w-[230px] pl-0 pr-3 h-[43px] py-2 items-center gap-3 cursor-pointer'>
                 <span className='text-gray-500 font-body2-regular tracking-[-0.32px] hover:text-purple-600'>{goal}</span>
               </button>
             ))}

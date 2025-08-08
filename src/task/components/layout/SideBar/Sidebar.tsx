@@ -30,11 +30,11 @@ interface SidebarProps {
 
 const Sidebar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }: SidebarProps) => (
   <aside
-    className={`box-border h-screen max-h-[1040px] bg-white rounded-[20px] shadow-[0px_0px_12px_0px_rgba(235,235,235,1.00)]
+    className={`box-border h-full bg-white rounded-[20px] shadow-[0px_0px_12px_0px_rgba(235,235,235,1.00)]
     inline-flex flex-col justify-between items-center
-    transition-all duration-300
+    transition-all duration-300 overflow-visible  
     ${isFold ? 'w-20' : 'w-64'}
-    overflow-visible
+ 
   `}
   >
     {/* content */}
@@ -65,7 +65,7 @@ const Sidebar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }: Sideb
       <NewGoalButton isFold={isFold} />
     </div>
     {/* 4. 프로필 (하단) */}
-    <ProfileSection isFold={isFold} userNickname={userNickname} userEmail={userEmail} type='PC' />
+    <ProfileSection isFold={isFold} userNickname={userNickname} userEmail={userEmail} />
   </aside>
 );
 
