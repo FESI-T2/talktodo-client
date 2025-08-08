@@ -1,8 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 
 import goalApi from '@/goal/lib/goalApi';
-
-import { ApiResponseString } from '@/goal/types';
+import { ApiResponseString } from '@/goal/types/response';
 
 const useDeleteGoal = () =>
   useMutation<ApiResponseString, Error, string>({

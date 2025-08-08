@@ -1,8 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 
 import goalApi from '@/goal/lib/goalApi';
-
-import { ApiResponseGoalResponse } from '@/goal/types';
+import { ApiResponseGoal } from '@/goal/types/response';
 
 interface UpdateGoalParams {
   goalId: string;
@@ -10,7 +9,7 @@ interface UpdateGoalParams {
 }
 
 const useUpdateGoal = () =>
-  useMutation<ApiResponseGoalResponse, Error, UpdateGoalParams>({
+  useMutation<ApiResponseGoal, Error, UpdateGoalParams>({
     mutationFn: ({ goalId, goalName }) => goalApi.updateGoal(goalId, goalName).then((res) => res.data),
   });
 

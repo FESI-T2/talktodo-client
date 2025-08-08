@@ -2,12 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 
 import goalApi from '@/goal/lib/goalApi';
 
-import { ApiResponseGoalDetailResponse } from '@/goal/types';
+import { ApiResponseGoalDetail } from '@/goal/types/response';
 
 import queryKeys from '../queryKey';
 
 const useGetGoalDetail = (goalId: string) =>
-  useQuery<ApiResponseGoalDetailResponse>({
+  useQuery<ApiResponseGoalDetail>({
     queryKey: queryKeys.goal.detail(goalId).queryKey,
     queryFn: async () => {
       const response = await goalApi.getGoalDetail(goalId);
