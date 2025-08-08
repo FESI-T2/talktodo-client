@@ -4,7 +4,7 @@ import ChatMessage from './ChatMessage';
 
 const meta: Meta<typeof ChatMessage> = {
   component: ChatMessage,
-  title: 'ChatMessage',
+  title: 'atoms/ChatMessage',
   tags: ['autodocs'],
   argTypes: {},
 };
