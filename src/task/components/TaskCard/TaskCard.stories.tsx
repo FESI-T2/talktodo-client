@@ -1,6 +1,5 @@
 import { Meta, StoryObj } from '@storybook/nextjs-vite';
 
-import { goals } from '@/shared/mocks/todoMockData/Goals';
 import { tasks } from '@/shared/mocks/todoMockData/todos';
 
 import TaskCard from './TaskCard';
@@ -32,12 +31,5 @@ export const Square: Story = {
   args: {
     layout: 'square',
     task: tasks[2],
-  },
-};
-
-export const Goal: Story = {
-  args: {
-    layout: 'goal',
-    goal: goals[0],
   },
 };

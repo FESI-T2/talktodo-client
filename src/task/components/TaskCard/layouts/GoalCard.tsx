@@ -2,14 +2,15 @@ import { useRouter } from 'next/navigation';
 
 import KebabMenuButton from '@/goal/components/KebabMenuButton';
 
+import { GoalWithCount } from '@/goal/types';
+
 import Flag from '@/shared/components/Icons/Flag/Flag';
 
 import GoalProgressBar from '../../common/GoalProgressBar/GoalProgressBar';
 
 import { ProgressViewModel } from '../../common/GoalProgressBar/hooks/ProgressViewModel';
-import { GoalBasedProps } from '../TaskCard.types';
 
-export default function GoalCard({ goal }: GoalBasedProps) {
+export default function GoalCard({ goal }: { goal: GoalWithCount }) {
   const router = useRouter();
 
   const { goalName, completedTaskCount, incompleteTaskCount, goalId } = goal;
