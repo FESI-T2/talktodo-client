@@ -27,6 +27,6 @@ export const StepProvider = ({ children }: { children: React.ReactNode }) => {
 
 export const useStepContext = () => {
   const ctx = useContext(StepContext);
-  if (!ctx) throw new CustomError('APP_ERROR', 400);
+  if (!ctx) throw new CustomError('UNKNOWN_ERROR', 500, '잘못된 접근 입니다.');
   return ctx;
 };

@@ -36,15 +36,9 @@ const TaskSelector = ({ goals, handleSelectGoal, selectedGoalIdx }: TaskSelector
     <div className='max-h-[733px] flex items-center justify-center max-w-[624px] w-[90%] @container'>
       <TaskModalWrapper>
         <TaskSelectorHeader />
-        <div className='flex flex-col gap-2 overflow-x-auto tb:pr-5 pr-2  mb-10 w-full max-h-[340px] tb:max-h-[440px] min-h-[200px]'>
+        <div className='flex flex-col gap-2 overflow-x-auto tb:pr-5 pr-2  mb-10 w-full max-h-[340px] tb:max-h-[440px] min-h-[280px] mt-[13px]'>
           {goals.map((goal, idx) => (
-            <GoalSelectItem
-              key={idx}
-              goalTitle={goal.goalName}
-              taskCount={goals.length - 1}
-              active={selectedGoalIdx === idx}
-              onClick={() => handleSelectGoal(idx)}
-            />
+            <GoalSelectItem key={idx} goalTitle={goal.goalName} active={selectedGoalIdx === idx} onClick={() => handleSelectGoal(idx)} />
           ))}
         </div>
         <ActionButtons

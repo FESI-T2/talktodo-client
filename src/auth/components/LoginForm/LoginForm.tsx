@@ -1,36 +1,36 @@
 'use client';
 
-import authApi from '@/auth/lib/authApi';
-import { TempAccessTokenResponse } from '@/auth/types/response/login-response';
+import { useSearchParams } from 'next/navigation';
+
+import { login } from '@/app/actions/auth/service';
+
 import { setCurrentLogin } from '@/auth/utils/currentLogin';
+import { useToast } from '@/shared/hooks/useToast';
 
 import { LoginOption } from '../../types';
 import AuthButton from '../AuthButton/AuthButton';
-
 const LoginForm = () => {
-  const handleClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    const variant = e.currentTarget.getAttribute('data-variant') as LoginOption;
-    setCurrentLogin(variant);
+  const searchParams = useSearchParams();
+  const { openToast } = useToast();
 
-    try {
-      const response = await authApi.getTempAccessToken.call();
-      const { data } = response as { data: TempAccessTokenResponse };
-      if (data.code === 'COMMON200') {
-        localStorage.setItem('accessToken', data.result.accessToken);
-      }
-    } catch (error) {
-      console.error('액세스 토큰 요청 실패:', error);
+  const callbackUrl = searchParams.get('callbackUrl') || '/';
+
+  const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const variant = e.currentTarget.getAttribute('data-variant') as LoginOption;
+    if (variant === 'naver' || variant === 'google') {
+      openToast('개발 중인 로그인 기능입니다.');
     }
+
+    setCurrentLogin(variant);
   };
 
-  const variants = ['kakao', 'naver', 'google'] as const;
-
   return (
-    <div className='flex flex-col gap-3 justify-center items-center w-full pt-[clamp(122px,15vh,185px)] pb-6'>
-      {variants.map((variant) => (
-        <AuthButton key={variant} variant={variant} type='submit' onClick={handleClick} />
-      ))}
-    </div>
+    <form className='flex flex-col gap-3 justify-center items-center w-full pt-[clamp(122px,15vh,185px)] pb-6' action={login}>
+      <input type='hidden' name='callbackUrl' value={callbackUrl} />
+      <AuthButton key={'kakao'} variant={'kakao'} type='submit' onClick={handleClick} />
+      <AuthButton key={'naver'} variant={'naver'} type='button' onClick={handleClick} />
+      <AuthButton key={'google'} variant={'google'} type='button' onClick={handleClick} />
+    </form>
   );
 };
 

@@ -1,1 +1,1 @@
-export type Level = 'alert' | 'fallback' | 'page';
+export type Level = 'toast' | 'fallback' | 'page';

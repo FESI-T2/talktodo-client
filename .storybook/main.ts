@@ -1,3 +1,5 @@
+import path from 'path';
+
 import type { StorybookConfig } from '@storybook/nextjs-vite';
 
 const config: StorybookConfig = {
@@ -14,5 +16,18 @@ const config: StorybookConfig = {
     options: {},
   },
   staticDirs: ['../public'],
+  viteFinal: (config) => {
+    config.resolve = {
+      ...config.resolve,
+      alias: {
+        ...config.resolve?.alias,
+        '@': path.resolve(__dirname, '../src'),
+        'next/navigation': path.resolve(__dirname, '../src/__mocks__/next/navigation.ts'),
+        '@/shared/error/useError': path.resolve(__dirname, '../src/__mocks__/shared/error/useError.ts'),
+      },
+    };
+    return config;
+  },
 };
+
 export default config;

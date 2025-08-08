@@ -11,14 +11,12 @@ const SocialIcon = ({ variant, classNaame }: SocialIconProps) => {
     google: <img src='/icon/google.svg' alt='Google Icon' />,
     kakao: <img src='/icon/kakao.svg' alt='Kakao Icon' />,
     naver: <img src='/icon/naver.svg' alt='Naver Icon' />,
-    accessToken: <></>,
   } as const;
 
   const ButtonStyle: Record<LoginOption, string> = {
     kakao: 'kakao',
     naver: 'naver',
     google: 'google',
-    accessToken: 'accessToken',
   } as const;
   return (
     <div className={cn(ButtonStyle[variant], 'w-10 h-10 flex items-center justify-center rounded-[8px] flex-none', classNaame)}>
