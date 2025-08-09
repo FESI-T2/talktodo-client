@@ -14,7 +14,7 @@ export default function DashboardPage() {
   const { isPc } = useBreakpoints();
 
   const [layout, setLayout] = useState<'square' | 'rectangle'>('square');
-  const [timelineActive, setTimelineActive] = useState(true);
+  const [timelineActive, setTimelineActive] = useState(false);
 
   if (!data) {
     return <div>Loading...</div>;
@@ -29,6 +29,8 @@ export default function DashboardPage() {
       <MainHeader totalTodo={totalCount} IncompleteTodo={undoneCount} completedTodo={doneCount} />
       <DateSubHeader layout={layout} setLayout={setLayout} timelineActive={timelineActive} setTimelineActive={setTimelineActive} />
       {timelineActive ? (
+        <></>
+      ) : (
         <div className={cn('flex', isPc ? 'items-start gap-4 w-full' : 'flex-col gap-4 self-stretch items-start')}>
           <TaskViewContainer task={undoneTasks} layout={layout} type='todo' />
           {isPc && (
@@ -36,8 +38,6 @@ export default function DashboardPage() {
           )}
           <TaskViewContainer task={doneTasks} layout={layout} type='done' />
         </div>
-      ) : (
-        <></>
       )}
     </div>
   );
