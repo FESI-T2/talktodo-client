@@ -32,7 +32,7 @@ export default function DashboardPage() {
         <div className={cn('flex', isPc ? 'items-start gap-4 w-full' : 'flex-col gap-4 self-stretch items-start')}>
           <TaskViewContainer task={undoneTasks} layout={layout} type='todo' />
           {isPc && (
-            <div className='mt-16 w-[1px] min-h-[448px] max-h-lvw bg-[repeating-linear-gradient(to_bottom,_#ccc_0,_#ccc_4px,_transparent_4px,_transparent_8px)]' />
+            <div className='mt-16 w-[3px] min-h-[448px] max-h-lvw bg-[repeating-linear-gradient(to_bottom,_#ccc_0,_#ccc_4px,_transparent_4px,_transparent_8px)]' />
           )}
           <TaskViewContainer task={doneTasks} layout={layout} type='done' />
         </div>
