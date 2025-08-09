@@ -22,6 +22,7 @@ const goalApi = {
 
   getGoalDetail: (goalId: string) => APIBuilder.get(`/goal/${goalId}`).withCredentials(true).build().call<ApiResponseGoalDetail>(),
 
+
   deleteGoal: (goalId: string) => APIBuilder.delete(`/goal/${goalId}`).withCredentials(true).build().call<ApiResponseString>(),
 };
 

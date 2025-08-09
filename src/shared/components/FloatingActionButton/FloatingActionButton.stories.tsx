@@ -6,25 +6,10 @@ const meta: Meta<typeof FloatingActionButton> = {
   title: 'Atoms/FloatingActionButton',
   component: FloatingActionButton,
   tags: ['autodocs'],
-  argTypes: {
-    size: {
-      control: { type: 'radio' },
-      options: ['L', 'S'],
-    },
-  },
+  argTypes: {},
 };
 
 export default meta;
 type Story = StoryObj<typeof FloatingActionButton>;
 
-export const Large: Story = {
-  args: {
-    size: 'L',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 'S',
-  },
-};
+export const Default: Story = {};
