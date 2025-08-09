@@ -6,13 +6,15 @@ import { GoalWithCount } from '@/goal/types';
 
 import Flag from '@/shared/components/Icons/Flag/Flag';
 
+import useModal from '@/shared/hooks/useModal';
+
 import GoalProgressBar from '../../common/GoalProgressBar/GoalProgressBar';
 
 import { ProgressViewModel } from '../../common/GoalProgressBar/hooks/ProgressViewModel';
 
 export default function GoalCard({ goal }: { goal: GoalWithCount }) {
   const router = useRouter();
-
+  const { openEditGoalForm } = useModal();
   const { goalName, completedTaskCount, incompleteTaskCount, goalId } = goal;
 
   const Progress = new ProgressViewModel(completedTaskCount ?? 0, incompleteTaskCount ?? 0);
@@ -45,7 +47,7 @@ export default function GoalCard({ goal }: { goal: GoalWithCount }) {
 
             <KebabMenuButton
               onEdit={() => {
-                console.log('수정 모달 열기');
+                openEditGoalForm(goalName);
               }}
               onDelete={() => {
                 console.log('삭제 확인 모달 열기');

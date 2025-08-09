@@ -1,6 +1,8 @@
 import { http, HttpResponse } from 'msw';
 
-import { Goal, GoalWithCount, ApiResponseListGoalResponse, ApiResponseListGoalWithTaskCountResponse } from '@/goal/types/index';
+import { Goal, GoalWithCount } from '@/goal/types/index';
+
+import { ApiResponseGoalList, ApiResponseGoalWithCountList } from '@/goal/types/response';
 
 import { MOCK_API_BASE_URL } from '../constants';
 
@@ -33,7 +35,7 @@ let goalList: GoalWithCount[] = [...goals];
 
 const goalTestHandlers = [
   // 전체 목표 조회
-  http.get(`${MOCK_API_BASE_URL}/goal`, (): HttpResponse<ApiResponseListGoalResponse> => {
+  http.get(`${MOCK_API_BASE_URL}/goal`, (): HttpResponse<ApiResponseGoalList> => {
     const result: Goal[] = goalList.map(({ goalId, goalName, createdAt, modifiedAt }) => ({
       goalId,
       goalName,
@@ -53,7 +55,7 @@ const goalTestHandlers = [
   }),
 
   // 목표별 완료/미완료 Task 건수 조회
-  http.get(`${MOCK_API_BASE_URL}/goal/with-task-count`, (): HttpResponse<ApiResponseListGoalWithTaskCountResponse> => {
+  http.get(`${MOCK_API_BASE_URL}/goal/with-task-count`, (): HttpResponse<ApiResponseGoalWithCountList> => {
     return HttpResponse.json(
       {
         isSuccess: true,
