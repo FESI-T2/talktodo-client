@@ -14,7 +14,7 @@ export default function DashboardPage() {
   const { isPc } = useBreakpoints();
 
   const [layout, setLayout] = useState<'square' | 'rectangle'>('square');
-  const [timelineActive, setTimelineActive] = useState(false);
+  const [timelineActive, setTimelineActive] = useState(true);
 
   if (!data) {
     return <div>Loading...</div>;
