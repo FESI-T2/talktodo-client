@@ -1,12 +1,15 @@
 import { cn } from '@/shared/utils/cn';
 
+import { useToggleTaskDone } from '@/task/api/queries/useToggleTaskDone';
+
 import BaseCard from '../../common/Card/BaseCard';
 import { CheckIcon, MemoIcon } from '../../common/icons';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
 import { TaskBasedProps } from '../TaskCard.types';
 
 export default function SquareTaskCard({ task, layout = 'square' }: TaskBasedProps) {
-  const { content, priority, goal, isDone } = task;
+  const { content, priority, goal, isDone, taskId } = task;
+  const { mutate: toggle } = useToggleTaskDone(taskId);
 
   return (
     <BaseCard layout={layout} isDone={isDone}>
@@ -29,7 +32,7 @@ export default function SquareTaskCard({ task, layout = 'square' }: TaskBasedPro
         <div className={'w-[156px] h-[1px] bg-gray-100'} />
         <div className='flex justify-between items-center self-stretch'>
           <MemoIcon active='on' />
-          <CheckIcon state={isDone ? 'on' : 'off'} size='L' />
+          <CheckIcon onClick={() => toggle()} state={isDone ? 'on' : 'off'} size='L' style={{ cursor: 'pointer' }} />
         </div>
       </div>
     </BaseCard>
