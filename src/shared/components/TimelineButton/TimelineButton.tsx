@@ -22,7 +22,7 @@ const TimelineButton = ({ size, active, onClick }: TimelineButtonProps) => {
         transition-all duration-75
       `}
     >
-      <Clock size={size} active={active} />
+      <Clock size={size} active={!active} />
     </button>
   );
 };
