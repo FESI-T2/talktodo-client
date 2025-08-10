@@ -4,13 +4,14 @@ import { useState } from 'react';
 
 import useBreakpoints from '@/shared/hooks/useBreakpoints';
 import { cn } from '@/shared/utils/cn';
+import { useTasksByDate } from '@/task/api/queries';
 import DateSubHeader from '@/task/components/container/DateSubHeader';
 import TaskViewContainer from '@/task/components/container/TaskViewContainer';
 import MainHeader from '@/task/components/layout/Header/MainHeader';
-import useDashboardTasks from '@/task/hooks/useDashboardTasks';
 
 export default function DashboardPage() {
-  const { data } = useDashboardTasks();
+  const today = new Date().toISOString().slice(0, 10); // 'YYYY-MM-DD'
+  const { data } = useTasksByDate(today);
   const { isPc } = useBreakpoints();
 
   const [layout, setLayout] = useState<'square' | 'rectangle'>('square');
@@ -20,9 +21,7 @@ export default function DashboardPage() {
     return <div>Loading...</div>;
   }
 
-  const {
-    result: { undoneCount, doneCount, totalCount, undoneTasks, doneTasks },
-  } = data;
+  const { undoneCount, doneCount, totalCount, undoneTasks, doneTasks } = data;
 
   return (
     <div className='flex items-center mt-11 gap-[25px] flex-col bg-purple-50 max-w-[1168px]  m-auto w-[90%]'>
