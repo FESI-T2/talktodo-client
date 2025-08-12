@@ -23,11 +23,11 @@ const taskApi = {
 
   // 완료 상태 토글
   toggleTaskDone: ({ taskid }: TaskIdParams) =>
-    APIBuilder.put(`${MOCK_API_BASE_URL}/task/done/${taskid}`, {}).withCredentials(true).build().call<TaskResponse>(),
+    APIBuilder.patch(`${MOCK_API_BASE_URL}/task/done/${taskid}`).withCredentials(true).build().call<TaskResponse>(),
 
   // 날짜별 할일 조회
   getTasksByDate: ({ date }: TaskDateParams) =>
-    APIBuilder.put(`/v1/task/date/${date}`, {}).withCredentials(true).build().call<AllTaskResponse>(),
+    APIBuilder.get(`/v1/task/date/${date}`).withCredentials(true).build().call<AllTaskResponse>(),
 
   // 목표별 할일 조회
   getTasksByGoal: (goalId: string) => APIBuilder.get(`/v1/task/goal/${goalId}`).withCredentials(true).build().call<AllTaskResponse>(),
