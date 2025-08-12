@@ -11,7 +11,7 @@ const DetailHeader = ({ category = '', IncompleteTodo = 0, completedTodo = 0 }: 
     { value: IncompleteTodo, label: '미완료' },
     { value: completedTodo, label: '완료' },
   ];
-  const percent = (completedTodo / (completedTodo + IncompleteTodo)) * 100;
+  const percent = Math.round((completedTodo / (completedTodo + IncompleteTodo)) * 100);
 
   return (
     <div
