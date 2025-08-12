@@ -18,9 +18,9 @@ const SideBarContainer = () => {
   const goalList = goals?.data?.result?.map((goal) => goal.goalName) ?? [];
 
   return (
-    <>
+    <div className='ml-[18px] h-screen fixed py-5'>
       <Sidebar goals={goalList} userNickname='즐겁다' userEmail='안녕하세요' onFoldToggle={toggleFold} isFold={isFold} />
-    </>
+    </div>
   );
 };
 
