@@ -6,6 +6,7 @@ export class AlertSubject {
   private static instance: AlertSubject;
 
   private observers: AlertObserver[] = [];
+  private currentAlerts: AlertType[] = [];
 
   private constructor() {}
 
@@ -29,6 +30,16 @@ export class AlertSubject {
   }
 
   public addAlert(Alert: AlertType): void {
+    this.currentAlerts.push(Alert);
     this.notify(Alert);
+  }
+
+  public removeAlert(id?: number): void {
+    if (id) {
+      this.currentAlerts = this.currentAlerts.filter((alert) => alert.id !== id);
+    } else {
+      this.currentAlerts = [];
+    }
+    this.observers.forEach((observer) => observer({ id: -1, message: '', handleClick: () => {} }));
   }
 }

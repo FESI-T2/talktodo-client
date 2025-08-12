@@ -1,6 +1,6 @@
 export interface Alert {
   id: number;
   message: string;
-  handleClick?: () => void;
+  handleClick: () => void;
 }
 export type AlertProps = Omit<Alert, 'id'>;
