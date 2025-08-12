@@ -13,17 +13,23 @@ const AlertContainer = () => {
   const [Alerts, setAlerts] = useState<AlertType[]>([]);
 
   const Alert_LIMIT = 1;
-  const Alert_DURATION = 3000;
+  const Alert_DURATION = 10000000;
 
   const isMounted = useMount();
 
   useEffect(() => {
     const alertSubject = AlertSubject.getInstance();
 
-    const handleNewAlert: AlertObserver = ({ message }) => {
+    const handleNewAlert: AlertObserver = ({ id, message, handleClick }) => {
+      if (id === -1 && message === '') {
+        setAlerts([]);
+        return;
+      }
+
       const newAlert = {
-        id: Date.now(),
+        id: id || Date.now(),
         message,
+        handleClick,
       };
 
       setAlerts((prev) => {

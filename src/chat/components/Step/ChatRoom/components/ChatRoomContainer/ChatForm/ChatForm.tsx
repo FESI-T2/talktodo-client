@@ -3,7 +3,7 @@ import React from 'react';
 
 import { useForm, useWatch } from 'react-hook-form';
 
-import { validation, FormData } from '@/chat/utils/validation';
+import { validation, ChatFormData } from '@/chat/utils/validation';
 
 import { TextArea, MessageSendButton } from './index';
 
@@ -12,13 +12,13 @@ interface ChatFormProps {
 }
 
 const ChatForm = ({ onSendMessage }: ChatFormProps) => {
-  const { register, handleSubmit, control, getValues, reset } = useForm<FormData>({
+  const { register, handleSubmit, control, getValues, reset } = useForm<ChatFormData>({
     resolver: zodResolver(validation),
   });
 
   const hasMessage = useWatch({ control, name: 'message' })?.trim() !== '';
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: ChatFormData) => {
     onSendMessage(data.message);
     reset();
   };
