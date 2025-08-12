@@ -1,1 +1,1 @@
-export const MOCK_API_BASE_URL = '/mock/v1';
+export const MOCK_API_BASE_URL = '/v1';
