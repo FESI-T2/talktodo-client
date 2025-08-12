@@ -11,10 +11,10 @@ const LoginForm = () => {
   };
 
   return (
-    <div className='flex flex-col gap-3 justify-center items-center w-full pt-[clamp(122px,15vh,185px)] pb-6'>
+    <div className='flex flex-col gap-3 justify-center items-center pt-[clamp(122px,15vh,185px)] pb-6'>
       <AuthButton variant='kakao' type='button' onClick={() => handleClick('kakao')} />
-      <AuthButton variant='naver' type='button' onClick={() => handleClick('naver')} />
-      <AuthButton variant='google' type='button' onClick={() => handleClick('google')} />
+      <AuthButton variant='naver' type='button' onClick={() => alert('개발 중 입니다.')} />
+      <AuthButton variant='google' type='button' onClick={() => alert('개발 중 입니다.')} />
     </div>
   );
 };

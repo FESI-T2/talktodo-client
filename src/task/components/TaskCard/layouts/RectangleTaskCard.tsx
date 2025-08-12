@@ -1,3 +1,4 @@
+import useModal from '@/shared/hooks/useModal';
 import { cn } from '@/shared/utils/cn';
 import { useToggleTaskDone } from '@/task/api/queries/useToggleTaskDone';
 
@@ -10,9 +11,10 @@ import { TaskBasedProps } from '../TaskCard.types';
 export default function RectangleTaskCard({ task, layout = 'rectangle' }: TaskBasedProps) {
   const { content, priority, goal, isDone, repeatEnabled, repeatTypes, taskId } = task;
   const { mutate: toggle } = useToggleTaskDone(taskId);
+  const { openFormResolver } = useModal();
 
   return (
-    <BaseCard layout={layout} isDone={isDone}>
+    <BaseCard layout={layout} isDone={isDone} onClick={openFormResolver} className='cursor-pointer'>
       <div className='flex items-start gap-1.5 self-stretch'>
         <div className='flex flex-col items-start gap-1.5 grow shrink-0 basis-0'>
           <div className={cn('font-body2-medium-tight', isDone ? 'text-gray-400 line-through' : 'text-gray-900')}>{content}</div>
@@ -20,7 +22,15 @@ export default function RectangleTaskCard({ task, layout = 'rectangle' }: TaskBa
         </div>
         <div className='flex items-center gap-5'>
           <MemoIcon active='on' />
-          <CheckIcon onClick={() => toggle()} state={isDone ? 'on' : 'off'} size='L' style={{ cursor: 'pointer' }} />
+          <CheckIcon
+            onClick={(e) => {
+              e.stopPropagation();
+              toggle();
+            }}
+            state={isDone ? 'on' : 'off'}
+            size='L'
+            style={{ cursor: 'pointer' }}
+          />
         </div>
       </div>
       <div className='flex items-start gap-3 self-stretch'>

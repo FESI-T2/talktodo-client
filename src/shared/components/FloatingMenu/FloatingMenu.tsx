@@ -5,6 +5,8 @@ import React, { useState, useCallback } from 'react';
 
 import FloatingActionButton from '@/shared/components/FloatingActionButton/FloatingActionButton';
 
+import useModal from '@/shared/hooks/useModal';
+
 import MenuButton from './MenuButton/MenuButton';
 
 const FloatingMenu = () => {
@@ -13,10 +15,15 @@ const FloatingMenu = () => {
   const open = useCallback(() => setIsOpen(true), []);
   const close = useCallback(() => setIsOpen(false), []);
   const toggle = useCallback(() => setIsOpen((v) => !v), []);
+  const { openCreatetTaskForm } = useModal();
 
   const router = useRouter();
 
-  const handleAiTodoClick = () => {
+  const handleAddTaskClick = () => {
+    openCreatetTaskForm();
+  };
+
+  const handleAiTaskClick = () => {
     router.push('/chat');
   };
 
@@ -38,14 +45,8 @@ const FloatingMenu = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <MenuButton
-              handleClick={() => {
-                alert('할 일 추가하기는 아직 구현되지 않았습니다.');
-              }}
-            >
-              할 일 직접 추가하기
-            </MenuButton>
-            <MenuButton handleClick={handleAiTodoClick}>
+            <MenuButton handleClick={handleAddTaskClick}>할 일 직접 추가하기</MenuButton>
+            <MenuButton handleClick={handleAiTaskClick}>
               <span className='mr-2 px-2 py-1 bg-purple-50 text-purple-400 group-hover:bg-purple-400  group-hover:text-white rounded-[8px] font-body3-bold'>
                 AI
               </span>

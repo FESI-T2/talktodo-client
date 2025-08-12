@@ -1,3 +1,4 @@
+'use client';
 import { zodResolver } from '@hookform/resolvers/zod';
 import React from 'react';
 
@@ -7,7 +8,9 @@ import Form from '@/shared/components/Form/Form';
 
 import { MemoFormData, memoValidation } from '@/task/utils/validation';
 
-const MemoForm = () => {
+import { FormResolverProps as MemoFormProps } from '../../types';
+
+const MemoForm = ({ handleFormChange }: MemoFormProps) => {
   const {
     register,
     handleSubmit,
@@ -29,7 +32,7 @@ const MemoForm = () => {
       <Form.FormActions
         createAction={() => alert('생성')}
         deleteAction={() => alert('삭제')}
-        editAction={() => alert('수정')}
+        editAction={() => handleFormChange('task')}
       ></Form.FormActions>
     </Form>
   );

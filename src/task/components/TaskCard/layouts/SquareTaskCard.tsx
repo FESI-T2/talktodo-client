@@ -1,5 +1,5 @@
+import useModal from '@/shared/hooks/useModal';
 import { cn } from '@/shared/utils/cn';
-
 import { useToggleTaskDone } from '@/task/api/queries/useToggleTaskDone';
 
 import BaseCard from '../../common/Card/BaseCard';
@@ -11,9 +11,10 @@ import { TaskBasedProps } from '../TaskCard.types';
 export default function SquareTaskCard({ task, layout = 'square' }: TaskBasedProps) {
   const { content, priority, goal, isDone, repeatEnabled, repeatTypes, taskId } = task;
   const { mutate: toggle } = useToggleTaskDone(taskId);
+  const { openFormResolver } = useModal();
 
   return (
-    <BaseCard layout={layout} isDone={isDone}>
+    <BaseCard layout={layout} isDone={isDone} onClick={openFormResolver} className='cursor-pointer'>
       <div className='flex flex-col items-start gap-1 self-stretch'>
         <div
           className={cn(
@@ -33,7 +34,15 @@ export default function SquareTaskCard({ task, layout = 'square' }: TaskBasedPro
         <div className={'w-[156px] h-[1px] bg-gray-100'} />
         <div className='flex justify-between items-center self-stretch'>
           <MemoIcon active='on' />
-          <CheckIcon onClick={() => toggle()} state={isDone ? 'on' : 'off'} size='L' style={{ cursor: 'pointer' }} />
+          <CheckIcon
+            onClick={(e) => {
+              e.stopPropagation();
+              toggle();
+            }}
+            state={isDone ? 'on' : 'off'}
+            size='L'
+            style={{ cursor: 'pointer' }}
+          />
         </div>
       </div>
     </BaseCard>

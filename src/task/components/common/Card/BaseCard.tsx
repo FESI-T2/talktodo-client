@@ -1,4 +1,5 @@
 import { cva, VariantProps } from 'class-variance-authority';
+import type { MouseEventHandler, ReactNode } from 'react';
 
 import { cn } from '@/shared/utils/cn';
 
@@ -15,6 +16,16 @@ export const card = cva('flex bg-white  border border-transparent hover:border h
 
 export type CardVariants = VariantProps<typeof card>;
 
-export default function BaseCard({ layout, children, isDone = false }: CardVariants & { children: React.ReactNode; isDone?: boolean }) {
-  return <div className={cn(card({ layout }), isDone ? 'bg-purple-100' : 'bg-white')}>{children}</div>;
+export default function BaseCard({
+  layout,
+  children,
+  isDone = false,
+  onClick,
+  className,
+}: CardVariants & { children: ReactNode; isDone?: boolean; onClick?: MouseEventHandler<HTMLButtonElement>; className?: string }) {
+  return (
+    <button onClick={onClick} className={cn(card({ layout }), isDone ? 'bg-purple-100' : 'bg-white', className)}>
+      {children}
+    </button>
+  );
 }

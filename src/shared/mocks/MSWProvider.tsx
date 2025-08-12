@@ -3,10 +3,12 @@
 import { useEffect, useState } from 'react';
 
 export default function MSWProvider({ children }: { children: React.ReactNode }) {
-  const [mswReady, setMswReady] = useState(process.env.NODE_ENV !== 'development');
+  const mockEnabled = true;
+
+  const [mswReady, setMswReady] = useState(!mockEnabled);
 
   useEffect(() => {
-    if (process.env.NODE_ENV === 'development') {
+    if (mockEnabled) {
       const init = async () => {
         const initMsw = await import('./index').then((res) => res.initMsw);
         await initMsw();
@@ -14,7 +16,7 @@ export default function MSWProvider({ children }: { children: React.ReactNode })
       };
       init();
     }
-  }, []);
+  }, [mockEnabled]);
 
   if (!mswReady) return null;
   return <>{children}</>;
