@@ -19,6 +19,10 @@ export const useAlert = () => {
         handleClick,
       });
     },
+
+    closeAlert: (id?: number) => {
+      alertSubject.removeAlert(id);
+    },
   };
 
   return alert;
