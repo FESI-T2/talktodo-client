@@ -6,8 +6,9 @@ import { useForm } from 'react-hook-form';
 
 import Form from '@/shared/components/Form/Form';
 
-import { FormProps as MemoFormProps } from '@/task/types';
 import { MemoFormData, memoValidation } from '@/task/utils/validation';
+
+import { FormResolverProps as MemoFormProps } from '../../types';
 
 const MemoForm = ({ handleFormChange }: MemoFormProps) => {
   const {
