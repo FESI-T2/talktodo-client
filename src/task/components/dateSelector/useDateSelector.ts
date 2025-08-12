@@ -1,5 +1,7 @@
-import { useState, useMemo } from 'react';
+'use client';
 
+import { useParams } from 'next/navigation';
+import { useState, useMemo } from 'react';
 export interface DateInfo {
   year: number;
   month: number;
@@ -18,15 +20,17 @@ export interface UseDateSelectorReturn {
 }
 
 // 선택된 날짜를 기준으로 주변 날짜들을 계산하는 훅
-export function useDateSelector(initialDate?: string) {
+export function useDateSelector() {
   // 날짜 선택기 관련 상수 (내부에서만 사용)
   const VISIBLE_DATES_COUNT = 5; // 화면에 표시할 날짜 개수
   const MOVE_DAYS_COUNT = 5; // 좌우 버튼 클릭 시 이동할 날짜 수
 
+  const params = useParams<{ date: string }>();
+
   // 초기 날짜 설정: initialDate가 있으면 사용, 없으면 오늘 날짜
   const getInitialDate = () => {
-    if (initialDate) {
-      const date = new Date(initialDate);
+    if (params.date) {
+      const date = new Date(params.date);
       return isNaN(date.getTime()) ? new Date() : date;
     }
     return new Date();
