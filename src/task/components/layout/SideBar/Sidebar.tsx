@@ -30,9 +30,9 @@ interface SidebarProps {
 
 const Sidebar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }: SidebarProps) => (
   <aside
-    className={`box-border h-full bg-white rounded-[20px] shadow-[0px_0px_12px_0px_rgba(235,235,235,1.00)]
+    className={`box-border  bg-white rounded-[20px] shadow-[0px_0px_12px_0px_rgba(235,235,235,1.00)]
     inline-flex flex-col justify-between items-center
-    transition-all duration-300 overflow-visible  
+    transition-all duration-300 h-full
     ${isFold ? 'w-20' : 'w-64'}
  
   `}
