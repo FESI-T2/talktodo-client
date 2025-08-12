@@ -28,7 +28,7 @@ const MypageForm = () => {
   // React Query Hooks 사용
   const {
     data: userProfileData,
-    isLoading: isLoadingUserProfile,
+    // isLoading: isLoadingUserProfile,
     refetch: refetchUserProfile,
   } = useGetUserProfile() as {
     data: UserProfileResult | undefined;
@@ -41,7 +41,7 @@ const MypageForm = () => {
   const fileUploadMutation = useFileUpload();
 
   // 프로필 이미지 URL에서 fileId 추출
-  const profileImageFileId = userProfileData?.data?.result?.profileImageUrl;
+  const profileImageFileId = userProfileData?.data?.data?.result?.profileImageUrl;
 
   // 기존 프로필 이미지가 있으면 blob URL로 변환
   const { data: profileImageBlobUrl } = useFileView(profileImageFileId || '', !!profileImageFileId);
@@ -83,7 +83,7 @@ const MypageForm = () => {
       const updateData = {
         nickname: formData.nickname,
         pushNotificationEnabled: true,
-        profileImageUrl: '',
+        profileImageUrl: formData.profileImageUrl || '', // 기존 값 유지
       };
 
       // 파일 업로드 처리
@@ -152,12 +152,13 @@ const MypageForm = () => {
       console.error('Failed to update user info:', error);
       showErrorToast(error instanceof Error ? error.message : '사용자 정보 업데이트에 실패했습니다.');
     }
-  }, [getValues, openToast, fileUploadMutation, updateProfileMutation, selectedFile, setSelectedFile, refetchUserProfile]);
+  }, [getValues, openToast, fileUploadMutation, updateProfileMutation, selectedFile, refetchUserProfile]);
 
   // [x] 폼에 초기값 설정 및 원본 데이터 저장
   useEffect(() => {
-    if (userProfileData?.data?.result) {
-      const { nickname, email, profileImageUrl } = userProfileData.data.result;
+    if (userProfileData?.data?.data?.result) {
+      const { nickname, email, profileImageUrl } = userProfileData.data.data.result;
+
       setValue('nickname', nickname);
       setValue('email', email);
       setValue('profileImageUrl', profileImageUrl);
