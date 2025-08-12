@@ -9,7 +9,7 @@ export default function Tasklayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className='min-h-screen w-screen  '>
+    <div className='min-h-screen'>
       <div className='flex  w-full '>
         {/* <SideBarContainer /> */}
         {children}

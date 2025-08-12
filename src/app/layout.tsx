@@ -22,12 +22,15 @@ export default function RootLayout({
         <div id='toast-root' />
         <div id='modal-root' />
         <div id='alert-root' />
-        <ToastContainer />
-        <ModalContainer />
-        <AlertContainer />
+        
         <MSWProvider>
           <QueryProvider>
-            <ConditionalLayout>{children}</ConditionalLayout>
+            <ConditionalLayout>
+              <ToastContainer />
+              <AlertContainer />
+              <ModalContainer />
+              {children}
+            </ConditionalLayout>
           </QueryProvider>
         </MSWProvider>
       </body>

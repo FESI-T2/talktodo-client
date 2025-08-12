@@ -1,52 +1,83 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, usePathname } from 'next/navigation';
 
 import Home from '@/shared/components/Icons/Home/Home';
 
-export default function SidebarNavigation({ isFold, type }: { isFold: boolean; type: 'PC' | 'Mobile' }) {
-  const router = useRouter();
+// 상수 정의
+const ACTIVE_ROUTES = ['/', '/dashboard'] as const;
+const DASHBOARD_ROUTE = '/dashboard';
+const DASHBOARD_LABEL = '대시보드';
 
-  // 대시보드로 라우팅
-  const handleDashboardClick = () => {
-    router.push('/dashboard');
+interface SidebarNavigationProps {
+  isFold: boolean;
+  type: 'PC' | 'Mobile';
+}
+
+export default function SidebarNavigation({ isFold, type }: SidebarNavigationProps) {
+  const router = useRouter();
+  const pathname = usePathname();
+
+  // 현재 경로가 활성 경로인지 확인
+  const isActiveRoute = ACTIVE_ROUTES.includes(pathname as typeof ACTIVE_ROUTES[number]);
+
+  // 대시보드로 네비게이션
+  const navigateToDashboard = () => {
+    router.push(DASHBOARD_ROUTE);
   };
 
+  // PC용 버튼 스타일 계산
+  const getButtonStyles = (): string => {
+    const baseStyles = 'flex items-center cursor-pointer w-full';
+    
+    if (isFold) {
+      return `${baseStyles} justify-center`;
+    }
+    
+    if (isActiveRoute) {
+      return `${baseStyles} border-l-4 border-purple-600 pl-1`;
+    }
+    
+    return baseStyles;
+  };
+
+  // 텍스트 스타일 계산
+  const getTextStyles = (): string => {
+    const baseTextStyles = 'font-body1-semibold ml-1';
+    const textColor = isActiveRoute ? 'text-purple-600' : 'text-gray-900';
+    
+    return `${textColor} ${baseTextStyles}`;
+  };
+
+  // PC 버전 렌더링
+  const renderPCVersion = () => (
+    <div className='w-full flex items-center gap-2.5'>
+      <button className={getButtonStyles()} onClick={navigateToDashboard}>
+        <Home type='PC' />
+        {!isFold && <span className={getTextStyles()}>{DASHBOARD_LABEL}</span>}
+      </button>
+    </div>
+  );
+
+  // 모바일 버전 렌더링
+  const renderMobileVersion = () => (
+    <button 
+      className='flex items-center justify-start w-full h-10 cursor-pointer' 
+      onClick={navigateToDashboard}
+    >
+      <Home type='Mobile' />
+      <span className={getTextStyles()}>{DASHBOARD_LABEL}</span>
+    </button>
+  );
+
+  // 조건부 렌더링
   if (type === 'PC') {
-    return (
-      <div className='w-full'>
-        <div className={`flex gap-1 items-center cursor-pointer  ${isFold ? 'justify-center' : 'mb-3'}`}>
-          <div className='w-10 h-10 flex items-center justify-center'>
-            <Home type='PC' />
-          </div>
-          {!isFold && <span className='text-gray-900 font-body1-semibold'>홈</span>}
-        </div>
-        <div className='flex flex-col'>
-          <button
-            className='flex w-[230px] pl-0 pr-3 h-[43px] py-2 items-center gap-3 cursor-pointer hover:bg-purple-50 rounded-lg transition-colors duration-200'
-            onClick={handleDashboardClick}
-          >
-            <div className='w-10 h-10 flex items-center justify-center'></div>
-            {!isFold && <span className='text-gray-500 font-body2-regular tracking-[-0.32px] hover:text-purple-600'>대시보드</span>}
-          </button>
-        </div>
-      </div>
-    );
+    return renderPCVersion();
   }
-
+  
   if (type === 'Mobile' && !isFold) {
-    return (
-      <div className='w-full'>
-        <button className='flex items-center justify-start w-full h-10 cursor-pointer'>
-          <Home type='Mobile' />
-          <span className='text-gray-900 font-body1-semibold ml-2'>홈</span>
-        </button>
-        <button className='flex items-center justify-start w-full h-10 cursor-pointer mt-2' onClick={handleDashboardClick}>
-          <span className='text-gray-500 font-body2-regular ml-2'>대시보드</span>
-        </button>
-      </div>
-    );
+    return renderMobileVersion();
   }
-
+  
   return null;
 }

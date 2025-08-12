@@ -3,6 +3,7 @@
 import { usePathname } from 'next/navigation';
 import React from 'react';
 
+import useResponsiveType from '@/shared/hooks/useResponsiveType';
 import SideBarContainer from '@/task/components/layout/SideBar/SideBarContainer';
 
 interface ConditionalLayoutProps {
@@ -11,6 +12,26 @@ interface ConditionalLayoutProps {
 
 const ConditionalLayout = ({ children }: ConditionalLayoutProps) => {
   const pathname = usePathname();
+  const { sidebarType } = useResponsiveType();
+
+  // PC에서 Grid 레이아웃을 위한 스타일 계산
+  const getLayoutStyles = () => {
+    if (sidebarType === 'MOBILE') {
+      return 'w-full flex flex-col';
+    }
+    
+    // PC/태블릿: Grid 레이아웃으로 사이드바와 메인 비율 분리
+    return 'w-full h-screen grid grid-cols-[auto_1fr] gap-4 pl-5';
+  };
+
+  const getMainStyles = () => {
+    if (sidebarType === 'MOBILE') {
+      return 'flex-1 pt-[20px]';
+    }
+    
+    // PC/태블릿: 메인 콘텐츠 영역 스타일
+    return 'overflow-auto px-6 py-4';
+  };
 
   // 사이드바를 제외할 경로들
   const excludePaths = [
@@ -37,9 +58,18 @@ const ConditionalLayout = ({ children }: ConditionalLayoutProps) => {
 
   // 사이드바가 필요한 페이지
   return (
-    <div className='w-full flex'>
-      <SideBarContainer />
-      <main className='flex-1'>{children}</main>
+    <div className={getLayoutStyles()}>
+      {sidebarType === 'PC' ? (
+        <>
+          <SideBarContainer />
+          <main className={getMainStyles()}>{children}</main>
+        </>
+      ) : (
+        <>
+          <SideBarContainer />
+          <main className={getMainStyles()}>{children}</main>
+        </>
+      )}
     </div>
   );
 };

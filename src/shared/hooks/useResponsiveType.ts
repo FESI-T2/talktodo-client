@@ -24,7 +24,7 @@ function getDropdownTypeByWidth(width: number): DropdownSize {
 }
 
 function getSidebarTypeByWidth(width: number): SidebarSize {
-  if (width >= 1024) return 'PC';
+  if (width >= 768) return 'PC';
   return 'MOBILE'; // 0~1023
 }
 
