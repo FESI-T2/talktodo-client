@@ -31,7 +31,6 @@ const taskApi = {
 
   // 목표별 할일 조회
   getTasksByGoal: (goalId: string) => APIBuilder.get(`/v1/task/goal/${goalId}`).withCredentials(true).build().call<AllTaskResponse>(),
-
 };
 
 export default taskApi;

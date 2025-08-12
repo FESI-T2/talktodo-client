@@ -222,10 +222,6 @@ const MypageForm = () => {
     handleModifyUserInfo();
   };
 
-  if (isLoadingUserProfile) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div className='w-full h-full flex items-center justify-center'>
       <AuthForm onSubmit={handleSubmit(onSubmit)}>
