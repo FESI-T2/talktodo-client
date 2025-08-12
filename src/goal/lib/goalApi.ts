@@ -1,6 +1,7 @@
 // @/goal/lib/goalApi.ts
 
 import APIBuilder from '@/shared/lib/api/apiBuilder';
+import { MOCK_API_BASE_URL } from '@/shared/mocks/constants';
 
 import {
   ApiResponseGoal,
@@ -11,7 +12,7 @@ import {
 } from '../types/response';
 
 const goalApi = {
-  getAllGoal: () => APIBuilder.get('/v1/goal').withCredentials(true).build().call<ApiResponseGoalList>(),
+  getAllGoal: () => APIBuilder.get(`${MOCK_API_BASE_URL}/goal`).withCredentials(true).build().call<ApiResponseGoalList>(),
 
   getGoalsWithTaskCount: () =>
     APIBuilder.get('/v1/goal/with-task-count').withCredentials(true).build().call<ApiResponseGoalWithCountList>(),

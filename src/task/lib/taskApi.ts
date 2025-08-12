@@ -1,10 +1,10 @@
 import APIBuilder from '@/shared/lib/api/apiBuilder';
+import { MOCK_API_BASE_URL } from '@/shared/mocks/constants/index';
 import { TaskDateParams, TaskIdParams, TaskRequest } from '@/task/types/request/index';
 import { AllTaskResponse, TaskResponse, DeleteTaskResponse } from '@/task/types/response/index';
-
 const taskApi = {
   // 전체 할일 조회
-  getAllTask: () => APIBuilder.get('/v1/task').withCredentials(true).build().call<AllTaskResponse>(),
+  getAllTask: () => APIBuilder.get(`${MOCK_API_BASE_URL}/task`).build().call<AllTaskResponse>(),
 
   // 단건 할일 조회
   getTask: ({ taskid }: TaskIdParams) => APIBuilder.get(`/v1/task/${taskid}`).withCredentials(true).build().call<TaskResponse>(),
