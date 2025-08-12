@@ -9,7 +9,7 @@ import RepeatLabel from '../../common/RepeatLabel/RepeatLabel';
 import { TaskBasedProps } from '../TaskCard.types';
 
 export default function SquareTaskCard({ task, layout = 'square' }: TaskBasedProps) {
-  const { content, priority, goal, isDone, repeatEnabled, repeatTypes } = task;
+  const { content, priority, goal, isDone, repeatEnabled, repeatTypes, taskId } = task;
   const { mutate: toggle } = useToggleTaskDone(taskId);
 
   return (

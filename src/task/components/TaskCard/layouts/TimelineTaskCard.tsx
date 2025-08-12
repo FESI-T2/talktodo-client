@@ -7,9 +7,9 @@ import RepeatLabel from '../../common/RepeatLabel/RepeatLabel';
 import { TaskBasedProps } from '../TaskCard.types';
 
 export default function TimelineTaskCard({ task, layout = 'timeline' }: TaskBasedProps) {
-  const { content, goal, isDone, priority, repeatEnabled, repeatTypes } = task;
+  const { content, goal, isDone, priority, repeatEnabled, repeatTypes, taskId } = task;
   const { mutate: toggle } = useToggleTaskDone(taskId);
-  
+
   return (
     <BaseCard layout={layout} isDone={isDone}>
       <div className='flex flex-col items-start gap-2 self-stretch'>

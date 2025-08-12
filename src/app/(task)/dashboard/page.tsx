@@ -9,7 +9,6 @@ import DateSubHeader from '@/task/components/container/DateSubHeader';
 import TaskViewContainer from '@/task/components/container/TaskViewContainer';
 import MainHeader from '@/task/components/layout/Header/MainHeader';
 import DailyTimeline from '@/task/components/timeline/DailyTimeline';
-import useDashboardTasks from '@/task/hooks/useDashboardTasks';
 
 export default function DashboardPage() {
   const today = new Date().toISOString().slice(0, 10); // 'YYYY-MM-DD'

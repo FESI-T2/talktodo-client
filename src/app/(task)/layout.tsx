@@ -10,7 +10,7 @@ export default function Tasklayout({
 }>) {
   return (
     <div className='h-screen w-screen '>
-      <div className='flex py-5 pl-[18px] h-full max-w-[1730px] w-full'>
+      <div className='flex py-5 pl-[18px] h-full w-full'>
         <SideBarContainer />
         {children}
         <FloatingMenu />
