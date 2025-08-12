@@ -1,4 +1,5 @@
 import { cn } from '@/shared/utils/cn';
+import { useToggleTaskDone } from '@/task/api/queries/useToggleTaskDone';
 
 import BaseCard from '../../common/Card/BaseCard';
 import { CheckIcon, MemoIcon } from '../../common/icons';
@@ -8,6 +9,8 @@ import { TaskBasedProps } from '../TaskCard.types';
 
 export default function RectangleTaskCard({ task, layout = 'rectangle' }: TaskBasedProps) {
   const { content, priority, goal, isDone, repeatEnabled, repeatTypes } = task;
+  const { mutate: toggle } = useToggleTaskDone(taskId);
+
   return (
     <BaseCard layout={layout} isDone={isDone}>
       <div className='flex items-start gap-1.5 self-stretch'>
@@ -17,7 +20,7 @@ export default function RectangleTaskCard({ task, layout = 'rectangle' }: TaskBa
         </div>
         <div className='flex items-center gap-5'>
           <MemoIcon active='on' />
-          <CheckIcon state={isDone ? 'on' : 'off'} size='L' />
+          <CheckIcon onClick={() => toggle()} state={isDone ? 'on' : 'off'} size='L' style={{ cursor: 'pointer' }} />
         </div>
       </div>
       <div className='flex items-start gap-3 self-stretch'>

@@ -27,7 +27,7 @@ export default function DesktopDateHeader({ layout, setLayout, timelineActive, s
       <div className='flex items-center w-[140px] h-[40px]' />
       <div className='flex items-center gap-3 absolute right-0'>
         <TimelineButton size={switchSize} active={timelineActive} onClick={setTimelineActive} />
-        <Switch type='layout' size={switchSize} checked={layout === 'rectangle'} onChange={handleSwitch} disabled={!timelineActive} />
+        <Switch type='layout' size={switchSize} checked={layout === 'rectangle'} onChange={handleSwitch} disabled={timelineActive} />
       </div>
     </div>
   );
