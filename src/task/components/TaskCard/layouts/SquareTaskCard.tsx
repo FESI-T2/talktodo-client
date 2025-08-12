@@ -5,10 +5,11 @@ import { useToggleTaskDone } from '@/task/api/queries/useToggleTaskDone';
 import BaseCard from '../../common/Card/BaseCard';
 import { CheckIcon, MemoIcon } from '../../common/icons';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
+import RepeatLabel from '../../common/RepeatLabel/RepeatLabel';
 import { TaskBasedProps } from '../TaskCard.types';
 
 export default function SquareTaskCard({ task, layout = 'square' }: TaskBasedProps) {
-  const { content, priority, goal, isDone, taskId } = task;
+  const { content, priority, goal, isDone, repeatEnabled, repeatTypes } = task;
   const { mutate: toggle } = useToggleTaskDone(taskId);
 
   return (
@@ -25,9 +26,9 @@ export default function SquareTaskCard({ task, layout = 'square' }: TaskBasedPro
         <div className='font-caption-medium text-gray-400 self-stretch'>{goal}</div>
       </div>
       <div className='flex flex-col items-center gap-2 self-stretch'>
-        <div className='flex items-center self-stretch'>
+        <div className='flex items-center self-stretch gap-[3px]'>
           <LabelPriority priority={priority} size='S' />
-          <div className='font-caption-medium text-gray-500'>・매일</div>
+          <RepeatLabel repeatEnabled={repeatEnabled} repeatTypes={repeatTypes} />
         </div>
         <div className={'w-[156px] h-[1px] bg-gray-100'} />
         <div className='flex justify-between items-center self-stretch'>

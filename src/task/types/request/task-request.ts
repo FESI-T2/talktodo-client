@@ -1,5 +1,5 @@
 import { Priority } from '@/shared/types/prioity';
-
+import { RepeatDay } from '@/task/types';
 /* 단건 할 일 생성 및 수정 */
 export interface TaskRequest {
   content: string;
@@ -7,7 +7,9 @@ export interface TaskRequest {
   taskDate: string;
   startTime: string;
   endTime: string;
-  goal: string;
+  goalId: string;
+  repeatEnabled: boolean;
+  repeatTypes: RepeatDay[];
 }
 
 /* params */

@@ -1,9 +1,11 @@
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import DatePicker from '@/shared/components/DatePicker/DatePicker';
 import Calendar from '@/shared/components/Icons/Calendar/Calendar';
 
 export default function DatePickerBtn() {
+  const router = useRouter();
   const [date, setDate] = useState<Date>(new Date());
   const [isOpen, setIsOpen] = useState(false);
 
@@ -15,7 +17,7 @@ export default function DatePickerBtn() {
       const month = String(date.getMonth() + 1).padStart(2, '0');
       const day = String(date.getDate()).padStart(2, '0');
       const formattedDate = `${year}-${month}-${day}`;
-      console.log(formattedDate);
+      router.push(formattedDate);
     }
   };
 

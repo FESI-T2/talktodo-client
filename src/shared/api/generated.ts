@@ -236,6 +236,26 @@ export interface paths {
     patch: operations['toggleDone'];
     trace?: never;
   };
+  '/v1/task/goal/{goalId}': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * 목표별 할 일 조회
+     * @description 목표 ID를 받아 해당 목표에 속한 모든 할 일을 우선순위로 정렬하여 조회합니다.
+     */
+    get: operations['getTasksByGoal'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/v1/task/date/{date}': {
     parameters: {
       query?: never;
@@ -248,26 +268,6 @@ export interface paths {
      * @description yyyy-MM-dd 형식의 날짜를 받아 해당 날짜의 할 일을 조회합니다, ISO 8601 준수
      */
     get: operations['getTasksByDate'];
-    put?: never;
-    post?: never;
-    delete?: never;
-    options?: never;
-    head?: never;
-    patch?: never;
-    trace?: never;
-  };
-  '/v1/task/date/{date}/goal/{goalId}': {
-    parameters: {
-      query?: never;
-      header?: never;
-      path?: never;
-      cookie?: never;
-    };
-    /**
-     * 목표별 날짜 기준 할 일 조회
-     * @description 목표 ID와 yyyy-MM-dd 형식의 날짜를 받아 해당 목표에 속한 그 날짜의 할 일만 조회합니다.
-     */
-    get: operations['getTasksByGoalAndDate'];
     put?: never;
     post?: never;
     delete?: never;
@@ -351,6 +351,26 @@ export interface paths {
     put?: never;
     post?: never;
     delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/v1/file': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    /**
+     * 파일 삭제
+     * @description 업로드 한 파일을 삭제합니다.
+     */
+    delete: operations['deleteProfileImage'];
     options?: never;
     head?: never;
     patch?: never;
@@ -976,12 +996,12 @@ export interface operations {
       };
     };
   };
-  getTasksByDate: {
+  getTasksByGoal: {
     parameters: {
       query?: never;
       header?: never;
       path: {
-        date: string;
+        goalId: string;
       };
       cookie?: never;
     };
@@ -998,12 +1018,11 @@ export interface operations {
       };
     };
   };
-  getTasksByGoalAndDate: {
+  getTasksByDate: {
     parameters: {
       query?: never;
       header?: never;
       path: {
-        goalId: string;
         date: string;
       };
       cookie?: never;
@@ -1101,6 +1120,26 @@ export interface operations {
         };
         content: {
           '*/*': components['schemas']['ApiResponseMapStringString'];
+        };
+      };
+    };
+  };
+  deleteProfileImage: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description OK */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          '*/*': components['schemas']['ApiResponseString'];
         };
       };
     };
