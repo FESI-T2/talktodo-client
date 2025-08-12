@@ -1,3 +1,4 @@
+import useModal from '@/shared/hooks/useModal';
 import { useToggleTaskDone } from '@/task/api/queries/useToggleTaskDone';
 
 import BaseCard from '../../common/Card/BaseCard';
@@ -9,9 +10,10 @@ import { TaskBasedProps } from '../TaskCard.types';
 export default function TimelineTaskCard({ task, layout = 'timeline' }: TaskBasedProps) {
   const { content, goal, isDone, priority, repeatEnabled, repeatTypes, taskId } = task;
   const { mutate: toggle } = useToggleTaskDone(taskId);
+  const { openMemoForm } = useModal();
 
   return (
-    <BaseCard layout={layout} isDone={isDone}>
+    <BaseCard layout={layout} isDone={isDone} onClick={openMemoForm} className='cursor-pointer'>
       <div className='flex flex-col items-start gap-2 self-stretch'>
         <div className='flex flex-col items-start gap-3 self-stretch'>
           <div className='flex items-start gap-1.5 self-stretch'>
@@ -19,7 +21,15 @@ export default function TimelineTaskCard({ task, layout = 'timeline' }: TaskBase
               <div className='text-gray-900 font-body2-semibold'>{content}</div>
               <div className='text-gray-400 font-caption-medium'>{goal}</div>
             </div>
-            <CheckIcon onClick={() => toggle()} state={isDone ? 'on' : 'off'} size='L' style={{ cursor: 'pointer' }} />
+            <CheckIcon
+              onClick={(e) => {
+                e.stopPropagation();
+                toggle();
+              }}
+              state={isDone ? 'on' : 'off'}
+              size='L'
+              style={{ cursor: 'pointer' }}
+            />
           </div>
           <div className='w-[146px] h-[1px] bg-gray-100'></div>
           <div className='flex justify-between items-center self-stretch'>
