@@ -10,10 +10,10 @@ import { TaskBasedProps } from '../TaskCard.types';
 export default function TimelineTaskCard({ task, layout = 'timeline' }: TaskBasedProps) {
   const { content, goal, isDone, priority, repeatEnabled, repeatTypes, taskId } = task;
   const { mutate: toggle } = useToggleTaskDone(taskId);
-  const { openMemoForm } = useModal();
+  const { openFormResolver } = useModal();
 
   return (
-    <BaseCard layout={layout} isDone={isDone} onClick={openMemoForm} className='cursor-pointer'>
+    <BaseCard layout={layout} isDone={isDone} onClick={openFormResolver} className='cursor-pointer'>
       <div className='flex flex-col items-start gap-2 self-stretch'>
         <div className='flex flex-col items-start gap-3 self-stretch'>
           <div className='flex items-start gap-1.5 self-stretch'>

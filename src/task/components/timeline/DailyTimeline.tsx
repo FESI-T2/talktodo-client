@@ -74,7 +74,7 @@ export default function DailyTimeline({
 
       {/* 스크롤 가능한 타임라인 (x/y 스크롤) */}
       <div className='w-full overflow-auto' style={{ height: `${viewportHeight}px` }}>
-        <div className='relative' style={{ width: `${containerWidth}px`, height: `${containerHeight}px` }}>
+        <div className='relative' style={{ minWidth: `${containerWidth}px`, minHeight: `${containerHeight}px` }}>
           {/* 시간 라벨 */}
           {Array.from({ length: hourCount + 1 }, (_, i) => {
             const h = startHour + i;
@@ -128,7 +128,7 @@ export default function DailyTimeline({
               <div
                 key={pt.taskId}
                 className='absolute z-10'
-                style={{ left: `${Math.max(0, pt.leftPx - 20)}px`, top: `${top}px`, width: `${pt.widthPx}px` }}
+                style={{ left: `${Math.max(0, pt.leftPx - 20)}px`, top: `${top}px`, minWidth: `${pt.widthPx}px` }}
               >
                 <TimelineTaskCard task={pt} />
               </div>

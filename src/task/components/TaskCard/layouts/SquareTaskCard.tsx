@@ -11,10 +11,10 @@ import { TaskBasedProps } from '../TaskCard.types';
 export default function SquareTaskCard({ task, layout = 'square' }: TaskBasedProps) {
   const { content, priority, goal, isDone, repeatEnabled, repeatTypes, taskId } = task;
   const { mutate: toggle } = useToggleTaskDone(taskId);
-  const { openMemoForm } = useModal();
+  const { openFormResolver } = useModal();
 
   return (
-    <BaseCard layout={layout} isDone={isDone} onClick={openMemoForm} className='cursor-pointer'>
+    <BaseCard layout={layout} isDone={isDone} onClick={openFormResolver} className='cursor-pointer'>
       <div className='flex flex-col items-start gap-1 self-stretch'>
         <div
           className={cn(

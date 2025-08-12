@@ -11,10 +11,10 @@ import { TaskBasedProps } from '../TaskCard.types';
 export default function RectangleTaskCard({ task, layout = 'rectangle' }: TaskBasedProps) {
   const { content, priority, goal, isDone, repeatEnabled, repeatTypes, taskId } = task;
   const { mutate: toggle } = useToggleTaskDone(taskId);
-  const { openMemoForm } = useModal();
+  const { openFormResolver } = useModal();
 
   return (
-    <BaseCard layout={layout} isDone={isDone} onClick={openMemoForm} className='cursor-pointer'>
+    <BaseCard layout={layout} isDone={isDone} onClick={openFormResolver} className='cursor-pointer'>
       <div className='flex items-start gap-1.5 self-stretch'>
         <div className='flex flex-col items-start gap-1.5 grow shrink-0 basis-0'>
           <div className={cn('font-body2-medium-tight', isDone ? 'text-gray-400 line-through' : 'text-gray-900')}>{content}</div>
