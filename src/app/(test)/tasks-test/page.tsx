@@ -20,10 +20,12 @@ export default function TasksTest() {
     const res = await taskApi.createTask({
       content: '테스트 할일 ' + Math.floor(Math.random() * 1000),
       priority: '보통',
-      goal: '테스트 목표',
+      goalId: '테스트 목표',
       taskDate: new Date().toISOString().split('T')[0],
       startTime: '09:00:00',
       endTime: '10:00:00',
+      repeatEnabled: false,
+      repeatTypes: [],
     });
     setResult(res.data);
   };
@@ -33,10 +35,12 @@ export default function TasksTest() {
       {
         content: '수정된 할일 ' + Math.floor(Math.random() * 1000),
         priority: '중요',
-        goal: '수정 목표',
+        goalId: '수정 목표',
         taskDate: sampleDate,
         startTime: '11:00:00',
         endTime: '12:00:00',
+        repeatEnabled: false,
+        repeatTypes: [],
       }
     );
     setResult(res.data);
