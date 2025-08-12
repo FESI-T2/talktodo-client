@@ -38,7 +38,6 @@ export const uploadFile = (file: File) => {
 export const viewFile = (fileId: string) =>
   APIBuilder.get(process.env.NODE_ENV === 'development' ? `/api/file/view/${fileId}` : `/file/view/${fileId}`)
     .withCredentials(true)
-    .responseType('blob') // ✅ Blob으로 받도록 설정
     .build()
     .call();
 
