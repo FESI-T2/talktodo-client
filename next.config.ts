@@ -8,12 +8,7 @@ const nextConfig: NextConfig = {
   reactStrictMode: false,
 
   async rewrites() {
-    return [
-      {
-        source: '/v1/:path*',
-        destination: `${process.env.NEXT_PUBLIC_API_BASE_URL}/v1/:path*`,
-      },
-    ];
+    return [{ source: '/api/:path*', destination: 'https://talktodo-server-production.up.railway.app/:path*' }];
   },
 };
 

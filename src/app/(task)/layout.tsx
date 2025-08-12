@@ -9,8 +9,8 @@ export default function Tasklayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className='h-screen w-screen '>
-      <div className='flex py-5 pl-[18px] h-full w-full'>
+    <div className='min-h-screen w-screen  '>
+      <div className='flex  w-full '>
         <SideBarContainer />
         {children}
         <FloatingMenu />
