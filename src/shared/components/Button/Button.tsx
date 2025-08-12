@@ -12,8 +12,8 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 const Button = ({ variant, children, disabled, className, ...props }: ButtonProps) => {
   const ButtonStyle = {
     primary: {
-      enabled: 'bg-[var(--color-purple-600)] text-white hover:bg-[var(--color-purple-700)] active:bg-[var(--color-purple-800)]',
-      disabled: 'bg-[var(--color-gray-300)]  cursor-not-allowed',
+      enabled: 'bg-purple-600 text-white hover:bg-purple-700 active:bg-purple-800',
+      disabled: 'bg-gray-300 text-white  cursor-not-allowed',
     },
     secondary: {
       enabled:
@@ -26,7 +26,7 @@ const Button = ({ variant, children, disabled, className, ...props }: ButtonProp
     <button
       {...props}
       className={cn(
-        'rounded-xl py-3.5 px-4 flex w-full h-12 items-center justify-center text-base  cursor-pointer font-body1-bold text-nowrap',
+        'rounded-xl py-3.5 px-4 flex w-full h-12 items-center justify-center text-base cursor-pointer font-body2-bold text-nowrap',
         ButtonStyle[variant][disabled ? 'disabled' : 'enabled'],
         className
       )}

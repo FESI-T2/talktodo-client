@@ -1,50 +1,54 @@
 'use client';
-import React from 'react';
+import React, { useLayoutEffect, useState } from 'react';
+
+import Button from '@/shared/components/Button/Button';
+import ErrorLogo from '@/shared/components/Icons/ErrorLogo/ErrorLogo';
+
+import { CustomError } from '@/shared/lib/error/customError';
+
+import { useError } from '../useError';
 
 interface FallbackProps {
-  onReset: () => void;
+  error: Error;
 }
 
-const Fallback = ({ onReset }: FallbackProps) => {
-  const handleClick = () => {
-    onReset();
-    window.location.replace('/');
-  };
+export const BoundaryFallback = ({ error }: FallbackProps) => {
+  const { showErrorToast } = useError();
+  const [errorMessage, setErrorMessage] = useState<string>('데이터를 불러오지 못했습니다.');
+
+  useLayoutEffect(() => {
+    if (error instanceof CustomError) {
+      if (error.errorType === 'NETWORK_ERROR') setErrorMessage('네트워크 연결에 문제가 있습니다.');
+    } else {
+      showErrorToast(new CustomError('UNKNOWN_ERROR', 500, '알 수 없는 오류가 발생했습니다.'));
+    }
+  }, []);
 
   return (
-    <div>
-      <div className='text-center p-4 text-red-600 bg-red-50 rounded'>
-        <p>알 수 없는 문제가 발생했습니다</p>
-        <button onClick={handleClick} className='cursor-pointer w-full bg-red-600 text-white py-3 px-4 rounded-lg hover:bg-red-700 mb-5'>
-          메인으로 돌아가기
-        </button>
-        <button onClick={onReset} className='w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 cursor-pointer'>
-          다시 시도
-        </button>
-      </div>
+    <div className='h-screen w-screen bg-white '>
+      <FallBack buttonText='다시 시도' errorMessage={errorMessage} handleClick={() => window.location.reload()} />;
     </div>
   );
 };
 
-const PageFallback = ({ onReset }: FallbackProps) => {
-  const handleClick = () => {
-    onReset();
-    window.location.replace('/');
-  };
+interface FallBackProps {
+  handleClick?: () => void;
+  buttonText?: string;
+  errorMessage: string;
+}
+
+export const FallBack = ({ handleClick, buttonText, errorMessage }: FallBackProps) => {
   return (
-    <div className='min-h-screen flex items-center justify-center bg-red-50'>
-      <div className='max-w-md w-full bg-white shadow-lg rounded-lg p-6 text-center'>
-        <h2 className='text-2xl font-bold text-gray-900 mb-2'>문제가 발생했습니다</h2>
-        <p className='text-gray-600 mb-6'> 오류가 발생했습니다.</p>
-        <button onClick={handleClick} className='cursor-pointer w-full bg-red-600 text-white py-3 px-4 rounded-lg hover:bg-red-700 mb-5'>
-          메인으로 돌아가기
-        </button>
-        <button onClick={onReset} className='w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 cursor-pointer'>
-          다시 시도
-        </button>
-      </div>
+    <div className='flex m-auto justify-center flex-col gap-10 h-screen  max-w-[420px] w-[90%] items-center'>
+      <ErrorLogo size={'L'} />
+      <p className='tb:font-title2-bold font-title3-bold text-white'>{errorMessage}</p>
+      {buttonText && handleClick && (
+        <div className='flex flex-col gap-4 w-full'>
+          <Button onClick={handleClick} variant='primary'>
+            {buttonText}
+          </Button>
+        </div>
+      )}
     </div>
   );
 };
-
-export { Fallback, PageFallback };

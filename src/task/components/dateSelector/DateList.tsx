@@ -1,3 +1,5 @@
+'use client';
+
 import { useRouter } from 'next/navigation';
 
 import Chevron from '@/shared/components/Icons/Chevron/Chevron';

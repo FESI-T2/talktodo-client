@@ -236,6 +236,26 @@ export interface paths {
     patch: operations['toggleDone'];
     trace?: never;
   };
+  '/v1/task/goal/{goalId}': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * 목표별 할 일 조회
+     * @description 목표 ID를 받아 해당 목표에 속한 모든 할 일을 우선순위로 정렬하여 조회합니다.
+     */
+    get: operations['getTasksByGoal'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
   '/v1/task/date/{date}': {
     parameters: {
       query?: never;
@@ -248,6 +268,26 @@ export interface paths {
      * @description yyyy-MM-dd 형식의 날짜를 받아 해당 날짜의 할 일을 조회합니다, ISO 8601 준수
      */
     get: operations['getTasksByDate'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/v1/goal/with-task-count': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * 목표별 완료/미완료 건수
+     * @description 사용자의 각 목표별 완료/미완료 Task 건수를 조회한다.
+     */
+    get: operations['getGoalsWithTaskCount'];
     put?: never;
     post?: never;
     delete?: never;
@@ -291,6 +331,46 @@ export interface paths {
     put?: never;
     post?: never;
     delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/temp/login': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    /**
+     * (개발용) 로그인
+     * @description (개발용) 로그인을 요청한다.
+     */
+    get: operations['issueDevTokens'];
+    put?: never;
+    post?: never;
+    delete?: never;
+    options?: never;
+    head?: never;
+    patch?: never;
+    trace?: never;
+  };
+  '/v1/file': {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    get?: never;
+    put?: never;
+    post?: never;
+    /**
+     * 파일 삭제
+     * @description 업로드 한 파일을 삭제합니다.
+     */
+    delete: operations['deleteProfileImage'];
     options?: never;
     head?: never;
     patch?: never;
@@ -375,6 +455,7 @@ export interface components {
       repeatEnabled?: boolean;
       repeatTypes?: string[];
       goalId?: string;
+      goalName?: string;
       /** Format: date-time */
       createdAt?: string;
       /** Format: date-time */
@@ -412,10 +493,6 @@ export interface components {
     GoalResponse: {
       goalId?: string;
       goalName?: string;
-      /** Format: date-time */
-      createdAt?: string;
-      /** Format: date-time */
-      modifiedAt?: string;
     };
     ApiResponseFileResponse: {
       isSuccess?: boolean;
@@ -466,6 +543,42 @@ export interface components {
       code?: string;
       message?: string;
       result?: components['schemas']['GoalResponse'][];
+    };
+    ApiResponseGoalDetailResponse: {
+      isSuccess?: boolean;
+      code?: string;
+      message?: string;
+      result?: components['schemas']['GoalDetailResponse'];
+    };
+    GoalDetailResponse: {
+      goalId?: string;
+      goalName?: string;
+      /** Format: date-time */
+      createdAt?: string;
+      /** Format: date-time */
+      modifiedAt?: string;
+    };
+    ApiResponseListGoalWithTaskCountResponse: {
+      isSuccess?: boolean;
+      code?: string;
+      message?: string;
+      result?: components['schemas']['GoalWithTaskCountResponse'][];
+    };
+    GoalWithTaskCountResponse: {
+      goalId?: string;
+      goalName?: string;
+      /** Format: int64 */
+      completedTaskCount?: number;
+      /** Format: int64 */
+      incompleteTaskCount?: number;
+    };
+    ApiResponseMapStringString: {
+      isSuccess?: boolean;
+      code?: string;
+      message?: string;
+      result?: {
+        [key: string]: string;
+      };
     };
   };
   responses: never;
@@ -675,7 +788,7 @@ export interface operations {
           [name: string]: unknown;
         };
         content: {
-          '*/*': components['schemas']['ApiResponseGoalResponse'];
+          '*/*': components['schemas']['ApiResponseGoalDetailResponse'];
         };
       };
     };
@@ -883,6 +996,28 @@ export interface operations {
       };
     };
   };
+  getTasksByGoal: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path: {
+        goalId: string;
+      };
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description OK */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          '*/*': components['schemas']['ApiResponseTaskSummaryResponse'];
+        };
+      };
+    };
+  };
   getTasksByDate: {
     parameters: {
       query?: never;
@@ -901,6 +1036,26 @@ export interface operations {
         };
         content: {
           '*/*': components['schemas']['ApiResponseTaskSummaryResponse'];
+        };
+      };
+    };
+  };
+  getGoalsWithTaskCount: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description OK */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          '*/*': components['schemas']['ApiResponseListGoalWithTaskCountResponse'];
         };
       };
     };
@@ -945,6 +1100,46 @@ export interface operations {
         };
         content: {
           '*/*': string;
+        };
+      };
+    };
+  };
+  issueDevTokens: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description OK */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          '*/*': components['schemas']['ApiResponseMapStringString'];
+        };
+      };
+    };
+  };
+  deleteProfileImage: {
+    parameters: {
+      query?: never;
+      header?: never;
+      path?: never;
+      cookie?: never;
+    };
+    requestBody?: never;
+    responses: {
+      /** @description OK */
+      200: {
+        headers: {
+          [name: string]: unknown;
+        };
+        content: {
+          '*/*': components['schemas']['ApiResponseString'];
         };
       };
     };

@@ -4,3 +4,8 @@ export interface Goal {
   createdAt: string;
   modifiedAt: string;
 }
+
+export interface GoalWithCount extends Goal {
+  completedTaskCount: number;
+  incompleteTaskCount: number;
+}

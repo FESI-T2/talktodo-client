@@ -1,6 +1,9 @@
 import axios, { AxiosResponse } from 'axios';
 
-import classifyAPIError from '../error/classifyAPIError';
+import { getAccessToken } from '@/app/actions/auth/token';
+import { useTokenStore } from '@/auth/store/tokenStore';
+
+import classifyAPIError from '../error/classifyError';
 export type HTTPMethod = 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
 
 export type HTTPHeaders = Record<string, string>;
@@ -36,8 +39,16 @@ class API {
         config.headers['Content-Type'] = 'application/json; charset=utf-8';
 
         if (typeof window !== 'undefined') {
-          const accessToken = localStorage.getItem('accessToken');
-          if (accessToken) config.headers['Authorization'] = `Bearer ${accessToken}`;
+          // 클라이언트 환경
+          const tokenStore = useTokenStore.getState();
+          const accessToken = tokenStore.token || (await getAccessToken());
+          config.headers['Authorization'] = `Bearer ${accessToken}`;
+        } else {
+          // 서버 환경
+          const { cookies } = await import('next/headers');
+          const accessToken = (await cookies()).get('accessToken')?.value || null;
+
+          config.headers['Authorization'] = `Bearer ${accessToken}`;
         }
 
         return config;

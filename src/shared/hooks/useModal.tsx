@@ -1,5 +1,6 @@
 import React from 'react';
 
+import GoalForm from '@/goal/components/GoalForm';
 import MemoForm from '@/task/components/MemoForm/MemoForm';
 import TaskForm from '@/task/components/TaskForm/TaskForm';
 
@@ -22,6 +23,37 @@ const useModal = () => {
     });
   };
 
+  const openAddGoalForm = () => {
+    modalSubject.open(
+      <GoalForm
+        mode='add'
+        onSubmit={(value) => {
+          console.log('추가된 목표:', value);
+          modalSubject.close();
+        }}
+      />,
+      { onClose: () => console.log('목표 추가 모달 닫힘'), disableBackdropClick: true, closeButton: true }
+    );
+  };
+
+  const openEditGoalForm = (initialValue: string) => {
+    modalSubject.open(
+      <GoalForm
+        mode='edit'
+        initialValue={initialValue}
+        onSubmit={(value) => {
+          console.log('수정된 목표:', value);
+          modalSubject.close();
+        }}
+      />,
+      {
+        onClose: () => console.log('목표 수정 모달 닫힘'),
+        disableBackdropClick: true,
+        closeButton: true,
+      }
+    );
+  };
+
   const closeModal = () => {
     modalSubject.close();
   };
@@ -29,6 +61,8 @@ const useModal = () => {
   return {
     openTaskForm,
     openMemoForm,
+    openAddGoalForm,
+    openEditGoalForm,
     closeModal,
   };
 };

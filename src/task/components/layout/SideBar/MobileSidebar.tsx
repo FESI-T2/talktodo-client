@@ -49,7 +49,7 @@ const MobileSidebar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }:
         {!isFold && <SidebarSeparator top={2} bottom={2} />}
         <SidebarPanel isFold={isFold} goals={goals} type='Mobile' />
       </div>
-      {!isFold && <ProfileSection isFold={isFold} userNickname={userNickname} userEmail={userEmail} type='Mobile' />}
+      {!isFold && <ProfileSection isFold={isFold} userNickname={userNickname} userEmail={userEmail} />}
     </aside>
   );
 };
