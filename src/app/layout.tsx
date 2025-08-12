@@ -17,14 +17,16 @@ export default function RootLayout({
   return (
     <html lang='ko'>
       <body className={cn(pretendard.className, 'flex justify-center')}>
-        <div id='toast-root' />
-        <div id='modal-root' />
-        <div id='alert-root' />
-        <ToastContainer />
-        <ModalContainer />
-        <AlertContainer />
         <MSWProvider>
-          <QueryProvider>{children}</QueryProvider>
+          <QueryProvider>
+            <div id='toast-root' />
+            <div id='modal-root' />
+            <div id='alert-root' />
+            <ToastContainer />
+            <ModalContainer />
+            <AlertContainer />
+            {children}
+          </QueryProvider>
         </MSWProvider>
       </body>
     </html>
