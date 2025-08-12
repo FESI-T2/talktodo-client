@@ -1,22 +1,23 @@
+'use client';
 import React from 'react';
 
 import GoalForm from '@/goal/components/GoalForm';
-import MemoForm from '@/task/components/MemoForm/MemoForm';
-import TaskForm from '@/task/components/TaskForm/TaskForm';
+import CreatetTaskForm from '@/task/components/Form/CreatetTaskForm/CreatetTaskForm';
+import FormResolver from '@/task/components/Form/FormResolver/FormResolver';
 
 import { modalSubject } from '../components/Modal/ModalSubject';
 
 const useModal = () => {
-  const openTaskForm = () => {
-    modalSubject.open(<TaskForm />, {
+  const openFormResolver = () => {
+    modalSubject.open(<FormResolver />, {
       onClose: () => console.log('기본 모달이 닫혔습니다.'),
       disableBackdropClick: true,
       closeButton: false,
     });
   };
 
-  const openMemoForm = () => {
-    modalSubject.open(<MemoForm />, {
+  const openCreatetTaskForm = () => {
+    modalSubject.open(<CreatetTaskForm />, {
       onClose: () => console.log('메모 모달이 닫혔습니다.'),
       disableBackdropClick: true,
       closeButton: false,
@@ -59,8 +60,8 @@ const useModal = () => {
   };
 
   return {
-    openTaskForm,
-    openMemoForm,
+    openCreatetTaskForm,
+    openFormResolver,
     openAddGoalForm,
     openEditGoalForm,
     closeModal,
