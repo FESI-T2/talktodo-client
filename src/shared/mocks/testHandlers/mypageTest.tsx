@@ -114,14 +114,6 @@ const mypageTestHandlers = [
         { status: 404 }
       );
     }
-
-    // Blob 데이터 반환
-    return HttpResponse.arrayBuffer(mockImage, {
-      headers: {
-        'Content-Type': mockImage.type,
-        'Content-Length': mockImage.size.toString(),
-      },
-    });
   }),
 
   // 파일 다운로드
@@ -140,14 +132,6 @@ const mypageTestHandlers = [
         { status: 404 }
       );
     }
-
-    return HttpResponse.arrayBuffer(mockImage, {
-      headers: {
-        'Content-Type': 'application/octet-stream',
-        'Content-Disposition': `attachment; filename="profile-${fileId}.jpg"`,
-        'Content-Length': mockImage.size.toString(),
-      },
-    });
   }),
 
   // 에러 테스트용 핸들러들
