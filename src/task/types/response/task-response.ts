@@ -2,7 +2,7 @@ import { ApiResponse } from '@/shared/types/api';
 
 import { Task } from '../index';
 
-interface GetAllTaskResult {
+export interface GetAllTaskResult {
   doneTasks: Task[];
   undoneTasks: Task[];
   totalCount: number;

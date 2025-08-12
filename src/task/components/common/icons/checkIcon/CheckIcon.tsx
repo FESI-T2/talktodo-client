@@ -13,9 +13,9 @@ const icons = {
   off: { L: IconCheckOffL, S: IconCheckOffS },
 };
 
-export default function CheckIcon({ state = 'off', size = 'S' }: CheckIconProps) {
+export default function CheckIcon({ state = 'off', size = 'S', ...svgProps }: CheckIconProps) {
   const Svg = icons[state][size];
-  return <Svg />;
+  return <Svg {...svgProps} />;
 }
 function IconCheckOffS() {
   return (

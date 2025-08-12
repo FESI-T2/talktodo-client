@@ -1,10 +1,15 @@
+import { useToggleTaskDone } from '@/task/api/queries/useToggleTaskDone';
+
 import BaseCard from '../../common/Card/BaseCard';
 import { CheckIcon, MemoIcon } from '../../common/icons';
 import LabelPriority from '../../common/LabelPriority/LabelPriority';
+import RepeatLabel from '../../common/RepeatLabel/RepeatLabel';
 import { TaskBasedProps } from '../TaskCard.types';
 
 export default function TimelineTaskCard({ task, layout = 'timeline' }: TaskBasedProps) {
-  const { content, goal, isDone, priority } = task;
+  const { content, goal, isDone, priority, repeatEnabled, repeatTypes, taskId } = task;
+  const { mutate: toggle } = useToggleTaskDone(taskId);
+
   return (
     <BaseCard layout={layout} isDone={isDone}>
       <div className='flex flex-col items-start gap-2 self-stretch'>
@@ -14,13 +19,13 @@ export default function TimelineTaskCard({ task, layout = 'timeline' }: TaskBase
               <div className='text-gray-900 font-body2-semibold'>{content}</div>
               <div className='text-gray-400 font-caption-medium'>{goal}</div>
             </div>
-            <CheckIcon state={isDone ? 'on' : 'off'} size='L' /> {/* TODO:hooks */}
+            <CheckIcon onClick={() => toggle()} state={isDone ? 'on' : 'off'} size='L' style={{ cursor: 'pointer' }} />
           </div>
           <div className='w-[146px] h-[1px] bg-gray-100'></div>
           <div className='flex justify-between items-center self-stretch'>
-            <div className='flex items-center gap-[1px]'>
+            <div className='flex items-center gap-[3px]'>
               <LabelPriority priority={priority} size='S' />
-              <div className='font-caption-medium text-gray-500'>・매일</div>
+              <RepeatLabel repeatEnabled={repeatEnabled} repeatTypes={repeatTypes} />
             </div>
             <MemoIcon active='on' />
           </div>

@@ -1,5 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
+import { GetAllTaskResult } from '@/task/types/response';
+
 import { tasksKeys } from '../queryKeys/tasksKeys';
 import { fetchTasksByDate } from '../tasks';
 
@@ -9,5 +11,6 @@ export function useTasksByDate(date: string) {
     queryFn: () => fetchTasksByDate(date),
     enabled: !!date,
     staleTime: 1000 * 60 * 3,
+    select: (data): GetAllTaskResult => data.data.result,
   });
 }

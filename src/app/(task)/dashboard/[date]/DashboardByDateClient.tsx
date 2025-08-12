@@ -10,20 +10,18 @@ import TaskViewContainer from '@/task/components/container/TaskViewContainer';
 import MainHeader from '@/task/components/layout/Header/MainHeader';
 import DailyTimeline from '@/task/components/timeline/DailyTimeline';
 
-export default function DashboardPage() {
-  const today = new Date().toISOString().slice(0, 10); // 'YYYY-MM-DD'
-  const { data } = useTasksByDate(today);
+export default function DashboardByDateClient({ date }: { date: string }) {
+  const { data } = useTasksByDate(date);
   const { isPc } = useBreakpoints();
 
-  const [layout, setLayout] = useState<'square' | 'rectangle'>('square');
   const [timelineActive, setTimelineActive] = useState(false);
+  const [layout, setLayout] = useState<'square' | 'rectangle'>('square');
 
   if (!data) {
     return <div>Loading...</div>;
   }
 
   const { undoneCount, doneCount, totalCount, undoneTasks, doneTasks } = data;
-
   const allTasks = [...undoneTasks, ...doneTasks];
 
   return (

@@ -10,16 +10,12 @@ type TaskArr = typeof MockTask extends Array<infer T> ? T[] : never;
 const mockTaskArr: TaskArr = MockTask as TaskArr;
 
 const tasksTestHandlers = [
-  // 다건 할일 조회
-  http.get(`${MOCK_API_BASE_URL}/task`, async (): Promise<HttpResponse<AllTaskResponse>> => {
-    return HttpResponse.json(AllTaskData, { status: 200 });
-  }),
-
   // 단건 할일 조회
-  http.get(`${MOCK_API_BASE_URL}/task/:taskid`, async ({ params }): Promise<HttpResponse<TaskResponse>> => {
-    console.log(`조회 id: ${params.taskid}`);
+  http.get(`${MOCK_API_BASE_URL}/task/:taskId`, async ({ params }): Promise<HttpResponse<TaskResponse>> => {
+    const id = params.taskId as string;
+    console.log(`조회 id: ${id}`);
 
-    const new_task = mockTaskArr.find((task) => task.taskId === params.taskid);
+    const new_task = mockTaskArr.find((task) => task.taskId === id);
 
     return HttpResponse.json(new_task ? { ...TaskData, result: new_task } : TaskData, { status: 200 });
   }),
@@ -48,10 +44,11 @@ const tasksTestHandlers = [
   }),
 
   // 단건 할일 삭제
-  http.delete(`${MOCK_API_BASE_URL}/task/:taskid`, async ({ params }): Promise<HttpResponse<DeleteTaskResponse>> => {
-    console.log(`삭제 id: ${params.taskid}`);
+  http.delete(`${MOCK_API_BASE_URL}/task/:taskId`, async ({ params }): Promise<HttpResponse<DeleteTaskResponse>> => {
+    const id = params.taskId as string;
+    console.log(`삭제 id: ${id}`);
 
-    const idx = mockTaskArr.findIndex((task) => task.taskId === params.taskid);
+    const idx = mockTaskArr.findIndex((task) => task.taskId === id);
     if (idx !== -1) {
       mockTaskArr.splice(idx, 1);
     }
@@ -60,8 +57,8 @@ const tasksTestHandlers = [
   }),
 
   // 단건 할일 수정
-  http.put(`${MOCK_API_BASE_URL}/task/:taskid`, async ({ params, request }): Promise<HttpResponse<TaskResponse>> => {
-    const id = params.taskid;
+  http.put(`${MOCK_API_BASE_URL}/task/:taskId`, async ({ params, request }): Promise<HttpResponse<TaskResponse>> => {
+    const id = params.taskId as string;
     console.log(`수정 id: ${id}`);
 
     let body: Partial<typeof TaskData.result> = {};
@@ -82,8 +79,8 @@ const tasksTestHandlers = [
   }),
 
   // 완료 상태 토글
-  http.put(`${MOCK_API_BASE_URL}/task/done/:taskid`, async ({ params }): Promise<HttpResponse<TaskResponse>> => {
-    const id = params.taskid;
+  http.patch(`${MOCK_API_BASE_URL}/task/done/:taskId`, async ({ params }): Promise<HttpResponse<TaskResponse>> => {
+    const id = params.taskId as string;
 
     const idx = mockTaskArr.findIndex((t) => t.taskId === id);
     if (idx !== -1) {
@@ -94,21 +91,48 @@ const tasksTestHandlers = [
   }),
 
   // 날짜별 할 일 조회
-  http.put(`${MOCK_API_BASE_URL}/task/date/:date`, async ({ params }): Promise<HttpResponse<AllTaskResponse>> => {
-    const queryDate = params.date;
+  http.get(`${MOCK_API_BASE_URL}/task/date/:date`, async ({ params }): Promise<HttpResponse<AllTaskResponse>> => {
+    const queryDate = params.date as string;
     console.log(`날짜 조회: ${queryDate}`);
 
-    const filtered = mockTaskArr.filter((t) => t.taskDate === queryDate);
+    type RepeatDay = '월' | '화' | '수' | '목' | '금' | '토' | '일';
+    const dayKor = (dateStr: string): RepeatDay => ['일', '월', '화', '수', '목', '금', '토'][new Date(dateStr).getDay()] as RepeatDay;
+    const day = dayKor(queryDate);
+
+    const matched = mockTaskArr.filter(
+      (t) => t.taskDate === queryDate || (t.repeatEnabled && (t.repeatTypes as RepeatDay[]).includes(day))
+    );
+    const normalized = matched.map((t) => (t.repeatEnabled ? { ...t, taskDate: queryDate } : t));
 
     return HttpResponse.json(
       {
         ...AllTaskData,
         result: {
-          doneTasks: filtered.filter((t) => t.isDone),
-          undoneTasks: filtered.filter((t) => !t.isDone),
-          totalCount: filtered.length,
-          doneCount: filtered.filter((t) => t.isDone).length,
-          undoneCount: filtered.filter((t) => !t.isDone).length,
+          doneTasks: normalized.filter((t) => t.isDone),
+          undoneTasks: normalized.filter((t) => !t.isDone),
+          totalCount: normalized.length,
+          doneCount: normalized.filter((t) => t.isDone).length,
+          undoneCount: normalized.filter((t) => !t.isDone).length,
+        },
+      },
+      { status: 200 }
+    );
+  }),
+
+  // 목표별 할 일 조회
+  http.get(`${MOCK_API_BASE_URL}/task/goal/:goalId`, async ({ params }): Promise<HttpResponse<AllTaskResponse>> => {
+    const goalId = params.goalId as string;
+    // goal 문자열이 goalName이라고 가정하고 간단 매핑(데모)
+    const matched = mockTaskArr.filter((t) => t.goal === goalId || t.goal.includes(goalId));
+    return HttpResponse.json(
+      {
+        ...AllTaskData,
+        result: {
+          doneTasks: matched.filter((t) => t.isDone),
+          undoneTasks: matched.filter((t) => !t.isDone),
+          totalCount: matched.length,
+          doneCount: matched.filter((t) => t.isDone).length,
+          undoneCount: matched.filter((t) => !t.isDone).length,
         },
       },
       { status: 200 }
