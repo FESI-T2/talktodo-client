@@ -3,7 +3,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import React, { useRef } from 'react';
 import { useForm } from 'react-hook-form';
 
-import { validation, FormData } from '@/auth/utils/validation';
+import { validation, RegisterFormData } from '@/auth/utils/validation';
 
 import AuthForm from '../AuthForm/AuthForm';
 
@@ -12,13 +12,13 @@ const RegisterForm = () => {
     register,
     handleSubmit,
     //   formState: { errors },
-  } = useForm<FormData>({
+  } = useForm<RegisterFormData>({
     resolver: zodResolver(validation),
   });
 
   const imageRef = useRef<HTMLInputElement>(null);
 
-  const onSubmit = (data: FormData) => {
+  const onSubmit = (data: RegisterFormData) => {
     const imageFile = imageRef.current?.files?.[0];
     console.log('data : ', {
       nickname: data.nickname,
