@@ -9,6 +9,8 @@ import QueryProvider from '@/shared/provider/QueryProvider';
 import pretendard from '@/shared/styles/pretendard';
 import { cn } from '@/shared/utils/cn';
 
+import ConditionalLayout from './ConditionalLayout';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -19,6 +21,7 @@ export default function RootLayout({
       <body className={cn(pretendard.className, 'flex justify-center')}>
         <MSWProvider>
           <QueryProvider>
+            <ConditionalLayout>
             <div id='toast-root' />
             <div id='modal-root' />
             <div id='alert-root' />
@@ -26,6 +29,7 @@ export default function RootLayout({
             <ModalContainer />
             <AlertContainer />
             {children}
+            </ConditionalLayout>
           </QueryProvider>
         </MSWProvider>
       </body>

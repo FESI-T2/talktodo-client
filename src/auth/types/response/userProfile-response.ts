@@ -11,11 +11,13 @@ export interface UserProfileResponse {
 
 export type UserProfileResult = {
   data: {
-    result: {
-      socialName: string;
-      nickname: string;
-      email: string;
-      profileImageUrl: string;
+    data: {
+      result: {
+        socialName: string;
+        nickname: string;
+        email: string;
+        profileImageUrl: string;
+      };
     };
   };
 };
