@@ -1,24 +1,27 @@
 import ProgressBar from './_components/ProgressBar';
 
 interface DetailHeaderProps {
-  percent: number;
   category: string;
   IncompleteTodo: number;
   completedTodo: number;
 }
 
-const DetailHeader = ({ percent = 0, category = '', IncompleteTodo = 0, completedTodo = 0 }: DetailHeaderProps) => {
+const DetailHeader = ({ category = '', IncompleteTodo = 0, completedTodo = 0 }: DetailHeaderProps) => {
   const todoItems = [
     { value: IncompleteTodo, label: '미완료' },
     { value: completedTodo, label: '완료' },
   ];
+  const percent = (completedTodo / (completedTodo + IncompleteTodo)) * 100;
 
   return (
     <div
       className='flex items-start justify-between bg-purple-500
-      pc:w-[1168px] pc:pt-7 pc:px-11 pc:pb-11 pc:rounded-[28px]
-      tb:w-[600px] tb:py-7 tb:pr-5 tb:pl-8 tb:rounded-[24px]
-      w-[343px] pt-6 pr-4 pb-5 pl-6 rounded-[20px]'
+      max-w-[1168px] w-full
+      pc:pt-7 pc:px-11 pc:pb-8 pc:rounded-[28px]
+
+      tb:py-7 tb:pr-5 tb:pl-8 tb:rounded-[24px]
+
+      pt-6 pr-4 pb-5 pl-6 rounded-[20px]'
     >
       <div className='flex flex-col pc:gap-8 tb:gap-6 gap-4 w-full'>
         <div className='flex justify-between'>
