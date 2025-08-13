@@ -40,20 +40,19 @@ const SideBarContainer = () => {
   };
 
   return (
-    <div className={
-      sidebarType === 'PC' 
-        ? 'py-5'  // PC: Grid 레이아웃에서 자연스러운 배치
-        : `fixed z-50 ${  // Mobile: fixed 포지션 유지
-            isFold 
-              ? 'top-0 left-0 w-full'  // Mobile fold: 맨 위 고정
-              : 'top-0 right-0 h-screen'  // Mobile unfold: 오른쪽 고정
-          }`
-    }>
-      {sidebarType === 'PC' ? (
-        <Sidebar {...sidebarProps} />
-      ) : (
-        <MobileSidebar {...sidebarProps} />
-      )}
+    <div
+      className={
+        sidebarType === 'PC'
+          ? 'py-5' // PC: Grid 레이아웃에서 자연스러운 배치
+          : `fixed z-50 ${
+              // Mobile: fixed 포지션 유지
+              isFold
+                ? 'top-0 left-0 w-full' // Mobile fold: 맨 위 고정
+                : 'top-0 right-0 h-screen' // Mobile unfold: 오른쪽 고정
+            }`
+      }
+    >
+      {sidebarType === 'PC' ? <Sidebar {...sidebarProps} /> : <MobileSidebar {...sidebarProps} />}
     </div>
   );
 };

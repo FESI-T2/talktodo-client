@@ -19,7 +19,7 @@ export default function SidebarNavigation({ isFold, type }: SidebarNavigationPro
   const pathname = usePathname();
 
   // 현재 경로가 활성 경로인지 확인
-  const isActiveRoute = ACTIVE_ROUTES.includes(pathname as typeof ACTIVE_ROUTES[number]);
+  const isActiveRoute = ACTIVE_ROUTES.includes(pathname as (typeof ACTIVE_ROUTES)[number]);
 
   // 대시보드로 네비게이션
   const navigateToDashboard = () => {
@@ -29,15 +29,15 @@ export default function SidebarNavigation({ isFold, type }: SidebarNavigationPro
   // PC용 버튼 스타일 계산
   const getButtonStyles = (): string => {
     const baseStyles = 'flex items-center cursor-pointer w-full';
-    
+
     if (isFold) {
       return `${baseStyles} justify-center`;
     }
-    
+
     if (isActiveRoute) {
       return `${baseStyles} border-l-4 border-purple-600 pl-1`;
     }
-    
+
     return baseStyles;
   };
 
@@ -45,7 +45,7 @@ export default function SidebarNavigation({ isFold, type }: SidebarNavigationPro
   const getTextStyles = (): string => {
     const baseTextStyles = 'font-body1-semibold ml-1';
     const textColor = isActiveRoute ? 'text-purple-600' : 'text-gray-900';
-    
+
     return `${textColor} ${baseTextStyles}`;
   };
 
@@ -61,10 +61,7 @@ export default function SidebarNavigation({ isFold, type }: SidebarNavigationPro
 
   // 모바일 버전 렌더링
   const renderMobileVersion = () => (
-    <button 
-      className='flex items-center justify-start w-full h-10 cursor-pointer' 
-      onClick={navigateToDashboard}
-    >
+    <button className='flex items-center justify-start w-full h-10 cursor-pointer' onClick={navigateToDashboard}>
       <Home type='Mobile' />
       <span className={getTextStyles()}>{DASHBOARD_LABEL}</span>
     </button>
@@ -74,10 +71,10 @@ export default function SidebarNavigation({ isFold, type }: SidebarNavigationPro
   if (type === 'PC') {
     return renderPCVersion();
   }
-  
+
   if (type === 'Mobile' && !isFold) {
     return renderMobileVersion();
   }
-  
+
   return null;
 }

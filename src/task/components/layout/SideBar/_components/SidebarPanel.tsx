@@ -17,7 +17,7 @@ interface SidebarPanelProps {
 }
 
 export default function SidebarPanel({ isFold, goals, type }: SidebarPanelProps) {
-  console.log(goals)
+  console.log(goals);
   const router = useRouter();
   const pathname = usePathname();
   const { sidebarType } = useResponsiveType();
@@ -26,29 +26,29 @@ export default function SidebarPanel({ isFold, goals, type }: SidebarPanelProps)
 
   const getGoalHeaderStyles = (): string => {
     const baseStyles = 'flex gap-1 items-center cursor-pointer';
-    
+
     if (isFold) {
       return `${baseStyles} justify-center`;
     }
-    
+
     if (isGoalRoute) {
       return `${baseStyles} border-l-4 border-purple-600 pl-1 mb-3`;
     }
-    
+
     return `${baseStyles} mb-3`;
   };
 
   const getGoalHeaderTextStyles = (): string => {
     const baseTextStyles = 'font-body1-semibold';
     const textColor = isGoalRoute ? 'text-purple-600' : 'text-gray-900';
-    
+
     return `${textColor} ${baseTextStyles}`;
   };
 
   const getMobileGoalHeaderTextStyles = (): string => {
     const baseTextStyles = 'font-body1-semibold ml-2';
     const textColor = isGoalRoute ? 'text-purple-600' : 'text-gray-900';
-    
+
     return `${textColor} ${baseTextStyles}`;
   };
 
@@ -56,7 +56,6 @@ export default function SidebarPanel({ isFold, goals, type }: SidebarPanelProps)
     if (typeof goal === 'string') {
       router.push(`/goal/goal_00${index + 1}`);
       // NOTE: 골 아이디 받아오기
-      
     } else {
       router.push(`/goal/${goal.id}`);
     }
@@ -96,9 +95,11 @@ export default function SidebarPanel({ isFold, goals, type }: SidebarPanelProps)
                   className='flex w-[230px] pl-0 pr-3 h-[43px] py-2 items-center gap-3 cursor-pointer hover:bg-purple-50 rounded-lg transition-colors duration-200'
                   onClick={() => handleGoalClick(goal, idx)}
                 >
-                  <span className={`font-body2-regular tracking-[-0.32px] text-left truncate pointer-events-none ${
-                    isActive ? 'text-purple-500' : 'text-gray-500 hover:text-purple-600'
-                  }`}>
+                  <span
+                    className={`font-body2-regular tracking-[-0.32px] text-left truncate pointer-events-none ${
+                      isActive ? 'text-purple-500' : 'text-gray-500 hover:text-purple-600'
+                    }`}
+                  >
                     {goalName}
                   </span>
                 </button>
@@ -127,9 +128,11 @@ export default function SidebarPanel({ isFold, goals, type }: SidebarPanelProps)
                 className='flex items-center justify-start w-full min-h-8 h-fit cursor-pointer hover:bg-purple-50 rounded transition-colors duration-200'
                 onClick={() => handleGoalClick(goal, idx)}
               >
-                <span className={`font-body2-regular text-left pointer-events-none ${
-                  sidebarType === 'MOBILE' ? 'ml-2' : 'truncate ml-6'
-                } ${isActive ? 'text-purple-500' : 'text-gray-500'}`}>
+                <span
+                  className={`font-body2-regular text-left pointer-events-none ${
+                    sidebarType === 'MOBILE' ? 'ml-2' : 'truncate ml-6'
+                  } ${isActive ? 'text-purple-500' : 'text-gray-500'}`}
+                >
                   {goalName}
                 </span>
               </button>
