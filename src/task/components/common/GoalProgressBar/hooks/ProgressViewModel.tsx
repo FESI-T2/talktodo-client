@@ -5,7 +5,7 @@ export class ProgressViewModel {
   ) {}
 
   get progress(): number {
-    return this.goal > 0 ? Math.min((this.step / this.goal) * 100, 100) : 0;
+    return this.goal > 0 ? Math.round((this.step / (this.goal + this.step)) * 100) : 0;
   }
 
   get label(): { doneText: string; totalText: string } {
