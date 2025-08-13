@@ -19,7 +19,7 @@ const ConditionalLayout = ({ children }: ConditionalLayoutProps) => {
     if (sidebarType === 'MOBILE') {
       return 'w-full flex flex-col';
     }
-    
+
     // PC/태블릿: Grid 레이아웃으로 사이드바와 메인 비율 분리
     return 'w-full h-screen grid grid-cols-[auto_1fr] gap-4 pl-5';
   };
@@ -28,7 +28,7 @@ const ConditionalLayout = ({ children }: ConditionalLayoutProps) => {
     if (sidebarType === 'MOBILE') {
       return 'flex-1 pt-[20px]';
     }
-    
+
     // PC/태블릿: 메인 콘텐츠 영역 스타일
     return 'overflow-auto px-6 py-4';
   };

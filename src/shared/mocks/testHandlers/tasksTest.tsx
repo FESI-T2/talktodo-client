@@ -122,8 +122,8 @@ const tasksTestHandlers = [
   // 목표별 할 일 조회
   http.get(`${MOCK_API_BASE_URL}/task/goal/:goalId`, async ({ params }): Promise<HttpResponse<AllTaskResponse>> => {
     const goalId = params.goalId as string;
-    // goal 문자열이 goalName이라고 가정하고 간단 매핑(데모)
-    const matched = mockTaskArr.filter((t) => t.goal === goalId || t.goal.includes(goalId));
+    // goalId 기준 필터링
+    const matched = mockTaskArr.filter((t) => t.goalId === goalId);
     return HttpResponse.json(
       {
         ...AllTaskData,
