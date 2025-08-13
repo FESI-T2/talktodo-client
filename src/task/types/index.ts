@@ -10,6 +10,7 @@ export interface Task {
   taskDate: string;
   startTime: string;
   endTime: string;
+  goalId: string; // 목표 식별자
   goal: string;
   isDone: boolean;
   createdAt: string;
