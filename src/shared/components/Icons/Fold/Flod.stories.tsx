@@ -1,5 +1,5 @@
 // Fold.stories.tsx
-import { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs';
 
 import FoldLeft from './FoldLeft';
 import FoldRight from './FoldRight';
