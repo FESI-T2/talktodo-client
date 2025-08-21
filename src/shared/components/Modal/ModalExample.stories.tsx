@@ -1,5 +1,5 @@
 // ModalExample.stories.tsx
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs';
 import React from 'react';
 
 import ModalContainer from './ModalContainer';

@@ -1,5 +1,5 @@
 // Dropdown.stories.tsx (또는 .stories.mdx와 조합 가능)
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs';
 
 import Dropdown from './Dropdown';
 

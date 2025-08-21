@@ -1,5 +1,5 @@
 // components/icons/Profile.stories.tsx
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs';
 
 import Profile from './Profile';
 

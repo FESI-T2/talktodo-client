@@ -17,7 +17,6 @@ const eslintConfig = [
   ...compat.extends('plugin:import/recommended'),
   ...compat.extends('plugin:jsx-a11y/recommended'),
   ...storybook.configs['flat/recommended'],
-
   {
     plugins: {
       'unused-imports': unusedImports,
