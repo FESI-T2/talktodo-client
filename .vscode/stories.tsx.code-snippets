@@ -2,7 +2,7 @@
   "Storybook Component Template": {
     "prefix": "story",
     "body": [
-      "import type { Meta, StoryObj } from '@storybook/nextjs-vite';",
+      "import type { Meta, StoryObj } from '@storybook/nextjs';",
       "",
       "import ${TM_FILENAME_BASE/(.*)\\.stories$/${1}/} from './${TM_FILENAME_BASE/(.*)\\.stories$/${1}/}';",
       "",
