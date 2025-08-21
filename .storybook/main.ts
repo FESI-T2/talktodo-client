@@ -1,3 +1,5 @@
+import { join } from 'path';
+
 import type { StorybookConfig } from '@storybook/nextjs';
 
 const config: StorybookConfig = {
@@ -7,6 +9,6 @@ const config: StorybookConfig = {
     name: '@storybook/nextjs',
     options: {},
   },
-  staticDirs: ['..\\public'],
+  staticDirs: [join(__dirname, '../public')],
 };
 export default config;
