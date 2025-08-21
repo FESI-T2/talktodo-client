@@ -1,14 +1,30 @@
-import type { Preview } from '@storybook/nextjs-vite';
+import type { Preview } from '@storybook/nextjs';
 import { AppRouterContext } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
+import '../src/shared/styles/pretendard-font.css';
 import '../src/shared/styles/globals.css';
 
 import { StepProvider } from '../src/chat/provider/StepProvider';
 import QueryProvider from '../src/shared/provider/QueryProvider';
 
-import '../src/shared/styles/pretendard-font.css';
-
 const preview: Preview = {
+  parameters: {
+    nextjs: {
+      appDirectory: true,
+      navigation: {
+        pathname: '/profile',
+        query: {
+          user: 'santa',
+        },
+      },
+    },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i,
+      },
+    },
+  },
   decorators: [
     (Story) => {
       const mockedRouter = {
@@ -36,21 +52,6 @@ const preview: Preview = {
       );
     },
   ],
-  parameters: {
-    controls: {
-      matchers: {
-        color: /(background|color)$/i,
-        date: /Date$/i,
-      },
-    },
-
-    a11y: {
-      // 'todo' - show a11y violations in the test UI only
-      // 'error' - fail CI on a11y violations
-      // 'off' - skip a11y checks entirely
-      test: 'todo',
-    },
-  },
 };
 
 export default preview;

@@ -1,4 +1,3 @@
-// import '../styles/globals.css';
 import AlertContainer from '@/shared/components/Alert/AlertContainer';
 import '../shared/styles/globals.css';
 
