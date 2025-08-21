@@ -1,5 +1,5 @@
 // components/icons/LayoutGrids.stories.tsx
-import type { Meta, StoryObj } from '@storybook/nextjs-vite';
+import type { Meta, StoryObj } from '@storybook/nextjs';
 
 import LayoutGrid2 from './LayoutGrid2';
 import LayoutGrid4 from './LayoutGrid4';
