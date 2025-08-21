@@ -21,8 +21,6 @@
     "cypress:run:headless": "cypress run --headless",
     "e2e": "start-server-and-test dev http://localhost:3000 cypress:run",
     "e2e:open": "start-server-and-test dev http://localhost:3000 cypress:open",
-    "mock-server": "tsx mock-server.ts",
-    "mock:dev": "concurrently \"npm run dev\" \"npm run mock-server\"",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
