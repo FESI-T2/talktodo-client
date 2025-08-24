@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
 
-import ImageIcon from '@/icons/ImageIcon/ImageIcon';
+import Icon from '@/shared/components/Icon/Icon';
 import { cn } from '@/shared/utils/cn';
 
 export interface ProfileUploadProps {
@@ -69,7 +69,7 @@ const ProfileUpload = ({ imageRef, className, currentImageUrl, onFileSelect, res
   return (
     <div className={cn('flex items-center justify-center flex-col relative mb-[44px]', className)}>
       <Image
-        src={preview || '/img/default.png'}
+        src={preview || '/img/Profile.png'}
         alt='미리보기'
         width={140}
         height={140}
@@ -80,7 +80,7 @@ const ProfileUpload = ({ imageRef, className, currentImageUrl, onFileSelect, res
         className='bottom-0 h-6 py-4 px-2 border bg-white rounded-full flex gap-1 items-center border-[var(--color-gray-300)] cursor-pointer absolute'
         type='button'
       >
-        <ImageIcon />
+        <Icon name='image' />
         <div className=' flex-1 '>편집하기</div>
       </button>
       <input ref={imageRef} type='file' name='file' accept='image/*' onChange={handleChange} className='hidden' />

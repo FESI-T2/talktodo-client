@@ -3,8 +3,7 @@
 import { useState } from 'react';
 
 import Dropdown from '@/shared/components/Dropdown/Dropdown';
-
-import KebabIcon from '@/shared/components/Icons/Kebab/Kebab';
+import Icon from '@/shared/components/Icon/Icon';
 
 const kebabOptions = ['수정하기', '삭제하기'] as const;
 
@@ -32,7 +31,7 @@ const KebabMenuButton = ({ onEdit, onDelete }: KebabMenuButtonProps) => {
         }}
         className='flex w-8 h-8 justify-center items-center z-10'
       >
-        <KebabIcon type='M' active={isOpen} />
+        <Icon name='kebab' />
       </button>
 
       {isOpen && (

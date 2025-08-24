@@ -34,19 +34,7 @@ const ConditionalLayout = ({ children }: ConditionalLayoutProps) => {
   };
 
   // 사이드바를 제외할 경로들
-  const excludePaths = [
-    '/login',
-    '/register',
-    '/chat',
-    '/mypage',
-    // 테스트 페이지들도 제외 (필요에 따라)
-    // '/error-test',
-    // '/msw-test',
-    // '/mutation-test',
-    // '/query-test',
-    // '/tasks-test',
-    // '/user-test',
-  ];
+  const excludePaths = ['/login', '/register', '/chat', '/mypage'];
 
   // 현재 경로가 제외 경로에 포함되는지 확인
   const shouldExcludeSidebar = excludePaths.some((path) => pathname.startsWith(path));

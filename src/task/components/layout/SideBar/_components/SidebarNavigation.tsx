@@ -2,7 +2,7 @@
 
 import { useRouter, usePathname } from 'next/navigation';
 
-import Home from '@/shared/components/Icons/Home/Home';
+import Icon from '@/shared/components/Icon/Icon';
 
 // 상수 정의
 const ACTIVE_ROUTES = ['/', '/dashboard'] as const;
@@ -53,7 +53,7 @@ export default function SidebarNavigation({ isFold, type }: SidebarNavigationPro
   const renderPCVersion = () => (
     <div className='w-full flex items-center gap-2.5'>
       <button className={getButtonStyles()} onClick={navigateToDashboard}>
-        <Home type='PC' />
+        <Icon name='home' />
         {!isFold && <span className={getTextStyles()}>{DASHBOARD_LABEL}</span>}
       </button>
     </div>
@@ -62,7 +62,7 @@ export default function SidebarNavigation({ isFold, type }: SidebarNavigationPro
   // 모바일 버전 렌더링
   const renderMobileVersion = () => (
     <button className='flex items-center justify-start w-full h-10 cursor-pointer' onClick={navigateToDashboard}>
-      <Home type='Mobile' />
+      <Icon name='home' />
       <span className={getTextStyles()}>{DASHBOARD_LABEL}</span>
     </button>
   );

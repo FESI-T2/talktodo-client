@@ -17,11 +17,6 @@ const MainHeader = ({ totalTodo = 0, IncompleteTodo = 0, completedTodo = 0 }: Ma
   const isCompleted = percent === 100;
 
   const { isMobile, isTablet, isPc } = useBreakpoints();
-  const characterImages = {
-    mobile: isCompleted ? '/img/MB_CompletedCharacter.png' : '/img/MB_InCompletedCharacter.png',
-    tablet: isCompleted ? '/img/TB_CompletedCharacter.png' : '/img/TB_InCompletedCharacter.png',
-    pc: isCompleted ? '/img/PC_CompletedCharacter.png' : '/img/PC_InCompletedCharacter.png',
-  };
 
   const todoItems = [
     { value: totalTodo, label: '총 일정' },
@@ -48,7 +43,9 @@ const MainHeader = ({ totalTodo = 0, IncompleteTodo = 0, completedTodo = 0 }: Ma
               )}
             </p>
 
-            {isMobile && <Image src={characterImages.mobile} width={80} height={82} alt='mobile character' className='absolute right-0' />}
+            {isMobile && (
+              <Image src={'/img/InCompletedCharacter.png'} width={80} height={82} alt='mobile character' className='absolute right-0' />
+            )}
 
             {isPc && (
               <div className='flex items-center gap-5'>
@@ -67,8 +64,8 @@ const MainHeader = ({ totalTodo = 0, IncompleteTodo = 0, completedTodo = 0 }: Ma
 
         {/* 캐릭터 이미지 영역 */}
         <div className='flex justify-end items-end relative overflow-hidden'>
-          {isPc && <Image src={characterImages.pc} width={180} height={166} alt='pc character' />}
-          {isTablet && <Image src={characterImages.tablet} width={140} height={144} alt='tablet character' />}
+          {isPc && <Image src={'/img/InCompletedCharacter.png'} width={180} height={166} alt='pc character' />}
+          {isTablet && <Image src={'/img/InCompletedCharacter.png'} width={140} height={144} alt='tablet character' />}
         </div>
       </div>
 

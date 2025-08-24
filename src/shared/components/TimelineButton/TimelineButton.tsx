@@ -1,6 +1,6 @@
 'use client';
 
-import Clock from '@/shared/components/Icons/Clock/Clock';
+import Icon from '../Icon/Icon';
 
 interface TimelineButtonProps {
   size: 'L' | 'S';
@@ -22,7 +22,7 @@ const TimelineButton = ({ size, active, onClick }: TimelineButtonProps) => {
         transition-all duration-75
       `}
     >
-      <Clock size={size} active={!active} />
+      <Icon name='timeline' className='w-6 h-6' />
     </button>
   );
 };

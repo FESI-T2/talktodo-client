@@ -1,8 +1,8 @@
 'use client';
+import Image from 'next/image';
 import React, { useLayoutEffect, useState } from 'react';
 
 import Button from '@/shared/components/Button/Button';
-import ErrorLogo from '@/shared/components/Icons/ErrorLogo/ErrorLogo';
 
 import { CustomError } from '@/shared/lib/error/customError';
 
@@ -40,7 +40,7 @@ interface FallBackProps {
 export const FallBack = ({ handleClick, buttonText, errorMessage }: FallBackProps) => {
   return (
     <div className='flex m-auto justify-center flex-col gap-10 h-screen  max-w-[420px] w-[90%] items-center'>
-      <ErrorLogo size={'L'} />
+      <Image src='/img/ErrorLogo.png' alt='Error' width={100} height={100} />
       <p className='tb:font-title2-bold font-title3-bold text-white'>{errorMessage}</p>
       {buttonText && handleClick && (
         <div className='flex flex-col gap-4 w-full'>

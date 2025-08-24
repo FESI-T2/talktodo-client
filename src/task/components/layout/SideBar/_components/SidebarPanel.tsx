@@ -2,7 +2,7 @@
 
 import { useRouter, usePathname } from 'next/navigation';
 
-import Flag from '@/shared/components/Icons/Flag/Flag';
+import Icon from '@/shared/components/Icon/Icon';
 import useResponsiveType from '@/shared/hooks/useResponsiveType';
 
 interface Goal {
@@ -79,7 +79,7 @@ export default function SidebarPanel({ isFold, goals, type }: SidebarPanelProps)
       <div className='w-full'>
         <button className={getGoalHeaderStyles()} onClick={handleGoalHeaderClick}>
           <div className='w-10 h-10 flex items-center justify-center'>
-            <Flag type='PC' />
+            <Icon name='flag' className='w-6 h-6' />
           </div>
           {!isFold && <span className={getGoalHeaderTextStyles()}>목표</span>}
         </button>
@@ -114,7 +114,7 @@ export default function SidebarPanel({ isFold, goals, type }: SidebarPanelProps)
     return (
       <div className='w-full'>
         <button className='flex items-center justify-start w-full h-10 cursor-pointer' onClick={handleGoalHeaderClick}>
-          <Flag type='Mobile' />
+          <Icon name='flag' className='w-6 h-6' />
           <span className={getMobileGoalHeaderTextStyles()}>목표</span>
         </button>
         <div className='flex flex-col mt-2 gap-2'>

@@ -3,8 +3,8 @@ import TimelineButton from '@/shared/components/TimelineButton/TimelineButton';
 import useResponsiveType from '@/shared/hooks/useResponsiveType';
 
 import { DateHeaderProps } from './type';
-import { DateList, useDateSelector } from '../../dateSelector';
-import DatePickerButton from '../../dateSelector/DatePickerButton';
+import { DateList, useDateSelector } from '../../DateSelector';
+import DatePickerButton from '../../DateSelector/DatePickerButton';
 
 export default function DesktopDateHeader({ layout, setLayout, timelineActive, setTimelineActive }: DateHeaderProps) {
   const { kebabType } = useResponsiveType();

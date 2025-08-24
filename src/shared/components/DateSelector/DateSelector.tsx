@@ -2,13 +2,12 @@
 
 import { useState } from 'react';
 
-import Calendar from '@/icons/Calendar/Calendar';
-
 import { Mode, DateSelectorProps } from '@/shared/types/date';
 import { cn } from '@/shared/utils/cn';
 import { formatDateByType } from '@/shared/utils/formatDate';
 
 import DatePicker from '../DatePicker/DatePicker';
+import Icon from '../Icon/Icon';
 
 const DateSelector = <T extends Mode>({ date, setDate, mode, className }: DateSelectorProps<T>) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +24,7 @@ const DateSelector = <T extends Mode>({ date, setDate, mode, className }: DateSe
       <div className='flex items-center justify-between'>
         <span>{formatDateByType(date)}</span>
         <button onClick={closeSelector} type='button' className='cursor-pointer'>
-          <Calendar />
+          <Icon name='calendar' className='w-6 h-6 ' />
         </button>
       </div>
     </div>

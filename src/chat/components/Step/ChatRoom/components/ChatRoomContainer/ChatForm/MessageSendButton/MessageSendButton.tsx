@@ -1,4 +1,4 @@
-import Send from '@/shared/components/Icons/Send/Send';
+import Icon from '@/shared/components/Icon/Icon';
 import { cn } from '@/shared/utils/cn';
 
 interface MessageSendButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
@@ -15,7 +15,7 @@ const MessageSendButton = ({ active }: MessageSendButtonProps) => {
       className={cn(isActiveStyle, 'flex w-[56px] h-[56px] justify-center items-center rounded-full cursor-pointer')}
       disabled={!active}
     >
-      <Send />
+      <Icon name='send' />
     </button>
   );
 };
