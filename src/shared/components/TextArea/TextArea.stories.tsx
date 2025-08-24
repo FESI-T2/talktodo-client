@@ -13,5 +13,7 @@ export default meta;
 type Story = StoryObj<typeof TextArea>;
 
 export const Default: Story = {
-  args: {},
+  args: {
+    className: 'max-w-[400px]',
+  },
 };
