@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import React from 'react';
 
 import { ChatMessageProps as ChatMessageContainerProps, ChatMessageRole } from '@/chat/components/Step/ChatRoom/types';
-import ChatCharacter from '@/shared/components/Icons/ChatCharacter/ChatCharacter';
 
 import { cn } from '@/shared/utils/cn';
 
@@ -33,7 +33,7 @@ const ChatMessage = ({ message, role }: ChatMessageContainerProps) => {
       transition={{ duration: 0.3 }}
       className={cn(`flex items-center gap-6`, chatMessageStyles[role].position)}
     >
-      {role === 'assistant' && <ChatCharacter className='w-16 h-16' />}
+      {role === 'assistant' && <Image src='/img/InCompletedCharacter.png' alt='Chat Character' width={64} height={64} />}
       <div className={cn('max-w-[600px] w-fit flex items-center gap-3 p-4 rounded-3xl', chatMessageStyles[role].bg)}>
         <p className={cn('text-white break-all', chatMessageStyles[role].text)}>{message}</p>
       </div>

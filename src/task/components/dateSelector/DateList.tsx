@@ -2,7 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 
-import Chevron from '@/shared/components/Icons/Chevron/Chevron';
+import Icon from '@/shared/components/Icon/Icon';
 import { cn } from '@/shared/utils/cn';
 
 import { useDateSelector, DateInfo } from './useDateSelector';
@@ -27,7 +27,7 @@ export default function DateList() {
   return (
     <div className='inline-flex gap-3'>
       {/* 왼쪽 버튼 */}
-      <button onClick={() => moveDays(-5)}>{<Chevron direction='left' />}</button>
+      <button onClick={() => moveDays(-5)}>{<Icon name='chevron-left' className='w-6 h-6' />}</button>
 
       {/* 날짜 버튼들 */}
       {visibleDates.map((dateInfo, index) => {
@@ -51,7 +51,7 @@ export default function DateList() {
       })}
 
       {/* 오른쪽 버튼 */}
-      <button onClick={() => moveDays(5)}>{<Chevron direction='right' />}</button>
+      <button onClick={() => moveDays(5)}>{<Icon name='chevron-right' className='w-6 h-6' />}</button>
     </div>
   );
 }

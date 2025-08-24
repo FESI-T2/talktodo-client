@@ -1,6 +1,6 @@
-import Close from '@/icons/Close/Close';
-import GoalImg from '@/icons/GoalImg/GoalImg';
 import useModal from '@/shared/hooks/useModal';
+
+import Icon from '../../Icon/Icon';
 
 interface HeaderProps {
   title: string;
@@ -15,11 +15,11 @@ const Header = ({ title, goal }: HeaderProps) => {
       <div className='flex justify-between items-center mb-3'>
         <h1 className='font-bold text-2xl '>{title}</h1>
         <button type='button' className='cursor-pointer' onClick={closeModal}>
-          <Close />
+          <Icon name='close' className='w-6 h-6' />
         </button>
       </div>
       <div className='font-body3-semibold text-[var(--color-gray-500)] flex gap-2 items-center  '>
-        <GoalImg />
+        <Icon name='goal' />
         {goal}
       </div>
     </header>

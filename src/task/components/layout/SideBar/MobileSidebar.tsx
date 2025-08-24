@@ -2,10 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 
-import FoldRight from '@/shared/components/Icons/Fold/FoldRight';
-import Hamburger from '@/shared/components/Icons/Hamburger/Hamburger';
-import MainLogo from '@/shared/components/Icons/MainLogo/MainLogo';
-import Plus from '@/shared/components/Icons/Plus/Plus';
+import Icon from '@/shared/components/Icon/Icon';
 import useModal from '@/shared/hooks/useModal';
 
 import SidebarNavigation from './_components/SidebarNavigation';
@@ -50,16 +47,16 @@ const MobileSidebar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }:
       <div className={`w-full ${isFold ? 'flex justify-between items-center' : 'flex-col'}`}>
         {!isFold && (
           <button className='w-full pb-4 cursor-pointer' onClick={onFoldToggle}>
-            <FoldRight />
+            <Icon name='unfold' />
           </button>
         )}
         {isFold && (
           <>
             <button className='cursor-pointer' onClick={handleLogoClick}>
-              <MainLogo type='Mobile' />
+              <Icon name='logo' className='w-10 h-10' />
             </button>
             <button className='cursor-pointer' onClick={onFoldToggle}>
-              <Hamburger />
+              <Icon name='hamburger' className='w-8 h-8' />
             </button>
           </>
         )}
@@ -71,7 +68,7 @@ const MobileSidebar = ({ isFold, onFoldToggle, userNickname, userEmail, goals }:
             className='w-full flex items-center justify-center gap-2 mt-4 py-2 rounded-[8px] cursor-pointer bg-white border-[1.5px] border-purple-400 hover:bg-purple-50 active:bg-purple-100 transition-colors duration-200'
             onClick={handleNewGoalClick}
           >
-            <Plus />
+            <Icon name='plus' />
             <span className='text-purple-500 font-body3-semibold'>새 목표</span>
           </button>
         )}

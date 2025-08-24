@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 
-import LayoutGrid2 from '@/shared/components/Icons/LayoutGrid/LayoutGrid2';
-import LayoutGrid4 from '@/shared/components/Icons/LayoutGrid/LayoutGrid4';
+import Icon from '../Icon/Icon';
 
 interface SwitchProps {
   type: 'layout' | 'basic';
@@ -91,10 +90,10 @@ const Switch = ({
       {type === 'layout' && (
         <div className={`absolute inset-0 flex items-center justify-between ${layoutSizeClasses[size].iconPadding}`}>
           <div className='transition-opacity duration-200'>
-            <LayoutGrid4 size={size} active={false} />
+            <Icon name='layout1' />
           </div>
           <div className='transition-opacity duration-200'>
-            <LayoutGrid2 size={size} active={false} />
+            <Icon name='layout4' />
           </div>
         </div>
       )}
@@ -110,7 +109,7 @@ const Switch = ({
           z-10
         `}
       >
-        {type === 'layout' && (isChecked ? <LayoutGrid2 size={size} active={true} /> : <LayoutGrid4 size={size} active={true} />)}
+        {type === 'layout' && (isChecked ? <Icon name='layout2' /> : <Icon name='layout4' />)}
       </div>
     </button>
   );

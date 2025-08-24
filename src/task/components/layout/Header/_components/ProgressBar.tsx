@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 import Dropdown from '@/shared/components/Dropdown/Dropdown';
-import Kebab from '@/shared/components/Icons/Kebab/Kebab';
+import Icon from '@/shared/components/Icon/Icon';
 import useResponsiveType from '@/shared/hooks/useResponsiveType';
 
 interface ProgressBarProps {
@@ -24,7 +24,7 @@ const ProgressBar = ({ type = 'Main', percent = 0 }: ProgressBarProps) => {
 
   const [open, setOpen] = useState(false);
 
-  const { kebabType, dropdownType } = useResponsiveType();
+  const { dropdownType } = useResponsiveType();
 
   const toggleOpen = () => setOpen(!open);
 
@@ -52,7 +52,7 @@ const ProgressBar = ({ type = 'Main', percent = 0 }: ProgressBarProps) => {
                 w-4 h-4 rounded-sm hover:bg-gray-100 active:bg-gray-100'
               onClick={toggleOpen}
             >
-              <Kebab type={kebabType} />
+              <Icon name='kebab' />
             </button>
             {open && (
               <div className='absolute top-full pc:mt-2.5 tb:mt-1.5 mt-1 z-10'>

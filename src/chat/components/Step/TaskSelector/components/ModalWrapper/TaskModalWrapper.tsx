@@ -1,6 +1,5 @@
+import Image from 'next/image';
 import React from 'react';
-
-import ChatCharacter from '@/shared/components/Icons/ChatCharacter/ChatCharacter';
 
 interface ModalWrapperProps {
   children: React.ReactNode;
@@ -9,7 +8,7 @@ interface ModalWrapperProps {
 const TaskModalWrapper = ({ children }: ModalWrapperProps) => {
   return (
     <div className='flex justify-center items-center flex-col w-full'>
-      <ChatCharacter className='w-[100px] h-[80px]' />
+      <Image src='/img/InCompletedCharacter.png' alt='Chat Character' width={100} height={80} />
 
       <div
         className='

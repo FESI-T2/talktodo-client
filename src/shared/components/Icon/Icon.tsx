@@ -1,3 +1,5 @@
+import { cn } from '@/shared/utils/cn';
+
 interface IconProps {
   name: string;
   className?: string;
@@ -5,7 +7,7 @@ interface IconProps {
 }
 
 const Icon = ({ name, className, ariaLabel = name }: IconProps) => (
-  <svg className={className} aria-label={ariaLabel}>
+  <svg className={cn('w-6 h-6', className)} aria-label={ariaLabel}>
     <use href={`/sprite.svg#${name}`} />
   </svg>
 );

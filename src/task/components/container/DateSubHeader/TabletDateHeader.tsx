@@ -4,8 +4,8 @@ import TimelineButton from '@/shared/components/TimelineButton/TimelineButton';
 import useResponsiveType from '@/shared/hooks/useResponsiveType';
 
 import { DateHeaderProps } from './type';
-import { DateList, useDateSelector } from '../../dateSelector';
-import DatePickerBtn from '../../dateSelector/DatePickerButton';
+import { DateList, useDateSelector } from '../../DateSelector';
+import DatePickerBtn from '../../DateSelector/DatePickerButton';
 
 export default function TabletDateHeader({ layout, setLayout, timelineActive, setTimelineActive }: DateHeaderProps) {
   const { kebabType } = useResponsiveType();

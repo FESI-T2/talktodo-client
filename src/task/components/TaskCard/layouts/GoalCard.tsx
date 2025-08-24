@@ -4,8 +4,7 @@ import KebabMenuButton from '@/goal/components/KebabMenuButton';
 
 import { GoalWithCount } from '@/goal/types';
 
-import Flag from '@/shared/components/Icons/Flag/Flag';
-
+import Icon from '@/shared/components/Icon/Icon';
 import useModal from '@/shared/hooks/useModal';
 
 import GoalProgressBar from '../../common/GoalProgressBar/GoalProgressBar';
@@ -39,7 +38,7 @@ export default function GoalCard({ goal }: { goal: GoalWithCount }) {
           <div className='flex justify-between items-start self-stretch'>
             <div className='flex flex-col items-start gap-0.5'>
               <div className='flex items-center'>
-                <Flag type='goal' /> {/*결국 size에 따라 만들어야함!*/}
+                <Icon name='flag' />
                 <div className='font-caption-bold md:font-body3-bold text-purple-500'>목표</div>
               </div>
               <div className='text-gray-900 md:font-title3-bold font-body1-bold'>{goalName}</div>

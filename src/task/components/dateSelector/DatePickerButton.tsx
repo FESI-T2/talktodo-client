@@ -2,7 +2,7 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import DatePicker from '@/shared/components/DatePicker/DatePicker';
-import Calendar from '@/shared/components/Icons/Calendar/Calendar';
+import Icon from '@/shared/components/Icon/Icon';
 
 export default function DatePickerBtn() {
   const router = useRouter();
@@ -37,7 +37,7 @@ export default function DatePickerBtn() {
           className='flex items-center justify-center p-2 hover:bg-gray-100 rounded-lg transition-colors'
           aria-label='날짜 선택'
         >
-          <Calendar />
+          <Icon name='calendar' className='w-6 h-6 ' />
         </button>
 
         {/* DatePicker 모달 */}

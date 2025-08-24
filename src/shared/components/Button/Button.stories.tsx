@@ -16,6 +16,7 @@ export const Primary: Story = {
   args: {
     variant: 'primary',
     children: '선택 완료',
+    className: 'max-w-[400px]',
   },
 };
 
@@ -23,5 +24,6 @@ export const Secondary: Story = {
   args: {
     variant: 'secondary',
     children: '선택 완료',
+    className: 'max-w-[400px]',
   },
 };

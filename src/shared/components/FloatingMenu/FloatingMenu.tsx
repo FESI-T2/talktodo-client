@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import React, { useState, useCallback } from 'react';
 
-import FloatingActionButton from '@/shared/components/FloatingActionButton/FloatingActionButton';
+import FloatingActionButton from '@/shared/components/FloatingMenu/FloatingActionButton/FloatingActionButton';
 
 import useModal from '@/shared/hooks/useModal';
 
@@ -38,7 +38,7 @@ const FloatingMenu = () => {
       }}
     >
       {isOpen && (
-        <div className='  mb-[13px] '>
+        <div className='mb-[13px] '>
           <motion.div
             className='bg-white rounded-xl flex p-2 flex-col items-center justify-center shadow-[0px_0px_20px_0px_rgba(52,35,101,0.15)] z-20 static pc:absolute pc:bottom-[40px] pc:right-[54px] '
             initial={{ opacity: 0, y: 20 }}

@@ -1,7 +1,8 @@
 import React from 'react';
 
-import Plus from '@/shared/components/Icons/Plus/Plus';
 import { cn } from '@/shared/utils/cn';
+
+import Icon from '../../Icon/Icon';
 
 interface FloatingActionButtonProps {
   handleClick: () => void;
@@ -16,7 +17,7 @@ const FloatingActionButton = ({ handleClick }: FloatingActionButtonProps) => {
       h-[64px] w-[64px] pc:h-[80px] pc:w-[80px] `)}
       onClick={handleClick}
     >
-      <Plus type='FAB' />
+      <Icon name='plus' className='text-white w-8 h-8' />
     </button>
   );
 };

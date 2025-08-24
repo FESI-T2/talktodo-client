@@ -1,15 +1,13 @@
 'use client';
 
-import ErrorLogo from '@/shared/components/Icons/ErrorLogo/ErrorLogo';
-import useResponsiveType from '@/shared/hooks/useResponsiveType';
+import Image from 'next/image';
 
 export default function NotFound() {
-  const { iconTwoType } = useResponsiveType();
-
   return (
     <div className='flex flex-col items-center justify-center min-h-screen bg-purple-50 p-4'>
       <div className='flex flex-col items-center gap-6 max-w-[410px] w-full'>
-        <ErrorLogo size={iconTwoType} />
+        <Image src='/img/ErrorLogo.png' alt='Error' width={400} height={400} />
+
         <div className='flex flex-col items-center gap-3'>
           <p className='tb:font-title2-bold font-title3-bold text-gray-900'>요청하신 페이지를 찾을 수 없습니다</p>
           <p className='tb:font-body2-medium-loose font-body3-medium-loose text-gray-500 text-center'>

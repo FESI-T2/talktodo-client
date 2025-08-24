@@ -6,7 +6,8 @@ import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
 import Button from '@/shared/components/Button/Button';
-import Close from '@/shared/components/Icons/Close/Close';
+
+import Icon from '@/shared/components/Icon/Icon';
 import useModal from '@/shared/hooks/useModal';
 
 import useCreateGoal from '../hooks/quries/goal/useCreateGoal';
@@ -37,7 +38,6 @@ export default function GoalForm({ mode, initialValue = '', goalId, onSubmit }: 
     defaultValues: { goalName: initialValue },
   });
 
-  // edit 대상 변경 시 폼 초기화 + 즉시 유효성 재평가
   useEffect(() => {
     if (mode === 'edit') {
       reset({ goalName: initialValue }, { keepDefaultValues: true, keepDirty: false });
@@ -57,12 +57,7 @@ export default function GoalForm({ mode, initialValue = '', goalId, onSubmit }: 
 
   // 버튼 활성 조건
   const canSubmit =
-    !isPending &&
-    isValid &&
-    (mode === 'add'
-      ? trimmed.length > 0
-      : // edit: 해당 필드가 바뀌었고(react-hook-form 기준), 공백만 바뀐 게 아니라 실제 값이 달라야 함
-        Boolean(dirtyFields.goalName) && trimmed !== initialTrimmed);
+    !isPending && isValid && (mode === 'add' ? trimmed.length > 0 : Boolean(dirtyFields.goalName) && trimmed !== initialTrimmed);
 
   const onValid = async (data: GoalFormSchema) => {
     const safeName = data.goalName.trim();
@@ -87,7 +82,7 @@ export default function GoalForm({ mode, initialValue = '', goalId, onSubmit }: 
       <div className='flex flex-col items-center gap-2 w-full'>
         <div className='w-full flex justify-end '>
           <button type='button' className='cursor-pointer' onClick={closeModal} aria-label='닫기'>
-            <Close />
+            <Icon name='close' className='w-6 h-6' />
           </button>
         </div>
 
