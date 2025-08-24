@@ -17,3 +17,10 @@ export const Default: Story = {
     message: '변경사항이 저장되었습니다.',
   },
 };
+
+export const HasEvent: Story = {
+  args: {
+    message: '변경사항이 저장되었습니다.',
+    handleClick: () => alert('Button clicked!'),
+  },
+};
